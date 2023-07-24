@@ -9,6 +9,8 @@ import GettingStarted from "./components/GettingStarted";
 import Mindset from "./components/Mindset";
 import Nutrition from "./components/Nutrition";
 import Training from "./components/Training";
+import NotFound from "./components/NotFound";
+import Welcome from "./components/Welcome";
 
 const App = () => {
   const styles = {
@@ -29,12 +31,14 @@ const App = () => {
       <div className="App">
         <Navigation />
         <Routes>
+          <Route path="/" element={<Welcome />} />
           <Route path="/gettingstarted" element={<GettingStarted />} />
           <Route path="/training" element={<Training />} />
           <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/mindset" element={<Mindset />} />
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/contactforms" element={<ContactForm />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <CookieConsent
           location="bottom"

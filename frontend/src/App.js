@@ -11,6 +11,7 @@ import Nutrition from "./components/Nutrition";
 import Training from "./components/Training";
 import NotFound from "./components/NotFound";
 import Welcome from "./components/Welcome";
+import Footer from "./components/Footer";
 
 const App = () => {
   const styles = {
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/contactforms" element={<ContactForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
         <CookieConsent
           location="bottom"
           buttonText="Accept"

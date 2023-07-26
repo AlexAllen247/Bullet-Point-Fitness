@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import HumanBody from "./HumanBack";
+import HumanBack from "./HumanBack";
 
 const Training = () => {
   const [data, setData] = useState("");
@@ -179,7 +179,7 @@ const Training = () => {
         </svg>
       </div>
       <div id="data">{data}</div>
-      <HumanBody />
+      <HumanBack />
     </section>
   );
 };

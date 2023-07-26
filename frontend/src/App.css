@@ -113,3 +113,36 @@
 #area #data {
   color: black;
 }
+
+.human-back svg {
+  fill: #57c9d5;
+}
+.human-back svg:hover path {
+  fill: #ff7d16;
+}
+polygon:hover {
+  fill: #ff7d16;
+}
+.human-back svg:hover {
+  cursor: pointer;
+}
+.human-back svg {
+  width: 50%;
+  display: block;
+  margin-left: 485px;
+  margin-right: auto;
+  margin-top: 200px;
+}
+#area {
+  display: block;
+  width: 100%;
+  clear: both;
+  padding: 10px;
+  font-size: 25px;
+  font-family: Courier New;
+  color: #a5a5a5;
+}
+
+#area #data {
+  color: black;
+}

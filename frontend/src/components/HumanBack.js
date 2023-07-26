@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const HumanBack = () => {
   const [body, setBody] = useState({
-    upperTraps: null,
+    x1: null,
     x2: null,
     x3: null,
     x4: null,
@@ -47,13 +47,12 @@ const HumanBack = () => {
     x43: null,
   });
 
-  const handleBodyClick = (xKey) => {
-    setBody((prevBody) => ({ ...prevBody, [xKey]: xKey }));
+  const handleBodyClick = (part, value) => {
+    setBody({ [part]: value });
   };
 
   return (
     <div>
-      {/* Human Body */}
       <div className="human-back">
         <svg
           version="1.1"
@@ -65,19 +64,16 @@ const HumanBack = () => {
           style={{ enableBackground: "new 0 0 1172 909" }}
           xmlSpace="preserve"
         >
-          <path className="st0" />
-          <line className="st1" x1="1728.7" y1="489.1" x2="1653.7" y2="399.6" />
           <polygon
-            onClick={() => handleBodyClick("upperTraps")}
+            onClick={() => handleBodyClick("x1", "Upper Traps")}
             className="st1"
             points="531.2, 211.9, 538.3, 143.9, 533.2,143.9 530.1,169 488.8,201.6 597,201.6 551.9,169,548.6,143.9 543,143.9, 550.8,211.9"
           />
-          <g onClick={() => handleBodyClick("x3")}>
+          <g onClick={() => handleBodyClick("x3", "Mid Traps/Rhomboids")}>
             <polygon
               className="st1"
               points="463.2,211.9 488.8,221.6 503.6,261.4 531.7,285.4 531.7,224.1 488.8,207.3 614.4,211.9 589.7,221.6 575.4,261.4 548.2,285.4 548.2,224.1 589.7,207.3"
             />
-            <polygon className="st1" points="" />
           </g>
           <polygon
             onClick={() => handleBodyClick("x5")}

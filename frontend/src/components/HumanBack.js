@@ -67,14 +67,23 @@ const HumanBack = () => {
           <polygon
             onClick={() => handleBodyClick("x1", "Upper Traps")}
             className="st1"
-            points="531.2, 211.9, 538.3, 143.9, 533.2,143.9 530.1,169 488.8,201.6 597,201.6 551.9,169,548.6,143.9 543,143.9, 550.8,211.9"
+            points="531.2,211.9 538.3,143.9 533.2,143.9 530.1,169 488.8,201.6"
           />
-          <g onClick={() => handleBodyClick("x3", "Mid Traps/Rhomboids")}>
-            <polygon
-              className="st1"
-              points="463.2,211.9 488.8,221.6 503.6,261.4 531.7,285.4 531.7,224.1 488.8,207.3 614.4,211.9 589.7,221.6 575.4,261.4 548.2,285.4 548.2,224.1 589.7,207.3"
-            />
-          </g>
+          <polygon
+            onClick={() => handleBodyClick("x2", "Upper Traps")}
+            className="st1"
+            points="597,201.6 551.9,169 548.6,143.9 543,143.9 550.8,211.9"
+          />
+          <polygon
+            onClick={() => handleBodyClick("x3", "Mid Traps/Rhomboids")}
+            className="st1"
+            points="463.2,211.9 488.8,221.6 503.6,261.4 531.7,285.4 531.7,224.1 488.8,207.3 "
+          />
+          <polygon
+            onClick={() => handleBodyClick("x4", "Mid Traps/Rhomboids")}
+            className="st1"
+            points="614.4,211.9 589.7,221.6 575.4,261.4 548.2,285.4 548.2,224.1 589.7,207.3 "
+          />
           <polygon
             onClick={() => handleBodyClick("x5")}
             className="st1"

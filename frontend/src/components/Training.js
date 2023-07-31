@@ -1,14 +1,16 @@
 import React from "react";
 import HumanBack from "./HumanBack";
 import HumanFront from "./HumanFront";
-import TrialSvg from "./TrialSvg";
 
 const Training = () => {
+  const trainingStyle = {
+    display: "flex",
+    justifyContent: "space-between",
+  };
   return (
-    <section className="training">
+    <section className="training" style={trainingStyle}>
       <HumanFront />
       <HumanBack />
-      <TrialSvg />
     </section>
   );
 };

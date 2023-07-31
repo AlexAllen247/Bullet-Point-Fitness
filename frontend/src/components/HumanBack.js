@@ -52,7 +52,7 @@ const HumanBack = () => {
   };
 
   return (
-    <div>
+    <section>
       <div className="human-back">
         <svg
           version="1.1"
@@ -281,7 +281,6 @@ const HumanBack = () => {
           />
         </svg>
       </div>
-      {/*// Human Body */}
       <div>
         {Object.entries(body).map(([key, value]) => (
           <div key={key} onClick={() => handleBodyClick(key)}>
@@ -289,7 +288,7 @@ const HumanBack = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -4,7 +4,7 @@ import HumanAnatomy from "./HumanAnatomy";
 const Training = () => {
   const trainingStyle = {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
   };
   return (
     <section className="training" style={trainingStyle}>

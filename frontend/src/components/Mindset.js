@@ -1,12 +1,7 @@
 import React from "react";
-import TrialChart from "./TrialChart";
 
 const Mindset = () => {
-  return (
-    <section className="mindset">
-      <TrialChart />
-    </section>
-  );
+  return <section className="mindset"></section>;
 };
 
 export default Mindset;

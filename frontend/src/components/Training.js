@@ -1,6 +1,5 @@
 import React from "react";
-import HumanBack from "./HumanBack";
-import HumanFront from "./HumanFront";
+import HumanAnatomy from "./HumanAnatomy";
 
 const Training = () => {
   const trainingStyle = {
@@ -9,8 +8,7 @@ const Training = () => {
   };
   return (
     <section className="training" style={trainingStyle}>
-      <HumanFront />
-      <HumanBack />
+      <HumanAnatomy />
     </section>
   );
 };

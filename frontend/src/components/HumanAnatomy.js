@@ -1,75 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Anatomy from "../images/Muscle3.png";
 import MuscleData from "../muscles.json";
 
+const STYLES = {
+  muscleMap: {
+    position: "relative",
+  },
+  anatomyImg: {
+    width: "100%",
+    height: "auto",
+  },
+  svg: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    height: "auto",
+    maxWidth: "933px",
+  },
+};
+
 const HumanAnatomy = () => {
-  const [activeMuscle, setActiveMuscle] = useState(null);
+  const [hoveredMuscle, setHoveredMuscle] = useState(null);
+  const [selectedMuscle, setSelectedMuscle] = useState(null);
 
   const handleMouseEnter = (muscleName) => {
-    setActiveMuscle(muscleName);
+    setHoveredMuscle(muscleName);
   };
 
   const handleMouseLeave = () => {
-    setActiveMuscle(null);
+    setHoveredMuscle(null);
   };
 
   const handleClick = (muscleName) => {
-    setActiveMuscle(muscleName);
+    setSelectedMuscle(muscleName);
   };
 
-  const originalWidth = 373;
-  const originalHeight = 331;
-  const largerWidth = 933;
-  const largerHeight = 827;
-  const widthScalingFactor = largerWidth / originalWidth;
-  const heightScalingFactor = largerHeight / originalHeight;
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      if (!event.target.closest(".muscle-map")) {
+        setSelectedMuscle(null);
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
+
+  const getPolygonStyle = (muscleName) => ({
+    fill:
+      hoveredMuscle === muscleName
+        ? "rgba(255, 0, 0, 0.5)"
+        : selectedMuscle === muscleName
+        ? "rgba(255, 0, 0, 0.5)"
+        : "rgba(0, 0, 0, 0)",
+    stroke:
+      hoveredMuscle === muscleName || selectedMuscle === muscleName
+        ? "red"
+        : "none",
+  });
 
   return (
-    <section className="muscle-map" style={{ position: "relative" }}>
-      <img src={Anatomy} alt="Human anatomy" aria-label="Human anatomy" />
-      <svg
-        style={{
-          position: "absolute",
-          top: "0",
-          left: "0",
-          width: "100%",
-          height: "100%",
-        }}
-      >
+    <section className="muscle-map" style={STYLES.muscleMap}>
+      <img
+        src={Anatomy}
+        alt="Human anatomy"
+        aria-label="Human anatomy"
+        style={STYLES.anatomyImg}
+      />
+      <svg viewBox="0 0 373 331" style={STYLES.svg}>
         {Object.entries(MuscleData.muscleList).map(
           ([muscleName, musclePolygons]) =>
-            musclePolygons.map((muscle, index) => {
-              const adjustedCoords = muscle.coords
-                .split(",")
-                .map((coord, index) => {
-                  if (index % 2 === 0) {
-                    return coord * widthScalingFactor;
-                  } else {
-                    return coord * heightScalingFactor;
-                  }
-                })
-                .join(",");
-
-              return (
-                <polygon
-                  onClick={() => handleClick(muscleName)}
-                  key={`${muscleName}_${index}`}
-                  points={adjustedCoords}
-                  style={{
-                    fill:
-                      activeMuscle === muscleName
-                        ? "rgba(255, 0, 0, 0.5)"
-                        : "rgba(0, 0, 0, 0)",
-                    stroke: activeMuscle === muscleName ? "red" : "none",
-                  }}
-                  onMouseEnter={() => handleMouseEnter(muscleName)}
-                  onMouseLeave={handleMouseLeave}
-                />
-              );
-            }),
+            musclePolygons.map((muscle, index) => (
+              <polygon
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleClick(muscleName);
+                }}
+                key={`${muscleName}_${index}`}
+                points={muscle.coords}
+                style={getPolygonStyle(muscleName)}
+                onMouseEnter={() => handleMouseEnter(muscleName)}
+                onMouseLeave={handleMouseLeave}
+              />
+            )),
         )}
       </svg>
-      <div>{activeMuscle}</div>
+      <div>{hoveredMuscle || selectedMuscle}</div>
     </section>
   );
 };

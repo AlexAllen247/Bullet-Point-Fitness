@@ -48,6 +48,17 @@ const Welcome = () => {
           looking to take it to the next level, we're here to guide you every
           step of the way.
         </p>
+        {/* This is the way to create embedded videos of youtube shorts, also need to create cards structure for each section */}
+        <iframe
+          width="315"
+          height="560"
+          src="https://youtube.com/embed/"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <div></div>
       </div>
     </section>
   );

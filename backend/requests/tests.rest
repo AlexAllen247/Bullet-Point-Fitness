@@ -9,3 +9,7 @@ Content-Type: application/json
     "email": "test@message.com",
     "message": "message"
 }
+
+###
+
+GET http://localhost:3001/api/consultations

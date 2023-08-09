@@ -4,8 +4,8 @@
   "description": "This is a fitness content web application",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "cross-env NODE_ENV=production node --openssl-legacy-provider index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --openssl-legacy-provider index.js",
     "lint": "eslint .",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit",
     "start:test": "NODE_ENV=test node index.js",
@@ -24,6 +24,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "googleapis": "^123.0.0",
     "helmet": "^7.0.0",
     "jest": "^29.6.1",
     "mongoose": "^7.3.2",

@@ -10,6 +10,7 @@ const path = require("path");
 require("express-async-errors");
 
 const contactFormsRouter = require("./controllers/contactForms");
+const consultationController = require("./controllers/consultations");
 const { errorHandler } = require("./utils/middleware");
 
 logger.info("connecting to", config.MONGODB_URI);
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(helmet());
 
 app.use("/api/contactforms", contactFormsRouter);
+app.use("/api/consultations", consultationController);
 
 app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "build", "index.html"));

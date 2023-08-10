@@ -6,6 +6,7 @@ const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY;
 const GOOGLE_CLIENT_EMAIL = process.env.GOOGLE_CLIENT_EMAIL;
 const GOOGLE_PROJECT_NUMBER = process.env.GOOGLE_PROJECT_NUMBER;
 const GOOGLE_CALENDAR_ID = process.env.GOOGLE_CALENDAR_ID;
+const KEY_FILE = process.env.KEY_FILE;
 
 const jwtClient = new google.auth.JWT(
   GOOGLE_CLIENT_EMAIL,
@@ -42,20 +43,22 @@ router.get("/", (req, res) => {
     },
   );
 });
-router.post("/", (req, res) => {
-  // Extract event details from request body
-  const { summary, location, description, start, end, attendees, reminders } =
-    req.body;
 
-  // Create the event object
+router.get("/createEvent", (req, res) => {
   const event = {
-    summary: summary,
-    location: location,
-    description: description,
-    start: start,
-    end: end,
-    attendees: attendees || [],
-    reminders: reminders || {
+    summary: "My first event!",
+    location: "Marbella, Spain",
+    description: "First event with nodeJS!",
+    start: {
+      dateTime: "2023-08-12T09:00:00+01:00",
+      timeZone: "Europe/Madrid",
+    },
+    end: {
+      dateTime: "2023-08-12T17:00:00+01:00",
+      timeZone: "Europe/Madrid",
+    },
+    attendees: [],
+    reminders: {
       useDefault: false,
       overrides: [
         { method: "email", minutes: 24 * 60 },
@@ -64,31 +67,10 @@ router.post("/", (req, res) => {
     },
   };
 
-  // Insert the event into the calendar
-  calendar.events.insert(
-    {
-      calendarId: GOOGLE_CALENDAR_ID,
-      resource: event,
-    },
-    (error, result) => {
-      if (error) {
-        res.status(500).send({ error: error.message });
-      } else {
-        res.send({
-          message: "Event created successfully!",
-          eventId: result.data.id,
-        });
-      }
-    },
-  );
-});
-
-/*
   const auth = new google.auth.GoogleAuth({
-    keyFile: "<full-path-of-JSON-file>",
+    keyFile: KEY_FILE,
     scopes: "https://www.googleapis.com/auth/calendar",
   });
-
   auth.getClient().then((a) => {
     calendar.events.insert(
       {
@@ -104,10 +86,10 @@ router.post("/", (req, res) => {
           return;
         }
         console.log("Event created: %s", event.data);
-        res.json("Event successfully created!");
+        res.jsonp("Event successfully created!");
       },
     );
   });
 });
-*/
+
 module.exports = router;

@@ -42,22 +42,20 @@ router.get("/", (req, res) => {
     },
   );
 });
-/*
 router.post("/", (req, res) => {
-  var event = {
-    summary: "My first event!",
-    location: "Hyderabad, India",
-    description: "First event with nodeJS!",
-    start: {
-      dateTime: "2022-01-12T09:00:00-07:00",
-      timeZone: "Asia/Dhaka",
-    },
-    end: {
-      dateTime: "2022-01-14T17:00:00-07:00",
-      timeZone: "Asia/Dhaka",
-    },
-    attendees: [],
-    reminders: {
+  // Extract event details from request body
+  const { summary, location, description, start, end, attendees, reminders } =
+    req.body;
+
+  // Create the event object
+  const event = {
+    summary: summary,
+    location: location,
+    description: description,
+    start: start,
+    end: end,
+    attendees: attendees || [],
+    reminders: reminders || {
       useDefault: false,
       overrides: [
         { method: "email", minutes: 24 * 60 },
@@ -66,6 +64,26 @@ router.post("/", (req, res) => {
     },
   };
 
+  // Insert the event into the calendar
+  calendar.events.insert(
+    {
+      calendarId: GOOGLE_CALENDAR_ID,
+      resource: event,
+    },
+    (error, result) => {
+      if (error) {
+        res.status(500).send({ error: error.message });
+      } else {
+        res.send({
+          message: "Event created successfully!",
+          eventId: result.data.id,
+        });
+      }
+    },
+  );
+});
+
+/*
   const auth = new google.auth.GoogleAuth({
     keyFile: "<full-path-of-JSON-file>",
     scopes: "https://www.googleapis.com/auth/calendar",

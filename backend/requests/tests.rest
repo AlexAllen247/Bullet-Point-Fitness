@@ -13,3 +13,18 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3001/api/consultations
+
+###
+
+POST http://localhost:3001/api/consultations
+Content-Type: application/json
+
+{
+    "summary": "My first event!", 
+    "location": "Marbella, Spain", 
+    "description": "Test Event", 
+    "start": "", 
+    "end": "", 
+    "attendees": "[]", 
+    "reminders": ""
+}

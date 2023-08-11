@@ -44,21 +44,18 @@ router.get("/", (req, res) => {
   );
 });
 
-router.get("/createEvent", (req, res) => {
+router.post("/", (req, res) => {
+  const { summary, location, description, start, end, attendees, reminders } =
+    req.body;
+
   const event = {
-    summary: "My first event!",
-    location: "Marbella, Spain",
-    description: "First event with nodeJS!",
-    start: {
-      dateTime: "2023-08-12T09:00:00+01:00",
-      timeZone: "Europe/Madrid",
-    },
-    end: {
-      dateTime: "2023-08-12T17:00:00+01:00",
-      timeZone: "Europe/Madrid",
-    },
-    attendees: [],
-    reminders: {
+    summary,
+    location,
+    description,
+    start,
+    end,
+    attendees: attendees || [],
+    reminders: reminders || {
       useDefault: false,
       overrides: [
         { method: "email", minutes: 24 * 60 },
@@ -83,10 +80,16 @@ router.get("/createEvent", (req, res) => {
           console.log(
             "There was an error contacting the Calendar service: " + err,
           );
+          res
+            .status(500)
+            .jsonp({ message: "Failed to create event", error: err });
           return;
         }
         console.log("Event created: %s", event.data);
-        res.jsonp("Event successfully created!");
+        res.jsonp({
+          message: "Event successfully created!",
+          event: event.data,
+        });
       },
     );
   });

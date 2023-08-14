@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-//import { Button, Form, Container, Card } from "react-bootstrap";
-//import Notification from "./Notification";
+import { Button, Form } from "react-bootstrap";
+import Notification from "./Notification";
 import consultationService from "../services/consultations";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
@@ -10,6 +10,16 @@ const localizer = momentLocalizer(moment);
 
 const Consultation = () => {
   const [events, setEvents] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
+  const [notification, setNotification] = useState(null);
+
+  const notify = (message, type = "info") => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
+  };
 
   useEffect(() => {
     // Fetch already booked slots using the consultationService
@@ -27,25 +37,16 @@ const Consultation = () => {
         console.error("Error fetching events:", error);
       });
   }, []);
-  /*
-  const [notification, setNotification] = useState(null);
-
-  const notify = (message, type = "info") => {
-    setNotification({ message, type });
-    setTimeout(() => {
-      setNotification(null);
-    }, 3000);
-  };
 
   const createConsultation = async (consultation) => {
     consultationService
       .create(consultation)
       .then(() => {
-        notify(`A new consultation by has created.`);
+        notify(`A new consultation has been booked.`);
       })
       .catch((error) => {
         notify(
-          "Creating a message failed: " + error.response.data.error,
+          "Booking a consultation failed: " + error.response.data.error,
           "alert",
         );
       });
@@ -53,12 +54,40 @@ const Consultation = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted!");
-    createConsultation({ email, message });
-    setEmail("");
-    setMessage("");
+    if (selectedDate && selectedTimeSlot) {
+      const startTime = new Date(
+        `${selectedDate}T${selectedTimeSlot}:00+01:00`,
+      );
+      const endTime = new Date(startTime);
+      endTime.setMinutes(
+        startTime.getMinutes() + (selectedTimeSlot === "30" ? 30 : 60),
+      );
+      const consultation = {
+        summary: "Consultation Slot",
+        location: "Online",
+        description: "Consultation Slot Booked",
+        start: {
+          dateTime: startTime.toISOString(),
+          timeZone: "Europe/Madrid",
+        },
+        end: {
+          dateTime: endTime.toISOString(),
+          timeZone: "Europe/Madrid",
+        },
+        attendees: [], // Modify if needed
+        reminders: {
+          useDefault: false,
+          overrides: [
+            { method: "email", minutes: 24 * 60 },
+            { method: "popup", minutes: 10 },
+          ],
+        },
+      };
+      createConsultation(consultation);
+    }
   };
-  */
+
+  const timeSlots = ["09:00", "09:30", "10:00"];
 
   return (
     <section className="consultation">
@@ -70,6 +99,27 @@ const Consultation = () => {
           endAccessor="end"
           style={{ height: 500, margin: "50px" }}
         />
+        <Form onSubmit={handleSubmit}>
+          <input
+            type="date"
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+            required
+          />
+          <select
+            value={selectedTimeSlot}
+            onChange={(e) => setSelectedTimeSlot(e.target.value)}
+            required
+          >
+            {timeSlots.map((slot, index) => (
+              <option key={index} value={slot}>
+                {slot}
+              </option>
+            ))}
+          </select>
+          <Button type="submit">Book Consultation</Button>
+          <Notification notification={notification} />
+        </Form>
       </div>
     </section>
   );

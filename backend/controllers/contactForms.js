@@ -2,6 +2,9 @@ const router = require("express").Router();
 const nodemailer = require("nodemailer");
 const ContactForm = require("../models/contactForm");
 
+const GMAIL = process.env.GMAIL;
+const GMAIL_PASS = process.env.GMAIL_PASS;
+
 router.get("/", async (request, response) => {
   try {
     const contactForms = await ContactForm.find({});
@@ -31,14 +34,14 @@ router.post("/", async (request, response) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL,
-        pass: process.env.GMAIL_PASS,
+        user: GMAIL,
+        pass: GMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: process.env.GMAIL,
-      to: process.env.GMAIL,
+      from: GMAIL,
+      to: GMAIL,
       subject: "Fitness Website contact form submission",
       html: `
       <p>Email: ${request.body.email}</p>

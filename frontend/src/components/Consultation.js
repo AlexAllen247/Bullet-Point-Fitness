@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  FormControl,
+  FormGroup,
+  FormLabel,
+} from "react-bootstrap";
 import Notification from "./Notification";
 import consultationService from "../services/consultations";
 import { Calendar, momentLocalizer } from "react-big-calendar";
@@ -87,7 +93,15 @@ const Consultation = () => {
     }
   };
 
-  const timeSlots = ["09:00", "09:30", "10:00"];
+  const timeSlots = [
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+  ];
 
   return (
     <section className="consultation">
@@ -99,24 +113,36 @@ const Consultation = () => {
           endAccessor="end"
           style={{ height: 500, margin: "50px" }}
         />
+      </div>
+      <div>
         <Form onSubmit={handleSubmit}>
-          <input
-            type="date"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-            required
-          />
-          <select
-            value={selectedTimeSlot}
-            onChange={(e) => setSelectedTimeSlot(e.target.value)}
-            required
-          >
-            {timeSlots.map((slot, index) => (
-              <option key={index} value={slot}>
-                {slot}
-              </option>
-            ))}
-          </select>
+          <FormGroup controlId="formDate">
+            <FormLabel>Date</FormLabel>
+            <FormControl
+              type="date"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+              required
+            />
+          </FormGroup>
+
+          <FormGroup controlId="formTimeSlot">
+            <FormLabel>Time Slot</FormLabel>
+            <FormControl
+              as="select"
+              value={selectedTimeSlot}
+              onChange={(e) => setSelectedTimeSlot(e.target.value)}
+              style={{ width: "50%" }}
+              required
+            >
+              {timeSlots.map((slot, index) => (
+                <option key={index} value={slot}>
+                  {slot}
+                </option>
+              ))}
+            </FormControl>
+          </FormGroup>
+
           <Button type="submit">Book Consultation</Button>
           <Notification notification={notification} />
         </Form>

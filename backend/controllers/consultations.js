@@ -99,7 +99,16 @@ router.post("/", async (req, res) => {
           { method: "popup", minutes: 10 },
         ],
       },
+      conferenceData: {
+        createRequest: {
+          requestId: "some_unique_requestId", // Some unique ID for the request
+          conferenceSolutionKey: {
+            type: "hangoutsMeet", // Use Hangouts Meet
+          },
+        },
+      },
     };
+
     const auth = await new google.auth.GoogleAuth({
       keyFile: KEY_FILE,
       scopes: "https://www.googleapis.com/auth/calendar",
@@ -110,6 +119,7 @@ router.post("/", async (req, res) => {
         auth: auth,
         calendarId: GOOGLE_CALENDAR_ID,
         resource: event,
+        conferenceDataVersion: 1, // This parameter indicates you're using conference data
       },
       (err, createdEvent) => {
         if (err) {
@@ -124,11 +134,14 @@ router.post("/", async (req, res) => {
         }
         console.log("Event created: %s", createdEvent.data);
 
+        // Send an email to yourself with the Google Meet link
+        const meetLink = createdEvent.data.hangoutLink; // This is the Google Meet link
+
         const mailOptions = {
           from: GMAIL,
           to: GMAIL,
           subject: "New Consultation booked for Bullet Point Fitness!",
-          text: `A session has been booked for ${req.body.start.dateTime} to ${req.body.end.dateTime}.`,
+          text: `A session has been booked for ${req.body.start.dateTime} to ${req.body.end.dateTime}. Meet Link: ${meetLink}`,
         };
 
         transporter.sendMail(mailOptions, (emailErr, info) => {

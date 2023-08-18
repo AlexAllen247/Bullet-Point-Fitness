@@ -84,8 +84,6 @@ router.post("/", async (req, res) => {
       return;
     }
 
-    const requestId = Math.random().toString(36);
-
     const event = {
       summary,
       location,

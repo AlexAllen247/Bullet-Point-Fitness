@@ -24,11 +24,11 @@ Content-Type: application/json
   "location": "Some Place",
   "description": "Event Description",
   "start": {
-    "dateTime": "2023-08-17T09:00:00+01:00",
+    "dateTime": "2023-08-19T09:00:00+01:00",
     "timeZone": "Europe/Madrid"
   },
   "end": {
-    "dateTime": "2023-08-17T10:00:00+01:00",
+    "dateTime": "2023-08-19T10:00:00+01:00",
     "timeZone": "Europe/Madrid"
   }
 }

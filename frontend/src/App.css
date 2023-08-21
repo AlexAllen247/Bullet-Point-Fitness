@@ -1,4 +1,9 @@
+.body {
+  color: #df0000;
+  font-family: "Be Vietnam";
+}
+
 .btn-custom {
-  background-color: #0047ab;
+  background-color: #df0000;
   color: #ffffff;
 }

@@ -12,24 +12,27 @@ import Training from "./components/Training";
 import NotFound from "./components/NotFound";
 import Welcome from "./components/Welcome";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 const App = () => {
   const styles = {
     app: {
       fontFamily: "Arial Unicode MS",
+      color: "#df0000",
     },
     cookie: {
       background: "#333",
     },
     button: {
       color: "#fff",
-      background: "#0047ab",
+      background: "#df0000",
       fontSize: "13px",
     },
   };
   return (
     <main>
       <div className="App">
+        <Header />
         <Navigation />
         <Routes>
           <Route path="/" element={<Welcome />} />

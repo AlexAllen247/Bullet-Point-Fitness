@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Banner from "../images/TeckbuffBanner.png";
+import Banner from "../images/BulletPointFitnessBanner.png";
 
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);

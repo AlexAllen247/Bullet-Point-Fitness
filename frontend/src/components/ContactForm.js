@@ -46,6 +46,8 @@ const ContactForm = () => {
     cardStyle: {
       boxShadow: "10px 10px 10px 10px rgba(0, 71, 171, 0.15)",
       textAlign: "center",
+      color: "#df0000",
+      fontFamily: "Be Vietnam",
     },
     form: {
       width: "80%",
@@ -121,7 +123,7 @@ const ContactForm = () => {
               <Button
                 aria-label="Submit"
                 type="submit"
-                variant="primary"
+                variant="danger"
                 style={styles.button}
                 className="btn-custom"
               >

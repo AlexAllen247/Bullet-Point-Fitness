@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Anatomy from "../images/Muscle3.png";
+import Anatomy from "../images/Muscle.png";
 import MuscleData from "../muscles.json";
 
 const STYLES = {

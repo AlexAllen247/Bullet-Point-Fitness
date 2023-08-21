@@ -12,6 +12,7 @@ const Footer = () => {
     section: {
       textAlign: "center",
       padding: 15,
+      color: "#df0000",
     },
     button: {
       margin: 10,
@@ -22,7 +23,7 @@ const Footer = () => {
     <section className="footer" style={styles.section}>
       <h4>Copyright Alex Allen 2023</h4>
       <Button
-        variant="primary"
+        variant="danger"
         onClick={handlePrivacyPolicyToggle}
         style={styles.button}
         aria-label="Privacy Policy"

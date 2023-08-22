@@ -50,3 +50,37 @@ Content-Type: application/json
     "dateAdded":"2022-10-07"
 }
 
+###
+
+GET http://localhost:3001/api/nutritionvideos
+
+
+###
+
+POST http://localhost:3001/api/nutritionvideos
+Content-Type: application/json
+
+
+{
+    "embedUrl":"https://www.youtube.com/embed/5gEZeCL9qZo?si=WBwMgqLQgdaRoIm6",
+    "title":"Cs50P Final Project",
+    "dateAdded":"2022-10-07"
+}
+
+###
+
+GET http://localhost:3001/api/mindsetvideos
+
+
+###
+
+POST http://localhost:3001/api/mindsetvideos
+Content-Type: application/json
+
+
+{
+    "embedUrl":"https://www.youtube.com/embed/5gEZeCL9qZo?si=WBwMgqLQgdaRoIm6",
+    "title":"Cs50P Final Project",
+    "dateAdded":"2022-10-07"
+}
+

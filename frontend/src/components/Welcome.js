@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import trainingVideoService from "../services/trainingVideos";
 
 const Welcome = () => {
+  const [trainingVideos, settrainingVideos] = useState([]);
+
+  const fetchTrainingVideos = async () => {
+    const fetchTrainingVideos = await trainingVideoService.get();
+    settrainingVideos(fetchTrainingVideos);
+  };
+
+  useEffect(() => {
+    fetchTrainingVideos();
+  }, []);
+
   return (
     <section className="welcome">
       <div className="welcome-container">
@@ -58,6 +70,20 @@ const Welcome = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
+        {trainingVideos.map((trainingVideo) => (
+          <div>
+            <iframe
+              width="560"
+              height="315"
+              src={trainingVideo.embedUrl}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <p>{trainingVideo.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import "./App.css";
 import CookieConsent from "react-cookie-consent";
 import ContactForm from "./components/ContactForm";
 import Navigation from "./components/Navigation";
-import Consultation from "./components/Consultation";
+//import Consultation from "./components/Consultation";
 import GettingStarted from "./components/GettingStarted";
 import Mindset from "./components/Mindset";
 import Nutrition from "./components/Nutrition";
@@ -17,7 +17,7 @@ import Header from "./components/Header";
 const App = () => {
   const styles = {
     app: {
-      fontFamily: "Arial Unicode MS",
+      fontFamily: "Be Vietnam",
       color: "#df0000",
     },
     cookie: {
@@ -40,7 +40,7 @@ const App = () => {
           <Route path="/training" element={<Training />} />
           <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/mindset" element={<Mindset />} />
-          <Route path="/consultation" element={<Consultation />} />
+          {/*<Route path="/consultation" element={<Consultation />} />*/}
           <Route path="/contactforms" element={<ContactForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

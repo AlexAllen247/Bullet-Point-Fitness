@@ -85,6 +85,7 @@ const Navigation = () => {
               >
                 Mindset
               </NavLink>
+              {/*
               <NavLink
                 to="/consultation"
                 style={styles.navStyle}
@@ -92,6 +93,7 @@ const Navigation = () => {
               >
                 Consultation
               </NavLink>
+  */}
               <NavLink
                 to="/contactforms"
                 style={styles.navStyle}

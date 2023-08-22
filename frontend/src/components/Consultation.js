@@ -1,3 +1,4 @@
+/*
 import React, { useState, useEffect } from "react";
 import {
   Form,
@@ -152,3 +153,4 @@ const Consultation = () => {
 };
 
 export default Consultation;
+*/

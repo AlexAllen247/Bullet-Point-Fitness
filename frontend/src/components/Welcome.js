@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import trainingVideoService from "../services/trainingVideos";
 
 const Welcome = () => {
-  const [trainingVideos, settrainingVideos] = useState([]);
-
-  const fetchTrainingVideos = async () => {
-    const fetchTrainingVideos = await trainingVideoService.get();
-    settrainingVideos(fetchTrainingVideos);
-  };
+  const [trainingVideos, setTrainingVideos] = useState([]);
 
   useEffect(() => {
+    const fetchTrainingVideos = async () => {
+      const videos = await trainingVideoService.get();
+      setTrainingVideos(videos);
+    };
+
     fetchTrainingVideos();
   }, []);
 

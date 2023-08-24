@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import ContactForm from "./ContactForm";
 import Navigation from "./Navigation";
 //import Consultation from "./Consultation";
-import GettingStarted from "./GettingStarted";
 import Mindset from "./Mindset";
 import Nutrition from "./Nutrition";
 import Training from "./Training";
@@ -16,7 +15,6 @@ const MainApp = () => {
       <Header />
       <Navigation />
       <Routes>
-        <Route path="gettingstarted" element={<GettingStarted />} />
         <Route path="training" element={<Training />} />
         <Route path="nutrition" element={<Nutrition />} />
         <Route path="mindset" element={<Mindset />} />

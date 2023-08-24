@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import trainingVideoService from "../services/trainingVideos";
 
 const Nutrition = () => {
-  return <section className="nutrition"></section>;
+  const [trainingVideos, setTrainingVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchTrainingVideos = async () => {
+      const videos = await trainingVideoService.get();
+      setTrainingVideos(videos);
+    };
+
+    fetchTrainingVideos();
+  }, []);
+  return (
+    <section className="nutrition">
+      {trainingVideos.map((trainingVideo) => (
+        <div>
+          <iframe
+            width="560"
+            height="315"
+            src={trainingVideo.embedUrl}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <p>{trainingVideo.description}</p>
+        </div>
+      ))}
+    </section>
+  );
 };
 
 export default Nutrition;

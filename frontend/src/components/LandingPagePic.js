@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Banner from "../images/BulletPointFitnessBanner.png";
+import Picture from "../images/BulletPointFitness1.png";
 
-const Header = () => {
+const LandingPagePic = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [showImage, setShowImage] = useState(false);
 
@@ -29,11 +29,11 @@ const Header = () => {
   };
 
   return (
-    <section style={styles.section} className="header">
+    <section style={styles.section} className="landing-page">
       <div className="container">
         {showImage && (
           <img
-            src={Banner}
+            src={Picture}
             alt="My Banner"
             style={styles.image}
             aria-label="Banner for bulletpointfitness.com"
@@ -44,4 +44,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LandingPagePic;

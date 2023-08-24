@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import trainingVideoService from "../services/trainingVideos";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   const [trainingVideos, setTrainingVideos] = useState([]);
@@ -24,7 +25,9 @@ const Welcome = () => {
           <p className="cta-text">
             Are you ready to take control of your health and fitness?
           </p>
-          <button className="cta-button">Get Started</button>
+          <Link to="/app/gettingstarted" className="cta-button">
+            <button className="cta-button">Get Started</button>
+          </Link>
         </div>
         <div className="welcome-features">
           <div className="feature-item">

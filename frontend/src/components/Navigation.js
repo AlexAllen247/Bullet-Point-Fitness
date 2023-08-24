@@ -42,7 +42,7 @@ const Navigation = () => {
             xmlns="http://www.w3.org/2000/svg"
             width="30"
             height="30"
-            fill="#0047ab"
+            fill="#df0000"
             viewBox="0 0 16 16"
           >
             <path
@@ -58,28 +58,28 @@ const Navigation = () => {
           <div className="mx-auto">
             <Nav className="me-auto mt-2 justify-content-center mx-auto">
               <NavLink
-                to="/gettingstarted"
+                to="/app/gettingstarted"
                 style={styles.navStyle}
                 aria-label="Link to Getting Started page"
               >
                 Getting Started
               </NavLink>
               <NavLink
-                to="/training"
+                to="/app/training"
                 style={styles.navStyle}
                 aria-label="Link to Training page"
               >
                 Training
               </NavLink>
               <NavLink
-                to="/nutrition"
+                to="/app/nutrition"
                 style={styles.navStyle}
                 aria-label="Link to Nutrition page"
               >
                 Nutrition
               </NavLink>
               <NavLink
-                to="/mindset"
+                to="/app/mindset"
                 style={styles.navStyle}
                 aria-label="Link to Mindset page"
               >
@@ -87,7 +87,7 @@ const Navigation = () => {
               </NavLink>
               {/*
               <NavLink
-                to="/consultation"
+                to="/app/consultation"
                 style={styles.navStyle}
                 aria-label="Link to Consultation page"
               >
@@ -95,7 +95,7 @@ const Navigation = () => {
               </NavLink>
   */}
               <NavLink
-                to="/contactforms"
+                to="/app/contactforms"
                 style={styles.navStyle}
                 aria-label="Link to Contact page"
               >
@@ -170,7 +170,7 @@ const Navigation = () => {
                   width="24"
                   height="24"
                   fill="currentColor"
-                  class="bi bi-youtube"
+                  className="bi bi-youtube"
                   viewBox="0 0 16 16"
                   style={styles.navbarSvg}
                 >
@@ -189,7 +189,7 @@ const Navigation = () => {
                   width="24"
                   height="24"
                   fill="currentColor"
-                  class="bi bi-instagram"
+                  className="bi bi-instagram"
                   viewBox="0 0 16 16"
                   style={styles.navbarSvg}
                 >

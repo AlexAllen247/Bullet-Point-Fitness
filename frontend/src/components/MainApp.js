@@ -8,6 +8,7 @@ import Nutrition from "./Nutrition";
 import Training from "./Training";
 import Footer from "./Footer";
 import Header from "./Header";
+import About from "./About";
 
 const MainApp = () => {
   return (
@@ -20,6 +21,7 @@ const MainApp = () => {
         <Route path="mindset" element={<Mindset />} />
         {/*<Route path="/app/consultation" element={<Consultation />} />*/}
         <Route path="contactforms" element={<ContactForm />} />
+        <Route path="about" element={<About />} />
       </Routes>
       <Footer />
     </div>

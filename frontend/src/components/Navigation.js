@@ -94,6 +94,13 @@ const Navigation = () => {
               >
                 Contact
               </NavLink>
+              <NavLink
+                to="/app/about"
+                style={styles.navStyle}
+                aria-label="Link to About page"
+              >
+                About
+              </NavLink>
               <a
                 href="https://www.linkedin.com/in/alex-allen-392225251/"
                 target="_blank"

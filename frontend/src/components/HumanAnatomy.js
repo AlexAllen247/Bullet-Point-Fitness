@@ -117,6 +117,7 @@ const HumanAnatomy = () => {
               height="315"
               src={video.embedUrl}
               frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
             <p>{video.title}</p>

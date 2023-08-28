@@ -69,18 +69,19 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3001/api/mindsetvideos
+GET http://localhost:3001/api/trainingvideos
 
 
 ###
 
-POST http://localhost:3001/api/mindsetvideos
+POST http://localhost:3001/api/trainingvideos
 Content-Type: application/json
 
 
 {
     "embedUrl":"https://www.youtube.com/embed/5gEZeCL9qZo?si=WBwMgqLQgdaRoIm6",
     "title":"Cs50P Final Project",
-    "dateAdded":"2022-10-07"
+    "dateAdded":"2022-10-07",
+    "muscleName":"Biceps"
 }
 

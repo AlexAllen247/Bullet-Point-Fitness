@@ -20,8 +20,8 @@ const Nutrition = () => {
             width="560"
             height="315"
             src={trainingVideo.embedUrl}
-            title="YouTube video player"
-            frameborder="0"
+            title={trainingVideo.title}
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>

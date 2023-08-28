@@ -58,12 +58,13 @@ const Navigation = () => {
           <div className="mx-auto">
             <Nav className="me-auto mt-2 justify-content-center mx-auto">
               <NavLink
-                to="/app/training"
+                to="/app/fitness"
                 style={styles.navStyle}
                 aria-label="Link to Training page"
               >
-                Training
+                Fitness
               </NavLink>
+              {/*
               <NavLink
                 to="/app/nutrition"
                 style={styles.navStyle}
@@ -78,7 +79,6 @@ const Navigation = () => {
               >
                 Mindset
               </NavLink>
-              {/*
               <NavLink
                 to="/app/consultation"
                 style={styles.navStyle}

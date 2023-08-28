@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Anatomy from "../images/Muscle.png";
 import MuscleData from "../muscles.json";
+import trainingVideoService from "../services/trainingVideos";
 
 const STYLES = {
   muscleMap: {
@@ -17,12 +18,24 @@ const STYLES = {
     width: "100%",
     height: "auto",
     maxWidth: "933px",
+    transition: "all 0.3s ease",
   },
 };
 
 const HumanAnatomy = () => {
   const [hoveredMuscle, setHoveredMuscle] = useState(null);
   const [selectedMuscle, setSelectedMuscle] = useState(null);
+  const [trainingVideos, setTrainingVideos] = useState([]);
+  const [displayedVideos, setDisplayedVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchTrainingVideos = async () => {
+      const videos = await trainingVideoService.get();
+      setTrainingVideos(videos);
+    };
+
+    fetchTrainingVideos();
+  }, []);
 
   const handleMouseEnter = (muscleName) => {
     setHoveredMuscle(muscleName);
@@ -34,12 +47,17 @@ const HumanAnatomy = () => {
 
   const handleClick = (muscleName) => {
     setSelectedMuscle(muscleName);
+    const relevantVideos = trainingVideos.filter(
+      (video) => video.muscleName === muscleName,
+    );
+    setDisplayedVideos(relevantVideos);
   };
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
       if (!event.target.closest(".muscle-map")) {
         setSelectedMuscle(null);
+        setDisplayedVideos([]);
       }
     };
 
@@ -90,6 +108,21 @@ const HumanAnatomy = () => {
         )}
       </svg>
       <div>{hoveredMuscle || selectedMuscle}</div>
+      <div className="video-list">
+        {displayedVideos.map((video) => (
+          <div key={video.id}>
+            <iframe
+              title={video.title}
+              width="560"
+              height="315"
+              src={video.embedUrl}
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+            <p>{video.title}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

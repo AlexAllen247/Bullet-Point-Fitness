@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Anatomy from "../images/Muscle.png";
 import MuscleData from "../muscles.json";
 import trainingVideoService from "../services/trainingVideos";
+import { Card, Ratio } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const STYLES = {
   muscleMap: {
@@ -110,18 +112,21 @@ const HumanAnatomy = () => {
       <div>{hoveredMuscle || selectedMuscle}</div>
       <div className="video-list">
         {displayedVideos.map((video) => (
-          <div key={video.id}>
-            <iframe
-              title={video.title}
-              width="560"
-              height="315"
-              src={video.embedUrl}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-            <p>{video.title}</p>
-          </div>
+          <Card key={video.id} style={{ width: "18rem", marginBottom: "15px" }}>
+            <Ratio aspectRatio="16x9">
+              <Card.Img
+                as="iframe"
+                title={video.title}
+                src={video.embedUrl}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </Ratio>
+            <Card.Body>
+              <Card.Title>{video.title}</Card.Title>
+            </Card.Body>
+          </Card>
         ))}
       </div>
     </section>

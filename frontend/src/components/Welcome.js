@@ -30,7 +30,7 @@ const Welcome = () => {
           solutions and I want to help!
         </p>
       </div>
-      <Link to="/app/training" style={styles.link}>
+      <Link to="/app/fitness" style={styles.link}>
         <LandingPagePic />
       </Link>
     </section>

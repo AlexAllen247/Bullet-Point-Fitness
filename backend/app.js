@@ -15,6 +15,7 @@ const consultationRouter = require("./controllers/consultations");
 const trainingVideosRouter = require("./controllers/trainingVideos");
 const nutritionVideosRouter = require("./controllers/nutritionVideos");
 const mindsetVideosRouter = require("./controllers/mindsetVideos");
+const muscleFunctionVideosRouter = require("./controllers/muscleFunctionVideos");
 const { errorHandler } = require("./utils/middleware");
 
 logger.info("connecting to", config.MONGODB_URI);
@@ -41,6 +42,7 @@ app.use("/api/consultations", consultationRouter);
 app.use("/api/trainingvideos", trainingVideosRouter);
 app.use("/api/nutritionvideos", nutritionVideosRouter);
 app.use("/api/mindsetvideos", mindsetVideosRouter);
+app.use("/api/musclefunctionvideos", muscleFunctionVideosRouter);
 
 app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "build", "index.html"));

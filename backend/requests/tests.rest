@@ -69,12 +69,12 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3001/api/trainingvideos
+GET http://localhost:3001/api/musclefunctionvideos
 
 
 ###
 
-POST http://localhost:3001/api/trainingvideos
+POST http://localhost:3001/api/musclefunctionvideos
 Content-Type: application/json
 
 

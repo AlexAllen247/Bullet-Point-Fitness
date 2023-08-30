@@ -3,8 +3,9 @@ import Anatomy from "../images/Muscle.png";
 import MuscleData from "../muscles.json";
 import trainingVideoService from "../services/trainingVideos";
 import muscleFunctionVideoService from "../services/muscleFunctionVideos";
-import { Card, Ratio, Container, Row, Col } from "react-bootstrap";
+//import { Card, Ratio, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import VideoGallery from "./VideoGallery";
 
 const STYLES = {
   muscleMap: {
@@ -20,7 +21,6 @@ const STYLES = {
     left: "0",
     width: "100%",
     height: "auto",
-    maxWidth: "933px",
     transition: "all 0.3s ease",
   },
 };
@@ -120,54 +120,10 @@ const HumanAnatomy = () => {
         )}
       </svg>
       <div>{hoveredMuscle || selectedMuscle}</div>
-      <div className="album py-5 bg-light">
-        <Container>
-          <Row>
-            {displayedMuscleFunctionVideos.map((video) => (
-              <Col key={video.id} md={4}>
-                <Card className="mb-4 box-shadow">
-                  <Ratio aspectRatio="16x9">
-                    <Card.Img
-                      as="iframe"
-                      title={video.title}
-                      src={video.embedUrl}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </Ratio>
-                  <Card.Body>
-                    <Card.Title>{video.title}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-        <Container>
-          <Row>
-            {trainingVideos.map((video) => (
-              <Col key={video.id} md={4}>
-                <Card className="mb-4 box-shadow">
-                  <Ratio aspectRatio="16x9">
-                    <Card.Img
-                      as="iframe"
-                      title={video.title}
-                      src={video.embedUrl}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </Ratio>
-                  <Card.Body>
-                    <Card.Title>{video.title}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </div>
+      <VideoGallery
+        displayedMuscleFunctionVideos={displayedMuscleFunctionVideos}
+        trainingVideos={trainingVideos}
+      />
     </section>
   );
 };

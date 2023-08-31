@@ -9,9 +9,17 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
   dateAdded: {
     type: Date,
     default: Date.now,
+  },
+  duration: {
+    type: String,
+    required: true,
   },
 });
 

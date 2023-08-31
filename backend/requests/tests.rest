@@ -47,7 +47,9 @@ Content-Type: application/json
 {
     "embedUrl":"https://www.youtube.com/embed/5gEZeCL9qZo?si=WBwMgqLQgdaRoIm6",
     "title":"Cs50P Final Project",
-    "dateAdded":"2022-10-07"
+    "dateAdded":"2022-10-07",
+    "description": "This is the final project for CS50 introduction to programming with Python.",
+    "duration": "5min"
 }
 
 ###
@@ -82,6 +84,8 @@ Content-Type: application/json
     "embedUrl":"https://www.youtube.com/embed/5gEZeCL9qZo?si=WBwMgqLQgdaRoIm6",
     "title":"Cs50P Final Project",
     "dateAdded":"2022-10-07",
-    "muscleName":"Biceps"
+    "description": "This is the final project for CS50 introduction to programming with Python.",
+    "duration": "5min",
+    "muscleName": "Biceps"
 }
 

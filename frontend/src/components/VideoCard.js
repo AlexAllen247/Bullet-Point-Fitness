@@ -9,7 +9,7 @@ const VideoCard = ({ video }) => {
   };
   return (
     <Card className="mb-4 box-shadow" border="danger" style={styles.card}>
-      <Ratio aspectRatio="16x9">
+      <Ratio aspectRatio="1x1">
         <Card.Img
           as="iframe"
           title={video.title}
@@ -21,6 +21,10 @@ const VideoCard = ({ video }) => {
       </Ratio>
       <Card.Body>
         <Card.Title>{video.title}</Card.Title>
+        <Card.Text>{video.description}</Card.Text>
+        <Card.Footer>
+          <small className="text-muted">{video.duration}</small>
+        </Card.Footer>
       </Card.Body>
     </Card>
   );

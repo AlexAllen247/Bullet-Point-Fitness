@@ -9,7 +9,7 @@ const VideoGallery = ({
   selectedMuscle,
 }) => {
   return (
-    <div className="album py-5 bg-light">
+    <div className="album py-5">
       <Container>
         <h1>{hoveredMuscle || selectedMuscle}</h1>
         <Row>

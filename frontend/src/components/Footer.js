@@ -19,9 +19,22 @@ const Footer = () => {
     },
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <section className="footer" style={styles.section}>
-      <h4>Copyright Alex Allen 2023</h4>
+      <h4>Copyright Alex Allen {currentYear}</h4>
+      <h4>
+        Powered by{" "}
+        <a
+          href="https://teckbuff.com/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Link to TeckBuff.com"
+        >
+          TeckBuff
+        </a>
+      </h4>
       <Button
         variant="danger"
         onClick={handlePrivacyPolicyToggle}

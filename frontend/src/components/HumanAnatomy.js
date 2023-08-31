@@ -3,7 +3,6 @@ import Anatomy from "../images/Muscle.png";
 import MuscleData from "../muscles.json";
 import trainingVideoService from "../services/trainingVideos";
 import muscleFunctionVideoService from "../services/muscleFunctionVideos";
-//import { Card, Ratio, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import VideoGallery from "./VideoGallery";
 
@@ -119,10 +118,11 @@ const HumanAnatomy = () => {
             )),
         )}
       </svg>
-      <div>{hoveredMuscle || selectedMuscle}</div>
       <VideoGallery
         displayedMuscleFunctionVideos={displayedMuscleFunctionVideos}
         trainingVideos={trainingVideos}
+        hoveredMuscle={hoveredMuscle}
+        selectedMuscle={selectedMuscle}
       />
     </section>
   );

@@ -8,9 +8,21 @@ const Training = () => {
       justifyContent: "center",
       flexDirection: "column",
       alignItems: "center",
+      textAlign: "center",
+    },
+    header: {
+      color: "#df0000",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      marginBottom: 40,
     },
     paragraph: {
+      color: "#df0000",
       fontSize: 20,
+      marginTop: 20,
+    },
+    link: {
+      textDecoration: "none",
       color: "#df0000",
     },
   };
@@ -18,7 +30,7 @@ const Training = () => {
   return (
     <section className="training" style={styles.training}>
       <div>
-        <p style={styles.paragraph}>Interactive Muscle Anatomy Chart</p>
+        <h3 style={styles.header}>Interactive Muscle Anatomy Chart</h3>
       </div>
       <HumanAnatomy />
       <div>
@@ -29,6 +41,7 @@ const Training = () => {
             target="_blank"
             rel="noreferrer"
             aria-label="Github Profile"
+            style={styles.link}
           >
             Muscle Charts.
           </a>

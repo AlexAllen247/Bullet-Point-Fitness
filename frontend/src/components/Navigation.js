@@ -58,7 +58,7 @@ const Navigation = () => {
           <div className="mx-auto">
             <Nav className="me-auto mt-2 justify-content-center mx-auto">
               <NavLink
-                to="/app/fitness"
+                to="/"
                 style={styles.navStyle}
                 aria-label="Link to Training page"
               >
@@ -66,21 +66,21 @@ const Navigation = () => {
               </NavLink>
               {/*
               <NavLink
-                to="/app/nutrition"
+                to="/nutrition"
                 style={styles.navStyle}
                 aria-label="Link to Nutrition page"
               >
                 Nutrition
               </NavLink>
               <NavLink
-                to="/app/mindset"
+                to="/mindset"
                 style={styles.navStyle}
                 aria-label="Link to Mindset page"
               >
                 Mindset
               </NavLink>
               <NavLink
-                to="/app/consultation"
+                to="/consultation"
                 style={styles.navStyle}
                 aria-label="Link to Consultation page"
               >
@@ -88,14 +88,14 @@ const Navigation = () => {
               </NavLink>
   */}
               <NavLink
-                to="/app/contactforms"
+                to="/contactforms"
                 style={styles.navStyle}
                 aria-label="Link to Contact page"
               >
                 Contact
               </NavLink>
               <NavLink
-                to="/app/about"
+                to="/about"
                 style={styles.navStyle}
                 aria-label="Link to About page"
               >

@@ -3,8 +3,15 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import CookieConsent from "react-cookie-consent";
 import NotFound from "./components/NotFound";
-import Welcome from "./components/Welcome";
-import MainApp from "./components/MainApp";
+import ContactForm from "./components/ContactForm";
+import Navigation from "./components/Navigation";
+//import Consultation from "./components/Consultation";
+//import Mindset from "./components/Mindset";
+//import Nutrition from "./components/Nutrition";
+import Fitness from "./components/Fitness";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import About from "./components/About";
 
 const App = () => {
   const styles = {
@@ -23,22 +30,31 @@ const App = () => {
   };
   return (
     <main>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/app/*" element={<MainApp />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <CookieConsent
-        location="bottom"
-        buttonText="Accept"
-        cookieName="myCookieName"
-        style={styles.cookie}
-        buttonStyle={styles.button}
-      >
-        This website uses cookies to ensure you get the best experience on our
-        website. By continuing to use this site, you consent to the use of
-        cookies.
-      </CookieConsent>
+      <div className="app">
+        <Header />
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Fitness />} />
+          {/*<Route path="nutrition" element={<Nutrition />} />
+        <Route path="mindset" element={<Mindset />} />
+        <Route path="/app/consultation" element={<Consultation />} />*/}
+          <Route path="contactforms" element={<ContactForm />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <CookieConsent
+          location="bottom"
+          buttonText="Accept"
+          cookieName="myCookieName"
+          style={styles.cookie}
+          buttonStyle={styles.button}
+        >
+          This website uses cookies to ensure you get the best experience on our
+          website. By continuing to use this site, you consent to the use of
+          cookies.
+        </CookieConsent>
+      </div>
     </main>
   );
 };

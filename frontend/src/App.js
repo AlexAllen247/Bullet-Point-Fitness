@@ -12,6 +12,7 @@ import Fitness from "./components/Fitness";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./components/About";
+import TrainingVideos from "./components/TrainingVideos";
 
 const App = () => {
   const styles = {
@@ -35,6 +36,7 @@ const App = () => {
         <Navigation />
         <Routes>
           <Route path="/" element={<Fitness />} />
+          <Route path="/training" element={<TrainingVideos />} />
           {/*<Route path="nutrition" element={<Nutrition />} />
         <Route path="mindset" element={<Mindset />} />
         <Route path="/app/consultation" element={<Consultation />} />*/}

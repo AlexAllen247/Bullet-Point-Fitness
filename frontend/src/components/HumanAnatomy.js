@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Anatomy from "../images/Muscle.png";
 import MuscleData from "../muscles.json";
-import trainingVideoService from "../services/trainingVideos";
 import muscleFunctionVideoService from "../services/muscleFunctionVideos";
 import exerciseVideoService from "../services/exerciseVideos";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -31,18 +30,9 @@ const HumanAnatomy = () => {
   const [muscleFunctionVideos, setMuscleFunctionVideos] = useState([]);
   const [displayedMuscleFunctionVideos, setDisplayedMuscleFunctionVideos] =
     useState([]);
-  const [trainingVideos, setTrainingVideos] = useState([]);
   const [exerciseVideos, setExerciseVideos] = useState([]);
   const [displayedExerciseVideos, setDisplayedExerciseVideos] = useState([]);
   const videoSectionRef = useRef(null);
-
-  useEffect(() => {
-    const fetchTrainingVideos = async () => {
-      const videos = await trainingVideoService.get();
-      setTrainingVideos(videos);
-    };
-    fetchTrainingVideos();
-  }, []);
 
   useEffect(() => {
     const fetchMuscleFunctionVideos = async () => {
@@ -140,7 +130,6 @@ const HumanAnatomy = () => {
         ref={videoSectionRef}
         displayedMuscleFunctionVideos={displayedMuscleFunctionVideos}
         displayedExerciseVideos={displayedExerciseVideos}
-        trainingVideos={trainingVideos}
         hoveredMuscle={hoveredMuscle}
         selectedMuscle={selectedMuscle}
       />

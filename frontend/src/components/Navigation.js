@@ -60,9 +60,16 @@ const Navigation = () => {
               <NavLink
                 to="/"
                 style={styles.navStyle}
-                aria-label="Link to Training page"
+                aria-label="Link to Interactive Muscle Anatomy Chart"
               >
                 Fitness
+              </NavLink>
+              <NavLink
+                to="/training"
+                style={styles.navStyle}
+                aria-label="Link to Training page"
+              >
+                Training
               </NavLink>
               {/*
               <NavLink

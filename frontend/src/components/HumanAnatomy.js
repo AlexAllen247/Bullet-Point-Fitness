@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Anatomy from "../images/Muscle.png";
 import MuscleData from "../muscles.json";
 import trainingVideoService from "../services/trainingVideos";
 import muscleFunctionVideoService from "../services/muscleFunctionVideos";
+import exerciseVideoService from "../services/exerciseVideos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import VideoGallery from "./VideoGallery";
 
@@ -31,6 +32,9 @@ const HumanAnatomy = () => {
   const [displayedMuscleFunctionVideos, setDisplayedMuscleFunctionVideos] =
     useState([]);
   const [trainingVideos, setTrainingVideos] = useState([]);
+  const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [displayedExerciseVideos, setDisplayedExerciseVideos] = useState([]);
+  const videoSectionRef = useRef(null);
 
   useEffect(() => {
     const fetchTrainingVideos = async () => {
@@ -48,6 +52,14 @@ const HumanAnatomy = () => {
     fetchMuscleFunctionVideos();
   }, []);
 
+  useEffect(() => {
+    const fetchExerciseVideos = async () => {
+      const videos = await exerciseVideoService.get();
+      setExerciseVideos(videos);
+    };
+    fetchExerciseVideos();
+  }, []);
+
   const handleMouseEnter = (muscleName) => {
     setHoveredMuscle(muscleName);
   };
@@ -58,10 +70,15 @@ const HumanAnatomy = () => {
 
   const handleClick = (muscleName) => {
     setSelectedMuscle(muscleName);
-    const relevantVideos = muscleFunctionVideos.filter(
+    const relevantMuscleFunctionVideos = muscleFunctionVideos.filter(
       (video) => video.muscleName === muscleName,
     );
-    setDisplayedMuscleFunctionVideos(relevantVideos);
+    setDisplayedMuscleFunctionVideos(relevantMuscleFunctionVideos);
+    const relevantExereciseVideos = exerciseVideos.filter(
+      (video) => video.muscleName === muscleName,
+    );
+    setDisplayedExerciseVideos(relevantExereciseVideos);
+    videoSectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -69,6 +86,7 @@ const HumanAnatomy = () => {
       if (!event.target.closest(".muscle-map")) {
         setSelectedMuscle(null);
         setDisplayedMuscleFunctionVideos([]);
+        setDisplayedExerciseVideos([]);
       }
     };
 
@@ -119,7 +137,9 @@ const HumanAnatomy = () => {
         )}
       </svg>
       <VideoGallery
+        ref={videoSectionRef}
         displayedMuscleFunctionVideos={displayedMuscleFunctionVideos}
+        displayedExerciseVideos={displayedExerciseVideos}
         trainingVideos={trainingVideos}
         hoveredMuscle={hoveredMuscle}
         selectedMuscle={selectedMuscle}

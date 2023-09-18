@@ -6,24 +6,6 @@ import exerciseVideoService from "../services/exerciseVideos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import VideoGallery from "./VideoGallery";
 
-const STYLES = {
-  muscleMap: {
-    position: "relative",
-  },
-  anatomyImg: {
-    width: "100%",
-    height: "auto",
-  },
-  svg: {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    width: "100%",
-    height: "auto",
-    transition: "all 0.3s ease",
-  },
-};
-
 const HumanAnatomy = () => {
   const [hoveredMuscle, setHoveredMuscle] = useState(null);
   const [selectedMuscle, setSelectedMuscle] = useState(null);
@@ -99,6 +81,24 @@ const HumanAnatomy = () => {
         ? "red"
         : "none",
   });
+
+  const STYLES = {
+    muscleMap: {
+      position: "relative",
+    },
+    anatomyImg: {
+      width: "100%",
+      height: "auto",
+    },
+    svg: {
+      position: "absolute",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "auto",
+      transition: "all 0.3s ease",
+    },
+  };
 
   return (
     <section className="muscle-map" style={STYLES.muscleMap}>

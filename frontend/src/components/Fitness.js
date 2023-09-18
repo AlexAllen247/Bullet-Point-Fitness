@@ -30,7 +30,7 @@ const Training = () => {
   return (
     <section className="training" style={styles.training}>
       <div>
-        <h4 style={styles.header}>Interactive Muscle Anatomy Chart</h4>
+        <h1 style={styles.header}>Interactive Muscle Anatomy Chart</h1>
       </div>
       <HumanAnatomy />
       <div>

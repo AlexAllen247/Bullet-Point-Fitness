@@ -9,14 +9,24 @@ const VideoGallery = forwardRef((props, ref) => {
     hoveredMuscle,
     selectedMuscle,
   } = props;
+
+  const styles = {
+    header: {
+      color: "#df0000",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      marginBottom: 40,
+    },
+  };
+
   return (
     <div ref={ref} className="album py-5">
       <Container>
-        <h1>{hoveredMuscle || selectedMuscle}</h1>
+        <h1 style={styles.header}>{hoveredMuscle || selectedMuscle}</h1>
         <Row>
           {displayedMuscleFunctionVideos.length > 0 && (
             <Col md={6}>
-              <h2>Muscle Functions</h2>
+              <h2 style={styles.header}>Muscle Functions</h2>
               <Row>
                 {displayedMuscleFunctionVideos.map((video) => (
                   <Col key={video.id} md={12}>
@@ -28,7 +38,7 @@ const VideoGallery = forwardRef((props, ref) => {
           )}
           {displayedExerciseVideos.length > 0 && (
             <Col md={6}>
-              <h2>Exercises</h2>
+              <h2 style={styles.header}>Exercises</h2>
               <Row>
                 {displayedExerciseVideos.map((video) => (
                   <Col key={video.id} md={12}>

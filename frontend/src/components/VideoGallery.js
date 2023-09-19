@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import VideoCard from "./VideoCard";
 
 const VideoGallery = forwardRef((props, ref) => {
@@ -20,39 +20,25 @@ const VideoGallery = forwardRef((props, ref) => {
   };
 
   return (
-    <div ref={ref} className="album py-5">
-      <Container>
-        <h1 style={styles.header}>{hoveredMuscle || selectedMuscle}</h1>
-        <Row>
-          {displayedMuscleFunctionVideos.length > 0 && (
-            <Col>
-              <h2 style={styles.header}>Muscle Functions</h2>
-              <Row>
-                {displayedMuscleFunctionVideos.map((video) => (
-                  <Col key={video.id} md={12}>
-                    <VideoCard video={video} />
-                  </Col>
-                ))}
-              </Row>
-            </Col>
-          )}
-        </Row>
-        <Row>
-          {displayedExerciseVideos.length > 0 && (
-            <Col>
-              <h2 style={styles.header}>Exercises</h2>
-              <Row>
-                {displayedExerciseVideos.map((video) => (
-                  <Col key={video.id} md={12}>
-                    <VideoCard video={video} />
-                  </Col>
-                ))}
-              </Row>
-            </Col>
-          )}
-        </Row>
-      </Container>
-    </div>
+    <Container ref={ref}>
+      <h1 style={styles.header}>{hoveredMuscle || selectedMuscle}</h1>
+      {displayedMuscleFunctionVideos.length > 0 && (
+        <Container>
+          <h2 style={styles.header}>Muscle Functions</h2>
+          {displayedMuscleFunctionVideos.map((video) => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+        </Container>
+      )}
+      {displayedExerciseVideos.length > 0 && (
+        <Container>
+          <h2 style={styles.header}>Exercises</h2>
+          {displayedExerciseVideos.map((video) => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+        </Container>
+      )}
+    </Container>
   );
 });
 

@@ -101,11 +101,11 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://www.youtube.com/embed/5gEZeCL9qZo?si=WBwMgqLQgdaRoIm6",
-    "title":"Cs50P Final Project",
-    "dateAdded":"2022-10-07",
-    "description": "This is the final project for CS50 introduction to programming with Python.",
-    "duration": "5min",
-    "muscleName": "Chest"
+    "embedUrl":"https://youtube.com/embed/lshMJIw96pY",
+    "title":"Dumbbell Wrist Extensions",
+    "dateAdded":"2023-09-19",
+    "description": "This video demonstrates the Dumbbell Wrist Extensions with a voiceover.",
+    "duration": "48 seconds",
+    "muscleName": "Forearms"
 }
 

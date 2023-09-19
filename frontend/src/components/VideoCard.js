@@ -4,7 +4,7 @@ import { Card, Ratio } from "react-bootstrap";
 const VideoCard = ({ video }) => {
   return (
     <Card className="mb-4 box-shadow" border="danger">
-      <Ratio aspectRatio="4x3">
+      <Ratio aspectRatio="16x9">
         <Card.Img
           as="iframe"
           title={video.title}

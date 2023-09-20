@@ -53,22 +53,6 @@ const HumanAnatomy = () => {
     videoSectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    const handleDocumentClick = (event) => {
-      if (!event.target.closest(".muscle-map")) {
-        setSelectedMuscle(null);
-        setDisplayedMuscleFunctionVideos([]);
-        setDisplayedExerciseVideos([]);
-      }
-    };
-
-    document.addEventListener("click", handleDocumentClick);
-
-    return () => {
-      document.removeEventListener("click", handleDocumentClick);
-    };
-  }, []);
-
   const getPolygonStyle = (muscleName) => ({
     fill:
       hoveredMuscle === muscleName

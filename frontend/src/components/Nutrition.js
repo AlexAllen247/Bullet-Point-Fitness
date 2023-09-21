@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from "react";
-import trainingVideoService from "../services/trainingVideos";
+import nutritionVideoService from "../services/nutritionVideos";
 
 const Nutrition = () => {
-  const [trainingVideos, setTrainingVideos] = useState([]);
+  const [nutritionVideos, setNutritionVideos] = useState([]);
 
   useEffect(() => {
-    const fetchTrainingVideos = async () => {
-      const videos = await trainingVideoService.get();
-      setTrainingVideos(videos);
+    const fetchNutritionVideos = async () => {
+      const videos = await nutritionVideoService.get();
+      setNutritionVideos(videos);
     };
 
-    fetchTrainingVideos();
+    fetchNutritionVideos();
   }, []);
+
   return (
     <section className="nutrition">
-      {trainingVideos.map((trainingVideo) => (
+      {nutritionVideos.map((nutritionVideo) => (
         <div>
           <iframe
             width="560"
             height="315"
-            src={trainingVideo.embedUrl}
-            title={trainingVideo.title}
+            src={nutritionVideo.embedUrl}
+            title={nutritionVideo.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-          <p>{trainingVideo.description}</p>
+          <p>{nutritionVideo.description}</p>
         </div>
       ))}
     </section>

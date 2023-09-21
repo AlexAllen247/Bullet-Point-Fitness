@@ -5,6 +5,7 @@ const VideoCard = ({ video }) => {
   const styles = {
     text: {
       color: "#df0000",
+      borderWidth: "2px",
     },
   };
   return (

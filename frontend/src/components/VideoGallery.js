@@ -21,7 +21,8 @@ const VideoGallery = forwardRef((props, ref) => {
 
   return (
     <Container ref={ref}>
-      <h1 style={styles.header}>{hoveredMuscle || selectedMuscle}</h1>
+      <h1 style={styles.header}>{hoveredMuscle}</h1>
+      <h1 style={styles.header}>{selectedMuscle}</h1>
       {displayedMuscleFunctionVideos.length > 0 && (
         <Container>
           <h2 style={styles.header}>Muscle Functions</h2>

@@ -11,6 +11,7 @@ const PrivacyPolicy = () => {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
+      color: "#df0000",
     },
   };
   return (

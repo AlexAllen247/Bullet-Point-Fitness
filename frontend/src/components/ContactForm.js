@@ -44,16 +44,14 @@ const ContactForm = () => {
 
   const styles = {
     cardStyle: {
-      boxShadow: "10px 10px 10px 10px rgba(0, 71, 171, 0.15)",
       textAlign: "center",
       color: "#df0000",
-      fontFamily: "Be Vietnam",
+      borderWidth: "2px",
     },
     form: {
       width: "80%",
       display: "block",
       margin: "0 auto",
-      boxShadow: "10px 10px 10px rgba(0, 71, 171, 0.15)",
     },
     header: {
       fontSize: "2rem",
@@ -80,7 +78,7 @@ const ContactForm = () => {
   return (
     <section className="contact form">
       <Container>
-        <Card className="my-3" style={styles.cardStyle}>
+        <Card className="my-3" style={styles.cardStyle} border="danger">
           <Card.Header>
             <h2 style={styles.header}>Contact Form</h2>
           </Card.Header>

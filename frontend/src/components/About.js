@@ -24,10 +24,9 @@ const About = () => {
 
   const styles = {
     cardStyle: {
-      boxShadow: "10px 10px 10px 10px rgba(0, 71, 171, 0.15)",
       textAlign: "center",
       color: "#df0000",
-      fontFamily: "Be Vietnam",
+      borderWidth: "2px",
     },
     header: {
       fontSize: "2rem",
@@ -38,7 +37,6 @@ const About = () => {
       width: "40%",
       height: "40%",
       objectFit: "contain",
-      border: "2px solid #0047ab",
       marginBottom: 20,
     },
     paragraph: {
@@ -49,7 +47,7 @@ const About = () => {
 
   return (
     <Container>
-      <Card className="my-3" style={styles.cardStyle}>
+      <Card className="my-3" style={styles.cardStyle} border="danger">
         <Card.Header>
           <h2 style={styles.header}>Alex Allen</h2>
         </Card.Header>

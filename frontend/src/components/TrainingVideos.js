@@ -37,7 +37,7 @@ const TrainingVideos = () => {
   return (
     <section className="album py-5" style={styles.trainingVideos}>
       <div>
-        <h1 style={styles.header}>Training Videos</h1>
+        <h1 style={styles.header}>Training Essentials</h1>
       </div>
       <Container>
         <Row>

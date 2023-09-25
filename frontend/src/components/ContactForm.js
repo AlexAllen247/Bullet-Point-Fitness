@@ -80,7 +80,7 @@ const ContactForm = () => {
       <Container>
         <Card className="my-3" style={styles.cardStyle} border="danger">
           <Card.Header>
-            <h2 style={styles.header}>Contact Form</h2>
+            <h1 style={styles.header}>Contact Form</h1>
           </Card.Header>
           <Card.Body>
             <p style={styles.paragraph}>

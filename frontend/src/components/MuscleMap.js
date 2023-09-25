@@ -1,7 +1,7 @@
 import React from "react";
 import HumanAnatomy from "./HumanAnatomy";
 
-const Training = () => {
+const MuscleMap = () => {
   const styles = {
     training: {
       display: "flex",
@@ -19,7 +19,7 @@ const Training = () => {
     paragraph: {
       color: "#df0000",
       fontSize: 20,
-      marginTop: 20,
+      margin: 20,
     },
     link: {
       textDecoration: "none",
@@ -31,6 +31,9 @@ const Training = () => {
     <section className="training" style={styles.training}>
       <div>
         <h1 style={styles.header}>Interactive Muscle Anatomy Chart</h1>
+        <p style={styles.paragraph}>
+          Click on a muscle to learn about its functions and the best exercises.
+        </p>
       </div>
       <HumanAnatomy />
       <div>
@@ -40,7 +43,7 @@ const Training = () => {
             href="https://musclecharts.net/"
             target="_blank"
             rel="noreferrer"
-            aria-label="Github Profile"
+            aria-label="Link to musclecharts.net"
             style={styles.link}
           >
             Muscle Charts.
@@ -51,4 +54,4 @@ const Training = () => {
   );
 };
 
-export default Training;
+export default MuscleMap;

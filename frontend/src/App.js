@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 //import Consultation from "./components/Consultation";
 //import Mindset from "./components/Mindset";
 //import Nutrition from "./components/Nutrition";
-import Fitness from "./components/Fitness";
+import MuscleMap from "./components/MuscleMap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./components/About";
@@ -30,12 +30,12 @@ const App = () => {
     },
   };
   return (
-    <main>
-      <div className="app">
-        <Header />
-        <Navigation />
+    <div className="app">
+      <Header />
+      <Navigation />
+      <main>
         <Routes>
-          <Route path="/" element={<Fitness />} />
+          <Route path="/" element={<MuscleMap />} />
           <Route path="/training" element={<TrainingVideos />} />
           {/*<Route path="nutrition" element={<Nutrition />} />
         <Route path="mindset" element={<Mindset />} />
@@ -44,20 +44,20 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
-        <CookieConsent
-          location="bottom"
-          buttonText="Accept"
-          cookieName="myCookieName"
-          style={styles.cookie}
-          buttonStyle={styles.button}
-        >
-          This website uses cookies to ensure you get the best experience on our
-          website. By continuing to use this site, you consent to the use of
-          cookies.
-        </CookieConsent>
-      </div>
-    </main>
+      </main>
+      <Footer />
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        cookieName="myCookieName"
+        style={styles.cookie}
+        buttonStyle={styles.button}
+      >
+        This website uses cookies to ensure you get the best experience on our
+        website. By continuing to use this site, you consent to the use of
+        cookies.
+      </CookieConsent>
+    </div>
   );
 };
 

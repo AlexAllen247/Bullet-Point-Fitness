@@ -77,6 +77,7 @@ const About = () => {
                       <Card.Img
                         variant="top"
                         src={fitnessCertifications[index]}
+                        loading="lazy"
                       />
                     </Card>
                   </a>
@@ -88,6 +89,7 @@ const About = () => {
                         <Card.Img
                           variant="top"
                           src={fitnessCertifications[index + 1]}
+                          loading="lazy"
                         />
                       </Card>
                     </a>

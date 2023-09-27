@@ -17,6 +17,7 @@ const Footer = () => {
       textAlign: "center",
       padding: 15,
       color: "#df0000",
+      margin: 10,
     },
     button: {
       margin: 10,

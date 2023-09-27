@@ -43,7 +43,7 @@ const ContactForm = () => {
   };
 
   const styles = {
-    cardStyle: {
+    card: {
       textAlign: "center",
       color: "#df0000",
       borderWidth: "2px",
@@ -54,9 +54,11 @@ const ContactForm = () => {
       margin: "0 auto",
     },
     header: {
-      fontSize: "2rem",
-      marginBottom: "1rem",
-      paddingBottom: "0.5rem",
+      color: "#df0000",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      marginBottom: 40,
+      textAlign: "center",
     },
     label: {
       fontSize: 28,
@@ -78,10 +80,10 @@ const ContactForm = () => {
   return (
     <section className="contact form">
       <Container>
-        <Card className="my-3" style={styles.cardStyle} border="danger">
-          <Card.Header>
-            <h1 style={styles.header}>Contact Form</h1>
-          </Card.Header>
+        <div>
+          <h1 style={styles.header}>Contact Form</h1>
+        </div>
+        <Card className="my-3" style={styles.card} border="danger">
           <Card.Body>
             <p style={styles.paragraph}>
               If you have any questions or inquiries, please don't hesitate to

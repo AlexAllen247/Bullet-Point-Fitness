@@ -109,3 +109,21 @@ Content-Type: application/json
     "muscleName": "Tibialis"
 }
 
+###
+
+GET http://localhost:3001/api/aboutvideos
+
+
+###
+
+POST http://localhost:3001/api/aboutvideos
+Content-Type: application/json
+
+
+{
+    "embedUrl":"https://youtube.com/embed/VUIpLitgB84",
+    "title":"Welcome Video",
+    "dateAdded":"2023-09-27",
+    "description": "Watch to find out about Bullet Point Fitness.",
+    "duration": "1 min and 20 seconds"
+}

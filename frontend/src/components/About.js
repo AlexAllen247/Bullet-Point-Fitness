@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Container, Col, Row } from "react-bootstrap";
 import Image1 from "../images/Level2FirstAid.jpg";
 import Image2 from "../images/Level2Fitness.jpg";
@@ -8,9 +8,20 @@ import Image5 from "../images/Level3PTDiploma.jpg";
 import Image6 from "../images/Level3PTDiploma.jpg";
 import Image7 from "../images/Level3ExerciseReferral.jpg";
 import Image8 from "../images/Level4ObesityAndDiabetes.jpg";
-import ProfilePicture from "../images/ProfilePicture.JPG";
+import aboutVideoService from "../services/aboutVideos";
+import VideoCard from "./VideoCard";
 
 const About = () => {
+  const [aboutVideos, setAboutVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchTrainingVideos = async () => {
+      const videos = await aboutVideoService.get();
+      setAboutVideos(videos);
+    };
+    fetchTrainingVideos();
+  }, []);
+
   const fitnessCertifications = [
     Image1,
     Image2,
@@ -23,89 +34,72 @@ const About = () => {
   ];
 
   const styles = {
-    cardStyle: {
+    container: {
       textAlign: "center",
+    },
+    card: {
       color: "#df0000",
       borderWidth: "2px",
     },
     header: {
-      fontSize: "2rem",
-      marginBottom: "1rem",
-      paddingBottom: "0.5rem",
+      color: "#df0000",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      marginBottom: 40,
     },
-    image: {
-      width: "40%",
-      height: "40%",
-      objectFit: "contain",
-      marginBottom: 20,
-    },
-    paragraph: {
-      marginBottom: "1rem",
-      fontSize: 20,
+    fitHeader: {
+      color: "#df0000",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      margin: 60,
     },
   };
 
   return (
-    <Container>
-      <Card className="my-3" style={styles.cardStyle} border="danger">
-        <Card.Header>
-          <h2 style={styles.header}>Alex Allen</h2>
-        </Card.Header>
-        <Card.Body>
-          <div>
-            <img
-              src={ProfilePicture}
-              alt="profile"
-              aria-label="Profile picture"
-              style={styles.image}
-            />
-          </div>
-          <div>
-            <p style={styles.paragraph}>
-              Hi, I'm Alex, Full Stack Developer and TeckBuff.
-            </p>
-            <p style={styles.paragraph}>
-              Why TeckBuff? That's what my friends and family call me.
-            </p>
-            <p style={styles.paragraph}>
-              I am driven by commitment to create innovative and user-friendly
-              web applications tailored to the needs of diverse clients.
-            </p>
-          </div>
-        </Card.Body>
-      </Card>
-      {fitnessCertifications.map((image, index) => {
-        if (index % 2 === 0) {
-          return (
-            <Row key={index}>
-              <Col md={6}>
-                <a href={fitnessCertifications[index]}>
-                  <Card className="my-3" style={styles.cardStyle}>
-                    <Card.Img
-                      variant="top"
-                      src={fitnessCertifications[index]}
-                    />
-                  </Card>
-                </a>
-              </Col>
-              {fitnessCertifications[index + 1] && (
+    <section style={styles.container}>
+      <Container>
+        <div>
+          <h1 style={styles.header}>About</h1>
+        </div>
+        {aboutVideos.map((video) => (
+          <VideoCard key={video.id} video={video} />
+        ))}
+        <div>
+          <h1 style={styles.fitHeader}>Fitness Certifications</h1>
+        </div>
+        {fitnessCertifications.map((image, index) => {
+          if (index % 2 === 0) {
+            return (
+              <Row key={index}>
                 <Col md={6}>
-                  <a href={fitnessCertifications[index + 1]}>
-                    <Card className="my-3" style={styles.cardStyle}>
+                  <a href={fitnessCertifications[index]}>
+                    <Card className="my-3" style={styles.card}>
                       <Card.Img
                         variant="top"
-                        src={fitnessCertifications[index + 1]}
+                        src={fitnessCertifications[index]}
                       />
                     </Card>
                   </a>
                 </Col>
-              )}
-            </Row>
-          );
-        }
-        return null;
-      })}
-    </Container>
+                {fitnessCertifications[index + 1] && (
+                  <Col md={6}>
+                    <a href={fitnessCertifications[index + 1]}>
+                      <Card className="my-3" style={styles.card}>
+                        <Card.Img
+                          variant="top"
+                          src={fitnessCertifications[index + 1]}
+                        />
+                      </Card>
+                    </a>
+                  </Col>
+                )}
+              </Row>
+            );
+          }
+          return null;
+        })}
+      </Container>
+    </section>
   );
 };
 

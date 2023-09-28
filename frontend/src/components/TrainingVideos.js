@@ -33,6 +33,17 @@ const TrainingVideos = () => {
       marginBottom: 40,
     },
   };
+  /*
+  const durationToSeconds = (duration) => {
+    const minMatch = duration.match(/(\d+)\s*min/);
+    const secMatch = duration.match(/(\d+)\s*seconds/);
+
+    const mins = minMatch ? parseInt(minMatch[1], 10) : 0;
+    const secs = secMatch ? parseInt(secMatch[1], 10) : 0;
+
+    return (mins * 60) + secs;
+};
+*/
 
   return (
     <section className="album py-5" style={styles.trainingVideos}>
@@ -42,6 +53,7 @@ const TrainingVideos = () => {
       <Container>
         <Row>
           {trainingVideos
+            .sort((a, b) => b.dateAdded.localeCompare(a.dateAdded))
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((video) => (
               <Col key={video.id} md={4}>

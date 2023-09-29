@@ -42,7 +42,7 @@ router.post("/", async (request, response) => {
     const mailOptions = {
       from: GMAIL,
       to: GMAIL,
-      subject: "Fitness Website contact form submission",
+      subject: "Bullet Point Fitness contact form submission",
       html: `
       <p>Email: ${request.body.email}</p>
       <p>Message: ${request.body.message}</p>

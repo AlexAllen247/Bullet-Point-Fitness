@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bdfa9d1d.css",
+    "main.js": "/static/js/main.1c0d4b28.js",
+    "static/media/Level2Fitness.jpg": "/static/media/Level2Fitness.32bc5181ae5e46d71424.jpg",
+    "static/media/Level3ExerciseReferral.jpg": "/static/media/Level3ExerciseReferral.0354990be557bafed967.jpg",
+    "static/media/Level3PT1.jpg": "/static/media/Level3PT1.2a80610b60673d93832b.jpg",
+    "static/media/Level4ObesityAndDiabetes.jpg": "/static/media/Level4ObesityAndDiabetes.5b3b5d07d2078e2a76c9.jpg",
+    "static/media/Level3PT.jpg": "/static/media/Level3PT.d82e5e1e7794d02544dd.jpg",
+    "static/media/Level2FirstAid.jpg": "/static/media/Level2FirstAid.7c30957a7197a0dbd3c0.jpg",
+    "static/media/Level3PTDiploma.jpg": "/static/media/Level3PTDiploma.e4c06605fe542201351f.jpg",
+    "static/media/Muscle.png": "/static/media/Muscle.fa0130dd51423bab87ec.png",
+    "static/media/BulletPointFitnessBannerNew.png": "/static/media/BulletPointFitnessBannerNew.f000e0b05492fcd2d242.png",
+    "index.html": "/index.html",
+    "main.bdfa9d1d.css.map": "/static/css/main.bdfa9d1d.css.map",
+    "main.1c0d4b28.js.map": "/static/js/main.1c0d4b28.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bdfa9d1d.css",
+    "static/js/main.1c0d4b28.js"
+  ]
+}

@@ -118,7 +118,7 @@ const Footer = () => {
             width="28"
             height="28"
             fill="#000000"
-            class="bi bi-tiktok"
+            className="bi bi-tiktok"
             viewBox="0 0 16 16"
             style={styles.svg}
           >

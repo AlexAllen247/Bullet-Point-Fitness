@@ -1,4 +1,4 @@
-/*! For license information please see main.3ab91d0f.js.LICENSE.txt */
+/*! For license information please see main.b7a7cfb1.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -18751,8 +18751,7 @@
             children: [
               (0, dt.jsx)(tu, {
                 aspectRatio: "16x9",
-                children: (0, dt.jsx)(nn.Img, {
-                  as: "iframe",
+                children: (0, dt.jsx)("iframe", {
                   title: t.title,
                   src: t.embedUrl,
                   frameBorder: "0",
@@ -19638,4 +19637,4 @@
       );
     })();
 })();
-//# sourceMappingURL=main.3ab91d0f.js.map
+//# sourceMappingURL=main.b7a7cfb1.js.map

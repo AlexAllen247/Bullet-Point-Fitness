@@ -114,7 +114,6 @@ const HumanAnatomy = () => {
         ref={videoSectionRef}
         displayedMuscleFunctionVideos={displayedMuscleFunctionVideos}
         displayedExerciseVideos={displayedExerciseVideos}
-        hoveredMuscle={hoveredMuscle}
         selectedMuscle={selectedMuscle}
       />
     </section>

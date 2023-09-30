@@ -7,6 +7,7 @@ import VideoCard from "./VideoCard";
 const TrainingVideos = () => {
   const [trainingVideos, setTrainingVideos] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [sortOrder, setSortOrder] = useState("date");
 
   const itemsPerPage = 6;
 
@@ -32,8 +33,14 @@ const TrainingVideos = () => {
       textDecoration: "underline",
       marginBottom: 40,
     },
+    select: {
+      margin: 20,
+      color: "#df0000",
+      border: "#df0000",
+      backgroundColor: "#ffffff",
+    },
   };
-  /*
+
   const durationToSeconds = (duration) => {
     const minMatch = duration.match(/(\d+)\s*min/);
     const secMatch = duration.match(/(\d+)\s*seconds/);
@@ -41,19 +48,41 @@ const TrainingVideos = () => {
     const mins = minMatch ? parseInt(minMatch[1], 10) : 0;
     const secs = secMatch ? parseInt(secMatch[1], 10) : 0;
 
-    return (mins * 60) + secs;
-};
-*/
+    return mins * 60 + secs;
+  };
+
+  const sortVideos = (videos) => {
+    switch (sortOrder) {
+      case "title":
+        return videos.sort((a, b) => a.title.localeCompare(b.title));
+      case "duration":
+        return videos.sort(
+          (a, b) =>
+            durationToSeconds(a.duration) - durationToSeconds(b.duration),
+        );
+      case "date":
+      default:
+        return videos.sort((a, b) => b.dateAdded.localeCompare(a.dateAdded));
+    }
+  };
 
   return (
     <section className="album py-5" style={styles.trainingVideos}>
       <div>
         <h1 style={styles.header}>Training Essentials</h1>
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          style={styles.select}
+        >
+          <option value="date">Sort by Date</option>
+          <option value="title">Sort by Title</option>
+          <option value="duration">Sort by Duration</option>
+        </select>
       </div>
       <Container>
         <Row>
-          {trainingVideos
-            .sort((a, b) => b.dateAdded.localeCompare(a.dateAdded))
+          {sortVideos([...trainingVideos])
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((video) => (
               <Col key={video.id} md={4}>

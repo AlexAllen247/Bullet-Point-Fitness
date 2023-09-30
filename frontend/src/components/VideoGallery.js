@@ -6,7 +6,6 @@ const VideoGallery = forwardRef((props, ref) => {
   const {
     displayedMuscleFunctionVideos,
     displayedExerciseVideos,
-    hoveredMuscle,
     selectedMuscle,
   } = props;
 
@@ -21,11 +20,10 @@ const VideoGallery = forwardRef((props, ref) => {
 
   return (
     <Container ref={ref}>
-      <h1 style={styles.header}>{hoveredMuscle}</h1>
       <h1 style={styles.header}>{selectedMuscle}</h1>
       {displayedMuscleFunctionVideos.length > 0 && (
         <Container>
-          <h2 style={styles.header}>Muscle Functions</h2>
+          <h1 style={styles.header}>Muscle Functions</h1>
           {displayedMuscleFunctionVideos.map((video) => (
             <VideoCard key={video.id} video={video} />
           ))}
@@ -33,7 +31,7 @@ const VideoGallery = forwardRef((props, ref) => {
       )}
       {displayedExerciseVideos.length > 0 && (
         <Container>
-          <h2 style={styles.header}>Exercises</h2>
+          <h1 style={styles.header}>Exercises</h1>
           {displayedExerciseVideos.map((video) => (
             <VideoCard key={video.id} video={video} />
           ))}

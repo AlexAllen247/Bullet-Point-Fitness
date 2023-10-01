@@ -58,7 +58,7 @@ const TrainingVideos = () => {
       case "duration":
         return videos.sort(
           (a, b) =>
-            durationToSeconds(a.duration) - durationToSeconds(b.duration),
+            durationToSeconds(b.duration) - durationToSeconds(a.duration),
         );
       case "date":
       default:

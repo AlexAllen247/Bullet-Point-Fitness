@@ -1,4 +1,4 @@
-/*! For license information please see main.fc04f5e8.js.LICENSE.txt */
+/*! For license information please see main.9d3c204b.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -19591,7 +19591,7 @@
                         });
                       case "duration":
                         return e.sort(function (e, t) {
-                          return d(e.duration) - d(t.duration);
+                          return d(t.duration) - d(e.duration);
                         });
                       default:
                         return e.sort(function (e, t) {
@@ -19685,4 +19685,4 @@
       );
     })();
 })();
-//# sourceMappingURL=main.fc04f5e8.js.map
+//# sourceMappingURL=main.9d3c204b.js.map

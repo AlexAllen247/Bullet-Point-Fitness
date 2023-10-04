@@ -1,4 +1,4 @@
-/*! For license information please see main.9d3c204b.js.LICENSE.txt */
+/*! For license information please see main.a7cc3b66.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -19078,6 +19078,9 @@
                   (0, dt.jsxs)(ut, {
                     to: "/contactforms",
                     "aria-label": "Link to Contact page",
+                    onClick: function (e) {
+                      window.scrollTo(0, 0);
+                    },
                     children: [" ", "here."],
                   }),
                 ],
@@ -19685,4 +19688,4 @@
       );
     })();
 })();
-//# sourceMappingURL=main.9d3c204b.js.map
+//# sourceMappingURL=main.a7cc3b66.js.map

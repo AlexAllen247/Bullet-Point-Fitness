@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
+  const scrollToTop = (e) => {
+    window.scrollTo(0, 0);
+  };
+
   const styles = {
     section: {
       maxWidth: 500,
@@ -65,7 +69,11 @@ const PrivacyPolicy = () => {
         If you have any questions or concerns about this Privacy Policy or our
         handling of your personal data, please contact TeckBuff at
         alexanderallen032@gmail.com or use the contact form{" "}
-        <Link to="/contactforms" aria-label="Link to Contact page">
+        <Link
+          to="/contactforms"
+          aria-label="Link to Contact page"
+          onClick={scrollToTop}
+        >
           {" "}
           here.
         </Link>

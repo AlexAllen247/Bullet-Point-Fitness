@@ -2,7 +2,7 @@
 
 ![Bullet Point Fitness Logo](frontend/src/images/BulletPointFitnessBannerNew.png)
 
-**Live Website**: [bulletpointfitness.com](https://bulletpointfitness.com/)
+**Live Website**: <a href="https://bulletpointfitness.com/" target="_blank">bulletpointfitness.com</a>
 
 ## Description
 
@@ -36,11 +36,11 @@
 - **Interactive Nutrition Section**: We're currently working on introducing an interactive nutrition section, which will provide users with valuable insights into food, nutrition and suggestions for a balanced diet.
 
 - **Increased Social Media Presence**: Stay updated and engaged with our latest content by following us on our social media platforms:
-  - [X](https://twitter.com/AlexAllen247)
-  - [Youtube](https://www.youtube.com/channel/UCSfGT9FK27UGW63uaMpd3Cg)
-  - [Instagram](https://www.instagram.com/alexallen247)
-  - [TikTok](https://www.tiktok.com/@alexallen247)
-  - [LinkedIn](https://www.linkedin.com/in/alex-allen-392225251/)
+  - <a href="https://twitter.com/AlexAllen247" target="_blank">X</a>
+  - <a href="https://www.youtube.com/channel/UCSfGT9FK27UGW63uaMpd3Cg" target="_blank">Youtube</a>
+  - <a href="https://www.instagram.com/alexallen247" target="_blank">Instagram</a>
+  - <a href="https://www.tiktok.com/@alexallen247" target="_blank">TikTok</a>
+  - <a href="https://www.linkedin.com/in/alex-allen-392225251/" target="_blank">LinkedIn</a>
 
 ## Author
 

@@ -1,4 +1,4 @@
-/*! For license information please see main.0ef181f9.js.LICENSE.txt */
+/*! For license information please see main.e15b788a.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -14277,7 +14277,7 @@
         Ir &&
           (window.addEventListener("test", Mr, Mr),
           window.removeEventListener("test", Mr, !0));
-      } catch (Ns) {}
+      } catch (Ps) {}
       var Ur = function (e, t, n, r) {
         if (r && "boolean" !== typeof r && !Br) {
           var a = r.once,
@@ -15413,8 +15413,8 @@
                   if (Ka.isString(e))
                     try {
                       return (t || JSON.parse)(e), Ka.trim(e);
-                    } catch (Ns) {
-                      if ("SyntaxError" !== Ns.name) throw Ns;
+                    } catch (Ps) {
+                      if ("SyntaxError" !== Ps.name) throw Ps;
                     }
                   return (n || JSON.stringify)(e);
                 })(e))
@@ -15430,17 +15430,17 @@
               var a = !(t && t.silentJSONParsing) && r;
               try {
                 return JSON.parse(e);
-              } catch (Ns) {
+              } catch (Ps) {
                 if (a) {
-                  if ("SyntaxError" === Ns.name)
+                  if ("SyntaxError" === Ps.name)
                     throw Za.from(
-                      Ns,
+                      Ps,
                       Za.ERR_BAD_RESPONSE,
                       this,
                       null,
                       this.response,
                     );
-                  throw Ns;
+                  throw Ps;
                 }
               }
             }
@@ -16088,7 +16088,7 @@
         if (e) {
           try {
             Object.defineProperty(e, "name", { value: t });
-          } catch (Ns) {}
+          } catch (Ps) {}
           Object.defineProperty(e, "adapterName", { value: t });
         }
       });
@@ -17191,7 +17191,7 @@
         try {
           var t = e.activeElement;
           return t && t.nodeName ? t : null;
-        } catch (Ns) {
+        } catch (Ps) {
           return e.body;
         }
       }
@@ -19089,10 +19089,34 @@
           });
         },
         ls = function () {
+          return (0, dt.jsxs)("section", {
+            className: "disclaimer",
+            style: {
+              margin: "auto",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "#df0000",
+            },
+            children: [
+              (0, dt.jsx)("h3", { children: "Disclaimer" }),
+              (0, dt.jsx)("p", {
+                children:
+                  "As with all diet and fitness programs, consulting a Doctor or medical professional before starting is always recommended. The information on the Bullet Point Fitness site is for informative purposes only, and is not intended or implied to be a substitute for professional medical advice, diagnosis or treatment. All content, including text, graphics, images and information, contained on or available through this web site is for general information purposes only. This site is to help people reach attainable goals through lifestyle changes. Bullet Point Fitness makes no representation and assumes no responsibility for the accuracy of information contained on or available through this web site, and such information is subject to change without notice. You are encouraged to confirm any information obtained from or through this web site with other sources, and review all information regarding any MEDICAL condition or treatment with your Doctor. NEVER DISREGARD ANY PROFESSIONAL MEDICAL ADVICE OR DELAY SEEKING MEDICAL TREATMENT BECAUSE OF SOMETHING YOU HAVE READ OR ACCESSED THROUGHOUT THIS WEBSITE. No health or medical claims are made for this lifestyle change program. Bullet Point Fitness does not warrant, lead, guide or in any way want you to believe or expect that the nutritional and fitness information presented on this web site will: cure, heal, or correct any illness, metabolic disorder, or medical condition. Bullet Point Fitness does not recommend, endorse or make any representation about the efficacy, appropriateness, or suitability of any specific tests, products, procedures, treatments, services, opinions or other information that may be contained or available through this web site. BULLET POINT FITNESS IS NOT RESPONSIBLE NOR LIABLE FOR ANY ADVICE, COURSE OF TREATMENT, DIAGNOSIS OR ANY OTHER INFORMATION, SERVICES OR PRODUCTS THAT YOU OBTAIN THROUGH THIS WEBSITE. By using these diets and fitness guidelines, you agree that you have read the above medical disclosure, you agree, and you will hold harmless the authors, contributors and publishers, and they shall have neither liability nor responsibility to any person or entity with respect to any of the information contained on this website. You (the user) will assume all risk for injury, loss or damage caused or alleged to be caused, directly or indirectly by using any information described on this web site.",
+              }),
+            ],
+          });
+        },
+        ss = function () {
           var e = S((0, t.useState)(!1), 2),
             n = e[0],
             r = e[1],
-            a = {
+            a = S((0, t.useState)(!1), 2),
+            o = a[0],
+            i = a[1],
+            l = {
               section: {
                 display: "flex",
                 flexDirection: "column",
@@ -19107,19 +19131,19 @@
               svg: { margin: 15 },
               header: { margin: 12 },
             },
-            o = new Date().getFullYear();
+            s = new Date().getFullYear();
           return (0, dt.jsxs)("section", {
             className: "footer",
-            style: a.section,
+            style: l.section,
             children: [
               (0, dt.jsxs)("div", {
                 children: [
                   (0, dt.jsxs)("h4", {
-                    style: a.header,
-                    children: ["Copyright Alex Allen ", o],
+                    style: l.header,
+                    children: ["Copyright Alex Allen ", s],
                   }),
                   (0, dt.jsxs)("h4", {
-                    style: a.header,
+                    style: l.header,
                     children: [
                       "Powered by",
                       " ",
@@ -19136,12 +19160,12 @@
               }),
               (0, dt.jsx)("div", {
                 children: (0, dt.jsx)("h4", {
-                  style: a.header,
+                  style: l.header,
                   children: "Connect with us on these platforms:",
                 }),
               }),
               (0, dt.jsxs)("div", {
-                style: a.header,
+                style: l.header,
                 children: [
                   (0, dt.jsx)("a", {
                     href: "https://twitter.com/AlexAllen247",
@@ -19155,7 +19179,7 @@
                       fill: "#000000",
                       className: "bi bi-twitter-x",
                       viewBox: "0 0 16 16",
-                      style: a.svg,
+                      style: l.svg,
                       children: (0, dt.jsx)("path", {
                         d: "M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z",
                       }),
@@ -19173,7 +19197,7 @@
                       fill: "#FF0000",
                       className: "bi bi-youtube",
                       viewBox: "0 0 16 16",
-                      style: a.svg,
+                      style: l.svg,
                       children: (0, dt.jsx)("path", {
                         d: "M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z",
                       }),
@@ -19191,7 +19215,7 @@
                       fill: "#000000",
                       className: "bi bi-instagram",
                       viewBox: "0 0 16 16",
-                      style: a.svg,
+                      style: l.svg,
                       children: (0, dt.jsx)("path", {
                         d: "M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z",
                       }),
@@ -19209,7 +19233,7 @@
                       fill: "#000000",
                       className: "bi bi-tiktok",
                       viewBox: "0 0 16 16",
-                      style: a.svg,
+                      style: l.svg,
                       children: (0, dt.jsx)("path", {
                         d: "M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z",
                       }),
@@ -19227,7 +19251,7 @@
                       fill: "#0E76A8",
                       className: "bi bi-linkedin",
                       viewBox: "0 0 16 16",
-                      style: a.svg,
+                      style: l.svg,
                       children: (0, dt.jsx)("path", {
                         d: "M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z",
                       }),
@@ -19245,7 +19269,7 @@
                       fill: "#000000",
                       className: "bi bi-github",
                       viewBox: "0 0 16 16",
-                      style: a.svg,
+                      style: l.svg,
                       children: (0, dt.jsx)("path", {
                         d: "M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z",
                       }),
@@ -19260,25 +19284,32 @@
                     return !e;
                   });
                 },
-                style: a.button,
+                style: l.button,
                 "aria-label": "Privacy Policy",
                 className: "btn-custom",
                 children: "Privacy Policy",
               }),
               n ? (0, dt.jsx)(is, {}) : null,
-              (0, dt.jsx)("div", {
-                children: (0, dt.jsx)("small", {
-                  children:
-                    "DISCLAIMER: As with all diet and fitness programs, consulting a Doctor or medical professional before starting is always recommended. The information on the Bullet Point Fitness site is for informative purposes only, and is not intended or implied to be a substitute for professional medical advice, diagnosis or treatment. All content, including text, graphics, images and information, contained on or available through this web site is for general information purposes only. This site is to help people reach attainable goals through lifestyle changes. Bullet Point Fitness makes no representation and assumes no responsibility for the accuracy of information contained on or available through this web site, and such information is subject to change without notice. You are encouraged to confirm any information obtained from or through this web site with other sources, and review all information regarding any MEDICAL condition or treatment with your Doctor. NEVER DISREGARD ANY PROFESSIONAL MEDICAL ADVICE OR DELAY SEEKING MEDICAL TREATMENT BECAUSE OF SOMETHING YOU HAVE READ OR ACCESSED THROUGHOUT THIS WEBSITE. No health or medical claims are made for this lifestyle change program. Bullet Point Fitness does not warrant, lead, guide or in any way want you to believe or expect that the nutritional and fitness information presented on this web site will: cure, heal, or correct any illness, metabolic disorder, or medical condition. Bullet Point Fitness does not recommend, endorse or make any representation about the efficacy, appropriateness, or suitability of any specific tests, products, procedures, treatments, services, opinions or other information that may be contained or available through this web site. BULLET POINT FITNESS IS NOT RESPONSIBLE NOR LIABLE FOR ANY ADVICE, COURSE OF TREATMENT, DIAGNOSIS OR ANY OTHER INFORMATION, SERVICES OR PRODUCTS THAT YOU OBTAIN THROUGH THIS WEBSITE. By using these diets and fitness guidelines, you agree that you have read the above medical disclosure, you agree, and you will hold harmless the authors, contributors and publishers, and they shall have neither liability nor responsibility to any person or entity with respect to any of the information contained on this website. You (the user) will assume all risk for injury, loss or damage caused or alleged to be caused, directly or indirectly by using any information described on this web site.",
-                }),
+              (0, dt.jsx)(ar, {
+                variant: "danger",
+                onClick: function () {
+                  i(function (e) {
+                    return !e;
+                  });
+                },
+                style: l.button,
+                "aria-label": "Disclaimer",
+                className: "btn-custom",
+                children: "Disclaimer",
               }),
+              o ? (0, dt.jsx)(ls, {}) : null,
             ],
           });
         },
-        ss =
+        us =
           n.p +
           "static/media/BulletPointFitnessBannerNew.f000e0b05492fcd2d242.png",
-        us = function () {
+        cs = function () {
           var e = S((0, t.useState)(window.innerWidth), 2),
             n = e[0],
             r = e[1],
@@ -19315,7 +19346,7 @@
               children:
                 o &&
                 (0, dt.jsx)("img", {
-                  src: ss,
+                  src: us,
                   alt: "My Banner",
                   style: l.image,
                   "aria-label": "Banner for bulletpointfitness.com",
@@ -19323,13 +19354,13 @@
             }),
           });
         },
-        cs = ["bsPrefix", "className", "as"],
-        fs = t.forwardRef(function (e, t) {
+        fs = ["bsPrefix", "className", "as"],
+        ds = t.forwardRef(function (e, t) {
           var n = e.bsPrefix,
             r = e.className,
             a = e.as,
             o = void 0 === a ? "div" : a,
-            i = wt(e, cs),
+            i = wt(e, fs),
             l = Ot(n, "row"),
             s = Nt(),
             u = Pt(),
@@ -19354,26 +19385,26 @@
             )
           );
         });
-      fs.displayName = "Row";
-      var ds = fs,
-        ps = n.p + "static/media/Level2FirstAid.7c30957a7197a0dbd3c0.jpg",
-        hs = n.p + "static/media/Level2Fitness.32bc5181ae5e46d71424.jpg",
-        vs = n.p + "static/media/Level3PT.d82e5e1e7794d02544dd.jpg",
-        ms = n.p + "static/media/Level3PT1.2a80610b60673d93832b.jpg",
-        gs = n.p + "static/media/Level3PTDiploma.e4c06605fe542201351f.jpg",
-        ys =
-          n.p + "static/media/Level3ExerciseReferral.0354990be557bafed967.jpg",
+      ds.displayName = "Row";
+      var ps = ds,
+        hs = n.p + "static/media/Level2FirstAid.7c30957a7197a0dbd3c0.jpg",
+        vs = n.p + "static/media/Level2Fitness.32bc5181ae5e46d71424.jpg",
+        ms = n.p + "static/media/Level3PT.d82e5e1e7794d02544dd.jpg",
+        gs = n.p + "static/media/Level3PT1.2a80610b60673d93832b.jpg",
+        ys = n.p + "static/media/Level3PTDiploma.e4c06605fe542201351f.jpg",
         bs =
+          n.p + "static/media/Level3ExerciseReferral.0354990be557bafed967.jpg",
+        xs =
           n.p +
           "static/media/Level4ObesityAndDiabetes.5b3b5d07d2078e2a76c9.jpg",
-        xs = {
+        ws = {
           get: function () {
             return ti.get("/api/aboutvideos").then(function (e) {
               return e.data;
             });
           },
         },
-        ws = function () {
+        ks = function () {
           var e = S((0, t.useState)([]), 2),
             n = e[0],
             r = e[1];
@@ -19386,7 +19417,7 @@
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
-                          return (e.next = 2), xs.get();
+                          return (e.next = 2), ws.get();
                         case 2:
                           (t = e.sent), r(t);
                         case 4:
@@ -19402,7 +19433,7 @@
             })();
             e();
           }, []);
-          var a = [ps, hs, vs, ms, gs, gs, ys, bs],
+          var a = [hs, vs, ms, gs, ys, ys, bs, xs],
             o = {
               container: { textAlign: "center" },
               card: { color: "#df0000", borderWidth: "2px" },
@@ -19441,7 +19472,7 @@
                 a.map(function (e, t) {
                   return t % 2 === 0
                     ? (0, dt.jsxs)(
-                        ds,
+                        ps,
                         {
                           children: [
                             (0, dt.jsx)(Ln, {
@@ -19485,16 +19516,16 @@
             }),
           });
         },
-        ks = n(48),
-        Es = n.n(ks),
-        Ss = {
+        Es = n(48),
+        Ss = n.n(Es),
+        Cs = {
           get: function () {
             return ti.get("/api/trainingvideos").then(function (e) {
               return e.data;
             });
           },
         },
-        Cs = function () {
+        Os = function () {
           var e = S((0, t.useState)([]), 2),
             n = e[0],
             r = e[1],
@@ -19513,7 +19544,7 @@
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
-                          return (e.next = 2), Ss.get();
+                          return (e.next = 2), Cs.get();
                         case 2:
                           (t = e.sent), r(t);
                         case 4:
@@ -19591,7 +19622,7 @@
                 ],
               }),
               (0, dt.jsx)(Rt, {
-                children: (0, dt.jsx)(ds, {
+                children: (0, dt.jsx)(ps, {
                   children: (function (e) {
                     switch (u) {
                       case "title":
@@ -19618,7 +19649,7 @@
                     }),
                 }),
               }),
-              (0, dt.jsx)(Es(), {
+              (0, dt.jsx)(Ss(), {
                 pageCount: Math.ceil(n.length / 6),
                 onPageChange: function (e) {
                   var t = e.selected;
@@ -19639,7 +19670,7 @@
             ],
           });
         },
-        Os = function () {
+        Ns = function () {
           var e = {
             app: { fontFamily: "Be Vietnam", color: "#df0000" },
             cookie: { background: "#333" },
@@ -19648,7 +19679,7 @@
           return (0, dt.jsxs)("div", {
             className: "app",
             children: [
-              (0, dt.jsx)(us, {}),
+              (0, dt.jsx)(cs, {}),
               (0, dt.jsx)(ql, {}),
               (0, dt.jsx)("main", {
                 children: (0, dt.jsxs)(Ae, {
@@ -19659,7 +19690,7 @@
                     }),
                     (0, dt.jsx)(Te, {
                       path: "/training",
-                      element: (0, dt.jsx)(Cs, {}),
+                      element: (0, dt.jsx)(Os, {}),
                     }),
                     (0, dt.jsx)(Te, {
                       path: "contactforms",
@@ -19667,7 +19698,7 @@
                     }),
                     (0, dt.jsx)(Te, {
                       path: "about",
-                      element: (0, dt.jsx)(ws, {}),
+                      element: (0, dt.jsx)(ks, {}),
                     }),
                     (0, dt.jsx)(Te, {
                       path: "*",
@@ -19676,7 +19707,7 @@
                   ],
                 }),
               }),
-              (0, dt.jsx)(ls, {}),
+              (0, dt.jsx)(ss, {}),
               (0, dt.jsx)(Ze, {
                 location: "bottom",
                 buttonText: "Accept",
@@ -19690,8 +19721,8 @@
           });
         };
       a.createRoot(document.getElementById("root")).render(
-        (0, dt.jsx)(ot, { children: (0, dt.jsx)(Os, {}) }),
+        (0, dt.jsx)(ot, { children: (0, dt.jsx)(Ns, {}) }),
       );
     })();
 })();
-//# sourceMappingURL=main.0ef181f9.js.map
+//# sourceMappingURL=main.e15b788a.js.map

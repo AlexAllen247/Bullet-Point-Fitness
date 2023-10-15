@@ -10,7 +10,6 @@ const Notification = ({ notification }) => {
 
   const style = {
     textAlign: "center",
-    fontFamily: "Niconne",
     padding: 0,
     margin: 0,
   };

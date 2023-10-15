@@ -1,4 +1,4 @@
-/*! For license information please see main.e15b788a.js.LICENSE.txt */
+/*! For license information please see main.fa0958d0.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -12479,7 +12479,12 @@
         pt = function () {
           return (0, dt.jsxs)("section", {
             className: "not-found",
-            style: { textAlign: "center", padding: 50, margin: 50 },
+            style: {
+              textAlign: "center",
+              padding: 50,
+              margin: 50,
+              color: "#df0000",
+            },
             children: [
               (0, dt.jsx)("h2", {
                 children: "Oops page not found, please try a different URL.",
@@ -14624,12 +14629,7 @@
           var n = "alert" === t.type ? "danger" : "success";
           return (0, dt.jsx)(pa, {
             variant: n,
-            style: {
-              textAlign: "center",
-              fontFamily: "Niconne",
-              padding: 0,
-              margin: 0,
-            },
+            style: { textAlign: "center", padding: 0, margin: 0 },
             id: "notification",
             "aria-label": t.type,
             children: t.message,
@@ -19725,4 +19725,4 @@
       );
     })();
 })();
-//# sourceMappingURL=main.e15b788a.js.map
+//# sourceMappingURL=main.fa0958d0.js.map

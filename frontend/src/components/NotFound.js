@@ -7,6 +7,7 @@ const NotFound = () => {
       textAlign: "center",
       padding: 50,
       margin: 50,
+      color: "#df0000",
     },
   };
   return (

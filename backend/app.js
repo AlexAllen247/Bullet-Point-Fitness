@@ -31,7 +31,52 @@ mongoose
     logger.error("error connection to MongoDB:", error.message);
   });
 
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'", "https://www.google-analytics.com/"],
+      scriptSrc: [
+        "'self'",
+        "https://www.youtube.com",
+        "https://youtube.com",
+        "https://code.jquery.com",
+        "https://cdn.jsdelivr.net",
+        "https://maxcdn.bootstrapcdn.com",
+        "https://www.googletagmanager.com",
+        "https://www.google-analytics.com",
+        "https://ssl.google-analytics.com",
+        "'sha256-e1kZIP7NdysEhwQfogPFZ6JhHklpGh7fE2kLtn0q4SA='",
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://maxcdn.bootstrapcdn.com",
+      ],
+      imgSrc: [
+        "'self'",
+        "https://www.youtube.com",
+        "https://youtube.com",
+        "https://i9.ytimg.com",
+        "https://www.google-analytics.com",
+        "www.google-analytics.com",
+        "https://stats.g.doubleclick.net",
+      ],
+      frameSrc: [
+        "'self'",
+        "https://www.youtube.com",
+        "https://youtube.com",
+        "https://www.googletagmanager.com",
+      ],
+      connectSrc: [
+        "'self'",
+        "https://region1.google-analytics.com",
+        "https://www.google-analytics.com",
+        "www.google-analytics.com",
+        "https://stats.g.doubleclick.net",
+      ],
+    },
+  }),
+);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("build"));

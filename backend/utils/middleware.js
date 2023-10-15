@@ -1,4 +1,5 @@
 const logger = require("./logger");
+const crypto = require("crypto");
 
 const errorHandler = (error, request, response, next) => {
   logger.error(error.message);
@@ -12,6 +13,13 @@ const errorHandler = (error, request, response, next) => {
   next(error);
 };
 
+const generateCspNonce = (req, res, next) => {
+  req.nonce = crypto.randomBytes(16).toString("hex");
+  res.locals.cspNonce = req.nonce;
+  next();
+};
+
 module.exports = {
   errorHandler,
+  generateCspNonce,
 };

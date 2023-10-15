@@ -31,12 +31,12 @@ mongoose
     logger.error("error connection to MongoDB:", error.message);
   });
 
+app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("build"));
 app.use(express.json());
 app.use(cookieParser());
-app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/contactforms", contactFormsRouter);

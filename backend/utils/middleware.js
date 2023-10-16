@@ -1,5 +1,4 @@
 const logger = require("./logger");
-const crypto = require("crypto");
 
 const errorHandler = (error, request, response, next) => {
   logger.error(error.message);
@@ -13,13 +12,15 @@ const errorHandler = (error, request, response, next) => {
   next(error);
 };
 
-const generateCspNonce = (req, res, next) => {
-  req.nonce = crypto.randomBytes(16).toString("hex");
-  res.locals.cspNonce = req.nonce;
+const setPermissionsPolicy = (req, res, next) => {
+  res.setHeader(
+    "Permissions-Policy",
+    "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
+  );
   next();
 };
 
 module.exports = {
   errorHandler,
-  generateCspNonce,
+  setPermissionsPolicy,
 };

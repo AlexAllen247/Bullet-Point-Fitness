@@ -18,7 +18,7 @@ const mindsetVideosRouter = require("./controllers/mindsetVideos");
 const muscleFunctionVideosRouter = require("./controllers/muscleFunctionVideos");
 const exerciseVideosRouter = require("./controllers/exerciseVideos");
 const aboutVideosRouter = require("./controllers/aboutVideos");
-const { errorHandler } = require("./utils/middleware");
+const { errorHandler, setPermissionsPolicy } = require("./utils/middleware");
 
 logger.info("connecting to", config.MONGODB_URI);
 
@@ -45,7 +45,8 @@ app.use(
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
         "https://ssl.google-analytics.com",
-        "'sha256-e1kZIP7NdysEhwQfogPFZ6JhHklpGh7fE2kLtn0q4SA='",
+        "'unsafe-inline'",
+        ,
       ],
       styleSrc: [
         "'self'",
@@ -77,6 +78,18 @@ app.use(
     },
   }),
 );
+
+app.use(
+  helmet.hsts({
+    maxAge: 31536000,
+    includeSubDomains: true,
+    preload: true,
+  }),
+);
+
+app.use(helmet.noSniff());
+app.use(helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" }));
+app.use(setPermissionsPolicy);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("build"));

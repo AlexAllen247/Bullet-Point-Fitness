@@ -1,4 +1,4 @@
-/*! For license information please see main.fa0958d0.js.LICENSE.txt */
+/*! For license information please see main.5a1c8017.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -18743,11 +18743,16 @@
         }),
         ts = es,
         ns = function (e) {
-          var t = e.video;
+          var t = e.video,
+            n = {
+              text: { color: "#df0000", borderWidth: "2px" },
+              description: { maxWidth: "800px", margin: "auto", padding: 10 },
+              header: { textDecoration: "underline" },
+            };
           return (0, dt.jsxs)(nn, {
             className: "mb-4 box-shadow",
             border: "danger",
-            style: { color: "#df0000", borderWidth: "2px" },
+            style: n.text,
             children: [
               (0, dt.jsx)(ts, {
                 aspectRatio: "16x9",
@@ -18763,8 +18768,11 @@
               }),
               (0, dt.jsxs)(nn.Body, {
                 children: [
-                  (0, dt.jsx)(nn.Title, { children: t.title }),
-                  (0, dt.jsx)(nn.Text, { children: t.description }),
+                  (0, dt.jsx)(nn.Title, { style: n.header, children: t.title }),
+                  (0, dt.jsx)(nn.Text, {
+                    style: n.description,
+                    children: t.description,
+                  }),
                   (0, dt.jsx)(nn.Footer, {
                     children: (0, dt.jsx)("small", { children: t.duration }),
                   }),
@@ -19725,4 +19733,4 @@
       );
     })();
 })();
-//# sourceMappingURL=main.fa0958d0.js.map
+//# sourceMappingURL=main.5a1c8017.js.map

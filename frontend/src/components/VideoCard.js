@@ -7,6 +7,14 @@ const VideoCard = ({ video }) => {
       color: "#df0000",
       borderWidth: "2px",
     },
+    description: {
+      maxWidth: "800px",
+      margin: "auto",
+      padding: 10,
+    },
+    header: {
+      textDecoration: "underline",
+    },
   };
   return (
     <Card className="mb-4 box-shadow" border="danger" style={styles.text}>
@@ -21,8 +29,8 @@ const VideoCard = ({ video }) => {
         />
       </Ratio>
       <Card.Body>
-        <Card.Title>{video.title}</Card.Title>
-        <Card.Text>{video.description}</Card.Text>
+        <Card.Title style={styles.header}>{video.title}</Card.Title>
+        <Card.Text style={styles.description}>{video.description}</Card.Text>
         <Card.Footer>
           <small>{video.duration}</small>
         </Card.Footer>

@@ -1,4 +1,4 @@
-/*! For license information please see main.5a1c8017.js.LICENSE.txt */
+/*! For license information please see main.d1480f23.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -19542,7 +19542,10 @@
             i = a[1],
             l = S((0, t.useState)("date"), 2),
             u = l[0],
-            c = l[1];
+            c = l[1],
+            f = S((0, t.useState)(""), 2),
+            d = f[0],
+            p = f[1];
           (0, t.useEffect)(function () {
             var e = (function () {
               var e = mt(
@@ -19568,7 +19571,10 @@
             })();
             e();
           }, []);
-          var f = {
+          var h = n.filter(function (e) {
+              return e.title.toLowerCase().includes(d.toLowerCase());
+            }),
+            v = {
               trainingVideos: {
                 display: "flex",
                 justifyContent: "center",
@@ -19585,11 +19591,11 @@
               select: {
                 margin: 20,
                 color: "#df0000",
-                border: "#df0000",
+                border: "2px solid #df0000",
                 backgroundColor: "#ffffff",
               },
             },
-            d = function (e) {
+            m = function (e) {
               var t = e.match(/(\d+)\s*min/),
                 n = e.match(/(\d+)\s*seconds/);
               return (
@@ -19598,20 +19604,31 @@
             };
           return (0, dt.jsxs)("section", {
             className: "album py-5",
-            style: f.trainingVideos,
+            style: v.trainingVideos,
             children: [
               (0, dt.jsxs)("div", {
                 children: [
                   (0, dt.jsx)("h1", {
-                    style: f.header,
+                    style: v.header,
                     children: "Training Essentials",
+                  }),
+                  (0, dt.jsx)("div", {
+                    children: (0, dt.jsx)("input", {
+                      type: "text",
+                      placeholder: "Search videos...",
+                      value: d,
+                      onChange: function (e) {
+                        return p(e.target.value);
+                      },
+                      style: v.select,
+                    }),
                   }),
                   (0, dt.jsxs)("select", {
                     value: u,
                     onChange: function (e) {
                       return c(e.target.value);
                     },
-                    style: f.select,
+                    style: v.select,
                     children: [
                       (0, dt.jsx)("option", {
                         value: "date",
@@ -19639,14 +19656,14 @@
                         });
                       case "duration":
                         return e.sort(function (e, t) {
-                          return d(t.duration) - d(e.duration);
+                          return m(t.duration) - m(e.duration);
                         });
                       default:
                         return e.sort(function (e, t) {
                           return t.dateAdded.localeCompare(e.dateAdded);
                         });
                     }
-                  })(s(n))
+                  })(s(h))
                     .slice(6 * o, 6 * (o + 1))
                     .map(function (e) {
                       return (0, dt.jsx)(
@@ -19733,4 +19750,4 @@
       );
     })();
 })();
-//# sourceMappingURL=main.5a1c8017.js.map
+//# sourceMappingURL=main.d1480f23.js.map

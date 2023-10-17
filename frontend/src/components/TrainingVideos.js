@@ -8,6 +8,7 @@ const TrainingVideos = () => {
   const [trainingVideos, setTrainingVideos] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [sortOrder, setSortOrder] = useState("date");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const itemsPerPage = 6;
 
@@ -18,6 +19,10 @@ const TrainingVideos = () => {
     };
     fetchTrainingVideos();
   }, []);
+
+  const filteredVideos = trainingVideos.filter((video) =>
+    video.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 
   const styles = {
     trainingVideos: {
@@ -36,7 +41,7 @@ const TrainingVideos = () => {
     select: {
       margin: 20,
       color: "#df0000",
-      border: "#df0000",
+      border: "2px solid #df0000",
       backgroundColor: "#ffffff",
     },
   };
@@ -70,6 +75,15 @@ const TrainingVideos = () => {
     <section className="album py-5" style={styles.trainingVideos}>
       <div>
         <h1 style={styles.header}>Training Essentials</h1>
+        <div>
+          <input
+            type="text"
+            placeholder="Search videos..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={styles.select}
+          />
+        </div>
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
@@ -82,7 +96,7 @@ const TrainingVideos = () => {
       </div>
       <Container>
         <Row>
-          {sortVideos([...trainingVideos])
+          {sortVideos([...filteredVideos])
             .slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
             .map((video) => (
               <Col key={video.id} md={4}>

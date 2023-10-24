@@ -101,12 +101,12 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/yxuF2-WxzVI",
-    "title":"Tibialis Raise",
+    "embedUrl":"https://youtube.com/embed/4gUQ0VLVRgw",
+    "title":"Side Neck Extension with Bullet Point Fitness",
     "dateAdded":"2023-09-20",
-    "description": "This video demonstrates the Tibialis Raise with a voiceover.",
-    "duration": "56 seconds",
-    "muscleName": "Tibialis"
+    "description": "Explore the mechanics of the Side Neck Extension with Bullet Point Fitness. Learn how it targets your neck, to ensure you train effectively and understand the science behind every rep.",
+    "duration": "43 seconds",
+    "muscleName": "Neck"
 }
 
 ###

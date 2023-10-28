@@ -14,12 +14,17 @@ const MuscleMap = () => {
       color: "#df0000",
       fontWeight: "bold",
       textDecoration: "underline",
-      marginBottom: 40,
+      margin: 30,
     },
     paragraph: {
       color: "#df0000",
       fontSize: 20,
-      margin: 20,
+      margin: 30,
+    },
+    phrase: {
+      color: "#df0000",
+      fontSize: 26,
+      margin: 10,
     },
     link: {
       textDecoration: "none",
@@ -30,10 +35,11 @@ const MuscleMap = () => {
   return (
     <section className="training" style={styles.training}>
       <div>
-        <h1 style={styles.header}>Interactive Muscle Anatomy Chart</h1>
-        <p style={styles.paragraph}>
-          Click on a muscle to learn about its functions and the best exercises.
+        <p style={styles.phrase}>
+          You can build all aspects of fitness if you focus on muscle
         </p>
+        <h1 style={styles.header}>Interactive Muscle Anatomy Chart</h1>
+        <p style={styles.paragraph}>Click on a muscle to find out more</p>
       </div>
       <HumanAnatomy />
       <div>

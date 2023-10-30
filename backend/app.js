@@ -107,7 +107,7 @@ app.use("/api/exercisevideos", exerciseVideosRouter);
 app.use("/api/aboutvideos", aboutVideosRouter);
 
 app.all("*", (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 if (process.env.NODE_ENV === "test") {

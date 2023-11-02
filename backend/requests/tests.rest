@@ -81,12 +81,12 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/56jl7tlI6LM",
-    "title":"Triceps Function",
-    "dateAdded":"2023-09-20",
-    "description": "This video demonstrates the function of the Triceps.",
-    "duration": "44 seconds",
-    "muscleName": "Triceps"
+    "embedUrl":"https://youtube.com/embed/f4TO3Tbkw4k",
+    "title":"Neck Function",
+    "dateAdded":"2023-11-02",
+    "description": "Explore the function of the Neck with Bullet Point Fitness. Discover the integral role this muscle plays in your movement and overall body mechanics.",
+    "duration": "53 seconds",
+    "muscleName": "Neck"
 }
 
 ###

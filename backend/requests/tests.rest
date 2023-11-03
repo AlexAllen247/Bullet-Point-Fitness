@@ -101,12 +101,12 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/4gUQ0VLVRgw",
-    "title":"Side Neck Extension with Bullet Point Fitness",
-    "dateAdded":"2023-09-20",
-    "description": "Explore the mechanics of the Side Neck Extension with Bullet Point Fitness. Learn how it targets your neck, to ensure you train effectively and understand the science behind every rep.",
-    "duration": "43 seconds",
-    "muscleName": "Neck"
+    "embedUrl":"https://youtube.com/embed/J7e_zP9gvOs",
+    "title":"Triceps Extension with Bullet Point Fitness",
+    "dateAdded":"2023-11-03",
+    "description": "Explore the mechanics of the Triceps Extension with Bullet Point Fitness. Learn how it targets your triceps, to ensure you train effectively and understand the science behind every rep.",
+    "duration": "47 seconds",
+    "muscleName": "Triceps"
 }
 
 ###

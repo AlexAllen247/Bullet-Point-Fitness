@@ -75,6 +75,7 @@ app.use(
         "www.google-analytics.com",
         "https://stats.g.doubleclick.net",
       ],
+      frameAncestors: ["'self'", "https://teckbuff.com/"],
     },
   }),
 );

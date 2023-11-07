@@ -64,7 +64,6 @@ const Navigation = () => {
               >
                 Training Essentials
               </NavLink>
-              {/*
               <NavLink
                 to="/nutrition"
                 style={styles.navStyle}
@@ -72,6 +71,7 @@ const Navigation = () => {
               >
                 Nutrition
               </NavLink>
+              {/*
               <NavLink
                 to="/mindset"
                 style={styles.navStyle}

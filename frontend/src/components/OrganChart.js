@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Organs from "../images/HumanOrgans.jpg";
+import Organs from "../images/HumanOrgansInk.png";
 import OrganData from "../organs.json";
 
 const OrganChart = () => {

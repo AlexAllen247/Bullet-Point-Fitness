@@ -6,7 +6,9 @@ router.get("/", async (request, response) => {
     const organs = await Organ.find({});
     response.json(organs);
   } catch (error) {
-    response.status(500).json({ error: "Failed to retrieve organ information" });
+    response
+      .status(500)
+      .json({ error: "Failed to retrieve organ information" });
   }
 });
 

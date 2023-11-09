@@ -38,21 +38,21 @@ const Nutrition = () => {
         <p style={styles.phrase}>
           You can build all aspects of fitness if you focus on muscle
         </p>
-        <h1 style={styles.header}>Interactive Muscle Anatomy Chart</h1>
-        <p style={styles.paragraph}>Click on a muscle to find out more</p>
+        <h1 style={styles.header}>Interactive Organ Anatomy Chart</h1>
+        <p style={styles.paragraph}>Click on an organ to find out more</p>
       </div>
       <OrganChart />
       <div>
         <p style={styles.paragraph}>
           Image downloaded from{" "}
           <a
-            href="https://musclecharts.net/"
+            href="http://www.freepik.com"
             target="_blank"
             rel="noreferrer"
             aria-label="Link to musclecharts.net"
             style={styles.link}
           >
-            Muscle Charts.
+            brgfx / Freepik.
           </a>
         </p>
       </div>

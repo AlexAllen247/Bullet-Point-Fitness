@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Organs from "../images/AllHumanOrgansInk.png";
 import OrganData from "../organs.json";
+import organService from "../services/organs";
+import OrganCard from "./OrganCard";
 
 const OrganChart = () => {
   const [hoveredOrgan, setHoveredOrgan] = useState(null);
   const [selectedOrgan, setSelectedOrgan] = useState(null);
+  const [organ, setOrgan] = useState([]);
+  const organInfoSectionRef = useRef(null);
+
+  useEffect(() => {
+    const fetchOrgans = async () => {
+      const organs = await organService.get();
+      setOrgan(organs);
+    };
+    fetchOrgans();
+  }, []);
 
   const handleMouseEnter = (organName) => {
     setHoveredOrgan(organName);
@@ -16,6 +28,9 @@ const OrganChart = () => {
 
   const handleClick = (organName) => {
     setSelectedOrgan(organName);
+    const relevantOrgans = organ.filter((data) => data.organName === organName);
+    setOrgan(relevantOrgans);
+    organInfoSectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const getPolygonStyle = (organName) => ({
@@ -74,7 +89,11 @@ const OrganChart = () => {
           )),
         )}
       </svg>
-      <div>{hoveredOrgan || selectedOrgan}</div>
+      <OrganCard
+        ref={organInfoSectionRef}
+        organ={organ}
+        selectedOrgan={selectedOrgan}
+      />
     </section>
   );
 };

@@ -3,24 +3,24 @@ const mongoose = require("mongoose");
 const organSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   function: {
     type: String,
-    required: true
+    required: true,
   },
   nutrients: {
     type: String,
-    required: true
+    required: true,
   },
   foods: {
     type: String,
-    required: true
+    required: true,
   },
   dateAdded: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 organSchema.set("toJSON", {
@@ -28,7 +28,7 @@ organSchema.set("toJSON", {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
     delete returnedObject.__v;
-  }
+  },
 });
 
 const Organ = mongoose.model("Organ", organSchema);

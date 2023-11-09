@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Organs from "../images/HumanOrgansInk.png";
+import Organs from "../images/AllHumanOrgansInk.png";
 import OrganData from "../organs.json";
 
 const OrganChart = () => {
@@ -18,16 +18,16 @@ const OrganChart = () => {
     setSelectedOrgan(organName);
   };
 
-  const getPolygonStyle = (muscleName) => ({
+  const getPolygonStyle = (organName) => ({
     fill:
-      hoveredOrgan === muscleName
-        ? "rgba(255, 0, 0, 0.5)"
-        : selectedOrgan === muscleName
-        ? "rgba(255, 0, 0, 0.5)"
+      hoveredOrgan === organName
+        ? "rgba(0, 255, 0, 0.5)"
+        : selectedOrgan === organName
+        ? "rgba(0, 255, 0, 0.5)"
         : "rgba(0, 0, 0, 0)",
     stroke:
-      hoveredOrgan === muscleName || selectedOrgan === muscleName
-        ? "red"
+      hoveredOrgan === organName || selectedOrgan === organName
+        ? "green"
         : "none",
   });
 

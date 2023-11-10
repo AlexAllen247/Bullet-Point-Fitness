@@ -1,5 +1,6 @@
 import React from "react";
 import OrganChart from "./OrganChart";
+import BulletPointSVG from "./BulletPointSVG";
 
 const Nutrition = () => {
   const styles = {
@@ -38,6 +39,7 @@ const Nutrition = () => {
         <p style={styles.phrase}>
           You can build all aspects of fitness if you focus on muscle
         </p>
+        <BulletPointSVG />
         <h1 style={styles.header}>Interactive Organ Anatomy Chart</h1>
         <p style={styles.paragraph}>Click on an organ to find out more</p>
       </div>

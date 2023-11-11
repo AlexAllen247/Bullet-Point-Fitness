@@ -140,8 +140,8 @@ Content-Type: application/json
 
 
 {
-    "name":"",
-    "function":"",
-    "nutrients":"",
-    "foods": ""
+    "name":"Heart",
+    "function":"Test",
+    "nutrients":["Test: Test", "Test2: Test2"],
+    "foods": ["Test: Test", "Test2: Test2"]
 }

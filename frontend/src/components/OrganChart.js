@@ -7,13 +7,14 @@ import OrganCard from "./OrganCard";
 const OrganChart = () => {
   const [hoveredOrgan, setHoveredOrgan] = useState(null);
   const [selectedOrgan, setSelectedOrgan] = useState(null);
-  const [organ, setOrgan] = useState([]);
+  const [organs, setOrgans] = useState([]);
+  const [selectedOrganData, setSelectedOrganData] = useState(null);
   const organInfoSectionRef = useRef(null);
 
   useEffect(() => {
     const fetchOrgans = async () => {
       const organs = await organService.get();
-      setOrgan(organs);
+      setOrgans(organs);
     };
     fetchOrgans();
   }, []);
@@ -28,10 +29,15 @@ const OrganChart = () => {
 
   const handleClick = (organName) => {
     setSelectedOrgan(organName);
-    const relevantOrgans = organ.filter((data) => data.organName === organName);
-    setOrgan(relevantOrgans);
-    organInfoSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    const relevantOrganData = organs.find((o) => o.name === organName);
+    setSelectedOrganData(relevantOrganData);
   };
+
+  useEffect(() => {
+    if (selectedOrganData && organInfoSectionRef.current) {
+      organInfoSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selectedOrganData]);
 
   const getPolygonStyle = (organName) => ({
     fill:
@@ -91,7 +97,7 @@ const OrganChart = () => {
       </svg>
       <OrganCard
         ref={organInfoSectionRef}
-        organ={organ}
+        organ={selectedOrganData}
         selectedOrgan={selectedOrgan}
       />
     </section>

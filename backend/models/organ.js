@@ -9,14 +9,18 @@ const organSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  nutrients: {
-    type: String,
-    required: true,
-  },
-  foods: {
-    type: String,
-    required: true,
-  },
+  nutrients: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
+  foods: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
   dateAdded: {
     type: Date,
     default: Date.now,

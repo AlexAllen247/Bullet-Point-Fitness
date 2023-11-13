@@ -140,14 +140,14 @@ Content-Type: application/json
 
 
 {
-    "name": "Heart",
-    "function": "The heart is the muscle at the center of your circulatory system, responsible for pumping blood throughout your body with each heartbeat. This process delivers essential oxygen and nutrients to all parts of your body while also carrying away unwanted carbon dioxide and waste products.",
+    "name": "Circulatory System",
+    "function": "The circulatory system, comprising the heart, blood, and blood vessels, is responsible for the transportation of nutrients to cells and the removal of waste products. It circulates blood throughout the body, delivering oxygen and essential nutrients to tissues while carrying away carbon dioxide and waste.",
     "nutrients": [
-        "Folate (Vitamin B9): Lowers homocysteine levels, reducing the risk of heart disease.",
-        "Omega-3 Fatty Acids (ALA): Reduces inflammation and supports overall heart health.",
-        "Vitamin C: Aids in the repair of tissues and the enzymatic production of neurotransmitters.",
-        "Potassium: Essential for maintaining proper heart function and regulating blood pressure.",
-        "Magnesium: Involved in heart rhythm, muscle function, and blood pressure control."
+        "Folate (Vitamin B9): Lowers homocysteine levels, reducing the risk of vascular disease.",
+        "Omega-3 Fatty Acids (ALA): Reduces inflammation and supports vascular health.",
+        "Vitamin C: Important for the repair of tissues, including blood vessels, and aids in the enzymatic production of neurotransmitters.",
+        "Potassium: Essential for maintaining proper vascular function and regulating blood pressure.",
+        "Magnesium: Involved in vascular tone, heart rhythm, and blood pressure regulation."
     ],
     "foods": [
         "Folate: Spinach, whole eggs, broccoli, kale.",
@@ -157,3 +157,10 @@ Content-Type: application/json
         "Magnesium: Pumpkin seeds, almonds, flaxseeds, Brazil nuts, cashews."
     ]
 }
+
+
+
+
+
+
+

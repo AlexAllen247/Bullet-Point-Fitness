@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Organs from "../images/AllHumanOrgansInk.png";
 import OrganData from "../organs.json";
 import organService from "../services/organs";
 import OrganCard from "./OrganCard";
+import { Modal } from "react-bootstrap";
 
 const OrganChart = () => {
   const [hoveredOrgan, setHoveredOrgan] = useState(null);
   const [selectedOrgan, setSelectedOrgan] = useState(null);
   const [organs, setOrgans] = useState([]);
   const [selectedOrganData, setSelectedOrganData] = useState(null);
-  const organInfoSectionRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchOrgans = async () => {
@@ -31,13 +32,10 @@ const OrganChart = () => {
     setSelectedOrgan(organName);
     const relevantOrganData = organs.find((o) => o.name === organName);
     setSelectedOrganData(relevantOrganData);
+    setShowModal(true);
   };
 
-  useEffect(() => {
-    if (selectedOrganData && organInfoSectionRef.current) {
-      organInfoSectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [selectedOrganData]);
+  const handleClose = () => setShowModal(false);
 
   const getPolygonStyle = (organName) => ({
     fill:
@@ -59,6 +57,7 @@ const OrganChart = () => {
     organImg: {
       width: "100%",
       height: "auto",
+      flexShrink: 0,
     },
     svg: {
       position: "absolute",
@@ -95,11 +94,12 @@ const OrganChart = () => {
           )),
         )}
       </svg>
-      <OrganCard
-        ref={organInfoSectionRef}
-        organ={selectedOrganData}
-        selectedOrgan={selectedOrgan}
-      />
+      <Modal show={showModal} onHide={handleClose} centered>
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          <OrganCard organ={selectedOrganData} selectedOrgan={selectedOrgan} />
+        </Modal.Body>
+      </Modal>
     </section>
   );
 };

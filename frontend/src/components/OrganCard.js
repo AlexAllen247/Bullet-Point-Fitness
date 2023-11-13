@@ -1,21 +1,25 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
 import BulletPointSVG from "./BulletPointSVG";
 
-const OrganCard = forwardRef((props, ref) => {
-  const { organ, selectedOrgan } = props;
+const OrganCard = ({ organ, selectedOrgan }) => {
   const styles = {
     text: {
       color: "#df0000",
       borderWidth: "2px",
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
     },
     description: {
-      maxWidth: "1000px",
       margin: "auto",
       padding: 10,
     },
     header: {
       textDecoration: "underline",
+      fontWeight: "bold",
     },
     ul: {
       listStyleType: "none",
@@ -44,27 +48,29 @@ const OrganCard = forwardRef((props, ref) => {
   };
 
   return (
-    <Card
-      className="mb-4 box-shadow"
-      border="danger"
-      ref={ref}
-      style={styles.text}
-    >
+    <Card className="mb-4 box-shadow" border="danger" style={styles.text}>
       <Card.Body>
-        <Card.Title style={styles.header}>{selectedOrgan}</Card.Title>
-        <Card.Text style={styles.description}>
-          <strong>Function:</strong> {organ.function}
-        </Card.Text>
-        <Card.Text style={styles.description}>
-          <strong>Nutrients:</strong> {createList(organ.nutrients)}
-        </Card.Text>
-        <Card.Text style={styles.description}>
-          <strong>Foods:</strong>
+        <h3 style={styles.header}>{selectedOrgan}</h3>
+        <div style={styles.description}>
+          <h5 style={styles.header}>Function:</h5>
+          <div>
+            <BulletPointSVG />
+            {organ.function}
+          </div>
+        </div>
+        <div style={styles.description}>
+          <h5 style={styles.header}>
+            Essential Nutrients for Optimal Function:
+          </h5>
+          {createList(organ.nutrients)}
+        </div>
+        <div style={styles.description}>
+          <h5 style={styles.header}>Foods Containing These Nutrients:</h5>
           {createList(organ.foods)}
-        </Card.Text>
+        </div>
       </Card.Body>
     </Card>
   );
-});
+};
 
 export default OrganCard;

@@ -140,8 +140,20 @@ Content-Type: application/json
 
 
 {
-    "name":"Heart",
-    "function":"Test",
-    "nutrients":["Test: Test", "Test2: Test2"],
-    "foods": ["Test: Test", "Test2: Test2"]
+    "name": "Heart",
+    "function": "The heart is the muscle at the center of your circulatory system, responsible for pumping blood throughout your body with each heartbeat. This process delivers essential oxygen and nutrients to all parts of your body while also carrying away unwanted carbon dioxide and waste products.",
+    "nutrients": [
+        "Folate (Vitamin B9): Lowers homocysteine levels, reducing the risk of heart disease.",
+        "Omega-3 Fatty Acids (ALA): Reduces inflammation and supports overall heart health.",
+        "Vitamin C: Aids in the repair of tissues and the enzymatic production of neurotransmitters.",
+        "Potassium: Essential for maintaining proper heart function and regulating blood pressure.",
+        "Magnesium: Involved in heart rhythm, muscle function, and blood pressure control."
+    ],
+    "foods": [
+        "Folate: Spinach, whole eggs, broccoli, kale.",
+        "Omega-3 Fatty Acids (ALA): Walnuts, olive oil, flaxseeds.",
+        "Vitamin C: Bell peppers, kale, strawberries, kiwi, bell peppers, oranges.",
+        "Potassium: Beans(all kinds), chickpeas, nuts, spinach.",
+        "Magnesium: Pumpkin seeds, almonds, flaxseeds, Brazil nuts, cashews."
+    ]
 }

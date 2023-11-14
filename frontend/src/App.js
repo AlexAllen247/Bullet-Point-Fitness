@@ -7,7 +7,7 @@ import ContactForm from "./components/ContactForm";
 import Navigation from "./components/Navigation";
 //import Consultation from "./components/Consultation";
 //import Mindset from "./components/Mindset";
-import Nutrition from "./components/Nutrition";
+import OrganMap from "./components/OrganMap";
 import MuscleMap from "./components/MuscleMap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -37,7 +37,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MuscleMap />} />
           <Route path="/training" element={<TrainingVideos />} />
-          <Route path="/nutrition" element={<Nutrition />} />
+          <Route path="/organmap" element={<OrganMap />} />
           {/*<Route path="mindset" element={<Mindset />} />
         <Route path="/app/consultation" element={<Consultation />} />*/}
           <Route path="contactforms" element={<ContactForm />} />

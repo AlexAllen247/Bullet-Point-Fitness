@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Ratio } from "react-bootstrap";
+import BulletPointSVG from "./BulletPointSVG";
 
 const VideoCard = ({ video }) => {
   const styles = {
@@ -30,7 +31,10 @@ const VideoCard = ({ video }) => {
       </Ratio>
       <Card.Body>
         <Card.Title style={styles.header}>{video.title}</Card.Title>
-        <Card.Text style={styles.description}>{video.description}</Card.Text>
+        <Card.Text style={styles.description}>
+          <BulletPointSVG />
+          {video.description}
+        </Card.Text>
         <Card.Footer>
           <small>{video.duration}</small>
         </Card.Footer>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
 import Notification from "./Notification";
 import contactFormService from "../services/contactForms";
+import BulletPointSVG from "./BulletPointSVG";
 
 const ContactForm = () => {
   const [email, setEmail] = useState("");
@@ -94,6 +95,7 @@ const ContactForm = () => {
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="email" style={styles.label}>
+                  <BulletPointSVG />
                   Email
                 </Form.Label>
                 <Form.Control
@@ -107,6 +109,7 @@ const ContactForm = () => {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="message" style={styles.label}>
+                <BulletPointSVG />
                   Message
                 </Form.Label>
                 <Form.Control

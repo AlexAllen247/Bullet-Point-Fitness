@@ -140,23 +140,31 @@ Content-Type: application/json
 
 
 {
-    "name": "Circulatory System",
-    "function": "The circulatory system, comprising the heart, blood, and blood vessels, is responsible for the transportation of nutrients to cells and the removal of waste products. It circulates blood throughout the body, delivering oxygen and essential nutrients to tissues while carrying away carbon dioxide and waste.",
+    "name": "Liver",
+    "function": "The liver is a key organ in the body, essential for detoxifying substances, metabolizing drugs, synthesizing proteins, and producing biochemicals necessary for digestion. It plays a crucial role in regulating blood sugar levels, cholesterol levels, and hormone balance.",
     "nutrients": [
-        "Folate (Vitamin B9): Lowers homocysteine levels, reducing the risk of vascular disease.",
-        "Omega-3 Fatty Acids (ALA): Reduces inflammation and supports vascular health.",
-        "Vitamin C: Important for the repair of tissues, including blood vessels, and aids in the enzymatic production of neurotransmitters.",
-        "Potassium: Essential for maintaining proper vascular function and regulating blood pressure.",
-        "Magnesium: Involved in vascular tone, heart rhythm, and blood pressure regulation."
+        "Vitamin A: Important for liver function and detoxification.",
+        "Vitamin C: Helps protect the liver from oxidative stress.",
+        "Vitamin E: Provides antioxidant support to liver cells.",
+        "B Vitamins: Crucial for metabolizing alcohol and other toxins.",
+        "Omega-3 Fatty Acids: Reduces liver fat and inflammation.",
+        "Zinc: Supports liver health and helps with detoxification."
     ],
     "foods": [
-        "Folate: Spinach, whole eggs, broccoli, kale.",
-        "Omega-3 Fatty Acids (ALA): Walnuts, olive oil, flaxseeds.",
+        "Vitamin A: Beef, liver, veal, lamb, duck.",
         "Vitamin C: Bell peppers, kale, strawberries, kiwi, bell peppers, oranges.",
-        "Potassium: Beans(all kinds), chickpeas, nuts, spinach.",
-        "Magnesium: Pumpkin seeds, almonds, flaxseeds, Brazil nuts, cashews."
+        "Vitamin E: Almonds, sunflower seeds, egg yolks.",
+        "B Vitamins: Beef, tuna, chicken breast, turkey, whole eggs.",
+        "Omega-3 Fatty Acids: Salmon, mackerel, sardines, herring.",
+        "Zinc: Oysters, beef, pumpkin seeds, lentils."
     ]
 }
+
+
+
+
+
+
 
 
 

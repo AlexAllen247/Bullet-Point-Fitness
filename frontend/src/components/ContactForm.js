@@ -109,7 +109,7 @@ const ContactForm = () => {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="message" style={styles.label}>
-                <BulletPointSVG />
+                  <BulletPointSVG />
                   Message
                 </Form.Label>
                 <Form.Control

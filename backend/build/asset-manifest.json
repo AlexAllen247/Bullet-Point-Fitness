@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.bdfa9d1d.css",
-    "main.js": "/static/js/main.a08805ef.js",
+    "main.js": "/static/js/main.2fcb14a3.js",
     "static/media/Level2Fitness.jpg": "/static/media/Level2Fitness.32bc5181ae5e46d71424.jpg",
     "static/media/Level3ExerciseReferral.jpg": "/static/media/Level3ExerciseReferral.0354990be557bafed967.jpg",
     "static/media/Level3PT1.jpg": "/static/media/Level3PT1.2a80610b60673d93832b.jpg",
@@ -11,9 +11,10 @@
     "static/media/Level3PTDiploma.jpg": "/static/media/Level3PTDiploma.e4c06605fe542201351f.jpg",
     "static/media/Muscle.png": "/static/media/Muscle.fa0130dd51423bab87ec.png",
     "static/media/BulletPointFitnessBannerNew.png": "/static/media/BulletPointFitnessBannerNew.f000e0b05492fcd2d242.png",
+    "static/media/AllHumanOrgansInk.png": "/static/media/AllHumanOrgansInk.fbcd224473cf6f7a3646.png",
     "index.html": "/index.html",
     "main.bdfa9d1d.css.map": "/static/css/main.bdfa9d1d.css.map",
-    "main.a08805ef.js.map": "/static/js/main.a08805ef.js.map"
+    "main.2fcb14a3.js.map": "/static/js/main.2fcb14a3.js.map"
   },
-  "entrypoints": ["static/css/main.bdfa9d1d.css", "static/js/main.a08805ef.js"]
+  "entrypoints": ["static/css/main.bdfa9d1d.css", "static/js/main.2fcb14a3.js"]
 }

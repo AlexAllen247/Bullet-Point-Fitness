@@ -62,6 +62,7 @@ app.use(
         "https://www.google-analytics.com",
         "www.google-analytics.com",
         "https://stats.g.doubleclick.net",
+        "data:",
       ],
       frameSrc: [
         "'self'",

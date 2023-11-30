@@ -71,6 +71,13 @@ const Navigation = () => {
               >
                 Organ Map
               </NavLink>
+              <NavLink
+                to="/pdf"
+                style={styles.navStyle}
+                aria-label="Link to the Pdf"
+              >
+                PDF
+              </NavLink>
               {/*
               <NavLink
                 to="/mindset"

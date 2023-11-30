@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./components/About";
 import TrainingVideos from "./components/TrainingVideos";
+import Pdf from "./components/Pdf";
 
 const App = () => {
   const styles = {
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/" element={<MuscleMap />} />
           <Route path="/training" element={<TrainingVideos />} />
           <Route path="/organmap" element={<OrganMap />} />
+          <Route path="/pdf" element={<Pdf />} />
           {/*<Route path="mindset" element={<Mindset />} />
         <Route path="/app/consultation" element={<Consultation />} />*/}
           <Route path="contactforms" element={<ContactForm />} />

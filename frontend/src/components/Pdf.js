@@ -8,6 +8,7 @@ const Pdf = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [notification, setNotification] = useState(null);
+  const [fitnessGoal, setFitnessGoal] = useState("");
 
   const notify = (message, type = "info") => {
     setNotification({ message, type });
@@ -27,28 +28,38 @@ const Pdf = () => {
       link.click();
       link.parentNode.removeChild(link);
     } catch (error) {
-      notify("Error in downloading the PDF: " + error.message, "error");
+      notify("Error in downloading the PDF: " + error.message, "alert");
     }
   };
 
   const createPDF = async () => {
     try {
-      const { fileName } = await pdfService.create({ email, message });
+      const formData = { email, message, fitnessGoal };
+      const { fileName } = await pdfService.create(formData);
       await downloadPDF(fileName);
       notify(`A new PDF has been created and downloaded.`);
     } catch (error) {
       notify(
         "Creating and downloading the PDF failed: " + error.message,
-        "error",
+        "alert",
       );
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!email.trim() || !message.trim()) {
+      notify("Email and message cannot be empty", "alert");
+      return; // Stop the function if validation fails
+    }
+    if (!fitnessGoal) {
+      notify("Please select a fitness goal", "error");
+      return;
+    }
     createPDF();
     setEmail("");
     setMessage("");
+    setFitnessGoal("");
   };
 
   const styles = {
@@ -90,15 +101,11 @@ const Pdf = () => {
     <section className="pdf">
       <Container>
         <div>
-          <h1 style={styles.header}>Contact Form</h1>
+          <h1 style={styles.header}>Your Fitness Journey</h1>
         </div>
         <Card className="my-3" style={styles.card} border="danger">
           <Card.Body>
-            <p style={styles.paragraph}>
-              If you have any questions or inquiries, please don't hesitate to
-              reach out using the contact form below. We'll get back to you as
-              soon as possible.
-            </p>
+            <p style={styles.paragraph}>Your Fitness Journey</p>
             <Notification notification={notification} />
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
@@ -130,6 +137,25 @@ const Pdf = () => {
                   style={styles.form}
                   aria-label="Message"
                 />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label htmlFor="fitnessGoal" style={styles.label}>
+                  <BulletPointSVG />
+                  Fitness Goal
+                </Form.Label>
+                <Form.Control
+                  as="select"
+                  value={fitnessGoal}
+                  onChange={({ target }) => setFitnessGoal(target.value)}
+                  id="fitnessGoal"
+                  style={styles.form}
+                  aria-label="Fitness Goal"
+                >
+                  <option value="">Select your goal</option>
+                  <option value="fatLoss">Fat Loss</option>
+                  <option value="muscleGain">Muscle Gain</option>
+                  {/* Add other fitness goals as needed */}
+                </Form.Control>
               </Form.Group>
               <Button
                 aria-label="Submit"

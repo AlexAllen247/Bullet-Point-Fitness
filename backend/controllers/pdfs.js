@@ -8,7 +8,7 @@ router.post("", (req, res) => {
   const uniqueFileName = uuidv4() + ".pdf";
   const filePath = path.join(__dirname, "../downloads", uniqueFileName);
 
-  generateBasicPDF(filePath);
+  generateBasicPDF(filePath, req.body);
 
   res.status(200).json({ fileName: uniqueFileName });
 });

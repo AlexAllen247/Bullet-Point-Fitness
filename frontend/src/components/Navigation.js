@@ -71,6 +71,7 @@ const Navigation = () => {
               >
                 Organ Map
               </NavLink>
+              {/*
               <NavLink
                 to="/pdf"
                 style={styles.navStyle}
@@ -78,7 +79,6 @@ const Navigation = () => {
               >
                 PDF
               </NavLink>
-              {/*
               <NavLink
                 to="/mindset"
                 style={styles.navStyle}

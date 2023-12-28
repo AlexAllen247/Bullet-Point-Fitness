@@ -45,11 +45,11 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/NsPJJplFNN4",
-    "title":"Muscle Building vs Fat Loss: Insight from Bullet Point Fitness",
-    "dateAdded":"2023-10-16",
-    "description": "Which is harder—building muscle or losing body fat? Explore the challenges and intricacies of each process, from the physiological demands to the dietary and training strategies involved. Understand the factors that can influence one's ability to gain muscle mass versus shedding unwanted pounds, and determine which journey might be more challenging for you.",
-    "duration": "1 min and 41 seconds"
+    "embedUrl":"https://youtube.com/embed/x_LKwLmiyNc",
+    "title":"How to Pick the Right Exercises with Bullet Point Fitness",
+    "dateAdded":"2023-12-28",
+    "description": "🤔 Looking for the Key to Effective Workouts? Discover How to Choose the Right Exercises! 🏋️‍♂️ Welcome to Bullet Point Fitness, where we simplify the complexities of exercise selection. In this detailed video, we delve into essential factors that dictate the most effective exercises for each muscle group.",
+    "duration": "8 mins and 22 seconds"
 }
 
 ###

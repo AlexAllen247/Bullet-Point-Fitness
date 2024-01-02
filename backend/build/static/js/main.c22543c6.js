@@ -1,4 +1,4 @@
-/*! For license information please see main.4671985c.js.LICENSE.txt */
+/*! For license information please see main.c22543c6.js.LICENSE.txt */
 !(function () {
   var e = {
       694: function (e, t) {
@@ -9636,7 +9636,7 @@
             );
           })());
       },
-      321: function (e, t, n) {
+      374: function (e, t, n) {
         "use strict";
         var r = n(791),
           a = Symbol.for("react.element"),
@@ -10067,7 +10067,7 @@
       },
       184: function (e, t, n) {
         "use strict";
-        e.exports = n(321);
+        e.exports = n(374);
       },
       813: function (e, t) {
         "use strict";
@@ -14297,7 +14297,7 @@
         Mr &&
           (window.addEventListener("test", Hr, Hr),
           window.removeEventListener("test", Hr, !0));
-      } catch (iu) {}
+      } catch (lu) {}
       var Wr = function (e, t, n, r) {
         if (r && "boolean" !== typeof r && !Ur) {
           var a = r.once,
@@ -15423,8 +15423,8 @@
                   if (Ja.isString(e))
                     try {
                       return (t || JSON.parse)(e), Ja.trim(e);
-                    } catch (iu) {
-                      if ("SyntaxError" !== iu.name) throw iu;
+                    } catch (lu) {
+                      if ("SyntaxError" !== lu.name) throw lu;
                     }
                   return (n || JSON.stringify)(e);
                 })(e))
@@ -15440,17 +15440,17 @@
               var a = !(t && t.silentJSONParsing) && r;
               try {
                 return JSON.parse(e);
-              } catch (iu) {
+              } catch (lu) {
                 if (a) {
-                  if ("SyntaxError" === iu.name)
+                  if ("SyntaxError" === lu.name)
                     throw to.from(
-                      iu,
+                      lu,
                       to.ERR_BAD_RESPONSE,
                       this,
                       null,
                       this.response,
                     );
-                  throw iu;
+                  throw lu;
                 }
               }
             }
@@ -16135,7 +16135,7 @@
         if (e) {
           try {
             Object.defineProperty(e, "name", { value: t });
-          } catch (iu) {}
+          } catch (lu) {}
           Object.defineProperty(e, "adapterName", { value: t });
         }
       });
@@ -17315,7 +17315,7 @@
         try {
           var t = e.activeElement;
           return t && t.nodeName ? t : null;
-        } catch (iu) {
+        } catch (lu) {
           return e.body;
         }
       }
@@ -18799,6 +18799,12 @@
                           children: "Training Essentials",
                         }),
                         (0, ht.jsx)(ft, {
+                          to: "/consultation",
+                          style: a.navStyle,
+                          "aria-label": "Link to Consultation page",
+                          children: "Consultation",
+                        }),
+                        (0, ht.jsx)(ft, {
                           to: "/organmap",
                           style: a.navStyle,
                           "aria-label": "Link to the interactive Organ map",
@@ -18824,18 +18830,64 @@
             }),
           });
         },
-        is = n.p + "static/media/AllHumanOrgansInk.fbcd224473cf6f7a3646.png",
-        ls = JSON.parse(
+        is = function () {
+          var e = {
+            consultation: {
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            },
+            header: {
+              color: "#df0000",
+              fontWeight: "bold",
+              textDecoration: "underline",
+              marginBottom: 40,
+            },
+            paragraph: { color: "#df0000", fontSize: 20, margin: 30 },
+          };
+          return (0, ht.jsxs)("section", {
+            style: e.consultation,
+            children: [
+              (0, ht.jsxs)("div", {
+                children: [
+                  (0, ht.jsx)("h1", {
+                    style: e.header,
+                    children: "Book a Consultation",
+                  }),
+                  (0, ht.jsxs)("p", {
+                    style: e.paragraph,
+                    children: [
+                      (0, ht.jsx)(di, {}),
+                      "Starting your fitness journey or taking it to the next level can be challenging, but you don't need to do it alone. If you're looking for guidance, whether it's figuring out where to begin or how to push forward, I'm here to help. Book a one-on-one consultation with me, and together we'll discuss your goals and craft a personalized fitness plan tailored just for you. Choose a timeslot below, and let's start this journey towards achieving your fitness aspirations.",
+                    ],
+                  }),
+                ],
+              }),
+              (0, ht.jsx)("iframe", {
+                src: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ37BikZEr6aVFFN9J0FZfM7xAbcDq4QGXc5RIUcVL0p_TOHJaKyRRRgVb1_2Mv39fuW2UEbnqhs?gv=true",
+                style: { border: 0 },
+                width: "100%",
+                height: "800",
+                frameBorder: "0",
+                title: "Google Calendar",
+              }),
+            ],
+          });
+        },
+        ls = n.p + "static/media/AllHumanOrgansInk.fbcd224473cf6f7a3646.png",
+        ss = JSON.parse(
           '{"V":{"Heart":[{"shape":"POLYGON","coords":"1071,1237,1071,1260,1044,1260,1038,1249,1032,1247,1024,1252,1020,1260,1020,1264,1024,1268,1024,1277,1012,1277,1007,1285,1007,1293,1018,1297,1006,1297,1004,1313,1018,1313,1021,1332,1016,1352,1003,1371,983,1368,977,1370,977,1386,1002,1391,1002,1398,984,1398,980,1403,980,1409,980,1416,988,1421,1000,1419,998,1438,998,1449,998,1459,1006,1467,1006,1522,1017,1526,1035,1525,1043,1523,1043,1505,1084,1529,1084,1543,1093,1549,1115,1546,1117,1538,1122,1542,1129,1542,1136,1546,1143,1545,1152,1546,1164,1548,1169,1546,1178,1548,1179,1545,1190,1547,1214,1534,1224,1520,1228,1493,1217,1454,1216,1433,1204,1405,1202,1395,1195,1388,1195,1383,1220,1380,1224,1368,1220,1363,1197,1363,1194,1356,1213,1350,1212,1335,1197,1336,1186,1340,1176,1333,1176,1323,1159,1317,1175,1316,1179,1307,1177,1300,1152,1299,1140,1284,1144,1259,1146,1252,1132,1248,1126,1276,1125,1250,1119,1250,1118,1277,1115,1277,1114,1251,1102,1251,1102,1237"}],"Stomach":[{"shape":"POLYGON","coords":"1161,1537,1171,1581,1223,1541,1303,1549,1363,1631,1319,1784,1281,1789,1245,1781,1207,1809,1157,1879,1107,1879,1103,1729,1159,1697,1161,1633,1129,1605,1125,1537"}],"Lungs":[{"shape":"POLYGON","coords":"1016,1096,986,1016,930,1012,860,1066,788,1148,750,1258,724,1378,718,1472,728,1568,768,1594,790,1528,924,1504,962,1504,950,1420,932,1414,930,1362,960,1358,980,1312,954,1266,986,1200,980,1130"},{"shape":"POLYGON","coords":"1108,1225,1118,1057,1150,1007,1244,1023,1344,1129,1414,1324,1434,1516,1388,1604,1362,1594,1332,1536,1222,1508,1198,1382,1218,1358,1198,1312,1170,1314,1156,1276,1136,1270"}],"Kidneys":[{"shape":"POLYGON","coords":"1060,1748, 1026,1747, 1025,1907, 950,1903, 973,1875, 956,1824, 907,1807, 850,1843, 820,1907, 820,1979, 850,2024, 900,2037, 930,2009, 934,1990, 970,1964, 1027,1943, 1034,1947, 1030,2090, 1068,2090, 1074,2069, 1107,2066, 1107,1930, 1128,1932, 1212,2000, 1229,2029, 1260,2040, 1317,1999, 1324,1916, 1293,1850, 1252,1819, 1196,1817, 1171,1864, 1190,1901, 1137,1905, 1112,1895, 1111,1773, 1111,1732, 1077,1728, 1062,1741"}],"Intestines":[{"shape":"POLYGON","coords":"1012,1956,890,2050,812,1970,812,1920,760,1925,730,2182,760,2285,830,2337,960,2374,974,2432,1018,2444,1028,2472,1126,2472,1130,2432,1202,2454,1222,2454,1292,2410,1336,2318,1368,2189,1344,2023,1346,1913,1372,1827,1330,1783,1282,1781,1256,1807,1314,1827,1372,1917,1346,2019,1320,2042,1270,2022,1222,1982,1174,1938,1092,1938,1084,1976,996,1956"}],"Nervous System":[{"shape":"POLYGON","coords":"751,3260,760,3354,788,3280,819,3513,723,3700,754,3816,751,4023,771,4086,799,4089,797,3927,800,4140,868,4486,738,4591,719,4642,810,4617,782,4654,833,4686,873,4686,893,4589,913,4530,970,4544,888,4119,950,4144,902,4053,897,3866,937,4047,951,4087,996,3996,931,3818,909,3600,969,3653,997,3512,929,3465,861,3317,844,3213,904,3276,932,3134,864,2987,847,2883,751,3260"}],"Bones":[{"shape":"POLYGON","coords":"581,964,658,967,686,1061,624,1265,632,1537,652,1685,564,1946,479,2411,465,2635,426,2749,350,2803,302,2848,322,2701,268,2789,243,2781,339,2498,223,2623,201,2586,357,2416,388,2357,442,1874,504,1648,482,1580,542,1515,537,1135,523,1047"}],"Circulatory System":[{"shape":"POLYGON","coords":"1459,1410, 1618,1396, 1639,1532, 1672,1674, 1669,1715, 1713,1783, 1733,1990, 1705,2028, 1555,2049, 1527,1905, 1509,1898, 1512,1681, 1484,1627, 1470,1552, 1491,1521, 1459,1488"}],"Lymphatic System":[{"shape":"POLYGON","coords":"943,841,943,927,696,1062,656,956"},{"shape":"POLYGON","coords":"669,998, 513,1165, 514,1511, 405,2159, 533,1886, 569,2097, 703,1343, 627,1129"}],"Bladder":[{"shape":"POLYGON","coords":"1070,2476, 1037,2476, 1005,2486, 972,2506, 957,2523, 946,2555, 957,2583, 994,2610, 994,2608, 1025,2617, 1046,2629, 1055,2643, 1060,2683, 1067,2718, 1079,2719, 1090,2640, 1109,2617, 1169,2598, 1199,2568, 1186,2530, 1162,2500, 1132,2488, 1102,2479"}],"Skin, Hair and Nails":[{"shape":"POLYGON","coords":"1181,674,1121,740,1133,979,1358,1039,1430,1316,1620,1320,1654,1142,1544,958,1246,830,1170,780"},{"shape":"POLYGON","coords":"1427,2465,1142,2694,1202,4470,1266,4634,1370,4634,1254,4422"},{"shape":"POLYGON","coords":"1539,2093,1651,2422,1655,2619,1715,2772,1759,2776,1791,2816,1827,2864,1855,2864,1819,2704,1867,2812,1895,2812,1843,2572,1927,2648,1955,2616,1875,2488,1791,2408,1755,2060"}],"Muscle":[{"shape":"POLYGON","coords":"743,2453,785,2453,863,2600,914,2752,951,2905,958,2943,947,3082,941,3092,884,2933,883,3123,862,3228,848,3258,800,3258,807,3148,777,3017,751,2918,739,2767,736,2672,743,2571,735,2481"}],"Brain":[{"shape":"POLYGON","coords":"1066,142, 1024,128, 939,160, 899,212, 892,273, 896,313, 973,367, 1020,391, 1051,388, 1066,368, 1076,368, 1101,392, 1131,390, 1225,334, 1254,295, 1244,205, 1185,152, 1135,128, 1099,127, 1066,142"}],"Liver":[{"shape":"POLYGON","coords":"789,1852, 757,1691, 753,1630, 775,1581, 819,1543, 875,1527, 953,1516, 981,1524, 1000,1512, 1007,1519, 1007,1519, 1030,1516, 1039,1513, 1040,1504, 1056,1506, 1077,1519, 1078,1537, 1092,1543, 1113,1539, 1113,1533, 1128,1537, 1129,1574, 1143,1617, 1164,1636, 1164,1648, 1095,1701, 1054,1720, 1033,1727, 990,1742, 927,1767, 902,1783, 879,1804, 852,1829, 817,1856, 789,1852"}]}}',
         ),
-        ss = {
+        us = {
           get: function () {
             return ui.get("/api/organs").then(function (e) {
               return e.data;
             });
           },
         },
-        us = function (e) {
+        cs = function (e) {
           var t = e.organ,
             n = e.selectedOrgan,
             r = {
@@ -18910,7 +18962,7 @@
             }),
           });
         };
-      function cs(e) {
+      function fs(e) {
         if (((!rs && 0 !== rs) || e) && Mr) {
           var t = document.createElement("div");
           (t.style.position = "absolute"),
@@ -18924,8 +18976,8 @@
         }
         return rs;
       }
-      var fs = Ft("modal-body"),
-        ds = [
+      var ds = Ft("modal-body"),
+        ps = [
           "bsPrefix",
           "className",
           "contentClassName",
@@ -18935,7 +18987,7 @@
           "children",
           "scrollable",
         ],
-        ps = r.forwardRef(function (e, t) {
+        hs = r.forwardRef(function (e, t) {
           var n = e.bsPrefix,
             r = e.className,
             a = e.contentClassName,
@@ -18944,7 +18996,7 @@
             l = e.fullscreen,
             s = e.children,
             u = e.scrollable,
-            c = Et(e, ds);
+            c = Et(e, ps);
           n = Pt(n, "modal");
           var f = "".concat(n, "-dialog"),
             d =
@@ -18974,18 +19026,18 @@
             ),
           );
         });
-      ps.displayName = "ModalDialog";
-      var hs = ps,
-        vs = Ft("modal-footer"),
-        ms = ["bsPrefix", "className", "closeLabel", "closeButton"],
-        gs = r.forwardRef(function (e, t) {
+      hs.displayName = "ModalDialog";
+      var vs = hs,
+        ms = Ft("modal-footer"),
+        gs = ["bsPrefix", "className", "closeLabel", "closeButton"],
+        ys = r.forwardRef(function (e, t) {
           var n = e.bsPrefix,
             r = e.className,
             a = e.closeLabel,
             o = void 0 === a ? "Close" : a,
             i = e.closeButton,
             l = void 0 !== i && i,
-            s = Et(e, ms);
+            s = Et(e, gs);
           return (
             (n = Pt(n, "modal-header")),
             (0, ht.jsx)(
@@ -18998,10 +19050,10 @@
             )
           );
         });
-      gs.displayName = "ModalHeader";
-      var ys = gs,
-        bs = Ft("modal-title", { Component: It("h4") }),
-        xs = [
+      ys.displayName = "ModalHeader";
+      var bs = ys,
+        xs = Ft("modal-title", { Component: It("h4") }),
+        ws = [
           "bsPrefix",
           "className",
           "style",
@@ -19033,13 +19085,13 @@
           "backdropClassName",
           "manager",
         ];
-      function ws(e) {
-        return (0, ht.jsx)(oa, wt(wt({}, e), {}, { timeout: null }));
-      }
       function ks(e) {
         return (0, ht.jsx)(oa, wt(wt({}, e), {}, { timeout: null }));
       }
-      var Es = r.forwardRef(function (e, t) {
+      function Es(e) {
+        return (0, ht.jsx)(oa, wt(wt({}, e), {}, { timeout: null }));
+      }
+      var Ss = r.forwardRef(function (e, t) {
         var n = e.bsPrefix,
           a = e.className,
           o = e.style,
@@ -19047,7 +19099,7 @@
           l = e.contentClassName,
           s = e.children,
           u = e.dialogAs,
-          c = void 0 === u ? hs : u,
+          c = void 0 === u ? vs : u,
           f = e["aria-labelledby"],
           d = e["aria-describedby"],
           p = e["aria-label"],
@@ -19078,7 +19130,7 @@
           M = e.onExited,
           B = e.backdropClassName,
           U = e.manager,
-          H = Et(e, xs),
+          H = Et(e, ws),
           W = C((0, r.useState)({}), 2),
           V = W[0],
           G = W[1],
@@ -19109,8 +19161,8 @@
             var t = oe().getScrollbarWidth() > 0,
               n = e.scrollHeight > Tr(e).documentElement.clientHeight;
             G({
-              paddingRight: t && !n ? cs() : void 0,
-              paddingLeft: !t && n ? cs() : void 0,
+              paddingRight: t && !n ? fs() : void 0,
+              paddingLeft: !t && n ? fs() : void 0,
             });
           }
         }
@@ -19195,8 +19247,8 @@
                 Vr(window, "resize", le);
             },
             manager: oe(),
-            transition: g ? ws : void 0,
-            backdropTransition: g ? ks : void 0,
+            transition: g ? ks : void 0,
+            backdropTransition: g ? Es : void 0,
             renderBackdrop: de,
             renderDialog: function (e) {
               return (0, ht.jsx)(
@@ -19237,17 +19289,17 @@
           }),
         });
       });
-      Es.displayName = "Modal";
-      var Ss = Object.assign(Es, {
-          Body: fs,
-          Header: ys,
-          Title: bs,
-          Footer: vs,
-          Dialog: hs,
+      Ss.displayName = "Modal";
+      var Cs = Object.assign(Ss, {
+          Body: ds,
+          Header: bs,
+          Title: xs,
+          Footer: ms,
+          Dialog: vs,
           TRANSITION_DURATION: 300,
           BACKDROP_TRANSITION_DURATION: 150,
         }),
-        Cs = function () {
+        Os = function () {
           var e = C((0, r.useState)(null), 2),
             t = e[0],
             n = e[1],
@@ -19272,7 +19324,7 @@
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
-                          return (e.next = 2), ss.get();
+                          return (e.next = 2), us.get();
                         case 2:
                           (t = e.sent), u(t);
                         case 4:
@@ -19317,7 +19369,7 @@
             style: y.organMap,
             children: [
               (0, ht.jsx)("img", {
-                src: is,
+                src: ls,
                 alt: "Human anatomy chart of organs",
                 "aria-label": "Human anatomy chart of organs",
                 style: y.organImg,
@@ -19325,7 +19377,7 @@
               (0, ht.jsx)("svg", {
                 viewBox: "0 0 1975 4867",
                 style: y.svg,
-                children: Object.entries(ls.V).map(function (e) {
+                children: Object.entries(ss.V).map(function (e) {
                   var t = C(e, 2),
                     r = t[0];
                   return t[1].map(function (e, t) {
@@ -19356,23 +19408,23 @@
                   });
                 }),
               }),
-              (0, ht.jsxs)(Ss, {
+              (0, ht.jsxs)(Cs, {
                 show: h,
                 onHide: function () {
                   return v(!1);
                 },
                 centered: !0,
                 children: [
-                  (0, ht.jsx)(Ss.Header, { closeButton: !0 }),
-                  (0, ht.jsx)(Ss.Body, {
-                    children: (0, ht.jsx)(us, { organ: f, selectedOrgan: o }),
+                  (0, ht.jsx)(Cs.Header, { closeButton: !0 }),
+                  (0, ht.jsx)(Cs.Body, {
+                    children: (0, ht.jsx)(cs, { organ: f, selectedOrgan: o }),
                   }),
                 ],
               }),
             ],
           });
         },
-        Os = function () {
+        Ns = function () {
           var e = {
             nutrition: {
               display: "flex",
@@ -19412,7 +19464,7 @@
                   }),
                 ],
               }),
-              (0, ht.jsx)(Cs, {}),
+              (0, ht.jsx)(Os, {}),
               (0, ht.jsx)("div", {
                 children: (0, ht.jsxs)("p", {
                   style: e.paragraph,
@@ -19433,33 +19485,33 @@
             ],
           });
         },
-        Ns = n.p + "static/media/Muscle.fa0130dd51423bab87ec.png",
-        Ps = JSON.parse(
+        Ps = n.p + "static/media/Muscle.fa0130dd51423bab87ec.png",
+        js = JSON.parse(
           '{"H":{"Adductors":[{"shape":"POLYGON","coords":"274,173,278,178,281,179,284,179,282,188,281,197,281,205,282,214,278,199,276,194,275,190,274,184,274,179"},{"shape":"POLYGON","coords":"260,180,266,177,270,173,270,181,269,186,267,193,259,214,262,195"},{"shape":"POLYGON","coords":"122,142,115,166,110,155"},{"shape":"POLYGON","coords":"79,142,90,156,86,166"},{"shape":"POLYGON","coords":"110,155,112,161,115,167,112,175,110,184,110,194,110,203,105,189,102,180,102,169,105,168,106,166,107,163,109,158"},{"shape":"POLYGON","coords":"90,155,86,166,91,181,93,192,93,204,97,191,99,179,99,170,95,167,94,165,93,163,93,160"}],"Erector Spinae":[{"shape":"POLYGON","coords":"284,119,285,126,285,132,260,132,259,126,260,122,261,118,264,112,266,108,279,108"}],"Lats":[{"shape":"POLYGON","coords":"127,78,125,86,125,95,125,106,127,100,128,93,128,82"},{"shape":"POLYGON","coords":"73,78,76,86,76,106,74,101,73,95"},{"shape":"POLYGON","coords":"303,82,302,90,301,98,297,112,294,119,288,129,283,115,275,101,277,96,279,90,284,81,288,82,292,83,300,82,302,81"},{"shape":"POLYGON","coords":"242,81,246,83,250,83,255,82,260,82,266,91,270,102,266,108,262,115,257,131,251,120,248,112,246,105,243,97,243,94,242,90"},{"shape":"POLYGON","coords":"84,95,79,100,80,101,78,102,77,104,79,106,76,109,76,103,76,92,76,84,79,89,85,91,83,94"},{"shape":"POLYGON","coords":"125,86,125,96,125,106,125,108,123,107,122,107,124,104,122,102,120,101,122,99,119,97,117,95,118,94,116,92,121,90"}],"Rotator Cuff":[{"shape":"POLYGON","coords":"302,66,304,67,303,81,295,83,287,81,296,75"},{"shape":"POLYGON","coords":"242,66,241,67,242,81,245,82,249,83,258,81,247,73,245,69"},{"shape":"POLYGON","coords":"291,60,289,61,287,65,286,72,285,79,287,81,296,75,302,65,292,60"},{"shape":"POLYGON","coords":"253,59,255,60,257,65,258,73,260,81,258,81,247,73,245,69,242,66"}],"Trapezius":[{"shape":"POLYGON","coords":"110,50,115,61,120,61,122,60,115,56"},{"shape":"POLYGON","coords":"91,51,86,61,81,61,78,60,84,56"},{"shape":"POLYGON","coords":"266,35,279,35,280,42,282,46,294,53,298,55,303,56,300,58,291,58,288,63,287,68,285,77,283,84,278,92,275,100,272,108,266,92,260,81,257,68,256,63,254,60,252,58,242,56,247,55,260,48,264,44"}],"Forearms":[{"shape":"POLYGON","coords":"311,112,316,117,320,116,324,106,327,110,330,116,331,119,333,125,336,136,337,140,327,145,322,138,317,129,314,122,311,116"},{"shape":"POLYGON","coords":"233,112,232,116,229,123,223,135,215,146,206,142,208,135,210,128,212,119,216,111,220,105,221,110,222,116,227,118"},{"shape":"POLYGON","coords":"149,107,156,117,157,122,159,129,162,136,164,141,156,146,153,142,150,138,142,127,139,120,137,116,138,115,139,114,141,114,147,118,147,113"},{"shape":"POLYGON","coords":"53,107,55,114,61,112,64,116,63,120,60,125,58,128,57,132,51,139,47,145,38,141,40,137,42,132,44,125,45,120,46,116,48,113,51,109"}],"Biceps":[{"shape":"POLYGON","coords":"129,78,141,88,144,92,146,99,148,106,147,113,140,112,139,107,134,100,130,93,126,85,125,82,127,80"},{"shape":"POLYGON","coords":"71,78,70,92,68,99,63,107,62,109,61,112,55,113,53,107,55,101,58,89"}],"Triceps":[{"shape":"POLYGON","coords":"128,86,130,88,133,99,139,107,140,110,140,112,137,109,136,112,131,102,129,98,128,92"},{"shape":"POLYGON","coords":"71,88,73,86,73,95,69,104,65,111,65,110,61,112,63,107,68,99,70,93"},{"shape":"POLYGON","coords":"241,73,242,88,241,94,238,100,233,112,228,113,223,111,221,105,224,96,227,85,228,84,230,82,237,75"},{"shape":"POLYGON","coords":"304,73,307,74,311,79,314,82,316,84,317,86,321,98,323,105,321,112,315,113,311,111,306,100,304,96,302,90,303,73"}],"Rear Delts":[{"shape":"POLYGON","coords":"291,59,304,66,305,71,307,75,315,82,315,77,314,70,312,65,310,61,306,59,301,58,294,59,292,59"},{"shape":"POLYGON","coords":"254,59,244,58,238,59,233,63,231,68,229,73,228,84,236,77,239,72,241,66,248,62"}],"Side Delts":[{"shape":"POLYGON","coords":"300,58,303,56,309,59,313,63,315,66,316,68,317,75,317,82,317,85,316,83,314,70,312,64,307,59"},{"shape":"POLYGON","coords":"244,58,241,56,234,60,229,66,227,74,227,85,229,79,230,70,233,63,237,59"},{"shape":"POLYGON","coords":"123,61,125,60,130,60,134,62,139,68,141,72,142,76,142,85,142,87,139,84,138,76,137,69,134,65,131,63"},{"shape":"POLYGON","coords":"77,61,75,59,71,60,68,61,65,64,62,67,59,72,58,77,58,82,59,86,58,89,63,84,62,74,65,67,70,63"}],"Front Delts":[{"shape":"POLYGON","coords":"116,63,121,62,127,62,131,63,134,65,136,68,138,76,139,84,131,78,130,74,128,70,122,66"},{"shape":"POLYGON","coords":"85,63,78,61,72,61,68,64,65,67,62,73,63,84,70,79,71,74,69"}],"Abdominals":[{"shape":"POLYGON","coords":"88,93,94,92,99,91,101,91,107,92,114,92,114,100,114,108,114,116,114,123,113,127,113,131,112,137,109,149,106,160,95,160,91,147,88,135,87,131,87,127,86,121,87,117,87,107,86,104,86,99,87,95"}],"Obliques":[{"shape":"POLYGON","coords":"297,112,295,119,290,127,289,131,291,134,297,135,299,137,299,129,297,122,297,116"},{"shape":"POLYGON","coords":"248,112,254,126,256,130,256,132,254,133,249,135,246,137,246,128,247,124,248,118,248,113,248,112"},{"shape":"POLYGON","coords":"117,95,122,99,120,101,122,102,124,104,122,107,125,108,124,120,125,128,126,137,117,146,114,142,115,129,117,125,116,123,115,121,116,118,115,113,116,109,115,106,116,103,116,101,115,99"},{"shape":"POLYGON","coords":"84,95,85,99,84,103,85,107,84,110,86,112,85,114,84,118,85,123,84,124,83,125,86,129,87,141,84,146,75,137,75,133,75,127,77,119,76,108,79,107,77,104,80,101,79,100"}],"Chest":[{"shape":"POLYGON","coords":"86,63,95,64,100,74,104,64,113,63,120,66,126,70,127,74,126,81,124,87,119,90,115,92,108,91,101,90,100,88,99,88,98,91,89,92,79,89,75,83,73,74,74,70"}],"Calves":[{"shape":"POLYGON","coords":"292,227,294,230,297,223,303,231,304,237,307,246,309,254,309,268,307,282,304,293,297,293,295,283,291,271,288,261,288,252,288,245,287,239"},{"shape":"POLYGON","coords":"243,223,246,229,249,226,253,239,251,245,251,260,248,270,242,281,240,293,233,293,230,277,229,264,231,251,233,243,236,235,238,230"},{"shape":"POLYGON","coords":"70,229,67,239,65,247,65,256,66,267,67,278,67,286,71,286,70,266,69,246,71,229"},{"shape":"POLYGON","coords":"134,229,135,230,138,237,140,243,141,247,141,252,141,258,141,267,141,284,137,285,136,264,136,246"},{"shape":"POLYGON","coords":"120,238,124,243,126,248,128,256,131,283,127,268,123,260,121,252"},{"shape":"POLYGON","coords":"85,237,82,242,79,249,78,257,78,268,77,281,78,274,81,267,84,259,85,252"}],"Tibialis":[{"shape":"POLYGON","coords":"131,225,133,228,136,240,137,252,136,264,135,276,135,281,135,285,134,285,132,267,131,251"},{"shape":"POLYGON","coords":"74,224,72,228,69,247,71,269,72,278,73,286,74,286,75,250,75,246,74,239"}],"Hamstrings":[{"shape":"POLYGON","coords":"285,179,295,179,297,183,298,189,302,209,302,220,303,232,298,225,295,217,291,229,287,239,285,233,284,229,284,221,281,206,282,188"},{"shape":"POLYGON","coords":"249,179,254,179,259,180,261,190,261,200,259,215,257,222,256,228,255,235,253,239,249,228,246,217,242,225,238,231,240,217,240,208,246,184,247,180"}],"Quads":[{"shape":"POLYGON","coords":"301,168,303,175,304,184,302,207,300,196,299,190,298,184"},{"shape":"POLYGON","coords":"242,167,244,177,244,180,244,183,245,186,240,206,239,191,240,175"},{"shape":"POLYGON","coords":"123,149,119,169,115,184,112,199,112,208,113,216,115,218,117,219,119,218,120,216,120,208,126,208,127,214,130,219,132,210,133,204,134,196,133,180,132,172,130,163"},{"shape":"POLYGON","coords":"78,148,73,159,71,167,69,174,69,187,69,196,71,207,74,219,78,212,78,208,83,208,83,214,84,216,85,218,87,218,90,217,91,210,91,199,88,188,80,161"}],"Hip Flexors":[{"shape":"POLYGON","coords":"126,139,124,141,124,149,129,162,132,170,133,179,133,173,132,168,131,161,130,159,130,156,128,148"},{"shape":"POLYGON","coords":"75,139,77,140,76,152,73,160,70,170,69,181,68,176,69,171,71,158"},{"shape":"POLYGON","coords":"77,141,79,142,82,155,87,168,90,178,92,187,93,204,92,213,91,218,89,226,86,234,82,241,79,245,81,236,85,230,88,223,91,215,91,209,91,202,88,187,83,171,79,156"},{"shape":"POLYGON","coords":"122,142,119,152,116,164,113,173,111,182,110,188,110,194,110,204,115,225,117,230,119,235,125,242,125,236,121,230,117,223,113,213,112,208,112,202,114,190,116,179,121,160,124,141"}],"Glutes":[{"shape":"POLYGON","coords":"282,138,288,136,294,136,296,142,298,147,298,155,296,149,292,144"},{"shape":"POLYGON","coords":"263,138,258,135,255,135,251,136,247,145,246,154,249,148,254,144"},{"shape":"POLYGON","coords":"263,138,257,141,252,145,249,148,248,150,245,159,246,168,249,178,260,179,265,177,269,174,271,171,272,166,274,173,279,178,285,179,292,179,296,172,299,165,299,160,298,156,297,150,295,147,292,144,282,138,276,143,272,149,269,143,267,141"}],"Neck":[{"shape":"POLYGON","coords":"91,41,91,51,96,61,103,61,109,51,109,41,104,44,97,44"}]}}',
         ),
-        js = {
+        Ls = {
           get: function () {
             return ui.get("/api/musclefunctionvideos").then(function (e) {
               return e.data;
             });
           },
         },
-        Ls = {
+        Rs = {
           get: function () {
             return ui.get("/api/exercisevideos").then(function (e) {
               return e.data;
             });
           },
         },
-        Rs = ["bsPrefix", "className", "children", "aspectRatio", "style"];
-      var Ts = r.forwardRef(function (e, t) {
+        Ts = ["bsPrefix", "className", "children", "aspectRatio", "style"];
+      var _s = r.forwardRef(function (e, t) {
           var n = e.bsPrefix,
             a = e.className,
             o = e.children,
             i = e.aspectRatio,
             l = void 0 === i ? "1x1" : i,
             s = e.style,
-            u = Et(e, Rs);
+            u = Et(e, Ts);
           n = Pt(n, "ratio");
           var c,
             f = "number" === typeof l;
@@ -19483,8 +19535,8 @@
             ),
           );
         }),
-        _s = Ts,
-        As = function (e) {
+        As = _s,
+        Ds = function (e) {
           var t = e.video,
             n = C((0, r.useState)(!1), 2),
             a = n[0],
@@ -19515,7 +19567,7 @@
               border: "danger",
               style: l.text,
               children: [
-                (0, ht.jsx)(_s, {
+                (0, ht.jsx)(As, {
                   aspectRatio: "16x9",
                   children: (0, ht.jsx)("iframe", {
                     ref: i,
@@ -19547,7 +19599,7 @@
             })
           );
         },
-        Ds = (0, r.forwardRef)(function (e, t) {
+        zs = (0, r.forwardRef)(function (e, t) {
           var n = e.displayedMuscleFunctionVideos,
             r = e.displayedExerciseVideos,
             a = e.selectedMuscle,
@@ -19571,7 +19623,7 @@
                       children: "Muscle Functions",
                     }),
                     n.map(function (e) {
-                      return (0, ht.jsx)(As, { video: e }, e.id);
+                      return (0, ht.jsx)(Ds, { video: e }, e.id);
                     }),
                   ],
                 }),
@@ -19583,14 +19635,14 @@
                       children: "Exercises",
                     }),
                     r.map(function (e) {
-                      return (0, ht.jsx)(As, { video: e }, e.id);
+                      return (0, ht.jsx)(Ds, { video: e }, e.id);
                     }),
                   ],
                 }),
             ],
           });
         }),
-        zs = function () {
+        Fs = function () {
           var e = C((0, r.useState)(null), 2),
             t = e[0],
             n = e[1],
@@ -19619,7 +19671,7 @@
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
-                          return (e.next = 2), js.get();
+                          return (e.next = 2), Ls.get();
                         case 2:
                           (t = e.sent), u(t);
                         case 4:
@@ -19644,7 +19696,7 @@
                       for (;;)
                         switch ((e.prev = e.next)) {
                           case 0:
-                            return (e.next = 2), Ls.get();
+                            return (e.next = 2), Rs.get();
                           case 2:
                             (t = e.sent), v(t);
                           case 4:
@@ -19689,7 +19741,7 @@
             style: k.muscleMap,
             children: [
               (0, ht.jsx)("img", {
-                src: Ns,
+                src: Ps,
                 alt: "Human anatomy",
                 "aria-label": "Human anatomy",
                 style: k.anatomyImg,
@@ -19697,7 +19749,7 @@
               (0, ht.jsx)("svg", {
                 viewBox: "0 0 373 331",
                 style: k.svg,
-                children: Object.entries(Ps.H).map(function (e) {
+                children: Object.entries(js.H).map(function (e) {
                   var t = C(e, 2),
                     r = t[0];
                   return t[1].map(function (e, t) {
@@ -19735,7 +19787,7 @@
                   });
                 }),
               }),
-              (0, ht.jsx)(Ds, {
+              (0, ht.jsx)(zs, {
                 ref: b,
                 displayedMuscleFunctionVideos: f,
                 displayedExerciseVideos: g,
@@ -19744,7 +19796,7 @@
             ],
           });
         },
-        Fs = function () {
+        Is = function () {
           var e = {
             training: {
               display: "flex",
@@ -19784,7 +19836,7 @@
                   }),
                 ],
               }),
-              (0, ht.jsx)(zs, {}),
+              (0, ht.jsx)(Fs, {}),
               (0, ht.jsx)("div", {
                 children: (0, ht.jsxs)("p", {
                   style: e.paragraph,
@@ -19805,7 +19857,7 @@
             ],
           });
         },
-        Is = function () {
+        Ms = function () {
           return (0, ht.jsxs)("section", {
             className: "privacy policy",
             style: {
@@ -19867,7 +19919,7 @@
             ],
           });
         },
-        Ms = function () {
+        Bs = function () {
           return (0, ht.jsxs)("section", {
             className: "disclaimer",
             style: {
@@ -19888,7 +19940,7 @@
             ],
           });
         },
-        Bs = function () {
+        Us = function () {
           var e = C((0, r.useState)(!1), 2),
             t = e[0],
             n = e[1],
@@ -20086,7 +20138,7 @@
                 className: "btn-custom",
                 children: "Privacy Policy",
               }),
-              t ? (0, ht.jsx)(Is, {}) : null,
+              t ? (0, ht.jsx)(Ms, {}) : null,
               (0, ht.jsx)(ir, {
                 variant: "danger",
                 onClick: function () {
@@ -20099,14 +20151,14 @@
                 className: "btn-custom",
                 children: "Disclaimer",
               }),
-              o ? (0, ht.jsx)(Ms, {}) : null,
+              o ? (0, ht.jsx)(Bs, {}) : null,
             ],
           });
         },
-        Us =
+        Hs =
           n.p +
           "static/media/BulletPointFitnessBannerNew.f000e0b05492fcd2d242.png",
-        Hs = function () {
+        Ws = function () {
           var e = C((0, r.useState)(window.innerWidth), 2),
             t = e[0],
             n = e[1],
@@ -20143,7 +20195,7 @@
               children:
                 o &&
                 (0, ht.jsx)("img", {
-                  src: Us,
+                  src: Hs,
                   alt: "My Banner",
                   style: l.image,
                   "aria-label": "Banner for bulletpointfitness.com",
@@ -20151,13 +20203,13 @@
             }),
           });
         },
-        Ws = ["bsPrefix", "className", "as"],
-        Vs = r.forwardRef(function (e, t) {
+        Vs = ["bsPrefix", "className", "as"],
+        Gs = r.forwardRef(function (e, t) {
           var n = e.bsPrefix,
             r = e.className,
             a = e.as,
             o = void 0 === a ? "div" : a,
-            i = Et(e, Ws),
+            i = Et(e, Vs),
             l = Pt(n, "row"),
             s = jt(),
             u = Lt(),
@@ -20182,26 +20234,26 @@
             )
           );
         });
-      Vs.displayName = "Row";
-      var Gs = Vs,
-        Ys = n.p + "static/media/Level2FirstAid.7c30957a7197a0dbd3c0.jpg",
-        $s = n.p + "static/media/Level2Fitness.32bc5181ae5e46d71424.jpg",
-        qs = n.p + "static/media/Level3PT.d82e5e1e7794d02544dd.jpg",
-        Ks = n.p + "static/media/Level3PT1.2a80610b60673d93832b.jpg",
-        Qs = n.p + "static/media/Level3PTDiploma.e4c06605fe542201351f.jpg",
-        Js =
-          n.p + "static/media/Level3ExerciseReferral.0354990be557bafed967.jpg",
+      Gs.displayName = "Row";
+      var Ys = Gs,
+        $s = n.p + "static/media/Level2FirstAid.7c30957a7197a0dbd3c0.jpg",
+        qs = n.p + "static/media/Level2Fitness.32bc5181ae5e46d71424.jpg",
+        Ks = n.p + "static/media/Level3PT.d82e5e1e7794d02544dd.jpg",
+        Qs = n.p + "static/media/Level3PT1.2a80610b60673d93832b.jpg",
+        Js = n.p + "static/media/Level3PTDiploma.e4c06605fe542201351f.jpg",
         Xs =
+          n.p + "static/media/Level3ExerciseReferral.0354990be557bafed967.jpg",
+        Zs =
           n.p +
           "static/media/Level4ObesityAndDiabetes.5b3b5d07d2078e2a76c9.jpg",
-        Zs = {
+        eu = {
           get: function () {
             return ui.get("/api/aboutvideos").then(function (e) {
               return e.data;
             });
           },
         },
-        eu = function () {
+        tu = function () {
           var e = C((0, r.useState)([]), 2),
             t = e[0],
             n = e[1];
@@ -20214,7 +20266,7 @@
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
-                          return (e.next = 2), Zs.get();
+                          return (e.next = 2), eu.get();
                         case 2:
                           (t = e.sent), n(t);
                         case 4:
@@ -20230,7 +20282,7 @@
             })();
             e();
           }, []);
-          var a = [Ys, $s, qs, Ks, Qs, Qs, Js, Xs],
+          var a = [$s, qs, Ks, Qs, Js, Js, Xs, Zs],
             o = {
               container: { textAlign: "center" },
               card: { color: "#df0000", borderWidth: "2px" },
@@ -20258,7 +20310,7 @@
                   }),
                 }),
                 t.map(function (e) {
-                  return (0, ht.jsx)(As, { video: e }, e.id);
+                  return (0, ht.jsx)(Ds, { video: e }, e.id);
                 }),
                 (0, ht.jsx)("div", {
                   children: (0, ht.jsx)("h1", {
@@ -20269,7 +20321,7 @@
                 a.map(function (e, t) {
                   return t % 2 === 0
                     ? (0, ht.jsxs)(
-                        Gs,
+                        Ys,
                         {
                           children: [
                             (0, ht.jsx)(Tn, {
@@ -20313,16 +20365,16 @@
             }),
           });
         },
-        tu = n(48),
-        nu = n.n(tu),
-        ru = {
+        nu = n(48),
+        ru = n.n(nu),
+        au = {
           get: function () {
             return ui.get("/api/trainingvideos").then(function (e) {
               return e.data;
             });
           },
         },
-        au = function () {
+        ou = function () {
           var e = C((0, r.useState)([]), 2),
             t = e[0],
             n = e[1],
@@ -20344,7 +20396,7 @@
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
-                          return (e.next = 2), ru.get();
+                          return (e.next = 2), au.get();
                         case 2:
                           (t = e.sent), n(t);
                         case 4:
@@ -20436,7 +20488,7 @@
                 ],
               }),
               (0, ht.jsx)(_t, {
-                children: (0, ht.jsx)(Gs, {
+                children: (0, ht.jsx)(Ys, {
                   children: (function (e) {
                     switch (s) {
                       case "title":
@@ -20457,13 +20509,13 @@
                     .map(function (e) {
                       return (0, ht.jsx)(
                         Tn,
-                        { md: 4, children: (0, ht.jsx)(As, { video: e }) },
+                        { md: 4, children: (0, ht.jsx)(Ds, { video: e }) },
                         e.id,
                       );
                     }),
                 }),
               }),
-              (0, ht.jsx)(nu(), {
+              (0, ht.jsx)(ru(), {
                 pageCount: Math.ceil(t.length / 6),
                 onPageChange: function (e) {
                   var t = e.selected;
@@ -20484,7 +20536,7 @@
             ],
           });
         },
-        ou = function () {
+        iu = function () {
           var e = {
             app: { fontFamily: "Be Vietnam", color: "#df0000" },
             cookie: { background: "#333" },
@@ -20493,22 +20545,26 @@
           return (0, ht.jsxs)("div", {
             className: "app",
             children: [
-              (0, ht.jsx)(Hs, {}),
+              (0, ht.jsx)(Ws, {}),
               (0, ht.jsx)(os, {}),
               (0, ht.jsx)("main", {
                 children: (0, ht.jsxs)(ze, {
                   children: [
                     (0, ht.jsx)(Ae, {
                       path: "/",
-                      element: (0, ht.jsx)(Fs, {}),
+                      element: (0, ht.jsx)(Is, {}),
                     }),
                     (0, ht.jsx)(Ae, {
                       path: "/training",
-                      element: (0, ht.jsx)(au, {}),
+                      element: (0, ht.jsx)(ou, {}),
+                    }),
+                    (0, ht.jsx)(Ae, {
+                      path: "/consultation",
+                      element: (0, ht.jsx)(is, {}),
                     }),
                     (0, ht.jsx)(Ae, {
                       path: "/organmap",
-                      element: (0, ht.jsx)(Os, {}),
+                      element: (0, ht.jsx)(Ns, {}),
                     }),
                     (0, ht.jsx)(Ae, {
                       path: "contactforms",
@@ -20516,7 +20572,7 @@
                     }),
                     (0, ht.jsx)(Ae, {
                       path: "about",
-                      element: (0, ht.jsx)(eu, {}),
+                      element: (0, ht.jsx)(tu, {}),
                     }),
                     (0, ht.jsx)(Ae, {
                       path: "*",
@@ -20525,7 +20581,7 @@
                   ],
                 }),
               }),
-              (0, ht.jsx)(Bs, {}),
+              (0, ht.jsx)(Us, {}),
               (0, ht.jsx)(tt, {
                 location: "bottom",
                 buttonText: "Accept",
@@ -20539,8 +20595,8 @@
           });
         };
       o.createRoot(document.getElementById("root")).render(
-        (0, ht.jsx)(lt, { children: (0, ht.jsx)(ou, {}) }),
+        (0, ht.jsx)(lt, { children: (0, ht.jsx)(iu, {}) }),
       );
     })();
 })();
-//# sourceMappingURL=main.4671985c.js.map
+//# sourceMappingURL=main.c22543c6.js.map

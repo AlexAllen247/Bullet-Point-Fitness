@@ -45,11 +45,11 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/x_LKwLmiyNc",
-    "title":"How to Pick the Right Exercises with Bullet Point Fitness",
-    "dateAdded":"2023-12-28",
-    "description": "🤔 Looking for the Key to Effective Workouts? Discover How to Choose the Right Exercises! 🏋️‍♂️ Welcome to Bullet Point Fitness, where we simplify the complexities of exercise selection. In this detailed video, we delve into essential factors that dictate the most effective exercises for each muscle group.",
-    "duration": "8 mins and 22 seconds"
+    "embedUrl":"https://youtube.com/embed/CtMosRaA-M4",
+    "title":"2024: Make This One Different with Bullet Point Fitness",
+    "dateAdded":"2024-01-01",
+    "description": "🌟 Ready to Make 2024 Your Year of Real Fitness Success? Let's Break the Cycle of Unrealistic Goals! 🌟 Welcome to Bullet Point Fitness, where we're all about making real, lasting changes. This year, we're diving deep into how to set achievable fitness goals, maintain consistency, master exercise techniques and to not rely on fleeting motivation.",
+    "duration": "10 mins and 13 seconds"
 }
 
 ###

@@ -65,6 +65,13 @@ const Navigation = () => {
                 Training Essentials
               </NavLink>
               <NavLink
+                to="/consultation"
+                style={styles.navStyle}
+                aria-label="Link to Consultation page"
+              >
+                Consultation
+              </NavLink>
+              <NavLink
                 to="/organmap"
                 style={styles.navStyle}
                 aria-label="Link to the interactive Organ map"
@@ -85,13 +92,6 @@ const Navigation = () => {
                 aria-label="Link to Mindset page"
               >
                 Mindset
-              </NavLink>
-              <NavLink
-                to="/consultation"
-                style={styles.navStyle}
-                aria-label="Link to Consultation page"
-              >
-                Consultation
               </NavLink>
   */}
               <NavLink

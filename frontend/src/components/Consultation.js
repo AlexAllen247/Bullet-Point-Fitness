@@ -1,156 +1,52 @@
-/*
-import React, { useState, useEffect } from "react";
-import {
-  Form,
-  Button,
-  FormControl,
-  FormGroup,
-  FormLabel,
-} from "react-bootstrap";
-import Notification from "./Notification";
-import consultationService from "../services/consultations";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import React from "react";
+import BulletPointSVG from "./BulletPointSVG";
 
-const localizer = momentLocalizer(moment);
-
-const Consultation = () => {
-  const [events, setEvents] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
-  const [notification, setNotification] = useState(null);
-
-  const notify = (message, type = "info") => {
-    setNotification({ message, type });
-    setTimeout(() => {
-      setNotification(null);
-    }, 3000);
+const GoogleCalendar = () => {
+  const styles = {
+    consultation: {
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
+    },
+    header: {
+      color: "#df0000",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      marginBottom: 40,
+    },
+    paragraph: {
+      color: "#df0000",
+      fontSize: 20,
+      margin: 30,
+    },
   };
-
-  useEffect(() => {
-    // Fetch already booked slots using the consultationService
-    consultationService
-      .get()
-      .then((responseData) => {
-        const fetchedEvents = responseData.events.map((event) => ({
-          title: "Booked Slot",
-          start: new Date(event.start.dateTime),
-          end: new Date(event.end.dateTime),
-        }));
-        setEvents(fetchedEvents);
-      })
-      .catch((error) => {
-        console.error("Error fetching events:", error);
-      });
-  }, []);
-
-  const createConsultation = async (consultation) => {
-    consultationService
-      .create(consultation)
-      .then(() => {
-        notify(`A new consultation has been booked.`);
-      })
-      .catch((error) => {
-        notify(
-          "Booking a consultation failed: " + error.response.data.error,
-          "alert",
-        );
-      });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (selectedDate && selectedTimeSlot) {
-      const startTime = new Date(
-        `${selectedDate}T${selectedTimeSlot}:00+01:00`,
-      );
-      const endTime = new Date(startTime);
-      endTime.setMinutes(
-        startTime.getMinutes() + (selectedTimeSlot === "30" ? 30 : 60),
-      );
-      const consultation = {
-        summary: "Consultation Slot",
-        location: "Online",
-        description: "Consultation Slot Booked",
-        start: {
-          dateTime: startTime.toISOString(),
-          timeZone: "Europe/Madrid",
-        },
-        end: {
-          dateTime: endTime.toISOString(),
-          timeZone: "Europe/Madrid",
-        },
-        attendees: [], // Modify if needed
-        reminders: {
-          useDefault: false,
-          overrides: [
-            { method: "email", minutes: 24 * 60 },
-            { method: "popup", minutes: 10 },
-          ],
-        },
-      };
-      createConsultation(consultation);
-    }
-  };
-
-  const timeSlots = [
-    "07:00",
-    "08:00",
-    "09:00",
-    "10:00",
-    "11:00",
-    "12:00",
-    "13:00",
-  ];
-
   return (
-    <section className="consultation">
-      <div style={{ height: "500px" }}>
-        <Calendar
-          localizer={localizer}
-          events={events}
-          startAccessor="start"
-          endAccessor="end"
-          style={{ height: 500, margin: "50px" }}
-        />
-      </div>
+    <section style={styles.consultation}>
       <div>
-        <Form onSubmit={handleSubmit}>
-          <FormGroup controlId="formDate">
-            <FormLabel>Date</FormLabel>
-            <FormControl
-              type="date"
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
-              required
-            />
-          </FormGroup>
-
-          <FormGroup controlId="formTimeSlot">
-            <FormLabel>Time Slot</FormLabel>
-            <FormControl
-              as="select"
-              value={selectedTimeSlot}
-              onChange={(e) => setSelectedTimeSlot(e.target.value)}
-              style={{ width: "50%" }}
-              required
-            >
-              {timeSlots.map((slot, index) => (
-                <option key={index} value={slot}>
-                  {slot}
-                </option>
-              ))}
-            </FormControl>
-          </FormGroup>
-
-          <Button type="submit">Book Consultation</Button>
-          <Notification notification={notification} />
-        </Form>
+        <h1 style={styles.header}>Book a Consultation</h1>
+        <p style={styles.paragraph}>
+          <BulletPointSVG />
+          Starting your fitness journey or taking it to the next level can be
+          challenging, but you don't need to do it alone. If you're looking for
+          guidance, whether it's figuring out where to begin or how to push
+          forward, I'm here to help. Book a one-on-one consultation with me, and
+          together we'll discuss your goals and craft a personalized fitness
+          plan tailored just for you. Choose a timeslot below, and let's start
+          this journey towards achieving your fitness aspirations.
+        </p>
       </div>
+      <iframe
+        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ37BikZEr6aVFFN9J0FZfM7xAbcDq4QGXc5RIUcVL0p_TOHJaKyRRRgVb1_2Mv39fuW2UEbnqhs?gv=true"
+        style={{ border: 0 }}
+        width="100%"
+        height="800"
+        frameBorder="0"
+        title="Google Calendar"
+      ></iframe>
     </section>
   );
 };
 
-export default Consultation;
-*/
+export default GoogleCalendar;

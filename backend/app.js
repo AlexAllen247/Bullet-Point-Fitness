@@ -11,7 +11,6 @@ const path = require("path");
 require("express-async-errors");
 
 const contactFormsRouter = require("./controllers/contactForms");
-const consultationRouter = require("./controllers/consultations");
 const trainingVideosRouter = require("./controllers/trainingVideos");
 const nutritionVideosRouter = require("./controllers/nutritionVideos");
 const mindsetVideosRouter = require("./controllers/mindsetVideos");
@@ -70,6 +69,7 @@ app.use(
         "https://www.youtube.com",
         "https://youtube.com",
         "https://www.googletagmanager.com",
+        "https://calendar.google.com",
       ],
       connectSrc: [
         "'self'",
@@ -102,7 +102,6 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/contactforms", contactFormsRouter);
-app.use("/api/consultations", consultationRouter);
 app.use("/api/trainingvideos", trainingVideosRouter);
 app.use("/api/nutritionvideos", nutritionVideosRouter);
 app.use("/api/mindsetvideos", mindsetVideosRouter);

@@ -5,7 +5,7 @@ import CookieConsent from "react-cookie-consent";
 import NotFound from "./components/NotFound";
 import ContactForm from "./components/ContactForm";
 import Navigation from "./components/Navigation";
-//import Consultation from "./components/Consultation";
+import Consultation from "./components/Consultation";
 //import Mindset from "./components/Mindset";
 import OrganMap from "./components/OrganMap";
 import MuscleMap from "./components/MuscleMap";
@@ -38,10 +38,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MuscleMap />} />
           <Route path="/training" element={<TrainingVideos />} />
+          <Route path="/consultation" element={<Consultation />} />
           <Route path="/organmap" element={<OrganMap />} />
           {/*<Route path="/pdf" element={<Pdf />} />
-          <Route path="mindset" element={<Mindset />} />
-        <Route path="/app/consultation" element={<Consultation />} />*/}
+          <Route path="mindset" element={<Mindset />} />*/}
           <Route path="contactforms" element={<ContactForm />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<NotFound />} />

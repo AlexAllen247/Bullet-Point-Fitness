@@ -45,11 +45,11 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/CtMosRaA-M4",
-    "title":"2024: Make This One Different with Bullet Point Fitness",
-    "dateAdded":"2024-01-01",
-    "description": "🌟 Ready to Make 2024 Your Year of Real Fitness Success? Let's Break the Cycle of Unrealistic Goals! 🌟 Welcome to Bullet Point Fitness, where we're all about making real, lasting changes. This year, we're diving deep into how to set achievable fitness goals, maintain consistency, master exercise techniques and to not rely on fleeting motivation.",
-    "duration": "10 mins and 13 seconds"
+    "embedUrl":"https://youtube.com/embed/3BmcWf9g1-U",
+    "title":"Can You Feel Full and Still Lose Weight? - with Bullet Point Fitness",
+    "dateAdded":"2024-01-09",
+    "description": "🤔 Struggling with Sustainable Weight Loss? Uncover the Power of Satiety in Your Diet! 🍏 Welcome to Bullet Point Fitness, where we demystify the principles of effective weight management. In this video, we delve into the concept of satiety and how it's a game-changer in your weight loss journey.",
+    "duration": "9 mins and 24 seconds"
 }
 
 ###

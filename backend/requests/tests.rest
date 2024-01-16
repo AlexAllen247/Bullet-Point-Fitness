@@ -45,11 +45,11 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/2uQI1gb6zMY",
-    "title":"Can Training to Failure Maximize Your Workout Results? - with Bullet Point Fitness",
-    "dateAdded":"2024-01-12",
-    "description": "🏋️‍♂️ Wondering if Training to Failure is Right for Your Workout? Let's Break Down the Facts! 🌟 Welcome to our latest video at Bullet Point Fitness, where we explore the concept of training to failure. This video unpacks everything you need to know about this intense training technique, its benefits for muscle growth, and when to use it wisely.",
-    "duration": "9 mins and 6 seconds"
+    "embedUrl":"https://youtube.com/embed/5a4GMk0FemM",
+    "title":"Experiencing Knee Pain? Best Exercises for Healthy Knees | Bullet Point Fitness Guide",
+    "dateAdded":"2024-01-15",
+    "description": "🏋️‍♂️ Welcome to Bullet Point Fitness's comprehensive guide to knee wellness. If you're experiencing knee pain, this video is your go-to resource for the best exercises for healthy knees. Join us as we delve into understanding and managing knee pain, and discover effective strategies for knee health.",
+    "duration": "7 mins and 12 seconds"
 }
 
 ###

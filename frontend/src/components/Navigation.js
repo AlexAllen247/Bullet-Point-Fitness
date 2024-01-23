@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({ onLogout }) => {
   const [expanded, setExpanded] = useState(false);
 
   const styles = {
@@ -14,6 +14,11 @@ const Navigation = () => {
     navbar: {
       marginBottom: 60,
       marginTop: 15,
+    },
+    button: {
+      padding: 15,
+      marginTop: 35,
+      marginBottom: 35,
     },
   };
   return (
@@ -108,6 +113,16 @@ const Navigation = () => {
               >
                 About
               </NavLink>
+              <Button
+                onClick={onLogout}
+                aria-label="Logout"
+                type="submit"
+                variant="danger"
+                style={styles.button}
+                className="btn-custom"
+              >
+                Logout
+              </Button>
             </Nav>
           </div>
         </Navbar.Collapse>

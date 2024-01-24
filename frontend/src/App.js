@@ -79,17 +79,23 @@ const App = () => {
     return (
       <div className="app">
         <Header />
-        <Notification notification={notification} />
         <Navigation user={user} onLogout={logout} />
         <main>
+          <Notification notification={notification} />
           <Routes>
             <Route path="/" element={<MuscleMap />} />
             <Route path="/training" element={<TrainingVideos />} />
             <Route path="/consultation" element={<Consultation />} />
             <Route path="/organmap" element={<OrganMap />} />
             <Route path="/login" element={<LoginForm onLogin={login} />} />
-            <Route path="/register" element={<RegisterForm />} />
-            <Route path="contactforms" element={<ContactForm />} />
+            <Route
+              path="/register"
+              element={<RegisterForm notify={notify} />}
+            />
+            <Route
+              path="contactforms"
+              element={<ContactForm notify={notify} />}
+            />
             <Route path="about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -113,8 +119,8 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <Notification notification={notification} />
       <Navigation user={user} onLogout={logout} />
+      <Notification notification={notification} />
       <Footer />
       <CookieConsent
         location="bottom"

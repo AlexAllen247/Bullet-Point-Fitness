@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
-import Notification from "./Notification";
 import contactFormService from "../services/contactForms";
 import BulletPointSVG from "./BulletPointSVG";
 
-const ContactForm = () => {
+const ContactForm = ({ notify }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [notification, setNotification] = useState(null);
-
-  const notify = (message, type = "info") => {
-    setNotification({ message, type });
-    setTimeout(() => {
-      setNotification(null);
-    }, 3000);
-  };
 
   const createForm = async (contactForm) => {
     contactFormService
@@ -91,7 +82,6 @@ const ContactForm = () => {
               reach out using the contact form below. We'll get back to you as
               soon as possible.
             </p>
-            <Notification notification={notification} />
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="email" style={styles.label}>

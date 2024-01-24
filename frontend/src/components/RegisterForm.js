@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
 import registerService from "../services/register";
-import Notification from "./Notification";
 
-const RegisterForm = () => {
+const RegisterForm = ({ notify }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [notification, setNotification] = useState(null);
-
-  const notify = (message, type = "info") => {
-    setNotification({ message, type });
-    setTimeout(() => {
-      setNotification(null);
-    }, 3000);
-  };
 
   const createUser = async (newUser) => {
     registerService
@@ -101,7 +92,6 @@ const RegisterForm = () => {
         </div>
         <Card className="my-3" style={styles.card} border="danger">
           <Card.Body>
-            <Notification notification={notification} />
             <Form onSubmit={handleSubmit} style={styles.form}>
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="username" style={styles.label}>

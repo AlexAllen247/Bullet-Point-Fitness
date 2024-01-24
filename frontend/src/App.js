@@ -6,16 +6,15 @@ import NotFound from "./components/NotFound";
 import ContactForm from "./components/ContactForm";
 import Navigation from "./components/Navigation";
 import Consultation from "./components/Consultation";
-//import Mindset from "./components/Mindset";
 import OrganMap from "./components/OrganMap";
 import MuscleMap from "./components/MuscleMap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./components/About";
 import TrainingVideos from "./components/TrainingVideos";
-//import Pdf from "./components/Pdf";
 import Notification from "./components/Notification";
 import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -48,22 +47,17 @@ const App = () => {
       .then((user) => {
         setUser(user);
         userService.setUser(user);
-        notify(
-          `${user.username} logged in!/${user.username} se ha iniciado sesion!`,
-        );
+        notify(`${user.username} successfully logged in!`);
       })
       .catch(() => {
-        notify(
-          "Incorrect username/password, please try again./ Nombre de usario/constrasena incorrectos, por favor, intentalo de neuvo.",
-          "alert",
-        );
+        notify("Incorrect username/password, please try again.", "alert");
       });
   };
 
   const logout = () => {
     setUser(null);
     userService.clearUser();
-    notify("Goodbye!/Adios!");
+    notify("Goodbye!");
   };
 
   const styles = {
@@ -81,22 +75,22 @@ const App = () => {
     },
   };
 
-  const Home = () => {
-    return (
-      <div>
-        <LoginForm onLogin={login} />
-      </div>
-    );
-  };
-
   if (user === null) {
     return (
       <div className="app">
         <Header />
         <Notification notification={notification} />
+        <Navigation user={user} onLogout={logout} />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<MuscleMap />} />
+            <Route path="/training" element={<TrainingVideos />} />
+            <Route path="/consultation" element={<Consultation />} />
+            <Route path="/organmap" element={<OrganMap />} />
+            <Route path="/login" element={<LoginForm onLogin={login} />} />
+            <Route path="/register" element={<RegisterForm />} />
+            <Route path="contactforms" element={<ContactForm />} />
+            <Route path="about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -120,20 +114,7 @@ const App = () => {
     <div className="app">
       <Header />
       <Notification notification={notification} />
-      <Navigation onLogout={logout} />
-      <main>
-        <Routes>
-          <Route path="/" element={<MuscleMap />} />
-          <Route path="/training" element={<TrainingVideos />} />
-          <Route path="/consultation" element={<Consultation />} />
-          <Route path="/organmap" element={<OrganMap />} />
-          {/*<Route path="/pdf" element={<Pdf />} />
-          <Route path="mindset" element={<Mindset />} />*/}
-          <Route path="contactforms" element={<ContactForm />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+      <Navigation user={user} onLogout={logout} />
       <Footer />
       <CookieConsent
         location="bottom"

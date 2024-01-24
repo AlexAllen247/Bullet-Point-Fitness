@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Nav, Navbar, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-const Navigation = ({ onLogout }) => {
+const Navigation = ({ user, onLogout }) => {
   const [expanded, setExpanded] = useState(false);
 
   const styles = {
@@ -55,35 +55,48 @@ const Navigation = ({ onLogout }) => {
         >
           <div className="mx-auto">
             <Nav className="me-auto mt-2 justify-content-center mx-auto">
-              <NavLink
-                to="/"
-                style={styles.navStyle}
-                aria-label="Link to Interactive Muscle Anatomy Chart"
-              >
-                Muscle Map
-              </NavLink>
-              <NavLink
-                to="/training"
-                style={styles.navStyle}
-                aria-label="Link to Training Essentials video page"
-              >
-                Training Essentials
-              </NavLink>
-              <NavLink
-                to="/consultation"
-                style={styles.navStyle}
-                aria-label="Link to Consultation page"
-              >
-                Consultation
-              </NavLink>
-              <NavLink
-                to="/organmap"
-                style={styles.navStyle}
-                aria-label="Link to the interactive Organ map"
-              >
-                Organ Map
-              </NavLink>
-              {/*
+              {user ? (
+                <Button
+                  onClick={onLogout}
+                  aria-label="Logout"
+                  type="submit"
+                  variant="danger"
+                  style={styles.button}
+                  className="btn-custom"
+                >
+                  Logout
+                </Button>
+              ) : (
+                <>
+                  <NavLink
+                    to="/"
+                    style={styles.navStyle}
+                    aria-label="Link to Interactive Muscle Anatomy Chart"
+                  >
+                    Muscle Map
+                  </NavLink>
+                  <NavLink
+                    to="/training"
+                    style={styles.navStyle}
+                    aria-label="Link to Training Essentials video page"
+                  >
+                    Training Essentials
+                  </NavLink>
+                  <NavLink
+                    to="/consultation"
+                    style={styles.navStyle}
+                    aria-label="Link to Consultation page"
+                  >
+                    Consultation
+                  </NavLink>
+                  <NavLink
+                    to="/organmap"
+                    style={styles.navStyle}
+                    aria-label="Link to the interactive Organ map"
+                  >
+                    Organ Map
+                  </NavLink>
+                  {/*
               <NavLink
                 to="/pdf"
                 style={styles.navStyle}
@@ -99,30 +112,36 @@ const Navigation = ({ onLogout }) => {
                 Mindset
               </NavLink>
   */}
-              <NavLink
-                to="/contactforms"
-                style={styles.navStyle}
-                aria-label="Link to Contact form"
-              >
-                Contact
-              </NavLink>
-              <NavLink
-                to="/about"
-                style={styles.navStyle}
-                aria-label="Link to About page"
-              >
-                About
-              </NavLink>
-              <Button
-                onClick={onLogout}
-                aria-label="Logout"
-                type="submit"
-                variant="danger"
-                style={styles.button}
-                className="btn-custom"
-              >
-                Logout
-              </Button>
+                  <NavLink
+                    to="/contactforms"
+                    style={styles.navStyle}
+                    aria-label="Link to Contact form"
+                  >
+                    Contact
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    style={styles.navStyle}
+                    aria-label="Link to About page"
+                  >
+                    About
+                  </NavLink>
+                  <NavLink
+                    to="/login"
+                    style={styles.navStyle}
+                    aria-label="Link to Login page"
+                  >
+                    Login
+                  </NavLink>
+                  <NavLink
+                    to="/register"
+                    style={styles.navStyle}
+                    aria-label="Link to Registration page"
+                  >
+                    Register
+                  </NavLink>
+                </>
+              )}
             </Nav>
           </div>
         </Navbar.Collapse>

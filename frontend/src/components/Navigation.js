@@ -56,16 +56,25 @@ const Navigation = ({ user, onLogout }) => {
           <div className="mx-auto">
             <Nav className="me-auto mt-2 justify-content-center mx-auto">
               {user ? (
-                <Button
-                  onClick={onLogout}
-                  aria-label="Logout"
-                  type="submit"
-                  variant="danger"
-                  style={styles.button}
-                  className="btn-custom"
-                >
-                  Logout
-                </Button>
+                <>
+                  <Button
+                    onClick={onLogout}
+                    aria-label="Logout"
+                    type="submit"
+                    variant="danger"
+                    style={styles.button}
+                    className="btn-custom"
+                  >
+                    Logout
+                  </Button>
+                  <NavLink
+                    to="/clientinfoform"
+                    style={styles.navStyle}
+                    aria-label="Link to Client Information Form"
+                  >
+                    Client Information Form
+                  </NavLink>
+                </>
               ) : (
                 <>
                   <NavLink

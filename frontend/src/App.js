@@ -15,6 +15,7 @@ import TrainingVideos from "./components/TrainingVideos";
 import Notification from "./components/Notification";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import ClientInfoForm from "./components/ClientInfoForm";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -121,6 +122,9 @@ const App = () => {
       <Header />
       <Navigation user={user} onLogout={logout} />
       <Notification notification={notification} />
+      <Routes>
+        <Route path="/clientinfoform" element={<ClientInfoForm />} />
+      </Routes>
       <Footer />
       <CookieConsent
         location="bottom"

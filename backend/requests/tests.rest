@@ -45,11 +45,11 @@ Content-Type: application/json
 
 
 {
-    "embedUrl":"https://youtube.com/embed/WQYkFb57SvE",
-    "title":"Boost Your Core Strength: Essential Exercises & Nutrition | Bullet Point Fitness Guide",
-    "dateAdded":"2024-01-18",
-    "description": "🏋️‍♂️ Welcome to Bullet Point Fitness's ultimate guide on core strength. Whether you're a fitness enthusiast or just starting, this video is your resource for the most effective core exercises and nutrition tips. Join Alex as we explore the fundamentals of core strengthening and the best dietary practices for muscle growth.",
-    "duration": "6 mins and 46 seconds"
+    "embedUrl":"https://youtube.com/embed/83BZiyfZALE",
+    "title":"Building Muscle in Aging: Senior Fitness & Muscle Health - Bullet Point Fitness Guide",
+    "dateAdded":"2024-01-26",
+    "description": "🏋️‍♂️ Building Muscle in Aging: A Comprehensive Guide for Senior Fitness & Muscle Health by Bullet Point Fitness 🏋️‍♀️ Welcome to Bullet Point Fitness's guide on Building Muscle in Older Age. This video is your companion in combating Muscle Sarcopenia and optimizing Resistance Training for Seniors. We focus on how Insulin Sensitivity is influenced by Muscle Mass and the importance of Joint and Bone Strength in reducing the risk of Type 2 Diabetes and Osteoporosis. Join us in exploring Fitness and Aging, and learn why Building Muscle for Confidence matters at any age.",
+    "duration": "8 mins and 5 seconds"
 }
 
 ###

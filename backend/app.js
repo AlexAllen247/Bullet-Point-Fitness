@@ -20,6 +20,7 @@ const aboutVideosRouter = require("./controllers/aboutVideos");
 const organsRouter = require("./controllers/organs");
 const pdfsRouter = require("./controllers/pdfs");
 const usersRouter = require("./controllers/users");
+const loginRouter = require("./controllers/login");
 const { errorHandler, setPermissionsPolicy } = require("./utils/middleware");
 
 logger.info("connecting to", config.MONGODB_URI);
@@ -102,6 +103,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use("/api/login", loginRouter);
 app.use("/api/contactforms", contactFormsRouter);
 app.use("/api/trainingvideos", trainingVideosRouter);
 app.use("/api/nutritionvideos", nutritionVideosRouter);

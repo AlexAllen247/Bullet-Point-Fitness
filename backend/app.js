@@ -21,7 +21,12 @@ const organsRouter = require("./controllers/organs");
 const pdfsRouter = require("./controllers/pdfs");
 const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
-const { errorHandler, setPermissionsPolicy } = require("./utils/middleware");
+const clientInfoRouter = require("./controllers/clientInfoForms");
+const {
+  errorHandler,
+  setPermissionsPolicy,
+  userExtractor,
+} = require("./utils/middleware");
 
 logger.info("connecting to", config.MONGODB_URI);
 
@@ -114,6 +119,7 @@ app.use("/api/aboutvideos", aboutVideosRouter);
 app.use("/api/organs", organsRouter);
 app.use("/api/pdf", pdfsRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/clientinfo", userExtractor, clientInfoRouter);
 
 app.all("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

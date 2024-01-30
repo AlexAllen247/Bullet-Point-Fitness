@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Card } from "react-bootstrap";
+import clientInfoFormService from "../services/clientInfoForm";
 
-const ClientInfoForm = ({ onSubmitClientInfo }) => {
+const ClientInfoForm = ({ notify }) => {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [height, setHeight] = useState("");
@@ -12,9 +13,23 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
     useState("");
   const [injuriesOrConditions, setInjuriesOrConditions] = useState("");
 
+  const createInfoForm = async (clientInfoForm) => {
+    clientInfoFormService
+      .create(clientInfoForm)
+      .then(() => {
+        notify(`You have successfully submitted your information.`);
+      })
+      .catch((error) => {
+        notify(
+          "Creating a message failed: " + error.response.data.error,
+          "alert",
+        );
+      });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmitClientInfo({
+    createInfoForm({
       age,
       gender,
       height,
@@ -64,7 +79,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
         <Card className="my-3" style={styles.card} border="danger">
           <Card.Body>
             <Form onSubmit={handleSubmit} style={styles.form}>
-              {/* Fitness Level Input */}
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="fitnessLevel" style={styles.label}>
                   Fitness Level
@@ -79,8 +93,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   <option value="advanced">Advanced</option>
                 </Form.Control>
               </Form.Group>
-
-              {/* Goals Input */}
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="goals" style={styles.label}>
                   Goals
@@ -91,8 +103,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   onChange={(e) => setGoals(e.target.value)}
                 />
               </Form.Group>
-
-              {/* Age Input */}
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="age" style={styles.label}>
                   Age
@@ -103,8 +113,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   onChange={(e) => setAge(e.target.value)}
                 />
               </Form.Group>
-
-              {/* Gender Input */}
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="gender" style={styles.label}>
                   Gender
@@ -115,8 +123,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   onChange={(e) => setGender(e.target.value)}
                 />
               </Form.Group>
-
-              {/* Height Input */}
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="height" style={styles.label}>
                   Height (in cms)
@@ -127,8 +133,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   onChange={(e) => setHeight(e.target.value)}
                 />
               </Form.Group>
-
-              {/* Weight Input */}
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="weight" style={styles.label}>
                   Weight (in kgs)
@@ -139,8 +143,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   onChange={(e) => setWeight(e.target.value)}
                 />
               </Form.Group>
-
-              {/* Previous Exercise Experience Input */}
               <Form.Group className="mb-3">
                 <Form.Label
                   htmlFor="previousExerciseExperience"
@@ -162,8 +164,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   <option value="advanced">Advanced</option>
                 </Form.Control>
               </Form.Group>
-
-              {/* Injuries or Conditions Textarea */}
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="injuriesOrConditions" style={styles.label}>
                   Any Injuries or Underlying Health Conditions
@@ -176,7 +176,6 @@ const ClientInfoForm = ({ onSubmitClientInfo }) => {
                   placeholder="Write here..."
                 />
               </Form.Group>
-
               <Button
                 type="submit"
                 variant="danger"

@@ -7,6 +7,12 @@ const schema = mongoose.Schema({
     minlength: 3,
   },
   passwordHash: String,
+  clientInfoForms: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ClientInfo",
+    },
+  ],
 });
 
 schema.set("toJSON", {

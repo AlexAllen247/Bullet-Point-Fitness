@@ -123,7 +123,10 @@ const App = () => {
       <Navigation user={user} onLogout={logout} />
       <Notification notification={notification} />
       <Routes>
-        <Route path="/clientinfoform" element={<ClientInfoForm />} />
+        <Route
+          path="/clientinfoform"
+          element={<ClientInfoForm notify={notify} />}
+        />
       </Routes>
       <Footer />
       <CookieConsent

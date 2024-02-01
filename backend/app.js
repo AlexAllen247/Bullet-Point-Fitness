@@ -22,6 +22,7 @@ const pdfsRouter = require("./controllers/pdfs");
 const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const clientInfoRouter = require("./controllers/clientInfoForms");
+const workoutController = require("./controllers/workouts");
 const {
   errorHandler,
   setPermissionsPolicy,
@@ -120,6 +121,7 @@ app.use("/api/organs", organsRouter);
 app.use("/api/pdf", pdfsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/clientinfo", userExtractor, clientInfoRouter);
+app.use("/api/workouts", workoutController);
 
 app.all("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

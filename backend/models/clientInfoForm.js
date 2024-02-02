@@ -6,21 +6,11 @@ const schema = mongoose.Schema({
     ref: "User",
     required: true,
   },
-  age: {
+  sessionDuration: {
     type: Number,
     required: true,
   },
-  gender: {
-    type: String,
-    required: true,
-  },
-  height: {
-    // Assuming height is stored in centimeters
-    type: Number,
-    required: true,
-  },
-  weight: {
-    // Assuming weight is stored in kilograms
+  sessionsPerWeek: {
     type: Number,
     required: true,
   },
@@ -31,11 +21,6 @@ const schema = mongoose.Schema({
   },
   goals: {
     type: String,
-    required: true,
-  },
-  previousExerciseExperience: {
-    type: String,
-    enum: ["none", "beginner", "intermediate", "advanced"],
     required: true,
   },
   injuriesOrConditions: {

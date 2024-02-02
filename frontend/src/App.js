@@ -16,6 +16,7 @@ import Notification from "./components/Notification";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import ClientInfoForm from "./components/ClientInfoForm";
+import Workout from "./components/Workout";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -127,6 +128,7 @@ const App = () => {
           path="/clientinfoform"
           element={<ClientInfoForm notify={notify} />}
         />
+        <Route path="/workout" element={<Workout />} />
       </Routes>
       <Footer />
       <CookieConsent

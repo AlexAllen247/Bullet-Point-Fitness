@@ -3,6 +3,7 @@ import { Button, Form, Container, Card } from "react-bootstrap";
 import registerService from "../services/register";
 
 const RegisterForm = ({ notify }) => {
+  //Maybe add age, height, weight and gender to each user also add to mongodb model
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

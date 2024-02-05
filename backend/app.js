@@ -121,7 +121,7 @@ app.use("/api/organs", organsRouter);
 app.use("/api/pdf", pdfsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/clientinfo", userExtractor, clientInfoRouter);
-app.use("/api/workouts", workoutController);
+app.use("/api/workouts", userExtractor, workoutController);
 
 app.all("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

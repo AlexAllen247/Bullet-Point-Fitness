@@ -41,19 +41,20 @@ const App = () => {
   };
 
   const login = async (username, password) => {
-    loginService
-      .login({
-        username,
-        password,
-      })
-      .then((user) => {
-        setUser(user);
-        userService.setUser(user);
-        notify(`${user.username} successfully logged in!`);
-      })
-      .catch(() => {
-        notify("Incorrect username/password, please try again.", "alert");
-      });
+    try {
+      const response = await loginService.login({ username, password });
+      console.log("Login response:", response);
+      const user = {
+        ...response,
+        userId: response.id,
+      };
+      console.log(user);
+      userService.setUser(user);
+      setUser(user);
+      notify(`${user.username} successfully logged in!`);
+    } catch (error) {
+      notify("Incorrect username/password, please try again.", "alert");
+    }
   };
 
   const logout = () => {

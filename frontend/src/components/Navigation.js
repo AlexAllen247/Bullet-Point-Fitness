@@ -74,6 +74,13 @@ const Navigation = ({ user, onLogout }) => {
                   >
                     Client Information Form
                   </NavLink>
+                  <NavLink
+                    to="/workout"
+                    style={styles.navStyle}
+                    aria-label="Link to workouts"
+                  >
+                    Workout
+                  </NavLink>
                 </>
               ) : (
                 <>

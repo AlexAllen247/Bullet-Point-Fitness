@@ -43,12 +43,10 @@ const App = () => {
   const login = async (username, password) => {
     try {
       const response = await loginService.login({ username, password });
-      console.log("Login response:", response);
       const user = {
         ...response,
         userId: response.id,
       };
-      console.log(user);
       userService.setUser(user);
       setUser(user);
       notify(`${user.username} successfully logged in!`);
@@ -129,7 +127,7 @@ const App = () => {
           path="/clientinfoform"
           element={<ClientInfoForm notify={notify} />}
         />
-        <Route path="/workout" element={<Workout />} />
+        <Route path="/workout" element={<Workout userId={user.id} />} />
       </Routes>
       <Footer />
       <CookieConsent

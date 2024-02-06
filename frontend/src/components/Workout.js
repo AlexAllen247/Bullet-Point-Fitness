@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import workoutService from "../services/workout";
 
-const Workout = () => {
+const Workout = ({ userId }) => {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem("loggedUser");
-    let userId = null;
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON);
-      userId = user.userId;
-      console.log("Directly retrieved userId:", userId);
-    }
-
     if (userId) {
       const fetchWorkouts = async () => {
         try {
@@ -30,7 +22,7 @@ const Workout = () => {
 
       fetchWorkouts();
     }
-  }, []);
+  }, [userId]);
 
   return (
     <div>

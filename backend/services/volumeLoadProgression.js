@@ -3,8 +3,8 @@ function findNewWorkoutOptions(
   currentWeight,
   increasePercentage = 1,
 ) {
-  const MIN_REPS = 5;
-  const MAX_REPS = 20;
+  const MIN_REPS = 6;
+  const MAX_REPS = 15;
   const WEIGHT_INCREMENT = 2.5;
   const MAX_WEIGHT = 1000;
 

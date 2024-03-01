@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Modal, Button, Table } from "react-bootstrap";
 import workoutService from "../services/workout";
 
 const Workout = ({ userId }) => {
   const [workouts, setWorkouts] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
 
   useEffect(() => {
     if (userId) {
@@ -24,31 +27,68 @@ const Workout = ({ userId }) => {
     }
   }, [userId]);
 
+  const handleExerciseClick = (embedUrl) => {
+    setSelectedVideoUrl(embedUrl);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div>
       <h2>Your Workouts</h2>
       {workouts.map((workout, index) => (
         <div key={index}>
           <h3>Workout {index + 1}</h3>
-          <ul>
-            {workout.exercises.map((exercise, exerciseIndex) => (
-              <li key={exerciseIndex}>
-                <h4>{exercise.exerciseId.title}</h4>
-                <p>{exercise.exerciseId.description}</p>
-                <p>Duration: {exercise.exerciseId.duration}</p>
-                <p>Muscle Targeted: {exercise.exerciseId.muscleName}</p>
-                <a
-                  href={exercise.exerciseId.embedUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Watch Video
-                </a>
-              </li>
-            ))}
-          </ul>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Name of Exercise</th>
+                <th>Weight</th>
+                <th>Reps</th>
+              </tr>
+            </thead>
+            <tbody>
+              {workout.exercises.map((exercise, exerciseIndex) => (
+                <tr key={exerciseIndex}>
+                  <td
+                    onClick={() =>
+                      handleExerciseClick(exercise.exerciseId.embedUrl)
+                    }
+                    style={{ cursor: "pointer" }}
+                  >
+                    {exercise.exerciseId.title}
+                  </td>
+                  <td>{/* Display weight if available */}</td>
+                  <td>{/* Display reps if available */}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </div>
       ))}
+      <Modal show={showModal} onHide={handleCloseModal} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>Exercise Video</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <iframe
+            src={selectedVideoUrl}
+            title="Exercise Video"
+            width="100%"
+            height="400px"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

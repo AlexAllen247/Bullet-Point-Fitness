@@ -188,7 +188,7 @@ GET http://localhost:3001/api/clientinfo/65af86c92d37c355b22f0c1e
 
 POST http://localhost:3001/api/clientinfo
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcwNzEyNTc4M30.mJrqZ9oZ6IQOV-788X5t3bgIxiRx_z789XyQ45GDXuc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxMDg0NDE3Nn0.CQsoFzqu5o4RX7dH3hPnG7k_f5dlv5FT9NzlU-QtFEw
 
 {
   "userId": "65af86c92d37c355b22f0c1e",
@@ -213,6 +213,26 @@ Content-Type: application/json
 
 GET http://localhost:3001/api/workouts/user/65af86c92d37c355b22f0c1e
 
+###
+
+POST http://localhost:3001/api/programs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxMDg0NDE3Nn0.CQsoFzqu5o4RX7dH3hPnG7k_f5dlv5FT9NzlU-QtFEw
+Content-Type: application/json
+
+{
+  "title": "8-Week Beginner Program",
+  "description": "A program designed for beginners to lose weight",
+  "startDate": "2023-04-01",
+  "workouts": []
+}
+
+###
+
+GET http://localhost:3001/api/programs/65af86c92d37c355b22f0c1e
+
+###
+
+GET http://localhost:3001/api/users
 
 
 

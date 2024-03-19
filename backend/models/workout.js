@@ -9,12 +9,22 @@ const workoutSchema = new mongoose.Schema({
         ref: "ExerciseVideo",
         required: true,
       },
-      weight: { type: Number, default: null },
-      reps: { type: Number, default: null },
+      performance: [
+        {
+          date: Date,
+          weight: Number,
+          reps: Number,
+        },
+      ],
     },
   ],
   sessionDate: Date,
   createdAt: { type: Date, default: Date.now },
+  programId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Program",
+    required: true,
+  },
 });
 
 workoutSchema.virtual("exerciseDetails", {

@@ -47,6 +47,7 @@ const generateWorkout = async (clientInfo) => {
   const workout = new Workout({
     userId: clientInfo.userId,
     exercises: exercises,
+    programId: programId,
   });
 
   await workout.save();
@@ -55,13 +56,13 @@ const generateWorkout = async (clientInfo) => {
 
 router.post("/generate", async (req, res) => {
   try {
-    const clientInfoId = req.body.clientInfoId;
+    const { clientInfoId, programId } = req.body;
     const clientInfo = await ClientInfo.findById(clientInfoId).lean();
     if (!clientInfo) {
       return res.status(404).json({ error: "Client information not found" });
     }
 
-    const workout = await generateWorkout(clientInfo);
+    const workout = await generateWorkout(clientInfo, programId);
     res.json(workout);
   } catch (error) {
     res.status(500).json({ error: "Error generating workout" });
@@ -78,6 +79,31 @@ router.get("/user/:userId", async (req, res) => {
     res.json(workouts);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch workouts" });
+  }
+});
+
+router.put("/workout/:workoutId/exercise/:exerciseId", async (req, res) => {
+  const { workoutId, exerciseId } = req.params;
+  const { date, weight, reps } = req.body;
+
+  try {
+    const workout = await Workout.findById(workoutId);
+    if (!workout) {
+      return res.status(404).json({ error: "Workout not found" });
+    }
+
+    const exerciseIndex = workout.exercises.findIndex(
+      (exercise) => exercise.exerciseId.toString() === exerciseId,
+    );
+    if (exerciseIndex === -1) {
+      return res.status(404).json({ error: "Exercise not found in workout" });
+    }
+
+    workout.exercises[exerciseIndex].performance.push({ date, weight, reps });
+    await workout.save();
+    res.json(workout);
+  } catch (error) {
+    res.status(500).json({ error: "Error updating workout" });
   }
 });
 

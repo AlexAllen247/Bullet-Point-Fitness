@@ -23,6 +23,7 @@ const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const clientInfoRouter = require("./controllers/clientInfoForms");
 const workoutController = require("./controllers/workouts");
+const programsRouter = require("./controllers/programs");
 const {
   errorHandler,
   setPermissionsPolicy,
@@ -121,6 +122,7 @@ app.use("/api/organs", organsRouter);
 app.use("/api/pdf", pdfsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/clientinfo", userExtractor, clientInfoRouter);
+app.use("/api/programs", userExtractor, programsRouter);
 app.use("/api/workouts", userExtractor, workoutController);
 
 app.all("*", (req, res) => {

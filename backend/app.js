@@ -23,7 +23,7 @@ const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const clientInfoRouter = require("./controllers/clientInfoForms");
 const workoutController = require("./controllers/workouts");
-const programsRouter = require("./controllers/programs");
+const { router: programsRouter } = require("./controllers/programs");
 const {
   errorHandler,
   setPermissionsPolicy,

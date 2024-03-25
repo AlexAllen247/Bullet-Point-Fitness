@@ -1,6 +1,7 @@
 const express = require("express");
 const ClientInfo = require("../models/clientInfoForm");
 const router = express.Router();
+const { generateProgram } = require("../controllers/programs");
 
 router.get("/:userId", async (req, res) => {
   try {
@@ -22,13 +23,16 @@ router.post("/", async (request, response) => {
     return response.status(401).json({ error: "token missing or invalid" });
   }
   try {
-    const clientData = request.body;
-    const newClientInfo = new ClientInfo(clientData);
+    const clientData = new ClientInfo({
+      ...request.body,
+      userId: request.user.id,
+    });
+    const savedClientInfo = await clientData.save();
 
-    newClientInfo.userId = request.user.id;
+    // Now generate a program for the submitted client info
+    const newProgram = await generateProgram(savedClientInfo._id);
 
-    const savedClientInfo = await newClientInfo.save();
-    response.status(201).json(savedClientInfo);
+    response.status(201).json(newProgram);
   } catch (error) {
     response.status(400).json({ error: error.message });
   }

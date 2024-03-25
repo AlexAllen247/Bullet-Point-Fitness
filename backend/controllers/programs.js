@@ -3,29 +3,67 @@ const Program = require("../models/program");
 const ClientInfo = require("../models/clientInfoForm");
 const router = express.Router();
 
-async function generateProgram(clientInfo) {
+async function generateProgram(clientInfoId) {
+  const clientInfo = await ClientInfo.findById(clientInfoId);
+  if (!clientInfo) {
+    throw new Error("Client information not found");
+  }
+
+  const selectedTemplate = selectProgramTemplate(
+    clientInfo.sessionsPerWeek,
+    clientInfo.sessionDuration,
+  );
+
   const program = new Program({
     userId: clientInfo.userId,
-    // Add additional fields based on your Program schema
-    // and potentially use data from clientInfo to customize the program
+    title: selectedTemplate.title,
+    description: selectedTemplate.description,
+    startDate: new Date(),
+    workouts: selectedTemplate.workouts,
+    status: "active",
   });
 
   await program.save();
   return program;
 }
 
+function selectProgramTemplate(sessionsPerWeek, sessionDuration) {
+  let templateId = `${sessionsPerWeek}_${sessionDuration}`;
+  let template = programTemplates.find((t) => t.id === templateId);
+
+  return template || defaultTemplate;
+}
+
+const programTemplates = [
+  {
+    id: "3_45",
+    title: "Full Body Split - 45 minutes",
+    description:
+      "A full body workout plan suitable for beginners, 3 days a week, 45 minutes each session.",
+    workouts: [],
+  },
+];
+
+const defaultTemplate = {
+  title: "Default Program",
+  description: "A standard workout plan.",
+  workouts: [],
+};
+
 router.post("/", async (req, res) => {
   try {
-    const programDetails = req.body;
-    const newProgram = new Program(programDetails);
-    const savedProgram = await newProgram.save();
+    const { clientInfoId } = req.body;
 
-    const clientInfo = await ClientInfo.findById(req.body.clientInfoId);
-    await generateWorkoutsForProgram(clientInfo, savedProgram._id);
+    if (!clientInfoId) {
+      return res.status(400).json({ error: "clientInfoId is required" });
+    }
 
-    res.status(201).json(savedProgram);
+    const newProgram = await generateProgram(clientInfoId);
+
+    res.status(201).json(newProgram);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -39,7 +77,6 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
-// Example PUT request for updating a program (adjust based on your requirements)
 router.put("/:programId", async (req, res) => {
   const { programId } = req.params;
   const update = req.body;
@@ -57,4 +94,7 @@ router.put("/:programId", async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = {
+  router,
+  generateProgram,
+};

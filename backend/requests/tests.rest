@@ -234,6 +234,24 @@ GET http://localhost:3001/api/programs/65af86c92d37c355b22f0c1e
 
 GET http://localhost:3001/api/users
 
+###
+
+POST http://localhost:3001/api/clientinfo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxMTM1OTU0OH0.1H2AEMZFmM6bt-JNsLeUmvtI3ywtvITjPRuV0IQGqiU
+
+{
+  "userId": "65af86c92d37c355b22f0c1e",
+  "sessionDuration": 45,
+  "sessionsPerWeek": 3,
+  "fitnessLevel": "beginner",
+  "goals": "Increase strength",
+  "injuriesOrConditions": "None"
+}
+
+###
+GET http://localhost:3001/api/clientinfo/65af86c92d37c355b22f0c1e
+
 
 
 

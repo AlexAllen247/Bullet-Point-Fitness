@@ -1,7 +1,6 @@
-const express = require("express");
 const Program = require("../models/program");
 const ClientInfo = require("../models/clientInfoForm");
-const router = express.Router();
+const router = require("express").Router();
 
 async function generateProgram(clientInfoId) {
   const clientInfo = await ClientInfo.findById(clientInfoId);

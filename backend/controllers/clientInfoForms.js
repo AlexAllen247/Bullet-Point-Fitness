@@ -1,6 +1,5 @@
-const express = require("express");
+const router = require("express").Router();
 const ClientInfo = require("../models/clientInfoForm");
-const router = express.Router();
 const { generateProgram } = require("../controllers/programs");
 
 router.get("/:userId", async (req, res) => {

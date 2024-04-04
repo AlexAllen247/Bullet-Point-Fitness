@@ -24,6 +24,8 @@ const loginRouter = require("./controllers/login");
 const clientInfoRouter = require("./controllers/clientInfoForms");
 const workoutController = require("./controllers/workouts");
 const { router: programsRouter } = require("./controllers/programs");
+const programTemplateController = require("./controllers/programTemplates");
+const workoutTemplateController = require("./controllers/workoutTemplates");
 const {
   errorHandler,
   setPermissionsPolicy,
@@ -124,6 +126,8 @@ app.use("/api/users", usersRouter);
 app.use("/api/clientinfo", userExtractor, clientInfoRouter);
 app.use("/api/programs", userExtractor, programsRouter);
 app.use("/api/workouts", userExtractor, workoutController);
+app.use("/api/programTemplates", programTemplateController);
+app.use("/api/workoutTemplates", workoutTemplateController);
 
 app.all("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

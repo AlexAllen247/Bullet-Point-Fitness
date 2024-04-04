@@ -238,7 +238,7 @@ GET http://localhost:3001/api/users
 
 POST http://localhost:3001/api/clientinfo
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxMTM1OTU0OH0.1H2AEMZFmM6bt-JNsLeUmvtI3ywtvITjPRuV0IQGqiU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxMjIyOTA0MX0.TE-_q3u9c8DArzbWnsck8U8Qsbr6c3zPUPGkiKzQ3Yk
 
 {
   "userId": "65af86c92d37c355b22f0c1e",
@@ -251,6 +251,45 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZ
 
 ###
 GET http://localhost:3001/api/clientinfo/65af86c92d37c355b22f0c1e
+
+###
+
+GET http://localhost:3001/api/workoutTemplates
+
+###
+
+GET http://localhost:3001/api/programTemplates
+
+###
+
+POST http://localhost:3001/api/workoutTemplates
+Content-Type: application/json
+
+{
+  "title": "Upper Body Strength",
+  "description": "Focused on building strength in the upper body, including chest, back, shoulders, and arms.",
+  "exercises": [
+    {
+      "exerciseId": "65094e4ceda64df3dfa65780"
+    }
+  ]
+}
+
+
+###
+
+POST http://localhost:3001/api/programTemplates
+Content-Type: application/json
+
+{
+  "sessionsPerWeek": 3,
+  "sessionDuration": 45,
+  "title": "3-Day Beginner Full Body",
+  "description": "This is a beginner-friendly program...",
+  "workouts": ["660e80a8c18e2230983b9ccd"]
+}
+
+
 
 
 

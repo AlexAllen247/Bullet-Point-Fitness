@@ -1,5 +1,8 @@
 const Program = require("../models/program");
 const ClientInfo = require("../models/clientInfoForm");
+const ProgramTemplate = require("../models/programTemplate");
+const WorkoutTemplate = require("../models/workoutTemplate");
+const Workout = require("../models/workout");
 const router = require("express").Router();
 
 async function generateProgram(clientInfoId) {
@@ -8,46 +11,49 @@ async function generateProgram(clientInfoId) {
     throw new Error("Client information not found");
   }
 
-  const selectedTemplate = selectProgramTemplate(
-    clientInfo.sessionsPerWeek,
-    clientInfo.sessionDuration,
-  );
+  const programTemplate = await ProgramTemplate.findOne({
+    sessionsPerWeek: clientInfo.sessionsPerWeek,
+    sessionDuration: clientInfo.sessionDuration,
+  });
+
+  if (!programTemplate) {
+    throw new Error("No matching program template found");
+  }
 
   const program = new Program({
     userId: clientInfo.userId,
-    title: selectedTemplate.title,
-    description: selectedTemplate.description,
+    title: programTemplate.title,
+    description: programTemplate.description,
     startDate: new Date(),
-    workouts: selectedTemplate.workouts,
     status: "active",
   });
 
+  const workoutIds = await Promise.all(
+    programTemplate.workouts.map(async (templateId) => {
+      const workoutTemplate = await WorkoutTemplate.findById(templateId);
+      if (!workoutTemplate) {
+        console.error(`WorkoutTemplate not found for ID: ${templateId}`);
+        return null;
+      }
+
+      const workout = new Workout({
+        userId: clientInfo.userId,
+        programId: program._id,
+        title: workoutTemplate.title,
+        description: workoutTemplate.description,
+        exercises: workoutTemplate.exercises,
+      });
+
+      await workout.save();
+      return workout._id;
+    }),
+  ).then((ids) => ids.filter((id) => id != null));
+
+  program.workouts = workoutIds;
   await program.save();
+
   return program;
 }
-
-function selectProgramTemplate(sessionsPerWeek, sessionDuration) {
-  let templateId = `${sessionsPerWeek}_${sessionDuration}`;
-  let template = programTemplates.find((t) => t.id === templateId);
-
-  return template || defaultTemplate;
-}
-
-const programTemplates = [
-  {
-    id: "3_45",
-    title: "Full Body Split - 45 minutes",
-    description:
-      "A full body workout plan suitable for beginners, 3 days a week, 45 minutes each session.",
-    workouts: [],
-  },
-];
-
-const defaultTemplate = {
-  title: "Default Program",
-  description: "A standard workout plan.",
-  workouts: [],
-};
 
 router.post("/", async (req, res) => {
   try {

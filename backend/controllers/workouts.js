@@ -3,69 +3,23 @@ const ExerciseVideo = require("../models/exerciseVideo");
 const ClientInfo = require("../models/clientInfoForm");
 const Workout = require("../models/workout");
 
-const generateWorkout = async (clientInfo) => {
-  const muscleGroups = [
-    "Adductors",
-    "Erector Spinae",
-    "Lats",
-    "Rotator Cuff",
-    "Trapezius",
-    "Forearms",
-    "Biceps",
-    "Triceps",
-    "Rear Delts",
-    "Side Delts",
-    "Front Delts",
-    "Abdominals",
-    "Obliques",
-    "Chest",
-    "Calves",
-    "Tibialis",
-    "Hamstrings",
-    "Quads",
-    "Hip Flexors",
-    "Glutes",
-    "Neck",
-  ];
-
-  let exercises = [];
-
-  for (const muscle of muscleGroups) {
-    let query = { muscleName: muscle };
-
-    const exercise = await ExerciseVideo.findOne(query);
-    if (exercise) {
-      exercises.push({
-        exerciseId: exercise._id,
-        name: exercise.title,
-        weight: "",
-        reps: "",
-      });
-    }
-  }
-
-  const workout = new Workout({
-    userId: clientInfo.userId,
-    exercises: exercises,
-    programId: programId,
-  });
-
-  await workout.save();
-  return workout;
-};
-
-router.post("/generate", async (req, res) => {
+router.get("/", async (request, response) => {
   try {
-    const { clientInfoId, programId } = req.body;
-    const clientInfo = await ClientInfo.findById(clientInfoId).lean();
-    if (!clientInfo) {
-      return res.status(404).json({ error: "Client information not found" });
-    }
-
-    const workout = await generateWorkout(clientInfo, programId);
-    res.json(workout);
+    const workouts = await Workout.find({});
+    response.json(workouts);
   } catch (error) {
-    res.status(500).json({ error: "Error generating workout" });
+    response.status(500).json({ error: "Failed to retrieve workouts" });
+  }
+});
+
+router.post("/", async (request, response) => {
+  try {
+    const newWorkout = new Workout({ ...request.body });
+
+    const savedWorkout = await newWorkout.save();
+    response.status(201).json(savedWorkout);
+  } catch (error) {
+    response.status(500).json({ error: "Failed to save workouts" });
   }
 });
 

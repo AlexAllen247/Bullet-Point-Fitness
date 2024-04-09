@@ -162,23 +162,10 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3001/api/pdf/generatedPDF.pdf
-
-###
-
 POST http://localhost:3001/api/pdf
 
 ###
 GET http://localhost:3001/api/users
-
-###
-POST http://localhost:3001/api/workouts/generate
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcwNzEyNTc4M30.mJrqZ9oZ6IQOV-788X5t3bgIxiRx_z789XyQ45GDXuc
-
-{
-  "clientInfoId": "65c0c1eaf23a5b5d312b47a8"
-}
 
 ###
 
@@ -238,7 +225,7 @@ GET http://localhost:3001/api/users
 
 POST http://localhost:3001/api/clientinfo
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxMjIyOTA0MX0.TE-_q3u9c8DArzbWnsck8U8Qsbr6c3zPUPGkiKzQ3Yk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxMjY1OTg1NH0.oNFUHI75P9KdMjAFmhIFs-_UmRlYdedCqLknypmIM4I
 
 {
   "userId": "65af86c92d37c355b22f0c1e",
@@ -266,11 +253,38 @@ POST http://localhost:3001/api/workoutTemplates
 Content-Type: application/json
 
 {
-  "title": "Upper Body Strength",
-  "description": "Focused on building strength in the upper body, including chest, back, shoulders, and arms.",
+  "title": "Full Body Workout 3",
+  "description": "Full body session building developing multiple muscles.",
   "exercises": [
     {
-      "exerciseId": "65094e4ceda64df3dfa65780"
+      "exerciseId": "650a82d78f0657bc06151349"
+    },
+    {
+      "exerciseId": "65095b70eda64df3dfa6579e"
+    },
+    {
+      "exerciseId": "6544a6fd62c031e2ed0a1613"
+    },
+    {
+      "exerciseId": "6509729aeda64df3dfa657d6"
+    },
+    {
+      "exerciseId": "65095d5beda64df3dfa657a6"
+    },
+    {
+      "exerciseId": "6544d4f562c031e2ed0a162d"
+    },
+    {
+      "exerciseId": "65449d0e62c031e2ed0a1609"
+    },
+    {
+      "exerciseId": "650a85088f0657bc06151351"
+    },
+    {
+      "exerciseId": "650a8a423ba847d2c2d9f0c0"
+    },
+    {
+      "exerciseId": "650956c1eda64df3dfa6578a"
     }
   ]
 }
@@ -284,9 +298,9 @@ Content-Type: application/json
 {
   "sessionsPerWeek": 3,
   "sessionDuration": 45,
-  "title": "3-Day Beginner Full Body",
-  "description": "This is a beginner-friendly program...",
-  "workouts": ["660e80a8c18e2230983b9ccd"]
+  "title": "3-Day Full Body",
+  "description": "This is a full body program.",
+  "workouts": ["6615157118935d1a38dfc9a7", "66151b1a18935d1a38dfc9b4", "66151c7b18935d1a38dfc9c1"]
 }
 
 

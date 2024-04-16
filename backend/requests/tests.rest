@@ -161,10 +161,6 @@ Content-Type: application/json
 }
 
 ###
-
-POST http://localhost:3001/api/pdf
-
-###
 GET http://localhost:3001/api/users
 
 ###

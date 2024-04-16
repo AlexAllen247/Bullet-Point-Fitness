@@ -18,7 +18,6 @@ const muscleFunctionVideosRouter = require("./controllers/muscleFunctionVideos")
 const exerciseVideosRouter = require("./controllers/exerciseVideos");
 const aboutVideosRouter = require("./controllers/aboutVideos");
 const organsRouter = require("./controllers/organs");
-const pdfsRouter = require("./controllers/pdfs");
 const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const clientInfoRouter = require("./controllers/clientInfoForms");
@@ -121,7 +120,6 @@ app.use("/api/musclefunctionvideos", muscleFunctionVideosRouter);
 app.use("/api/exercisevideos", exerciseVideosRouter);
 app.use("/api/aboutvideos", aboutVideosRouter);
 app.use("/api/organs", organsRouter);
-app.use("/api/pdf", pdfsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/clientinfo", userExtractor, clientInfoRouter);
 app.use("/api/programs", userExtractor, programsRouter);

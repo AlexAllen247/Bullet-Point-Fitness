@@ -1,6 +1,4 @@
 const router = require("express").Router();
-const ExerciseVideo = require("../models/exerciseVideo");
-const ClientInfo = require("../models/clientInfoForm");
 const Workout = require("../models/workout");
 
 router.get("/", async (request, response) => {

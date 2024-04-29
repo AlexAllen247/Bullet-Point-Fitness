@@ -299,8 +299,22 @@ Content-Type: application/json
   "workouts": ["6615157118935d1a38dfc9a7", "66151b1a18935d1a38dfc9b4", "66151c7b18935d1a38dfc9c1"]
 }
 
+###
 
+PUT http://localhost:3001/api/workouts/workout/661520e318935d1a38dfca16/exercise/650a932c3ba847d2c2d9f0dc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXgiLCJpZCI6IjY1YWY4NmM5MmQzN2MzNTViMjJmMGMxZSIsImlhdCI6MTcxNDM3NjkxNH0.AzCR0N6ohm3wlLB-IyCcwAxg64l9td1_Hgc5NZjCTo0
 
+{
+  "weight": "160",
+  "reps": "10"
+}
+
+###
+6615157118935d1a38dfc9a8 id
+id
+: 
+"650a932c3ba847d2c2d9f0dc"
 
 
 

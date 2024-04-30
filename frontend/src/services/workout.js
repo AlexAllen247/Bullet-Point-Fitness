@@ -18,17 +18,11 @@ const workoutService = {
     return response.data;
   },
   updateExercise: async (workoutId, exerciseId, updates) => {
-    const updateUrl = `${baseUrl}/workout/${workoutId}/exercise/${exerciseId}`;
-    try {
-      const response = await axios.put(updateUrl, updates, config());
-      return response.data;
-    } catch (error) {
-      console.error(
-        "Failed to update exercise:",
-        error.response || error.message,
-      );
-      throw error;
-    }
+    const updateUrl = `${baseUrl}/workout/${workoutId}/exercise/${
+      exerciseId.id || exerciseId
+    }`;
+    const response = await axios.put(updateUrl, updates, config());
+    return response.data;
   },
 };
 

@@ -127,7 +127,10 @@ const App = () => {
           path="/clientinfoform"
           element={<ClientInfoForm notify={notify} />}
         />
-        <Route path="/workout" element={<Workout userId={user.id} />} />
+        <Route
+          path="/workout"
+          element={<Workout userId={user.id} notify={notify} />}
+        />
       </Routes>
       <Footer />
       <CookieConsent

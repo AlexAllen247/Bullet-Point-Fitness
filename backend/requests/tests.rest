@@ -315,6 +315,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZ
 id
 : 
 "650a932c3ba847d2c2d9f0dc"
+workout/661520e318935d1a38dfca16/exercise/[object%20Object]
+###
+
+GET http://localhost:3001/api/workouts/workout/661520e318935d1a38dfca16/exercise/650a932c3ba847d2c2d9f0dc
 
 
 

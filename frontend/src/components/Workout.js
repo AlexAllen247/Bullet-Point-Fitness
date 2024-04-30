@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Table, Form } from "react-bootstrap";
 import workoutService from "../services/workout";
 
-const Workout = ({ userId }) => {
+const Workout = ({ userId, notify }) => {
   const [workouts, setWorkouts] = useState([]);
   const [editState, setEditState] = useState({});
   const [showModal, setShowModal] = useState(false);
@@ -52,35 +52,33 @@ const Workout = ({ userId }) => {
   const saveExerciseUpdate = async (workoutIndex, exerciseIndex) => {
     const workout = workouts[workoutIndex];
     const exercise = workout.exercises[exerciseIndex];
-
-    // Log the exercise object to see its structure and contents
-    console.log("Exercise object:", exercise);
-
-    // Log the type of exercise.exerciseId to see if it's a string
-    console.log("Exercise ID type:", typeof exercise.exerciseId);
-
     const performance = exercise.performance.length
       ? exercise.performance[exercise.performance.length - 1]
       : { weight: "", reps: "" };
 
     try {
-      console.log("Exercise ID for update:", exercise.exerciseId); // Confirming the ID is correct
-
       const updatedExercise = await workoutService.updateExercise(
-        workout._id, // Ensure this is the correct workout ID
-        exercise.exerciseId, // Ensure this is the correct exercise ID
+        workout._id,
+        exercise.exerciseId.id,
         performance,
       );
 
-      // Update state here after successful backend update
       const updatedWorkouts = [...workouts];
       updatedWorkouts[workoutIndex].exercises[exerciseIndex].performance =
         updatedExercise.exercises[exerciseIndex].performance;
       setWorkouts(updatedWorkouts);
       setEditState({});
+      notify("Exercise updated successfully!");
       console.log("Exercise updated successfully!");
     } catch (error) {
       console.error("Failed to update exercise", error);
+      notify("Failed to update exercise: " + error.message, "error");
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.target.blur();
     }
   };
 
@@ -124,7 +122,7 @@ const Workout = ({ userId }) => {
                         <Form.Control
                           type="text"
                           autoFocus
-                          value={lastPerformance.weight}
+                          value={lastPerformance.weight || ""}
                           onChange={(e) =>
                             handleUpdateExercise(
                               workoutIndex,
@@ -136,6 +134,7 @@ const Workout = ({ userId }) => {
                           onBlur={() =>
                             saveExerciseUpdate(workoutIndex, exerciseIndex)
                           }
+                          onKeyDown={handleKeyDown}
                         />
                       ) : (
                         lastPerformance.weight
@@ -152,7 +151,7 @@ const Workout = ({ userId }) => {
                         <Form.Control
                           type="text"
                           autoFocus
-                          value={lastPerformance.reps}
+                          value={lastPerformance.reps || ""}
                           onChange={(e) =>
                             handleUpdateExercise(
                               workoutIndex,
@@ -164,6 +163,7 @@ const Workout = ({ userId }) => {
                           onBlur={() =>
                             saveExerciseUpdate(workoutIndex, exerciseIndex)
                           }
+                          onKeyDown={handleKeyDown}
                         />
                       ) : (
                         lastPerformance.reps

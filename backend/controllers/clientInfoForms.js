@@ -28,7 +28,6 @@ router.post("/", async (request, response) => {
     });
     const savedClientInfo = await clientData.save();
 
-    // Now generate a program for the submitted client info
     const newProgram = await generateProgram(savedClientInfo._id);
 
     response.status(201).json(newProgram);

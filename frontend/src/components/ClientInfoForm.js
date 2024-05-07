@@ -18,7 +18,7 @@ const ClientInfoForm = ({ notify }) => {
       await clientInfoFormService.create(clientInfoForm);
       notify(`You have successfully submitted your information.`);
       setLoading(false);
-      navigate.push("/workout");
+      navigate("/workout");
     } catch (error) {
       notify(
         "Creating a message failed: " + error.response.data.error,
@@ -86,6 +86,7 @@ const ClientInfoForm = ({ notify }) => {
                   value={fitnessLevel}
                   onChange={(e) => setFitnessLevel(e.target.value)}
                 >
+                  <option value="">Select Fitness Level</option>
                   <option value="beginner">Beginner</option>
                   <option value="intermediate">Intermediate</option>
                   <option value="advanced">Advanced</option>
@@ -96,10 +97,16 @@ const ClientInfoForm = ({ notify }) => {
                   Goals
                 </Form.Label>
                 <Form.Control
-                  type="text"
+                  as="select"
                   value={goals}
                   onChange={(e) => setGoals(e.target.value)}
-                />
+                >
+                  <option value="">Select Fitness Goal</option>
+                  <option value="fat-loss">Fat Loss</option>
+                  <option value="build-muscle">Build Muscle</option>
+                  <option value="build-strength">Build Strength</option>
+                  <option value="all-of-the-above">All of the Above</option>
+                </Form.Control>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label htmlFor="session-duration" style={styles.label}>
@@ -110,6 +117,7 @@ const ClientInfoForm = ({ notify }) => {
                   value={sessionDuration}
                   onChange={(e) => setSessionDuration(e.target.value)}
                 >
+                  <option value="">Select duration per session</option>
                   <option value="30">30 minutes</option>
                   <option value="45">45 minutes</option>
                   <option value="60">1 hour</option>
@@ -122,9 +130,10 @@ const ClientInfoForm = ({ notify }) => {
                   value={sessionsPerWeek}
                   onChange={(e) => setSessionsPerWeek(e.target.value)}
                 >
-                  <option value="1">1 session</option>
-                  <option value="2">2 sessions</option>
-                  <option value="3">3 sessions</option>
+                  <option value="">Select sessions per week</option>
+                  <option value="3">3 Sessions</option>
+                  <option value="4">4 Sessions</option>
+                  <option value="6">6 Sessions</option>
                 </Form.Control>
               </Form.Group>
               <Form.Group className="mb-3">

@@ -13,7 +13,6 @@ async function generateProgram(clientInfoId) {
 
   const programTemplate = await ProgramTemplate.findOne({
     sessionsPerWeek: clientInfo.sessionsPerWeek,
-    sessionDuration: clientInfo.sessionDuration,
   });
 
   if (!programTemplate) {

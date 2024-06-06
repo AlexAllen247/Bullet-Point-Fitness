@@ -133,7 +133,6 @@ const ClientInfoForm = ({ notify }) => {
                   <option value="">Select sessions per week</option>
                   <option value="3">3 Sessions</option>
                   <option value="4">4 Sessions</option>
-                  <option value="6">6 Sessions</option>
                 </Form.Control>
               </Form.Group>
               <Form.Group className="mb-3">

@@ -82,18 +82,27 @@ const Workout = ({ userId, notify }) => {
     }
   };
 
+  const tableStyle = {
+    tableLayout: "fixed",
+    width: "100%",
+  };
+
+  const columnStyle = {
+    width: "33.33%",
+  };
+
   return (
     <div>
       <h2>Your Workouts</h2>
       {workouts.map((workout, workoutIndex) => (
         <div key={workoutIndex}>
           <h3>Workout {workoutIndex + 1}</h3>
-          <Table striped bordered hover>
+          <Table striped bordered hover style={tableStyle}>
             <thead>
               <tr>
-                <th>Name of Exercise</th>
-                <th>Weight</th>
-                <th>Reps</th>
+                <th style={columnStyle}>Name of Exercise</th>
+                <th style={columnStyle}>Weight</th>
+                <th style={columnStyle}>Reps</th>
               </tr>
             </thead>
             <tbody>
@@ -107,7 +116,7 @@ const Workout = ({ userId, notify }) => {
                       onClick={() =>
                         handleExerciseClick(exercise.exerciseId.embedUrl)
                       }
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", ...columnStyle }}
                     >
                       {exercise.exerciseId.title}
                     </td>
@@ -115,6 +124,7 @@ const Workout = ({ userId, notify }) => {
                       onClick={() =>
                         toggleEdit(workoutIndex, exerciseIndex, "weight")
                       }
+                      style={columnStyle}
                     >
                       {editState.workoutIndex === workoutIndex &&
                       editState.exerciseIndex === exerciseIndex &&
@@ -144,6 +154,7 @@ const Workout = ({ userId, notify }) => {
                       onClick={() =>
                         toggleEdit(workoutIndex, exerciseIndex, "reps")
                       }
+                      style={columnStyle}
                     >
                       {editState.workoutIndex === workoutIndex &&
                       editState.exerciseIndex === exerciseIndex &&

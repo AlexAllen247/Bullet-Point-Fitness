@@ -18,10 +18,13 @@ const workoutService = {
     return response.data;
   },
   updateExercise: async (workoutId, exerciseId, updates) => {
-    const updateUrl = `${baseUrl}/workout/${workoutId}/exercise/${
-      exerciseId.id || exerciseId
-    }`;
+    const updateUrl = `${baseUrl}/workout/${workoutId}/exercise/${exerciseId}`;
     const response = await axios.put(updateUrl, updates, config());
+    return response.data;
+  },
+  getInactive: async (userId) => {
+    const userSpecificUrl = `${baseUrl}/inactive/${userId}`;
+    const response = await axios.get(userSpecificUrl, config());
     return response.data;
   },
 };

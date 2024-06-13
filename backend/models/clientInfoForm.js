@@ -6,10 +6,6 @@ const schema = mongoose.Schema({
     ref: "User",
     required: true,
   },
-  sessionDuration: {
-    type: Number,
-    required: true,
-  },
   sessionsPerWeek: {
     type: Number,
     required: true,
@@ -24,7 +20,7 @@ const schema = mongoose.Schema({
     required: true,
   },
   injuriesOrConditions: {
-    type: String, // Or use an array if there can be multiple
+    type: String,
   },
   createdAt: {
     type: Date,

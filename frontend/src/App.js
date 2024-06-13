@@ -17,6 +17,7 @@ import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import ClientInfoForm from "./components/ClientInfoForm";
 import Workout from "./components/Workout";
+import InactiveWorkouts from "./components/InactiveWorkouts";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -130,6 +131,10 @@ const App = () => {
         <Route
           path="/workout"
           element={<Workout userId={user.id} notify={notify} />}
+        />
+        <Route
+          path="/inactiveworkout"
+          element={<InactiveWorkouts userId={user.id} notify={notify} />}
         />
       </Routes>
       <Footer />

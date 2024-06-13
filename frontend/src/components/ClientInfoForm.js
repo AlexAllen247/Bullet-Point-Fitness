@@ -4,7 +4,6 @@ import clientInfoFormService from "../services/clientInfoForm";
 import { useNavigate } from "react-router-dom";
 
 const ClientInfoForm = ({ notify }) => {
-  const [sessionDuration, setSessionDuration] = useState("");
   const [sessionsPerWeek, setSessionsPerWeek] = useState("");
   const [fitnessLevel, setFitnessLevel] = useState("");
   const [goals, setGoals] = useState("");
@@ -31,7 +30,6 @@ const ClientInfoForm = ({ notify }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     createInfoForm({
-      sessionDuration,
       sessionsPerWeek,
       fitnessLevel,
       goals,
@@ -106,21 +104,6 @@ const ClientInfoForm = ({ notify }) => {
                   <option value="build-muscle">Build Muscle</option>
                   <option value="build-strength">Build Strength</option>
                   <option value="all-of-the-above">All of the Above</option>
-                </Form.Control>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="session-duration" style={styles.label}>
-                  Session Duration (minutes)
-                </Form.Label>
-                <Form.Control
-                  as="select"
-                  value={sessionDuration}
-                  onChange={(e) => setSessionDuration(e.target.value)}
-                >
-                  <option value="">Select duration per session</option>
-                  <option value="30">30 minutes</option>
-                  <option value="45">45 minutes</option>
-                  <option value="60">1 hour</option>
                 </Form.Control>
               </Form.Group>
               <Form.Group className="mb-3">

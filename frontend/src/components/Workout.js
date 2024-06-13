@@ -12,7 +12,6 @@ const Workout = ({ userId, notify }) => {
     const fetchWorkouts = async () => {
       try {
         const fetchedWorkouts = await workoutService.get(userId);
-        console.log(fetchedWorkouts);
         setWorkouts(
           Array.isArray(fetchedWorkouts) ? fetchedWorkouts : [fetchedWorkouts],
         );

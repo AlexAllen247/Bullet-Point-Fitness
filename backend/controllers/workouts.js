@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Workout = require("../models/workout");
+const Program = require("../models/program");
 
 router.get("/", async (request, response) => {
   try {
@@ -24,7 +25,13 @@ router.post("/", async (request, response) => {
 router.get("/user/:userId", async (req, res) => {
   try {
     const userId = req.params.userId;
-    const workouts = await Workout.find({ userId }).populate({
+    const activeProgram = await Program.findOne({ userId, status: "active" });
+    if (!activeProgram) {
+      return res.status(404).json({ error: "No active program found" });
+    }
+    const workouts = await Workout.find({
+      programId: activeProgram._id,
+    }).populate({
       path: "exercises.exerciseId",
       model: "ExerciseVideo",
     });
@@ -56,6 +63,29 @@ router.put("/workout/:workoutId/exercise/:exerciseId", async (req, res) => {
     res.json(workout);
   } catch (error) {
     res.status(500).json({ error: "Error updating workout" });
+  }
+});
+
+router.get("/inactive/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    const inactivePrograms = await Program.find({ userId, status: "inactive" });
+
+    if (!inactivePrograms.length) {
+      return res.status(404).json({ error: "No inactive programs found" });
+    }
+
+    const inactiveWorkouts = await Workout.find({
+      programId: { $in: inactivePrograms.map((program) => program._id) },
+    }).populate({
+      path: "exercises.exerciseId",
+      model: "ExerciseVideo",
+    });
+
+    res.json(inactiveWorkouts);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch inactive workouts" });
   }
 });
 

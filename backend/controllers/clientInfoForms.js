@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const ClientInfo = require("../models/clientInfoForm");
 const { generateProgram } = require("../controllers/programs");
+const Program = require("../models/program");
 
 router.get("/:userId", async (req, res) => {
   try {
@@ -27,6 +28,16 @@ router.post("/", async (request, response) => {
       userId: request.user.id,
     });
     const savedClientInfo = await clientData.save();
+
+    const existingProgram = await Program.findOne({
+      userId: request.user.id,
+      status: "active",
+    });
+
+    if (existingProgram) {
+      existingProgram.status = "inactive";
+      await existingProgram.save();
+    }
 
     const newProgram = await generateProgram(savedClientInfo._id);
 

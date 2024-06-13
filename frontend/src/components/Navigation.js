@@ -81,6 +81,13 @@ const Navigation = ({ user, onLogout }) => {
                   >
                     Workout
                   </NavLink>
+                  <NavLink
+                    to="/inactiveworkout"
+                    style={styles.navStyle}
+                    aria-label="Link to workouts"
+                  >
+                    Inactive Workouts
+                  </NavLink>
                 </>
               ) : (
                 <>

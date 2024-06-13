@@ -293,7 +293,6 @@ Content-Type: application/json
 
 {
   "sessionsPerWeek": 3,
-  "sessionDuration": 45,
   "title": "3-Day Full Body",
   "description": "This is a full body program.",
   "workouts": ["6615157118935d1a38dfc9a7", "66151b1a18935d1a38dfc9b4", "66151c7b18935d1a38dfc9c1"]

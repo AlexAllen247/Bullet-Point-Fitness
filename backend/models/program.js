@@ -5,7 +5,6 @@ const programSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: String,
   startDate: { type: Date, required: true },
-  endDate: Date,
   workouts: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -14,7 +13,7 @@ const programSchema = new mongoose.Schema({
   ],
   status: {
     type: String,
-    enum: ["active", "completed", "paused"],
+    enum: ["active", "inactive"],
     default: "active",
   },
   createdAt: { type: Date, default: Date.now },

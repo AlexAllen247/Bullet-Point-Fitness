@@ -2,6 +2,50 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Table, Form } from "react-bootstrap";
 import workoutService from "../services/workout";
 
+const calculateProgressionPlan = (currentReps, currentWeight) => {
+  const repPercentages = {
+    20: 0.6,
+    19: 0.61,
+    18: 0.62,
+    17: 0.63,
+    16: 0.64,
+    15: 0.65,
+    14: 0.675,
+    13: 0.7,
+    12: 0.725,
+    11: 0.75,
+    10: 0.775,
+    9: 0.8,
+    8: 0.825,
+    7: 0.85,
+    6: 0.875,
+    5: 0.9,
+    4: 0.925,
+  };
+
+  let progressionOptions = {};
+
+  if (currentReps < 5) {
+    progressionOptions[`Increase reps to 5`] = `${currentWeight} kg`;
+  } else if (currentReps >= 6 && currentReps < 8) {
+    const smallestIncrement = 2.5;
+    const newWeight = currentWeight + smallestIncrement;
+    progressionOptions[`4-5 reps`] = `${newWeight} kg`;
+  } else if (currentReps >= 8) {
+    let estimated1RM = currentWeight / (repPercentages[currentReps] || 1);
+
+    for (let reps = 5; reps <= 8; reps++) {
+      let exactWeight = estimated1RM * repPercentages[reps];
+      let practicalWeight = Math.ceil(exactWeight / 2.5) * 2.5;
+      if (!(practicalWeight === currentWeight && reps === currentReps)) {
+        progressionOptions[`${reps} reps`] = `${practicalWeight} kg`;
+      }
+    }
+  }
+
+  return progressionOptions;
+};
+
 const Workout = ({ userId, notify }) => {
   const [workouts, setWorkouts] = useState([]);
   const [editState, setEditState] = useState({});
@@ -81,6 +125,15 @@ const Workout = ({ userId, notify }) => {
     }
   };
 
+  const calculateGuidance = (reps, weight) => {
+    const progressionPlan = calculateProgressionPlan(reps, weight);
+    const keys = Object.keys(progressionPlan);
+    if (keys.length > 0) {
+      return `${keys[0]}: ${progressionPlan[keys[0]]}`;
+    }
+    return "No progression needed";
+  };
+
   const tableStyle = {
     tableLayout: "fixed",
     width: "100%",
@@ -102,6 +155,7 @@ const Workout = ({ userId, notify }) => {
                 <th style={columnStyle}>Name of Exercise</th>
                 <th style={columnStyle}>Weight</th>
                 <th style={columnStyle}>Reps</th>
+                <th style={columnStyle}>Guidance</th>
               </tr>
             </thead>
             <tbody>
@@ -109,6 +163,10 @@ const Workout = ({ userId, notify }) => {
                 const lastPerformance = exercise.performance.length
                   ? exercise.performance[exercise.performance.length - 1]
                   : { weight: "Set weight", reps: "Set reps" };
+                const guidance = calculateGuidance(
+                  lastPerformance.reps,
+                  lastPerformance.weight,
+                );
                 return (
                   <tr key={exerciseIndex}>
                     <td
@@ -179,6 +237,7 @@ const Workout = ({ userId, notify }) => {
                         lastPerformance.reps
                       )}
                     </td>
+                    <td style={columnStyle}>{guidance}</td>
                   </tr>
                 );
               })}

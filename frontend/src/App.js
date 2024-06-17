@@ -18,6 +18,7 @@ import RegisterForm from "./components/RegisterForm";
 import ClientInfoForm from "./components/ClientInfoForm";
 import Workout from "./components/Workout";
 import InactiveWorkouts from "./components/InactiveWorkouts";
+import ProgressGraph from "./components/ProgressGraph";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -131,6 +132,10 @@ const App = () => {
         <Route
           path="/workout"
           element={<Workout userId={user.id} notify={notify} />}
+        />
+        <Route
+          path="/progression"
+          element={<ProgressGraph userId={user.id} />}
         />
         <Route
           path="/inactiveworkout"

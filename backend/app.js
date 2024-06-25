@@ -31,6 +31,9 @@ const {
   userExtractor,
 } = require("./utils/middleware");
 
+const rateLimit = require("express-rate-limit");
+const slowDown = require("express-slow-down");
+
 logger.info("connecting to", config.MONGODB_URI);
 
 mongoose
@@ -41,6 +44,8 @@ mongoose
   .catch((error) => {
     logger.error("error connection to MongoDB:", error.message);
   });
+
+app.set("trust proxy", 1);
 
 app.use(
   helmet.contentSecurityPolicy({
@@ -104,6 +109,20 @@ app.use(
 app.use(helmet.noSniff());
 app.use(helmet.referrerPolicy({ policy: "strict-origin-when-cross-origin" }));
 app.use(setPermissionsPolicy);
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+app.use(limiter);
+const speedLimiter = slowDown({
+  windowMs: 15 * 60 * 1000,
+  delayAfter: 100,
+  delayMs: (used, req) => {
+    const delayAfter = req.slowDown.limit;
+    return (used - delayAfter) * 500;
+  },
+});
+app.use(speedLimiter);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("build"));

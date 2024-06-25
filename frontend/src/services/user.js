@@ -1,3 +1,5 @@
+import { jwtDecode } from "jwt-decode";
+
 let token = null;
 
 const STORAGE_KEY = "loggedUser";
@@ -14,16 +16,28 @@ const getUser = () => {
     token = user.token;
     return user;
   }
-
   return null;
 };
 
 const clearUser = () => {
-  localStorage.clear();
+  window.localStorage.clear();
   token = null;
 };
 
-const getToken = () => token;
+const isTokenExpired = (token) => {
+  const decoded = jwtDecode(token);
+  const now = Date.now() / 1000;
+  return decoded.exp < now;
+};
+
+const getToken = () => {
+  if (token && !isTokenExpired(token)) {
+    return token;
+  } else {
+    clearUser();
+    return null;
+  }
+};
 
 const userService = {
   setUser,

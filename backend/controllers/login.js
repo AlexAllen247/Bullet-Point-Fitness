@@ -13,7 +13,7 @@ router.post("/", async (request, response) => {
 
     if (!(user && passwordCorrect)) {
       return response.status(401).json({
-        error: "invalid username or password",
+        error: "Invalid username or password",
       });
     }
 
@@ -22,19 +22,17 @@ router.post("/", async (request, response) => {
       id: user._id,
     };
 
-    const token = jwt.sign(userForToken, process.env.SECRET);
+    const token = jwt.sign(userForToken, process.env.SECRET, {
+      expiresIn: "24h",
+    });
 
     response.status(200).send({
       token,
       username: user.username,
-      name: user.name,
       id: user._id.toString(),
     });
   } catch (error) {
-    console.error(error);
-    response
-      .status(500)
-      .json({ error: "An error occurred while processing the request." });
+    next(error);
   }
 });
 

@@ -2,15 +2,12 @@ const bcrypt = require("bcrypt");
 const router = require("express").Router();
 const User = require("../models/user");
 
-router.get("/", async (request, response) => {
+router.get("/", async (request, response, next) => {
   try {
     const users = await User.find({});
     response.json(users);
   } catch (error) {
-    console.error(error);
-    response
-      .status(500)
-      .json({ error: "An error occurred while processing the request." });
+    next(error);
   }
 });
 
@@ -20,14 +17,14 @@ router.post("/", async (request, response) => {
 
     if (!password || password.length < 3) {
       return response.status(400).json({
-        error: "invalid password",
+        error: "Invalid password",
       });
     }
 
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return response.status(400).json({
-        error: "username must be unique",
+        error: "Username must be unique",
       });
     }
 
@@ -43,10 +40,7 @@ router.post("/", async (request, response) => {
 
     response.status(201).json(savedUser);
   } catch (error) {
-    console.error(error);
-    response
-      .status(500)
-      .json({ error: "An error occurred while processing the request." });
+    next(error);
   }
 });
 

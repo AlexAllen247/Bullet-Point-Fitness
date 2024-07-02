@@ -161,9 +161,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3001/api/users
-
-###
 
 GET http://localhost:3001/api/clientinfo/65af86c92d37c355b22f0c1e
 
@@ -318,6 +315,17 @@ workout/661520e318935d1a38dfca16/exercise/[object%20Object]
 ###
 
 GET http://localhost:3001/api/workouts/workout/661520e318935d1a38dfca16/exercise/650a932c3ba847d2c2d9f0dc
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "securepassword",
+  "email": "newuser@example.com",
+  "phone": "+1234567890"
+}
 
 
 

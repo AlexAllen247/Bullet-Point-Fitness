@@ -3,10 +3,14 @@ import { Button, Form, Container, Card } from "react-bootstrap";
 import registerService from "../services/register";
 
 const RegisterForm = ({ notify }) => {
-  //Maybe add age, height, weight and gender to each user also add to mongodb model
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\+?[0-9]{7,15}$/;
 
   const createUser = async (newUser) => {
     registerService
@@ -36,6 +40,14 @@ const RegisterForm = ({ notify }) => {
       notify("Passwords do not match!", "alert");
       return false;
     }
+    if (!emailRegex.test(email)) {
+      notify("Please enter a valid email address.", "alert");
+      return false;
+    }
+    if (!phoneRegex.test(phone)) {
+      notify("Please enter a valid phone number.", "alert");
+      return false;
+    }
     return true;
   };
 
@@ -45,9 +57,12 @@ const RegisterForm = ({ notify }) => {
       return;
     }
     console.log("New User created!");
-    createUser({ username, password });
+    createUser({ username, password, email, phone });
     setUsername("");
     setPassword("");
+    setConfirmPassword("");
+    setEmail("");
+    setPhone("");
   };
 
   const styles = {
@@ -107,6 +122,32 @@ const RegisterForm = ({ notify }) => {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
+                <Form.Label htmlFor="email" style={styles.label}>
+                  Email
+                </Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={({ target }) => setEmail(target.value)}
+                  id="email"
+                  placeholder="Enter your email"
+                  aria-label="Email"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label htmlFor="phone" style={styles.label}>
+                  Phone
+                </Form.Label>
+                <Form.Control
+                  type="tel"
+                  value={phone}
+                  onChange={({ target }) => setPhone(target.value)}
+                  id="phone"
+                  placeholder="Enter your phone number"
+                  aria-label="Phone"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label htmlFor="password" style={styles.label}>
                   Password
                 </Form.Label>
@@ -139,7 +180,11 @@ const RegisterForm = ({ notify }) => {
                 style={styles.button}
                 className="btn-custom"
                 disabled={
-                  !username || !password || password !== confirmPassword
+                  !username ||
+                  !password ||
+                  password !== confirmPassword ||
+                  !email ||
+                  !phone
                 }
               >
                 Register

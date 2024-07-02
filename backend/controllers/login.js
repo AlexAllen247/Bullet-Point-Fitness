@@ -29,6 +29,8 @@ router.post("/", async (request, response) => {
     response.status(200).send({
       token,
       username: user.username,
+      email: user.email,
+      phone: user.phone,
       id: user._id.toString(),
     });
   } catch (error) {

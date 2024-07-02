@@ -7,6 +7,8 @@ const schema = mongoose.Schema({
     minlength: 3,
   },
   passwordHash: String,
+  email: { type: String, required: true, unique: true },
+  phone: { type: String, required: true },
   clientInfoForms: [
     {
       type: mongoose.Schema.Types.ObjectId,

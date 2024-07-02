@@ -45,12 +45,12 @@ const VideoCard = ({ video }) => {
   return (
     <Card className="mb-4 box-shadow" border="danger" style={styles.text}>
       <Ratio aspectRatio="16x9">
-        <iframe
+      <iframe
           ref={iframeRef}
           title={video.title}
           src={isInView ? video.embedUrl : ""}
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           loading="lazy"
         />

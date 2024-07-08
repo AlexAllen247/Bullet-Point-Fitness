@@ -3,44 +3,22 @@ import { Modal, Button, Table, Form } from "react-bootstrap";
 import workoutService from "../services/workout";
 
 const calculateProgressionPlan = (currentReps, currentWeight) => {
-  const repPercentages = {
-    20: 0.6,
-    19: 0.61,
-    18: 0.62,
-    17: 0.63,
-    16: 0.64,
-    15: 0.65,
-    14: 0.675,
-    13: 0.7,
-    12: 0.725,
-    11: 0.75,
-    10: 0.775,
-    9: 0.8,
-    8: 0.825,
-    7: 0.85,
-    6: 0.875,
-    5: 0.9,
-    4: 0.925,
-  };
+  currentReps = Number(currentReps);
+  currentWeight = Number(currentWeight);
+
+  if (!currentReps || !currentWeight) {
+    return {};
+  }
 
   let progressionOptions = {};
 
-  if (currentReps < 5) {
-    progressionOptions[`Increase reps to 5`] = `${currentWeight} kg`;
-  } else if (currentReps >= 6 && currentReps < 8) {
+  if (currentReps >= 6) {
     const smallestIncrement = 2.5;
     const newWeight = currentWeight + smallestIncrement;
-    progressionOptions[`4-5 reps`] = `${newWeight} kg`;
-  } else if (currentReps >= 8) {
-    let estimated1RM = currentWeight / (repPercentages[currentReps] || 1);
-
-    for (let reps = 5; reps <= 8; reps++) {
-      let exactWeight = estimated1RM * repPercentages[reps];
-      let practicalWeight = Math.ceil(exactWeight / 2.5) * 2.5;
-      if (!(practicalWeight === currentWeight && reps === currentReps)) {
-        progressionOptions[`${reps} reps`] = `${practicalWeight} kg`;
-      }
-    }
+    progressionOptions[`Increase weight to`] = `${newWeight} kg`;
+  } else {
+    const newReps = currentReps + 1;
+    progressionOptions[`Increase reps to`] = `${newReps}`;
   }
 
   return progressionOptions;
@@ -126,6 +104,9 @@ const Workout = ({ userId, notify }) => {
   };
 
   const calculateGuidance = (reps, weight) => {
+    if (!reps || !weight) {
+      return "";
+    }
     const progressionPlan = calculateProgressionPlan(reps, weight);
     const keys = Object.keys(progressionPlan);
     if (keys.length > 0) {

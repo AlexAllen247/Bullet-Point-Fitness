@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Table, Form } from "react-bootstrap";
 import workoutService from "../services/workout";
 
-const calculateProgressionPlan = (currentReps, currentWeight) => {
+const calculateProgressionPlan = (currentReps, currentWeight, exerciseType) => {
   currentReps = Number(currentReps);
   currentWeight = Number(currentWeight);
 
@@ -10,11 +10,20 @@ const calculateProgressionPlan = (currentReps, currentWeight) => {
     return {};
   }
 
+  let increment = 2.5;
+
+  if (currentWeight <= 10) {
+    increment = 1;
+  } else if (currentWeight <= 20) {
+    increment = 2;
+  } else {
+    increment = 2.5;
+  }
+
   let progressionOptions = {};
 
   if (currentReps >= 6) {
-    const smallestIncrement = 2.5;
-    const newWeight = currentWeight + smallestIncrement;
+    const newWeight = currentWeight + increment;
     progressionOptions[`Increase weight to`] = `${newWeight} kg`;
   } else {
     const newReps = currentReps + 1;
@@ -24,7 +33,7 @@ const calculateProgressionPlan = (currentReps, currentWeight) => {
   return progressionOptions;
 };
 
-const Workout = ({ userId, notify }) => {
+const Workout = ({ userId }) => {
   const [workouts, setWorkouts] = useState([]);
   const [editState, setEditState] = useState({});
   const [showModal, setShowModal] = useState(false);
@@ -77,6 +86,11 @@ const Workout = ({ userId, notify }) => {
       ? exercise.performance[exercise.performance.length - 1]
       : { weight: "", reps: "" };
 
+    if (!performance.weight || !performance.reps) {
+      console.error("Weight and reps must not be empty");
+      return;
+    }
+
     try {
       const updatedExercise = await workoutService.updateExercise(
         workout._id,
@@ -89,17 +103,26 @@ const Workout = ({ userId, notify }) => {
         updatedExercise.exercises[exerciseIndex].performance;
       setWorkouts(updatedWorkouts);
       setEditState({});
-      notify("Exercise updated successfully!");
       console.log("Exercise updated successfully!");
     } catch (error) {
       console.error("Failed to update exercise", error);
-      notify("Failed to update exercise: " + error.message, "error");
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      e.target.blur();
+  const handleKeyDown = (e, workoutIndex, exerciseIndex, field) => {
+    if (e.key === "Enter" || e.key === "Tab") {
+      e.preventDefault();
+      if (field === "weight") {
+        saveExerciseUpdate(workoutIndex, exerciseIndex);
+        setEditState({
+          workoutIndex,
+          exerciseIndex,
+          field: "reps",
+        });
+      } else if (field === "reps") {
+        saveExerciseUpdate(workoutIndex, exerciseIndex);
+        setEditState({});
+      }
     }
   };
 
@@ -127,6 +150,21 @@ const Workout = ({ userId, notify }) => {
   return (
     <div>
       <h2>Your Workouts</h2>
+      <div>
+        <h3>Instructions</h3>
+        <p>
+          Welcome to the workout tracker! Follow these steps for an effective
+          workout:
+        </p>
+        <ul>
+          <li>Log your weight and reps for each exercise.</li>
+          <li>Follow the guidance provided for progressive overload.</li>
+          <li>Click on an exercise name to watch the demo video.</li>
+          <li>
+            Update your performance regularly to track progress accurately.
+          </li>
+        </ul>
+      </div>
       {workouts.map((workout, workoutIndex) => (
         <div key={workoutIndex}>
           <h3>Workout {workoutIndex + 1}</h3>
@@ -143,7 +181,7 @@ const Workout = ({ userId, notify }) => {
               {workout.exercises.map((exercise, exerciseIndex) => {
                 const lastPerformance = exercise.performance.length
                   ? exercise.performance[exercise.performance.length - 1]
-                  : { weight: "Set weight", reps: "Set reps" };
+                  : { weight: "", reps: "" };
                 const guidance = calculateGuidance(
                   lastPerformance.reps,
                   lastPerformance.weight,
@@ -168,7 +206,7 @@ const Workout = ({ userId, notify }) => {
                       editState.exerciseIndex === exerciseIndex &&
                       editState.field === "weight" ? (
                         <Form.Control
-                          type="text"
+                          type="number"
                           autoFocus
                           value={lastPerformance.weight || ""}
                           onChange={(e) =>
@@ -182,10 +220,23 @@ const Workout = ({ userId, notify }) => {
                           onBlur={() =>
                             saveExerciseUpdate(workoutIndex, exerciseIndex)
                           }
-                          onKeyDown={handleKeyDown}
+                          onKeyDown={(e) =>
+                            handleKeyDown(
+                              e,
+                              workoutIndex,
+                              exerciseIndex,
+                              "weight",
+                            )
+                          }
                         />
                       ) : (
-                        lastPerformance.weight
+                        <span
+                          onClick={() =>
+                            toggleEdit(workoutIndex, exerciseIndex, "weight")
+                          }
+                        >
+                          {lastPerformance.weight}
+                        </span>
                       )}
                     </td>
                     <td
@@ -198,7 +249,7 @@ const Workout = ({ userId, notify }) => {
                       editState.exerciseIndex === exerciseIndex &&
                       editState.field === "reps" ? (
                         <Form.Control
-                          type="text"
+                          type="number"
                           autoFocus
                           value={lastPerformance.reps || ""}
                           onChange={(e) =>
@@ -212,10 +263,23 @@ const Workout = ({ userId, notify }) => {
                           onBlur={() =>
                             saveExerciseUpdate(workoutIndex, exerciseIndex)
                           }
-                          onKeyDown={handleKeyDown}
+                          onKeyDown={(e) =>
+                            handleKeyDown(
+                              e,
+                              workoutIndex,
+                              exerciseIndex,
+                              "reps",
+                            )
+                          }
                         />
                       ) : (
-                        lastPerformance.reps
+                        <span
+                          onClick={() =>
+                            toggleEdit(workoutIndex, exerciseIndex, "reps")
+                          }
+                        >
+                          {lastPerformance.reps}
+                        </span>
                       )}
                     </td>
                     <td style={columnStyle}>{guidance}</td>

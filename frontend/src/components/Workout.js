@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Button, Table, Form } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 import workoutService from "../services/workout";
+import ExerciseRow from "./ExerciseRow";
+import ExerciseModal from "./ExerciseModal";
 
-const calculateProgressionPlan = (currentReps, currentWeight, exerciseType) => {
+const calculateProgressionPlan = (currentReps, currentWeight) => {
   currentReps = Number(currentReps);
   currentWeight = Number(currentWeight);
 
@@ -33,11 +38,16 @@ const calculateProgressionPlan = (currentReps, currentWeight, exerciseType) => {
   return progressionOptions;
 };
 
+const isTouchDevice = () => {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+};
+
 const Workout = ({ userId }) => {
   const [workouts, setWorkouts] = useState([]);
   const [editState, setEditState] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
+  const [isReorganizing, setIsReorganizing] = useState(false);
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -138,6 +148,30 @@ const Workout = ({ userId }) => {
     return "No progression needed";
   };
 
+  const moveExercise = (workoutIndex, fromIndex, toIndex) => {
+    const updatedWorkouts = [...workouts];
+    const [movedExercise] = updatedWorkouts[workoutIndex].exercises.splice(
+      fromIndex,
+      1,
+    );
+    updatedWorkouts[workoutIndex].exercises.splice(toIndex, 0, movedExercise);
+    setWorkouts(updatedWorkouts);
+
+    saveOrderToBackend(
+      updatedWorkouts[workoutIndex]._id,
+      updatedWorkouts[workoutIndex].exercises,
+    );
+  };
+
+  const saveOrderToBackend = async (workoutId, exercises) => {
+    try {
+      await workoutService.updateOrder(workoutId, exercises);
+      console.log("Order saved successfully!");
+    } catch (error) {
+      console.error("Failed to save order", error);
+    }
+  };
+
   const tableStyle = {
     tableLayout: "fixed",
     width: "100%",
@@ -165,151 +199,54 @@ const Workout = ({ userId }) => {
           </li>
         </ul>
       </div>
+      <Button
+        variant="primary"
+        onClick={() => setIsReorganizing(!isReorganizing)}
+      >
+        {isReorganizing ? "Finish Reordering" : "Reorder Exercises"}
+      </Button>
       {workouts.map((workout, workoutIndex) => (
         <div key={workoutIndex}>
           <h3>Workout {workoutIndex + 1}</h3>
-          <Table striped bordered hover style={tableStyle}>
-            <thead>
-              <tr>
-                <th style={columnStyle}>Name of Exercise</th>
-                <th style={columnStyle}>Weight</th>
-                <th style={columnStyle}>Reps</th>
-                <th style={columnStyle}>Guidance</th>
-              </tr>
-            </thead>
-            <tbody>
-              {workout.exercises.map((exercise, exerciseIndex) => {
-                const lastPerformance = exercise.performance.length
-                  ? exercise.performance[exercise.performance.length - 1]
-                  : { weight: "", reps: "" };
-                const guidance = calculateGuidance(
-                  lastPerformance.reps,
-                  lastPerformance.weight,
-                );
-                return (
-                  <tr key={exerciseIndex}>
-                    <td
-                      onClick={() =>
-                        handleExerciseClick(exercise.exerciseId.embedUrl)
-                      }
-                      style={{ cursor: "pointer", ...columnStyle }}
-                    >
-                      {exercise.exerciseId.title}
-                    </td>
-                    <td
-                      onClick={() =>
-                        toggleEdit(workoutIndex, exerciseIndex, "weight")
-                      }
-                      style={columnStyle}
-                    >
-                      {editState.workoutIndex === workoutIndex &&
-                      editState.exerciseIndex === exerciseIndex &&
-                      editState.field === "weight" ? (
-                        <Form.Control
-                          type="number"
-                          autoFocus
-                          value={lastPerformance.weight || ""}
-                          onChange={(e) =>
-                            handleUpdateExercise(
-                              workoutIndex,
-                              exerciseIndex,
-                              "weight",
-                              e.target.value,
-                            )
-                          }
-                          onBlur={() =>
-                            saveExerciseUpdate(workoutIndex, exerciseIndex)
-                          }
-                          onKeyDown={(e) =>
-                            handleKeyDown(
-                              e,
-                              workoutIndex,
-                              exerciseIndex,
-                              "weight",
-                            )
-                          }
-                        />
-                      ) : (
-                        <span
-                          onClick={() =>
-                            toggleEdit(workoutIndex, exerciseIndex, "weight")
-                          }
-                        >
-                          {lastPerformance.weight}
-                        </span>
-                      )}
-                    </td>
-                    <td
-                      onClick={() =>
-                        toggleEdit(workoutIndex, exerciseIndex, "reps")
-                      }
-                      style={columnStyle}
-                    >
-                      {editState.workoutIndex === workoutIndex &&
-                      editState.exerciseIndex === exerciseIndex &&
-                      editState.field === "reps" ? (
-                        <Form.Control
-                          type="number"
-                          autoFocus
-                          value={lastPerformance.reps || ""}
-                          onChange={(e) =>
-                            handleUpdateExercise(
-                              workoutIndex,
-                              exerciseIndex,
-                              "reps",
-                              e.target.value,
-                            )
-                          }
-                          onBlur={() =>
-                            saveExerciseUpdate(workoutIndex, exerciseIndex)
-                          }
-                          onKeyDown={(e) =>
-                            handleKeyDown(
-                              e,
-                              workoutIndex,
-                              exerciseIndex,
-                              "reps",
-                            )
-                          }
-                        />
-                      ) : (
-                        <span
-                          onClick={() =>
-                            toggleEdit(workoutIndex, exerciseIndex, "reps")
-                          }
-                        >
-                          {lastPerformance.reps}
-                        </span>
-                      )}
-                    </td>
-                    <td style={columnStyle}>{guidance}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </Table>
+          <DndProvider backend={HTML5Backend}>
+            <Table striped bordered hover style={tableStyle}>
+              <thead>
+                <tr>
+                  <th style={columnStyle}>Name of Exercise</th>
+                  <th style={columnStyle}>Weight</th>
+                  <th style={columnStyle}>Reps</th>
+                  <th style={columnStyle}>Guidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                {workout.exercises.map((exercise, exerciseIndex) => (
+                  <ExerciseRow
+                    key={exerciseIndex}
+                    exercise={exercise}
+                    exerciseIndex={exerciseIndex}
+                    workoutIndex={workoutIndex}
+                    moveExercise={moveExercise}
+                    editState={editState}
+                    toggleEdit={toggleEdit}
+                    handleUpdateExercise={handleUpdateExercise}
+                    saveExerciseUpdate={saveExerciseUpdate}
+                    handleKeyDown={handleKeyDown}
+                    handleExerciseClick={handleExerciseClick}
+                    calculateGuidance={calculateGuidance}
+                    columnStyle={columnStyle}
+                    isReorganizing={isReorganizing}
+                  />
+                ))}
+              </tbody>
+            </Table>
+          </DndProvider>
         </div>
       ))}
-      <Modal show={showModal} onHide={handleCloseModal} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>Exercise Video</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <iframe
-            src={selectedVideoUrl}
-            title="Exercise Video"
-            width="100%"
-            height="400px"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ExerciseModal
+        showModal={showModal}
+        handleCloseModal={handleCloseModal}
+        selectedVideoUrl={selectedVideoUrl}
+      />
     </div>
   );
 };

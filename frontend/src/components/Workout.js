@@ -179,7 +179,10 @@ const Workout = ({ userId }) => {
 
   const columnStyle = {
     width: "33.33%",
+    overflow: "hidden",
   };
+
+  const Backend = isTouchDevice() ? TouchBackend : HTML5Backend;
 
   return (
     <div>
@@ -199,16 +202,16 @@ const Workout = ({ userId }) => {
           </li>
         </ul>
       </div>
-      <Button
-        variant="primary"
-        onClick={() => setIsReorganizing(!isReorganizing)}
-      >
-        {isReorganizing ? "Finish Reordering" : "Reorder Exercises"}
-      </Button>
       {workouts.map((workout, workoutIndex) => (
         <div key={workoutIndex}>
           <h3>Workout {workoutIndex + 1}</h3>
-          <DndProvider backend={HTML5Backend}>
+          <Button
+            variant="primary"
+            onClick={() => setIsReorganizing(!isReorganizing)}
+          >
+            {isReorganizing ? "Finish Reordering" : "Reorder Exercises"}
+          </Button>
+          <DndProvider backend={Backend}>
             <Table striped bordered hover style={tableStyle}>
               <thead>
                 <tr>

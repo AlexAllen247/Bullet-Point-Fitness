@@ -44,7 +44,6 @@ const isTouchDevice = () => {
 
 const Workout = ({ userId }) => {
   const [workouts, setWorkouts] = useState([]);
-  const [editState, setEditState] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
   const [isReorganizing, setIsReorganizing] = useState(false);
@@ -76,67 +75,30 @@ const Workout = ({ userId }) => {
     setShowModal(false);
   };
 
-  const toggleEdit = (workoutIndex, exerciseIndex, field) => {
-    setEditState({ workoutIndex, exerciseIndex, field });
-  };
-
-  const handleUpdateExercise = (workoutIndex, exerciseIndex, field, value) => {
-    const updatedWorkouts = [...workouts];
-    let performance =
-      updatedWorkouts[workoutIndex].exercises[exerciseIndex].performance;
-    if (!performance.length) {
-      performance.push({ date: new Date(), weight: "", reps: "" });
-    } else {
-      performance[performance.length - 1].date = new Date();
-    }
-    performance[performance.length - 1][field] = value;
-    setWorkouts(updatedWorkouts);
-  };
-
-  const saveExerciseUpdate = async (workoutIndex, exerciseIndex) => {
+  const handleSaveExerciseUpdate = async (
+    workoutIndex,
+    exerciseIndex,
+    performance,
+  ) => {
     const workout = workouts[workoutIndex];
     const exercise = workout.exercises[exerciseIndex];
-    const performance = exercise.performance.length
-      ? exercise.performance[exercise.performance.length - 1]
-      : { weight: "", reps: "" };
-
-    if (!performance.weight || !performance.reps) {
-      console.error("Weight and reps must not be empty");
-      return;
-    }
+    performance.date = new Date(); // Add the current date to performance
 
     try {
-      const updatedExercise = await workoutService.updateExercise(
+      await workoutService.updateExercise(
         workout._id,
         exercise.exerciseId.id,
         performance,
       );
 
       const updatedWorkouts = [...workouts];
-      updatedWorkouts[workoutIndex].exercises[exerciseIndex].performance =
-        updatedExercise.exercises[exerciseIndex].performance;
+      updatedWorkouts[workoutIndex].exercises[exerciseIndex].performance.push(
+        performance,
+      );
       setWorkouts(updatedWorkouts);
-      setEditState({});
       console.log("Exercise updated successfully!");
     } catch (error) {
       console.error("Failed to update exercise", error);
-    }
-  };
-
-  const handleKeyDown = (e, workoutIndex, exerciseIndex, field) => {
-    if (e.key === "Enter" || e.key === "Tab") {
-      e.preventDefault();
-      if (field === "weight") {
-        saveExerciseUpdate(workoutIndex, exerciseIndex);
-        setEditState({
-          workoutIndex,
-          exerciseIndex,
-          field: "reps",
-        });
-      } else if (field === "reps") {
-        saveExerciseUpdate(workoutIndex, exerciseIndex);
-        setEditState({});
-      }
     }
   };
 
@@ -222,6 +184,7 @@ const Workout = ({ userId }) => {
                   <th style={columnStyle}>Name of Exercise</th>
                   <th style={columnStyle}>Weight</th>
                   <th style={columnStyle}>Reps</th>
+                  <th style={columnStyle}>Save</th>
                   <th style={columnStyle}>Guidance</th>
                 </tr>
               </thead>
@@ -233,11 +196,7 @@ const Workout = ({ userId }) => {
                     exerciseIndex={exerciseIndex}
                     workoutIndex={workoutIndex}
                     moveExercise={moveExercise}
-                    editState={editState}
-                    toggleEdit={toggleEdit}
-                    handleUpdateExercise={handleUpdateExercise}
-                    saveExerciseUpdate={saveExerciseUpdate}
-                    handleKeyDown={handleKeyDown}
+                    handleSaveExerciseUpdate={handleSaveExerciseUpdate}
                     handleExerciseClick={handleExerciseClick}
                     calculateGuidance={calculateGuidance}
                     columnStyle={columnStyle}

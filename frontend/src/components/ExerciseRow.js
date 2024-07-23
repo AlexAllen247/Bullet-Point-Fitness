@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import React, { useState, useEffect, useRef } from "react";
+import { Form, Button } from "react-bootstrap";
 import { useDrag, useDrop } from "react-dnd";
 
 const ItemTypes = {
@@ -11,17 +11,17 @@ const ExerciseRow = ({
   exerciseIndex,
   workoutIndex,
   moveExercise,
-  editState,
-  toggleEdit,
-  handleUpdateExercise,
-  saveExerciseUpdate,
-  handleKeyDown,
+  handleSaveExerciseUpdate,
   handleExerciseClick,
   calculateGuidance,
   columnStyle,
   isReorganizing,
 }) => {
   const [isDragging, setIsDragging] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [tempWeight, setTempWeight] = useState("");
+  const [tempReps, setTempReps] = useState("");
+  const rowRef = useRef(null);
 
   const lastPerformance = exercise.performance.length
     ? exercise.performance[exercise.performance.length - 1]
@@ -48,6 +48,29 @@ const ExerciseRow = ({
     canDrop: () => isReorganizing,
   });
 
+  useEffect(() => {
+    if (isEditing) {
+      setTempWeight(lastPerformance.weight);
+      setTempReps(lastPerformance.reps);
+    }
+  }, [isEditing, lastPerformance.weight, lastPerformance.reps]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (rowRef.current && !rowRef.current.contains(event.target)) {
+        setIsEditing(false);
+      }
+    };
+    if (isEditing) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isEditing]);
+
   const handleDragStart = () => {
     setIsDragging(true);
   };
@@ -58,6 +81,19 @@ const ExerciseRow = ({
     }, 0);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (tempWeight && tempReps) {
+      handleSaveExerciseUpdate(workoutIndex, exerciseIndex, {
+        weight: tempWeight,
+        reps: tempReps,
+      });
+      setIsEditing(false);
+    } else {
+      alert("Please enter both weight and reps");
+    }
+  };
+
   const handleClick = () => {
     if (!isDragging) {
       handleExerciseClick(exercise.exerciseId.embedUrl);
@@ -66,72 +102,48 @@ const ExerciseRow = ({
 
   return (
     <tr
-      ref={(node) => ref(drop(node))}
+      ref={(node) => {
+        ref(drop(node));
+        rowRef.current = node;
+      }}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       style={{ cursor: isReorganizing ? "move" : "pointer" }}
     >
-      <td style={columnStyle} onClick={handleClick}>{exercise.exerciseId.title}</td>
-      <td
-        onClick={() => toggleEdit(workoutIndex, exerciseIndex, "weight")}
-        style={columnStyle}
-      >
-        {editState.workoutIndex === workoutIndex &&
-        editState.exerciseIndex === exerciseIndex &&
-        editState.field === "weight" ? (
+      <td style={columnStyle} onClick={handleClick}>
+        {exercise.exerciseId.title}
+      </td>
+      <td style={columnStyle} onClick={() => setIsEditing(true)}>
+        {isEditing ? (
           <Form.Control
             type="number"
-            autoFocus
-            value={lastPerformance.weight || ""}
-            onChange={(e) =>
-              handleUpdateExercise(
-                workoutIndex,
-                exerciseIndex,
-                "weight",
-                e.target.value,
-              )
-            }
-            onBlur={() => saveExerciseUpdate(workoutIndex, exerciseIndex)}
-            onKeyDown={(e) =>
-              handleKeyDown(e, workoutIndex, exerciseIndex, "weight")
-            }
+            value={tempWeight}
+            onChange={(e) => setTempWeight(e.target.value)}
           />
         ) : (
-          <span
-            onClick={() => toggleEdit(workoutIndex, exerciseIndex, "weight")}
-          >
-            {lastPerformance.weight}
-          </span>
+          lastPerformance.weight
         )}
       </td>
-      <td
-        onClick={() => toggleEdit(workoutIndex, exerciseIndex, "reps")}
-        style={columnStyle}
-      >
-        {editState.workoutIndex === workoutIndex &&
-        editState.exerciseIndex === exerciseIndex &&
-        editState.field === "reps" ? (
+      <td style={columnStyle} onClick={() => setIsEditing(true)}>
+        {isEditing ? (
           <Form.Control
             type="number"
-            autoFocus
-            value={lastPerformance.reps || ""}
-            onChange={(e) =>
-              handleUpdateExercise(
-                workoutIndex,
-                exerciseIndex,
-                "reps",
-                e.target.value,
-              )
-            }
-            onBlur={() => saveExerciseUpdate(workoutIndex, exerciseIndex)}
-            onKeyDown={(e) =>
-              handleKeyDown(e, workoutIndex, exerciseIndex, "reps")
-            }
+            value={tempReps}
+            onChange={(e) => setTempReps(e.target.value)}
           />
         ) : (
-          <span onClick={() => toggleEdit(workoutIndex, exerciseIndex, "reps")}>
-            {lastPerformance.reps}
-          </span>
+          lastPerformance.reps
+        )}
+      </td>
+      <td style={columnStyle}>
+        {isEditing ? (
+          <Button variant="primary" onClick={handleSubmit}>
+            Save
+          </Button>
+        ) : (
+          <Button variant="secondary" onClick={() => setIsEditing(true)}>
+            Edit
+          </Button>
         )}
       </td>
       <td style={columnStyle}>{guidance}</td>

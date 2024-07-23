@@ -38,14 +38,29 @@ const processWorkoutData = (workouts) => {
     workout.exercises.forEach((exercise) => {
       const { title } = exercise.exerciseId;
       if (!exercisesMap.has(title)) {
-        exercisesMap.set(title, { weights: [], reps: [], dates: [] });
+        exercisesMap.set(title, {
+          weights: new Map(),
+          reps: new Map(),
+          dates: [],
+        });
       }
+
       exercise.performance.forEach((performance) => {
         if (performance.weight && performance.reps && performance.date) {
-          const formattedDate = new Date(performance.date).toLocaleDateString("en-US");
-          exercisesMap.get(title).weights.push(performance.weight);
-          exercisesMap.get(title).reps.push(performance.reps);
-          exercisesMap.get(title).dates.push(formattedDate);
+          const formattedDate = new Date(performance.date).toLocaleDateString(
+            "en-US",
+          );
+
+          if (!exercisesMap.get(title).weights.has(formattedDate)) {
+            exercisesMap
+              .get(title)
+              .weights.set(formattedDate, performance.weight);
+            exercisesMap.get(title).reps.set(formattedDate, performance.reps);
+            exercisesMap.get(title).dates.push(formattedDate);
+          } else {
+            // Handle duplicate entries for the same date here if necessary
+            // For simplicity, we keep the first entry and ignore duplicates
+          }
         }
       });
     });
@@ -53,19 +68,20 @@ const processWorkoutData = (workouts) => {
     const datasets = Array.from(exercisesMap.entries()).map(
       ([title, data]) => ({
         label: title,
-        data: data.weights.map((weight, index) => ({
-          x: data.dates[index],
-          y: weight,
-          reps: data.reps[index],
+        data: data.dates.map((date) => ({
+          x: date,
+          y: data.weights.get(date),
+          reps: data.reps.get(date),
         })),
         fill: false,
         borderColor: getRandomColor(),
         tension: 0.1,
-      })
+      }),
     );
 
     return {
-      labels: exercisesMap.size > 0 ? exercisesMap.values().next().value.dates : [],
+      labels:
+        exercisesMap.size > 0 ? exercisesMap.values().next().value.dates : [],
       datasets,
     };
   });

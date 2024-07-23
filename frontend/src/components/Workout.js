@@ -84,7 +84,11 @@ const Workout = ({ userId }) => {
     const updatedWorkouts = [...workouts];
     let performance =
       updatedWorkouts[workoutIndex].exercises[exerciseIndex].performance;
-    if (!performance.length) performance.push({ weight: "", reps: "" });
+    if (!performance.length) {
+      performance.push({ date: new Date(), weight: "", reps: "" });
+    } else {
+      performance[performance.length - 1].date = new Date();
+    }
     performance[performance.length - 1][field] = value;
     setWorkouts(updatedWorkouts);
   };

@@ -44,7 +44,7 @@ router.get("/user/:userId", async (req, res) => {
 
 router.put("/workout/:workoutId/exercise/:exerciseId", async (req, res) => {
   const { workoutId, exerciseId } = req.params;
-  const { date, weight, reps } = req.body;
+  const { date = new Date(), weight, reps } = req.body;
 
   try {
     const workout = await Workout.findById(workoutId);

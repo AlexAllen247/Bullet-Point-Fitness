@@ -69,10 +69,9 @@ const ExerciseRow = ({
       ref={(node) => ref(drop(node))}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      onClick={handleClick}
       style={{ cursor: isReorganizing ? "move" : "pointer" }}
     >
-      <td style={columnStyle}>{exercise.exerciseId.title}</td>
+      <td style={columnStyle} onClick={handleClick}>{exercise.exerciseId.title}</td>
       <td
         onClick={() => toggleEdit(workoutIndex, exerciseIndex, "weight")}
         style={columnStyle}

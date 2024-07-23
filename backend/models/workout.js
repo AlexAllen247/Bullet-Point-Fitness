@@ -11,7 +11,7 @@ const workoutSchema = new mongoose.Schema({
       },
       performance: [
         {
-          date: Date,
+          date: { type: Date, default: Date.now },
           weight: Number,
           reps: Number,
         },

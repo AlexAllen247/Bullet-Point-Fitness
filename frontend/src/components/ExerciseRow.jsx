@@ -137,11 +137,21 @@ const ExerciseRow = ({
       </td>
       <td style={columnStyle}>
         {isEditing ? (
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button
+            variant="primary"
+            aria-label="Edit"
+            className="btn-custom"
+            onClick={handleSubmit}
+          >
             Save
           </Button>
         ) : (
-          <Button variant="secondary" onClick={() => setIsEditing(true)}>
+          <Button
+            variant="danger"
+            aria-label="Edit"
+            className="btn-custom"
+            onClick={() => setIsEditing(true)}
+          >
             Edit
           </Button>
         )}

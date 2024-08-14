@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import CookieConsent from "react-cookie-consent";
 import NotFound from "./components/NotFound";
@@ -26,6 +26,7 @@ import loginService from "./services/login";
 const App = () => {
   const [user, setUser] = useState(null);
   const [notification, setNotification] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setUser(null);
@@ -60,6 +61,7 @@ const App = () => {
   const logout = () => {
     setUser(null);
     userService.clearUser();
+    navigate("/");
     notify("Goodbye!");
   };
 

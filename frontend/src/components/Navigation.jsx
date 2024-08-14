@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Nav, Navbar, Button } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const Navigation = ({ user, onLogout }) => {
@@ -15,12 +15,8 @@ const Navigation = ({ user, onLogout }) => {
       marginBottom: 60,
       marginTop: 15,
     },
-    button: {
-      padding: 15,
-      marginTop: 35,
-      marginBottom: 35,
-    },
   };
+
   return (
     <Navbar
       expanded={expanded}
@@ -57,16 +53,14 @@ const Navigation = ({ user, onLogout }) => {
             <Nav className="me-auto mt-2 justify-content-center mx-auto">
               {user ? (
                 <>
-                  <Button
+                  <NavLink
+                    to="/"
                     onClick={onLogout}
                     aria-label="Logout"
-                    type="submit"
-                    variant="danger"
-                    style={styles.button}
-                    className="btn-custom"
+                    style={styles.navStyle}
                   >
                     Logout
-                  </Button>
+                  </NavLink>
                   <NavLink
                     to="/clientinfoform"
                     style={styles.navStyle}
@@ -163,6 +157,7 @@ const Navigation = ({ user, onLogout }) => {
                   >
                     Login
                   </NavLink>
+                  {/*
                   <NavLink
                     to="/register"
                     style={styles.navStyle}
@@ -170,6 +165,7 @@ const Navigation = ({ user, onLogout }) => {
                   >
                     Register
                   </NavLink>
+                  */}
                 </>
               )}
             </Nav>

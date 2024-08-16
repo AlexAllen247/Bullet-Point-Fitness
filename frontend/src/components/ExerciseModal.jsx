@@ -1,7 +1,12 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
-const ExerciseModal = ({ showModal, handleCloseModal, selectedVideoUrl }) => {
+const ExerciseModal = ({
+  showModal,
+  handleCloseModal,
+  selectedVideoUrl,
+  selectedExerciseTitle,
+}) => {
   const styles = {
     modalHeader: {
       color: "#df0000",
@@ -33,7 +38,9 @@ const ExerciseModal = ({ showModal, handleCloseModal, selectedVideoUrl }) => {
   return (
     <Modal show={showModal} onHide={handleCloseModal} size="lg">
       <Modal.Header closeButton style={styles.modalHeader}>
-        <Modal.Title style={styles.modalTitle}>Exercise Video</Modal.Title>
+        <Modal.Title style={styles.modalTitle}>
+          {selectedExerciseTitle}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body style={styles.modalBody}>
         <iframe

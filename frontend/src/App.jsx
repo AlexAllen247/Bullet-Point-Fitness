@@ -19,6 +19,7 @@ import ClientInfoForm from "./components/ClientInfoForm";
 import Workout from "./components/Workout";
 import InactiveWorkouts from "./components/InactiveWorkouts";
 import ProgressGraph from "./components/ProgressGraph";
+import InactiveProgressGraph from "./components/InactiveProgressGraphs";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -142,6 +143,10 @@ const App = () => {
         <Route
           path="/inactiveworkout"
           element={<InactiveWorkouts userId={user.id} notify={notify} />}
+        />
+        <Route
+          path="/inactiveprogression"
+          element={<InactiveProgressGraph userId={user.id} />}
         />
       </Routes>
       <Footer />

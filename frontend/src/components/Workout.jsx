@@ -47,6 +47,7 @@ const Workout = ({ userId }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
   const [isReorganizing, setIsReorganizing] = useState(false);
+  const [selectedExerciseTitle, setSelectedExerciseTitle] = useState("");
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -66,8 +67,9 @@ const Workout = ({ userId }) => {
     }
   }, [userId]);
 
-  const handleExerciseClick = (embedUrl) => {
+  const handleExerciseClick = (embedUrl, title) => {
     setSelectedVideoUrl(embedUrl);
+    setSelectedExerciseTitle(title);
     setShowModal(true);
   };
 
@@ -164,7 +166,7 @@ const Workout = ({ userId }) => {
     column: {
       width: "33.33%",
       overflow: "hidden",
-      textAlign: "center",
+      textAlign: "left",
       wordWrap: "break-word",
       whiteSpace: "normal",
       color: "#df0000",
@@ -175,101 +177,94 @@ const Workout = ({ userId }) => {
     },
   };
 
-  const cardStyle = {
-    color: "#df0000",
-    borderWidth: "2px",
-    borderColor: "#df0000",
-    borderStyle: "solid",
-  };
-
-  const tableStyle = {
-    tableLayout: "fixed",
-    width: "100%",
-  };
-
-  const columnStyle = {
-    width: "33.33%",
-    overflow: "hidden",
-    color: "#df0000",
-  };
-
-  const headingStyle = {
-    color: "#df0000",
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: "20px",
-  };
-
   const Backend = isTouchDevice() ? TouchBackend : HTML5Backend;
 
   return (
-    <div style={cardStyle}>
-      <h2 style={headingStyle}>Your Workouts</h2>
-      <div style={headingStyle}>
-        <h3>Instructions</h3>
-        <p>
-          Welcome to the workout tracker! Follow these steps for an effective
-          workout:
-        </p>
-        <ul>
-          <li>Log your weight and reps for each exercise.</li>
-          <li>Follow the guidance provided for progressive overload.</li>
-          <li>Click on an exercise name to watch the demo video.</li>
-          <li>
-            Update your performance regularly to track progress accurately.
-          </li>
-        </ul>
-      </div>
+    <Container>
+      <h1 style={styles.header}>Your Workouts</h1>
+      <Card className="my-3" style={styles.card} border="danger">
+        <Card.Body>
+          <div style={styles.instructions}>
+            <h3>Instructions</h3>
+            <p>
+              Welcome to the workout tracker! Follow these steps for an
+              effective workout:
+            </p>
+            <ul>
+              <li>Log your weight and reps for each exercise.</li>
+              <li>Follow the guidance provided for progressive overload.</li>
+              <li>Click on an exercise name to watch the demo video.</li>
+              <li>
+                Update your performance regularly to track progress accurately.
+              </li>
+            </ul>
+          </div>
+        </Card.Body>
+      </Card>
       {workouts.map((workout, workoutIndex) => (
-        <div key={workoutIndex} style={{ marginBottom: "20px" }}>
-          <h3 style={headingStyle}>Workout {workoutIndex + 1}</h3>
-          <Button
-            variant="danger"
-            aria-label="Reorganise exercise order"
-            className="btn-custom"
-            onClick={() => setIsReorganizing(!isReorganizing)}
-          >
-            {isReorganizing ? "Finish Reordering" : "Reorder Exercises"}
-          </Button>
-          <DndProvider backend={Backend}>
-            <div className="table-responsive">
-              <Table striped bordered hover style={tableStyle}>
-                <thead>
-                  <tr>
-                    <th style={columnStyle}>Name of Exercise</th>
-                    <th style={columnStyle}>Weight</th>
-                    <th style={columnStyle}>Reps</th>
-                    <th style={columnStyle}>Save</th>
-                    <th style={columnStyle}>Guidance</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {workout.exercises.map((exercise, exerciseIndex) => (
-                    <ExerciseRow
-                      key={exerciseIndex}
-                      exercise={exercise}
-                      exerciseIndex={exerciseIndex}
-                      workoutIndex={workoutIndex}
-                      moveExercise={moveExercise}
-                      handleSaveExerciseUpdate={handleSaveExerciseUpdate}
-                      handleExerciseClick={handleExerciseClick}
-                      calculateGuidance={calculateGuidance}
-                      columnStyle={columnStyle}
-                      isReorganizing={isReorganizing}
-                    />
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-          </DndProvider>
-        </div>
+        <Card
+          key={workoutIndex}
+          className="my-3"
+          style={styles.card}
+          border="danger"
+        >
+          <Card.Body>
+            <h3 style={styles.header}>Workout {workoutIndex + 1}</h3>
+            <Button
+              variant="danger"
+              aria-label="Reorganise exercise order"
+              className="btn-custom"
+              style={styles.button}
+              onClick={() => setIsReorganizing(!isReorganizing)}
+            >
+              {isReorganizing ? "Finish Reordering" : "Reorder Exercises"}
+            </Button>
+            <DndProvider backend={Backend}>
+              <div className="table-responsive">
+                <Table striped bordered hover style={styles.table}>
+                  <thead>
+                    <tr>
+                      <th style={styles.column}>Name of Exercise</th>
+                      <th style={styles.column}>Weight</th>
+                      <th style={styles.column}>Reps</th>
+                      <th style={styles.column}>Save</th>
+                      <th style={styles.column}>Guidance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {workout.exercises.map((exercise, exerciseIndex) => (
+                      <ExerciseRow
+                        key={exerciseIndex}
+                        exercise={exercise}
+                        exerciseIndex={exerciseIndex}
+                        workoutIndex={workoutIndex}
+                        moveExercise={moveExercise}
+                        handleSaveExerciseUpdate={handleSaveExerciseUpdate}
+                        handleExerciseClick={() =>
+                          handleExerciseClick(
+                            exercise.exerciseId.embedUrl,
+                            exercise.exerciseId.title,
+                          )
+                        }
+                        calculateGuidance={calculateGuidance}
+                        columnStyle={styles.column}
+                        isReorganizing={isReorganizing}
+                      />
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+            </DndProvider>
+          </Card.Body>
+        </Card>
       ))}
       <ExerciseModal
         showModal={showModal}
         handleCloseModal={handleCloseModal}
         selectedVideoUrl={selectedVideoUrl}
+        selectedExerciseTitle={selectedExerciseTitle}
       />
-    </div>
+    </Container>
   );
 };
 

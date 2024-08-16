@@ -10,8 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Container, Card } from "react-bootstrap";
 import workoutService from "../services/workout";
+import { Container, Card } from "react-bootstrap";
 
 ChartJS.register(
   LineElement,
@@ -58,9 +58,6 @@ const processWorkoutData = (workouts) => {
               .weights.set(formattedDate, performance.weight);
             exercisesMap.get(title).reps.set(formattedDate, performance.reps);
             exercisesMap.get(title).dates.push(formattedDate);
-          } else {
-            // Handle duplicate entries for the same date here if necessary
-            // For simplicity, we keep the first entry and ignore duplicates
           }
         }
       });
@@ -91,21 +88,21 @@ const processWorkoutData = (workouts) => {
   });
 };
 
-const ProgressGraph = ({ userId }) => {
+const InactiveProgressGraph = ({ userId }) => {
   const [workoutData, setWorkoutData] = useState([]);
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
+    const fetchInactiveWorkouts = async () => {
       try {
-        const workouts = await workoutService.get(userId);
+        const workouts = await workoutService.getInactive(userId);
         const data = processWorkoutData(workouts);
         setWorkoutData(data);
       } catch (error) {
-        console.error("Error fetching workout data", error);
+        console.error("Error fetching inactive workout data", error);
       }
     };
 
-    fetchWorkouts();
+    fetchInactiveWorkouts();
   }, [userId]);
 
   const chartContainerStyle = {
@@ -113,21 +110,6 @@ const ProgressGraph = ({ userId }) => {
     width: "100%",
     height: "400px",
     marginBottom: "20px",
-  };
-
-  const cardStyle = {
-    color: "#df0000",
-    borderWidth: "2px",
-    borderColor: "#df0000",
-    borderStyle: "solid",
-  };
-
-  const headerStyle = {
-    color: "#df0000",
-    fontWeight: "bold",
-    textDecoration: "underline",
-    marginBottom: 40,
-    textAlign: "center",
   };
 
   const options = {
@@ -172,22 +154,34 @@ const ProgressGraph = ({ userId }) => {
     },
   };
 
+  const styles = {
+    card: {
+      textAlign: "center",
+      color: "#df0000",
+      borderWidth: "2px",
+    },
+    header: {
+      color: "#df0000",
+      fontWeight: "bold",
+      textDecoration: "underline",
+      marginBottom: 40,
+      textAlign: "center",
+    },
+  };
+
   return (
     <Container>
-      <h1 style={headerStyle}>Progress Graphs</h1>
+      <h1 style={styles.header}>Inactive Workout Progress Graphs</h1>
       {workoutData.length > 0 ? (
         workoutData.map((data, index) => (
-          <Card key={index} className="my-3" style={cardStyle} border="danger">
+          <Card
+            key={index}
+            className="my-3"
+            style={styles.card}
+            border="danger"
+          >
             <Card.Body>
-              <h3
-                style={{
-                  color: "#df0000",
-                  textAlign: "center",
-                  marginBottom: "20px",
-                }}
-              >
-                Workout {index + 1}
-              </h3>
+              <h3 style={styles.header}>Workout {index + 1}</h3>
               <div style={chartContainerStyle}>
                 <Line data={data} options={options} />
               </div>
@@ -201,4 +195,4 @@ const ProgressGraph = ({ userId }) => {
   );
 };
 
-export default ProgressGraph;
+export default InactiveProgressGraph;

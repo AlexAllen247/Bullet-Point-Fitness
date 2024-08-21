@@ -20,6 +20,7 @@ import Workout from "./components/Workout";
 import InactiveWorkouts from "./components/InactiveWorkouts";
 import ProgressGraph from "./components/ProgressGraph";
 import InactiveProgressGraph from "./components/InactiveProgressGraphs";
+import LandingPage from "./components/LandingPage";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -89,10 +90,11 @@ const App = () => {
         <main>
           <Notification notification={notification} />
           <Routes>
-            <Route path="/" element={<MuscleMap />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/muscle-map" element={<MuscleMap />} />
             <Route path="/training" element={<TrainingVideos />} />
             <Route path="/consultation" element={<Consultation />} />
-            <Route path="/organmap" element={<OrganMap />} />
+            <Route path="/organ-map" element={<OrganMap />} />
             <Route path="/login" element={<LoginForm onLogin={login} />} />
             {/*
             <Route
@@ -101,7 +103,7 @@ const App = () => {
             />
             */}
             <Route
-              path="contactforms"
+              path="contact-form"
               element={<ContactForm notify={notify} />}
             />
             <Route path="about" element={<About />} />
@@ -139,15 +141,15 @@ const App = () => {
           element={<Workout userId={user.id} notify={notify} />}
         />
         <Route
-          path="/progression"
+          path="/workout-progression"
           element={<ProgressGraph userId={user.id} />}
         />
         <Route
-          path="/inactiveworkout"
+          path="/past-workout-programs"
           element={<InactiveWorkouts userId={user.id} notify={notify} />}
         />
         <Route
-          path="/inactiveprogression"
+          path="/past-workout-progression"
           element={<InactiveProgressGraph userId={user.id} />}
         />
       </Routes>

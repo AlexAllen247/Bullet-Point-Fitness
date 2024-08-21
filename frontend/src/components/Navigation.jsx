@@ -76,21 +76,21 @@ const Navigation = ({ user, onLogout }) => {
                     Workout
                   </NavLink>
                   <NavLink
-                    to="/progression"
+                    to="/workout-progression"
                     style={styles.navStyle}
                     aria-label="Link to exercise progression"
                   >
                     Progression
                   </NavLink>
                   <NavLink
-                    to="/inactiveworkout"
+                    to="/past-workout-programs"
                     style={styles.navStyle}
                     aria-label="Link to past workouts"
                   >
                     Previous Programs
                   </NavLink>
                   <NavLink
-                    to="/inactiveprogression"
+                    to="/past-workout-progression"
                     style={styles.navStyle}
                     aria-label="Link to past workout progression data"
                   >
@@ -101,6 +101,13 @@ const Navigation = ({ user, onLogout }) => {
                 <>
                   <NavLink
                     to="/"
+                    style={styles.navStyle}
+                    aria-label="Link to Landing Page"
+                  >
+                    Home
+                  </NavLink>
+                  <NavLink
+                    to="/muscle-map"
                     style={styles.navStyle}
                     aria-label="Link to Interactive Muscle Anatomy Chart"
                   >
@@ -121,30 +128,14 @@ const Navigation = ({ user, onLogout }) => {
                     Consultation
                   </NavLink>
                   <NavLink
-                    to="/organmap"
+                    to="/organ-map"
                     style={styles.navStyle}
                     aria-label="Link to the interactive Organ map"
                   >
                     Organ Map
                   </NavLink>
-                  {/*
-              <NavLink
-                to="/pdf"
-                style={styles.navStyle}
-                aria-label="Link to the Pdf"
-              >
-                PDF
-              </NavLink>
-              <NavLink
-                to="/mindset"
-                style={styles.navStyle}
-                aria-label="Link to Mindset page"
-              >
-                Mindset
-              </NavLink>
-  */}
                   <NavLink
-                    to="/contactforms"
+                    to="/contact-form"
                     style={styles.navStyle}
                     aria-label="Link to Contact form"
                   >

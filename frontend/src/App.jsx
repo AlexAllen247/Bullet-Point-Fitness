@@ -21,6 +21,7 @@ import InactiveWorkouts from "./components/InactiveWorkouts";
 import ProgressGraph from "./components/ProgressGraph";
 import InactiveProgressGraph from "./components/InactiveProgressGraphs";
 import LandingPage from "./components/LandingPage";
+import UserHomepage from "./components/UserHomepage";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -54,6 +55,7 @@ const App = () => {
       };
       userService.setUser(user);
       setUser(user);
+      navigate("/user-homepage");
       notify(`${user.username} successfully logged in!`);
     } catch (error) {
       notify("Incorrect username/password, please try again.", "alert");
@@ -132,8 +134,9 @@ const App = () => {
       <Navigation user={user} onLogout={logout} />
       <Notification notification={notification} />
       <Routes>
+        <Route path="/user-homepage" element={<UserHomepage />} />
         <Route
-          path="/clientinfoform"
+          path="/client-info-form"
           element={<ClientInfoForm notify={notify} />}
         />
         <Route

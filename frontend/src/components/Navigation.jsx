@@ -54,15 +54,14 @@ const Navigation = ({ user, onLogout }) => {
               {user ? (
                 <>
                   <NavLink
-                    to="/"
-                    onClick={onLogout}
-                    aria-label="Logout"
+                    to="/user-homepage"
                     style={styles.navStyle}
+                    aria-label="Link to User Homepage"
                   >
-                    Logout
+                    Home
                   </NavLink>
                   <NavLink
-                    to="/clientinfoform"
+                    to="/client-info-form"
                     style={styles.navStyle}
                     aria-label="Link to Client Information Form"
                   >
@@ -95,6 +94,14 @@ const Navigation = ({ user, onLogout }) => {
                     aria-label="Link to past workout progression data"
                   >
                     Past Program Progression
+                  </NavLink>
+                  <NavLink
+                    to="/"
+                    onClick={onLogout}
+                    aria-label="Logout"
+                    style={styles.navStyle}
+                  >
+                    Logout
                   </NavLink>
                 </>
               ) : (

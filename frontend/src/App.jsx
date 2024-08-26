@@ -136,7 +136,7 @@ const App = () => {
       <Routes>
         <Route path="/user-homepage" element={<UserHomepage />} />
         <Route
-          path="/client-info-form"
+          path="/program-form"
           element={<ClientInfoForm notify={notify} />}
         />
         <Route

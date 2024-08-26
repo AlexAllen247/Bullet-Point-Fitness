@@ -70,7 +70,7 @@ const ClientInfoForm = ({ notify }) => {
     <section className="client-info-form">
       <Container>
         <div>
-          <h1 style={styles.header}>Client Information Form</h1>
+          <h1 style={styles.header}>Program Form</h1>
         </div>
         <Card className="my-3" style={styles.card} border="danger">
           <Card.Body>

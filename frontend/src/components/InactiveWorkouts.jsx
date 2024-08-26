@@ -53,7 +53,7 @@ const InactiveWorkouts = ({ userId, notify }) => {
 
   return (
     <Container>
-      <h1 style={styles.header}>Inactive Workouts</h1>
+      <h1 style={styles.header}>Previous Workouts</h1>
       {workouts.length === 0 ? (
         <p>No inactive workouts found.</p>
       ) : (

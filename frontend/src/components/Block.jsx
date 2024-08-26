@@ -2,11 +2,12 @@ import React from "react";
 import { Card, Col } from "react-bootstrap";
 import BulletPointSVG from "./BulletPointSVG";
 
-const Block = ({ title, description, link, customText, icon }) => {
+const Block = ({ title, description, link }) => {
   const styles = {
     text: {
-      color: "#df0000",
+      color: "#fff",
       borderWidth: "2px",
+      backgroundColor: "#df0000",
     },
     description: {
       maxWidth: "800px",
@@ -15,12 +16,10 @@ const Block = ({ title, description, link, customText, icon }) => {
     },
     header: {
       textDecoration: "underline",
-      color: "#df0000",
+      color: "#fff",
     },
-    icon: {
-      width: "50px",
-      height: "50px",
-      marginBottom: "15px",
+    svg: {
+      margin: 10,
     },
   };
 
@@ -29,15 +28,13 @@ const Block = ({ title, description, link, customText, icon }) => {
       <a href={link} style={{ textDecoration: "none" }}>
         <Card className="mb-4 box-shadow" border="danger" style={styles.text}>
           <Card.Body>
-            <div style={styles.icon}>{icon}</div>
-            <Card.Title style={styles.header}>{title}</Card.Title>
-            <Card.Text style={styles.description}>
-              <BulletPointSVG />
-              {description}
-              <br />
-              <BulletPointSVG />
-              {customText}
-            </Card.Text>
+            <Card.Title style={styles.header}>
+              <span style={styles.svg}>
+                <BulletPointSVG />
+              </span>
+              {title}
+            </Card.Title>
+            <Card.Text style={styles.description}>{description}</Card.Text>
           </Card.Body>
         </Card>
       </a>

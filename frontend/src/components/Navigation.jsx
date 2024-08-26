@@ -61,11 +61,11 @@ const Navigation = ({ user, onLogout }) => {
                     Home
                   </NavLink>
                   <NavLink
-                    to="/client-info-form"
+                    to="/program-form"
                     style={styles.navStyle}
                     aria-label="Link to Client Information Form"
                   >
-                    Client Information Form
+                    Program Form
                   </NavLink>
                   <NavLink
                     to="/workout"

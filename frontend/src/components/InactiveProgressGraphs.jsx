@@ -171,7 +171,7 @@ const InactiveProgressGraph = ({ userId }) => {
 
   return (
     <Container>
-      <h1 style={styles.header}>Inactive Workout Progress Graphs</h1>
+      <h1 style={styles.header}>Previous Progress Graphs</h1>
       {workoutData.length > 0 ? (
         workoutData.map((data, index) => (
           <Card

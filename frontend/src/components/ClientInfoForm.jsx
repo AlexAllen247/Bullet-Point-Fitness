@@ -84,10 +84,12 @@ const ClientInfoForm = ({ notify }) => {
                   value={fitnessLevel}
                   onChange={(e) => setFitnessLevel(e.target.value)}
                 >
-                  <option value="">Select Fitness Level</option>
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">Intermediate</option>
-                  <option value="advanced">Advanced</option>
+                  <option value="">Select Your Stage</option>
+                  <option value="Stage 1 (Beginner)">Stage 1 (Beginner)</option>
+                  <option value="Stage 2 (Intermediate)">
+                    Stage 2 (Intermediate)
+                  </option>
+                  <option value="Stage 3 (Advanced)">Stage 3 (Advanced)</option>
                 </Form.Control>
               </Form.Group>
               <Form.Group className="mb-3">

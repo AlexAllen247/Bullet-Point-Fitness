@@ -12,7 +12,11 @@ const schema = mongoose.Schema({
   },
   fitnessLevel: {
     type: String,
-    enum: ["beginner", "intermediate", "advanced"],
+    enum: [
+      "Stage 1 (Beginner)",
+      "Stage 2 (Intermediate)",
+      "Stage 3 (Advanced)",
+    ],
     required: true,
   },
   goals: {

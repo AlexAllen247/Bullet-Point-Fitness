@@ -246,38 +246,50 @@ POST http://localhost:3001/api/workoutTemplates
 Content-Type: application/json
 
 {
-  "title": "Full Body Workout 3",
+  "title": "Stage 3 (Advanced) Workout 4",
   "description": "Full body session building developing multiple muscles.",
   "exercises": [
     {
-      "exerciseId": "650a82d78f0657bc06151349"
+      "exerciseId": "66d6e8e67c06a50b28c658ad"
     },
     {
-      "exerciseId": "65095b70eda64df3dfa6579e"
+      "exerciseId": "66d6f0e57c06a50b28c658c9"
     },
     {
-      "exerciseId": "6544a6fd62c031e2ed0a1613"
+      "exerciseId": "66d6f35c7c06a50b28c658d7"
     },
     {
-      "exerciseId": "6509729aeda64df3dfa657d6"
+      "exerciseId": "66d6eb797c06a50b28c658b5"
     },
     {
-      "exerciseId": "65095d5beda64df3dfa657a6"
+      "exerciseId": "66d6eac37c06a50b28c658b3"
     },
     {
-      "exerciseId": "6544d4f562c031e2ed0a162d"
+      "exerciseId": "6544cf5e62c031e2ed0a1627"
     },
     {
-      "exerciseId": "65449d0e62c031e2ed0a1609"
-    },
-    {
-      "exerciseId": "650a85088f0657bc06151351"
+      "exerciseId": "66d6e9b07c06a50b28c658af"
     },
     {
       "exerciseId": "650a8a423ba847d2c2d9f0c0"
     },
     {
-      "exerciseId": "650956c1eda64df3dfa6578a"
+      "exerciseId": "650a83798f0657bc0615134d"
+    },
+    {
+      "exerciseId": "66d6f0037c06a50b28c658c5"
+    },
+    {
+      "exerciseId": "65095a14eda64df3dfa6579a"
+    },
+    {
+      "exerciseId": "66d6f3db7c06a50b28c658d9"
+    },
+    {
+      "exerciseId": "66d6f4337c06a50b28c658db"
+    },
+    {
+      "exerciseId": "650958b6eda64df3dfa6578e"
     }
   ]
 }
@@ -289,10 +301,9 @@ POST http://localhost:3001/api/programTemplates
 Content-Type: application/json
 
 {
-  "sessionsPerWeek": 3,
-  "title": "3-Day Full Body",
-  "description": "This is a full body program.",
-  "workouts": ["6615157118935d1a38dfc9a7", "66151b1a18935d1a38dfc9b4", "66151c7b18935d1a38dfc9c1"]
+  "title": "Stage 3 (Advanced)",
+  "description": "This is Stage 3 of the Bullet Point Fitness training system",
+  "workouts": ["66dea9b944b0026d2d6d833f", "66deaa7c44b0026d2d6d834f", "66deabf044b0026d2d6d835f", "66deacb644b0026d2d6d836f"]
 }
 
 ###

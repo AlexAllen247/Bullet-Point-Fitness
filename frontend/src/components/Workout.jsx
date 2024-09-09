@@ -185,22 +185,53 @@ const Workout = ({ userId }) => {
       <Card className="my-3" style={styles.card} border="danger">
         <Card.Body>
           <div style={styles.instructions}>
-            <h3>Instructions</h3>
-            <p>
-              Welcome to the workout tracker! Follow these steps for an
-              effective workout:
-            </p>
+            <h3>Instructions for Programs</h3>
             <ul>
-              <li>Log your weight and reps for each exercise.</li>
-              <li>Follow the guidance provided for progressive overload.</li>
-              <li>Click on an exercise name to watch the demo video.</li>
               <li>
-                Update your performance regularly to track progress accurately.
+                Aim for 4-10 reps per set, with the ideal range being 5-8 reps.
+              </li>
+              <li>
+                Focus on increasing weight as the main goal. Use reps to adapt
+                to the weight before moving up.
+              </li>
+              <li>
+                When increasing the weight, always use the smallest increment
+                possible (e.g., 2.5 kg or smaller). Avoid large jumps.
+              </li>
+              <li>
+                Perform these sessions with at least one rest day between each.
+                On rest days, you can do light aerobic activities like walking,
+                cycling, swimming, rowing, or using the elliptical.
+              </li>
+              <li>
+                If you train three times a week, follow a Mon/Wed/Fri or
+                Tues/Thurs/Sat schedule, or any combination that allows rest
+                days.
+              </li>
+              <li>
+                For more frequent training, alternate training days like this:
+                <ul>
+                  <li>Week 1: Mon/Wed/Fri/Sun</li>
+                  <li>Week 2: Tues/Thurs/Sat</li>
+                </ul>
+              </li>
+              <li>For Stages 1 and 2, perform each workout once per week.</li>
+              <li>For Stage 3, follow the alternate day schedule.</li>
+              <li>Click on an exercise to view a demo video.</li>
+              <li>
+                Each exercise includes one working set. Warm up appropriately
+                and rest for 2 minutes before the main set. Focus on maximizing
+                intensity.
+              </li>
+              <li>
+                If you can't perform an exercise due to lack of equipment,
+                contact us to modify your program.
               </li>
             </ul>
           </div>
         </Card.Body>
       </Card>
+
       {workouts.map((workout, workoutIndex) => (
         <Card
           key={workoutIndex}

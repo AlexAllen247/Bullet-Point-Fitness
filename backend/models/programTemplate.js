@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const ProgramTemplateSchema = new mongoose.Schema({
-  sessionsPerWeek: Number,
   title: String,
   description: String,
   workouts: [

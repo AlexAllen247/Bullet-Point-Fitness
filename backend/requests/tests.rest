@@ -303,7 +303,7 @@ Content-Type: application/json
 {
   "title": "Stage 3 (Advanced)",
   "description": "This is Stage 3 of the Bullet Point Fitness training system",
-  "workouts": ["66dea9b944b0026d2d6d833f", "66deaa7c44b0026d2d6d834f", "66deabf044b0026d2d6d835f", "66deacb644b0026d2d6d836f"]
+  "workouts": ["66dea9b944b0026d2d6d833f", "66deaa7c44b0026d2d6d834f", "66dfd2629303ce927e5ceff7", "66dfd3259303ce927e5cf007"]
 }
 
 ###

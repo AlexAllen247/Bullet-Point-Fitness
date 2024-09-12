@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const ClientInfoForm = ({ notify }) => {
   const [isFirstTimeUser, setIsFirstTimeUser] = useState(null);
-  const [sessionsPerWeek, setSessionsPerWeek] = useState("");
   const [fitnessLevel, setFitnessLevel] = useState("");
   const [goals, setGoals] = useState("");
   const [injuriesOrConditions, setInjuriesOrConditions] = useState("");
+  const [programExperience, setProgramExperience] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -30,12 +30,15 @@ const ClientInfoForm = ({ notify }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createInfoForm({
-      sessionsPerWeek,
+    const formData = {
       fitnessLevel,
       goals,
       injuriesOrConditions,
-    });
+    };
+    if (isFirstTimeUser) {
+      formData.programExperience = programExperience;
+    }
+    createInfoForm(formData);
   };
 
   const styles = {
@@ -108,7 +111,8 @@ const ClientInfoForm = ({ notify }) => {
               <Form onSubmit={handleSubmit} style={styles.form}>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="fitnessLevel" style={styles.label}>
-                    Fitness Level
+                    Which stage of your Bullet Point Fitness journey are you
+                    currently in?
                   </Form.Label>
                   <Form.Control
                     as="select"
@@ -129,7 +133,7 @@ const ClientInfoForm = ({ notify }) => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="goals" style={styles.label}>
-                    Goals
+                    What is your primary fitness goal?
                   </Form.Label>
                   <Form.Control
                     as="select"
@@ -144,25 +148,11 @@ const ClientInfoForm = ({ notify }) => {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label style={styles.label}>
-                    Sessions Per Week
-                  </Form.Label>
-                  <Form.Control
-                    as="select"
-                    value={sessionsPerWeek}
-                    onChange={(e) => setSessionsPerWeek(e.target.value)}
-                  >
-                    <option value="">Select sessions per week</option>
-                    <option value="3">3 Sessions</option>
-                    <option value="4">4 Sessions</option>
-                  </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
                   <Form.Label
                     htmlFor="injuriesOrConditions"
                     style={styles.label}
                   >
-                    Any Injuries or Underlying Health Conditions
+                    Do you have any injuries or health conditions?
                   </Form.Label>
                   <Form.Control
                     as="textarea"
@@ -171,6 +161,19 @@ const ClientInfoForm = ({ notify }) => {
                     onChange={(e) => setInjuriesOrConditions(e.target.value)}
                     placeholder="Write here..."
                   />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="programExperience" style={styles.label}>
+                    Have you ever followed a structured workout program before?
+                  </Form.Label>
+                  <Form.Control
+                    as="select"
+                    value={programExperience}
+                    onChange={(e) => setProgramExperience(e.target.value)}
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </Form.Control>
                 </Form.Group>
                 <Button type="submit" variant="danger" disabled={loading}>
                   {loading ? "Submitting..." : "Submit"}
@@ -183,22 +186,22 @@ const ClientInfoForm = ({ notify }) => {
           <Card className="my-3" style={styles.card} border="danger">
             <Card.Body>
               <Form onSubmit={handleSubmit} style={styles.form}>
-                {/* Customize the returning user form here */}
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="progress" style={styles.label}>
-                    How would you rate your progress so far?
+                    How would you rate your progress since your last program?
                   </Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={3}
-                    placeholder="Share your experience so far"
                     value={injuriesOrConditions}
                     onChange={(e) => setInjuriesOrConditions(e.target.value)}
+                    placeholder="Share your experience so far"
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="fitnessLevel" style={styles.label}>
-                    Fitness Level
+                    Ready to upgrade to the next stage of your Bullet Point
+                    Fitness journey?
                   </Form.Label>
                   <Form.Control
                     as="select"
@@ -219,7 +222,7 @@ const ClientInfoForm = ({ notify }) => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="newGoals" style={styles.label}>
-                    Have your goals changed?
+                    Have your fitness goals changed?
                   </Form.Label>
                   <Form.Control
                     as="select"
@@ -233,7 +236,6 @@ const ClientInfoForm = ({ notify }) => {
                     <option value="all-of-the-above">All of the Above</option>
                   </Form.Control>
                 </Form.Group>
-                {/* You can add more fields as needed */}
                 <Button type="submit" variant="danger" disabled={loading}>
                   {loading ? "Submitting..." : "Submit"}
                 </Button>

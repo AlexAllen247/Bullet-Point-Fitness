@@ -6,10 +6,6 @@ const schema = mongoose.Schema({
     ref: "User",
     required: true,
   },
-  sessionsPerWeek: {
-    type: Number,
-    required: true,
-  },
   fitnessLevel: {
     type: String,
     enum: [
@@ -29,6 +25,11 @@ const schema = mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  programExperience: {
+    type: String,
+    enum: ["yes", "no"],
+    required: false,
   },
 });
 

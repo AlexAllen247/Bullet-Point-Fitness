@@ -22,6 +22,10 @@ const Instructions = () => {
     },
     ul: {
       listStyleType: "none",
+      padding: 0,
+    },
+    ulTwo: {
+      listStyleType: "none",
     },
   };
 
@@ -59,7 +63,7 @@ const Instructions = () => {
               <li>
                 <BulletPointSVG /> For more frequent training, alternate
                 training days like this:
-                <ul style={styles.ul}>
+                <ul style={styles.ulTwo}>
                   <li>
                     <BulletPointSVG />
                     Week 1: Mon/Wed/Fri/Sun
@@ -87,7 +91,7 @@ const Instructions = () => {
               </li>
               <li>
                 <BulletPointSVG /> To warm up correctly:
-                <ul style={styles.ul}>
+                <ul style={styles.ulTwo}>
                   <li>
                     <BulletPointSVG />
                     Perform a 10-minute aerobic exercise at 60% of your maximum
@@ -96,7 +100,7 @@ const Instructions = () => {
                   <li>
                     <BulletPointSVG />
                     For the first exercise, perform warmup sets as follows:
-                    <ul style={styles.ul}>
+                    <ul style={styles.ulTwo}>
                       <li>
                         <BulletPointSVG />
                         50% of your working weight for 5 reps

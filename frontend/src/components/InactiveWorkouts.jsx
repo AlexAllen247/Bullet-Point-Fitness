@@ -54,51 +54,45 @@ const InactiveWorkouts = ({ userId, notify }) => {
   return (
     <Container>
       <h1 style={styles.header}>Previous Workouts</h1>
-      {workouts.length === 0 ? (
-        <p>No inactive workouts found.</p>
-      ) : (
-        workouts.map((workout, workoutIndex) => (
-          <Card
-            key={workout._id}
-            className="my-3"
-            style={styles.card}
-            border="danger"
-          >
-            <Card.Body>
-              <h3 style={styles.header}>Workout {workoutIndex + 1}</h3>
-              <div className="table-responsive">
-                <Table striped bordered hover style={styles.table}>
-                  <thead>
-                    <tr>
-                      <th style={styles.column}>Name of Exercise</th>
-                      <th style={styles.column}>Weight</th>
-                      <th style={styles.column}>Reps</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {workout.exercises.map((exercise, exerciseIndex) => {
-                      const lastPerformance = exercise.performance.length
-                        ? exercise.performance[exercise.performance.length - 1]
-                        : { weight: "Set weight", reps: "Set reps" };
-                      return (
-                        <tr key={exerciseIndex}>
-                          <td style={styles.column}>
-                            {exercise.exerciseId.title}
-                          </td>
-                          <td style={styles.column}>
-                            {lastPerformance.weight}
-                          </td>
-                          <td style={styles.column}>{lastPerformance.reps}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </Table>
-              </div>
-            </Card.Body>
-          </Card>
-        ))
-      )}
+      {workouts.map((workout, workoutIndex) => (
+        <Card
+          key={workout._id}
+          className="my-3"
+          style={styles.card}
+          border="danger"
+        >
+          <Card.Body>
+            <h3 style={styles.header}>Workout {workoutIndex + 1}</h3>
+            <div className="table-responsive">
+              <Table striped bordered hover style={styles.table}>
+                <thead>
+                  <tr>
+                    <th style={styles.column}>Name of Exercise</th>
+                    <th style={styles.column}>Weight</th>
+                    <th style={styles.column}>Reps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {workout.exercises.map((exercise, exerciseIndex) => {
+                    const lastPerformance = exercise.performance.length
+                      ? exercise.performance[exercise.performance.length - 1]
+                      : { weight: "Set weight", reps: "Set reps" };
+                    return (
+                      <tr key={exerciseIndex}>
+                        <td style={styles.column}>
+                          {exercise.exerciseId.title}
+                        </td>
+                        <td style={styles.column}>{lastPerformance.weight}</td>
+                        <td style={styles.column}>{lastPerformance.reps}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </div>
+          </Card.Body>
+        </Card>
+      ))}
     </Container>
   );
 };

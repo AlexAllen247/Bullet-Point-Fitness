@@ -64,9 +64,7 @@ const ClientInfoForm = ({ notify }) => {
       marginBottom: 35,
     },
     button: {
-      padding: 15,
-      marginTop: 35,
-      marginBottom: 35,
+      margin: 10,
     },
   };
 
@@ -88,14 +86,19 @@ const ClientInfoForm = ({ notify }) => {
                   <div>
                     <Button
                       variant="primary"
+                      style={styles.button}
                       onClick={() => setIsFirstTimeUser(true)}
+                      aria-label="First-time User"
+                      className="btn-custom"
                     >
                       First-time User
                     </Button>
                     <Button
                       variant="secondary"
                       onClick={() => setIsFirstTimeUser(false)}
-                      style={{ marginLeft: "10px" }}
+                      style={styles.button}
+                      className="btn-custom"
+                      aria-label="Returning User"
                     >
                       Returning User
                     </Button>
@@ -175,7 +178,14 @@ const ClientInfoForm = ({ notify }) => {
                     <option value="no">No</option>
                   </Form.Control>
                 </Form.Group>
-                <Button type="submit" variant="danger" disabled={loading}>
+                <Button
+                  type="submit"
+                  variant="danger"
+                  disabled={loading}
+                  style={styles.button}
+                  aria-label="Submit"
+                  className="btn-custom"
+                >
                   {loading ? "Submitting..." : "Submit"}
                 </Button>
               </Form>
@@ -236,7 +246,14 @@ const ClientInfoForm = ({ notify }) => {
                     <option value="all-of-the-above">All of the Above</option>
                   </Form.Control>
                 </Form.Group>
-                <Button type="submit" variant="danger" disabled={loading}>
+                <Button
+                  type="submit"
+                  variant="danger"
+                  disabled={loading}
+                  style={styles.button}
+                  aria-label="Submit"
+                  className="btn-custom"
+                >
                   {loading ? "Submitting..." : "Submit"}
                 </Button>
               </Form>

@@ -74,7 +74,7 @@ router.get("/inactive/:userId", async (req, res) => {
     const inactivePrograms = await Program.find({ userId, status: "inactive" });
 
     if (!inactivePrograms.length) {
-      return res.status(404).json({ error: "No inactive programs found" });
+      return res.status(200).json([]);
     }
 
     const inactiveWorkouts = await Workout.find({

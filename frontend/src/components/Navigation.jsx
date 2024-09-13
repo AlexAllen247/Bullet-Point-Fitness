@@ -68,11 +68,18 @@ const Navigation = ({ user, onLogout }) => {
                     Program Form
                   </NavLink>
                   <NavLink
-                    to="/workout"
+                    to="/instructions"
+                    style={styles.navStyle}
+                    aria-label="Link to Workout Instructions"
+                  >
+                    Workout Instructions
+                  </NavLink>
+                  <NavLink
+                    to="/workouts"
                     style={styles.navStyle}
                     aria-label="Link to workouts"
                   >
-                    Workout
+                    Workouts
                   </NavLink>
                   <NavLink
                     to="/workout-progression"

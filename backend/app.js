@@ -47,6 +47,17 @@ mongoose
 
 app.set("trust proxy", 1);
 
+app.use((req, res, next) => {
+  if (
+    req.hostname &&
+    req.hostname.toLowerCase() === "www.bulletpointfitness.com"
+  ) {
+    const redirectUrl = `https://bulletpointfitness.com${req.originalUrl}`;
+    return res.redirect(301, redirectUrl);
+  }
+  next();
+});
+
 app.use(
   helmet.contentSecurityPolicy({
     directives: {

@@ -22,6 +22,7 @@ import ProgressGraph from "./components/ProgressGraph";
 import InactiveProgressGraph from "./components/InactiveProgressGraphs";
 import LandingPage from "./components/LandingPage";
 import UserHomepage from "./components/UserHomepage";
+import Instructions from "./components/Instructions";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -105,10 +106,10 @@ const App = () => {
             />
             */}
             <Route
-              path="contact-form"
+              path="/contact-form"
               element={<ContactForm notify={notify} />}
             />
-            <Route path="about" element={<About />} />
+            <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -139,8 +140,9 @@ const App = () => {
           path="/program-form"
           element={<ClientInfoForm notify={notify} />}
         />
+        <Route path="/instructions" element={<Instructions />} />
         <Route
-          path="/workout"
+          path="/workouts"
           element={<Workout userId={user.id} notify={notify} />}
         />
         <Route

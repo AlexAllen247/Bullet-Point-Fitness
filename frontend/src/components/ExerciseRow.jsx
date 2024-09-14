@@ -148,11 +148,11 @@ const ExerciseRow = ({
         ) : (
           <Button
             variant="danger"
-            aria-label="Edit"
+            aria-label="Update"
             className="btn-custom"
             onClick={() => setIsEditing(true)}
           >
-            Edit
+            Update
           </Button>
         )}
       </td>

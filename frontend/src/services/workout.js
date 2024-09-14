@@ -33,7 +33,7 @@ const workoutService = {
       updateUrl,
       {
         exercises: exercises.map((exercise) => ({
-          exerciseId: exercise.exerciseId._id || exercise.exerciseId, // Ensure exerciseId is just the ID
+          exerciseId: exercise.exerciseId._id || exercise.exerciseId,
           performance: exercise.performance || [],
         })),
       },

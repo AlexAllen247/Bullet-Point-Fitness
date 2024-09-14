@@ -18,7 +18,7 @@ const ClientInfoForm = ({ notify }) => {
       await clientInfoFormService.create(clientInfoForm);
       notify(`You have successfully submitted your information.`);
       setLoading(false);
-      navigate("/workouts");
+      navigate("/instructions");
     } catch (error) {
       notify(
         "Creating a message failed: " + error.response.data.error,

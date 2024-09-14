@@ -19,7 +19,7 @@ const UserHomePage = () => {
         <Block
           title="Workouts"
           description="Click here to access your workouts and track your lifts."
-          link="/workout"
+          link="/workouts"
         />
         <Block
           title="Workout Progression"

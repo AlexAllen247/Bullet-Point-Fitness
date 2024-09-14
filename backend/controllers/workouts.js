@@ -32,10 +32,12 @@ router.get("/user/:userId", async (req, res) => {
     }
     const workouts = await Workout.find({
       programId: activeProgram._id,
-    }).populate({
-      path: "exercises.exerciseId",
-      model: "ExerciseVideo",
-    });
+    })
+      .populate({
+        path: "exercises.exerciseId",
+        model: "ExerciseVideo",
+      })
+      .sort({ createdAt: 1 });
     res.json(workouts);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch workouts" });

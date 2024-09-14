@@ -291,10 +291,10 @@ function sE(t) {
   if (t._status === 1) return t._result.default;
   throw t._result;
 }
-var ft = { current: null },
+var ht = { current: null },
   _l = { transition: null },
   oE = {
-    ReactCurrentDispatcher: ft,
+    ReactCurrentDispatcher: ht,
     ReactCurrentBatchConfig: _l,
     ReactCurrentOwner: Oh,
   };
@@ -419,47 +419,47 @@ re.unstable_act = function () {
   throw Error("act(...) is not supported in production builds of React.");
 };
 re.useCallback = function (t, e) {
-  return ft.current.useCallback(t, e);
+  return ht.current.useCallback(t, e);
 };
 re.useContext = function (t) {
-  return ft.current.useContext(t);
+  return ht.current.useContext(t);
 };
 re.useDebugValue = function () {};
 re.useDeferredValue = function (t) {
-  return ft.current.useDeferredValue(t);
+  return ht.current.useDeferredValue(t);
 };
 re.useEffect = function (t, e) {
-  return ft.current.useEffect(t, e);
+  return ht.current.useEffect(t, e);
 };
 re.useId = function () {
-  return ft.current.useId();
+  return ht.current.useId();
 };
 re.useImperativeHandle = function (t, e, n) {
-  return ft.current.useImperativeHandle(t, e, n);
+  return ht.current.useImperativeHandle(t, e, n);
 };
 re.useInsertionEffect = function (t, e) {
-  return ft.current.useInsertionEffect(t, e);
+  return ht.current.useInsertionEffect(t, e);
 };
 re.useLayoutEffect = function (t, e) {
-  return ft.current.useLayoutEffect(t, e);
+  return ht.current.useLayoutEffect(t, e);
 };
 re.useMemo = function (t, e) {
-  return ft.current.useMemo(t, e);
+  return ht.current.useMemo(t, e);
 };
 re.useReducer = function (t, e, n) {
-  return ft.current.useReducer(t, e, n);
+  return ht.current.useReducer(t, e, n);
 };
 re.useRef = function (t) {
-  return ft.current.useRef(t);
+  return ht.current.useRef(t);
 };
 re.useState = function (t) {
-  return ft.current.useState(t);
+  return ht.current.useState(t);
 };
 re.useSyncExternalStore = function (t, e, n) {
-  return ft.current.useSyncExternalStore(t, e, n);
+  return ht.current.useSyncExternalStore(t, e, n);
 };
 re.useTransition = function () {
-  return ft.current.useTransition();
+  return ht.current.useTransition();
 };
 re.version = "18.2.0";
 $v.exports = re;
@@ -881,7 +881,7 @@ function yE(t, e, n, r) {
     }
   return !1;
 }
-function ht(t, e, n, r, i, s, o) {
+function pt(t, e, n, r, i, s, o) {
   (this.acceptsBooleans = e === 2 || e === 3 || e === 4),
     (this.attributeName = r),
     (this.attributeNamespace = i),
@@ -895,7 +895,7 @@ var Ge = {};
 "children dangerouslySetInnerHTML defaultValue defaultChecked innerHTML suppressContentEditableWarning suppressHydrationWarning style"
   .split(" ")
   .forEach(function (t) {
-    Ge[t] = new ht(t, 0, !1, t, null, !1, !1);
+    Ge[t] = new pt(t, 0, !1, t, null, !1, !1);
   });
 [
   ["acceptCharset", "accept-charset"],
@@ -904,10 +904,10 @@ var Ge = {};
   ["httpEquiv", "http-equiv"],
 ].forEach(function (t) {
   var e = t[0];
-  Ge[e] = new ht(e, 1, !1, t[1], null, !1, !1);
+  Ge[e] = new pt(e, 1, !1, t[1], null, !1, !1);
 });
 ["contentEditable", "draggable", "spellCheck", "value"].forEach(function (t) {
-  Ge[t] = new ht(t, 2, !1, t.toLowerCase(), null, !1, !1);
+  Ge[t] = new pt(t, 2, !1, t.toLowerCase(), null, !1, !1);
 });
 [
   "autoReverse",
@@ -915,24 +915,24 @@ var Ge = {};
   "focusable",
   "preserveAlpha",
 ].forEach(function (t) {
-  Ge[t] = new ht(t, 2, !1, t, null, !1, !1);
+  Ge[t] = new pt(t, 2, !1, t, null, !1, !1);
 });
 "allowFullScreen async autoFocus autoPlay controls default defer disabled disablePictureInPicture disableRemotePlayback formNoValidate hidden loop noModule noValidate open playsInline readOnly required reversed scoped seamless itemScope"
   .split(" ")
   .forEach(function (t) {
-    Ge[t] = new ht(t, 3, !1, t.toLowerCase(), null, !1, !1);
+    Ge[t] = new pt(t, 3, !1, t.toLowerCase(), null, !1, !1);
   });
 ["checked", "multiple", "muted", "selected"].forEach(function (t) {
-  Ge[t] = new ht(t, 3, !0, t, null, !1, !1);
+  Ge[t] = new pt(t, 3, !0, t, null, !1, !1);
 });
 ["capture", "download"].forEach(function (t) {
-  Ge[t] = new ht(t, 4, !1, t, null, !1, !1);
+  Ge[t] = new pt(t, 4, !1, t, null, !1, !1);
 });
 ["cols", "rows", "size", "span"].forEach(function (t) {
-  Ge[t] = new ht(t, 6, !1, t, null, !1, !1);
+  Ge[t] = new pt(t, 6, !1, t, null, !1, !1);
 });
 ["rowSpan", "start"].forEach(function (t) {
-  Ge[t] = new ht(t, 5, !1, t.toLowerCase(), null, !1, !1);
+  Ge[t] = new pt(t, 5, !1, t.toLowerCase(), null, !1, !1);
 });
 var kh = /[\-:]([a-z])/g;
 function Nh(t) {
@@ -942,22 +942,22 @@ function Nh(t) {
   .split(" ")
   .forEach(function (t) {
     var e = t.replace(kh, Nh);
-    Ge[e] = new ht(e, 1, !1, t, null, !1, !1);
+    Ge[e] = new pt(e, 1, !1, t, null, !1, !1);
   });
 "xlink:actuate xlink:arcrole xlink:role xlink:show xlink:title xlink:type"
   .split(" ")
   .forEach(function (t) {
     var e = t.replace(kh, Nh);
-    Ge[e] = new ht(e, 1, !1, t, "http://www.w3.org/1999/xlink", !1, !1);
+    Ge[e] = new pt(e, 1, !1, t, "http://www.w3.org/1999/xlink", !1, !1);
   });
 ["xml:base", "xml:lang", "xml:space"].forEach(function (t) {
   var e = t.replace(kh, Nh);
-  Ge[e] = new ht(e, 1, !1, t, "http://www.w3.org/XML/1998/namespace", !1, !1);
+  Ge[e] = new pt(e, 1, !1, t, "http://www.w3.org/XML/1998/namespace", !1, !1);
 });
 ["tabIndex", "crossOrigin"].forEach(function (t) {
-  Ge[t] = new ht(t, 1, !1, t.toLowerCase(), null, !1, !1);
+  Ge[t] = new pt(t, 1, !1, t.toLowerCase(), null, !1, !1);
 });
-Ge.xlinkHref = new ht(
+Ge.xlinkHref = new pt(
   "xlinkHref",
   1,
   !1,
@@ -967,7 +967,7 @@ Ge.xlinkHref = new ht(
   !1,
 );
 ["src", "href", "action", "formAction"].forEach(function (t) {
-  Ge[t] = new ht(t, 1, !1, t.toLowerCase(), null, !0, !0);
+  Ge[t] = new pt(t, 1, !1, t.toLowerCase(), null, !0, !0);
 });
 function Dh(t, e, n, r) {
   var i = Ge.hasOwnProperty(e) ? Ge[e] : null;
@@ -3861,7 +3861,7 @@ function rs(t, e) {
     (t = t.dependencies),
     t !== null &&
       t.firstContext !== null &&
-      (t.lanes & e && (yt = !0), (t.firstContext = null));
+      (t.lanes & e && (xt = !0), (t.firstContext = null));
 }
 function Xt(t) {
   var e = t._currentValue;
@@ -4114,7 +4114,7 @@ var Gc = {
   },
   enqueueSetState: function (t, e, n) {
     t = t._reactInternals;
-    var r = ct(),
+    var r = ut(),
       i = _r(t),
       s = Mn(r, i);
     (s.payload = e),
@@ -4124,7 +4124,7 @@ var Gc = {
   },
   enqueueReplaceState: function (t, e, n) {
     t = t._reactInternals;
-    var r = ct(),
+    var r = ut(),
       i = _r(t),
       s = Mn(r, i);
     (s.tag = 1),
@@ -4135,7 +4135,7 @@ var Gc = {
   },
   enqueueForceUpdate: function (t, e) {
     t = t._reactInternals;
-    var n = ct(),
+    var n = ut(),
       r = _r(t),
       i = Mn(n, r);
     (i.tag = 2),
@@ -4765,7 +4765,7 @@ function qu(t) {
       c = c.next;
     } while (c !== null && c !== s);
     l === null ? (o = r) : (l.next = a),
-      dn(r, e.memoizedState) || (yt = !0),
+      dn(r, e.memoizedState) || (xt = !0),
       (e.memoizedState = r),
       (e.baseState = o),
       (e.baseQueue = l),
@@ -4791,7 +4791,7 @@ function Xu(t) {
     var o = (i = i.next);
     do (s = t(s, o.action)), (o = o.next);
     while (o !== i);
-    dn(s, e.memoizedState) || (yt = !0),
+    dn(s, e.memoizedState) || (xt = !0),
       (e.memoizedState = s),
       e.baseQueue === null && (e.baseState = s),
       (n.lastRenderedState = s);
@@ -4805,7 +4805,7 @@ function s2(t, e) {
     i = e(),
     s = !dn(r.memoizedState, i);
   if (
-    (s && ((r.memoizedState = i), (yt = !0)),
+    (s && ((r.memoizedState = i), (xt = !0)),
     (r = r.queue),
     ip(l2.bind(null, n, r, t), [t]),
     r.getSnapshot !== e || s || (Be !== null && Be.memoizedState.tag & 1))
@@ -4962,7 +4962,7 @@ function y2(t, e, n) {
   return ci & 21
     ? (dn(n, e) || ((n = by()), (we.lanes |= n), (ui |= n), (t.baseState = !0)),
       e)
-    : (t.baseState && ((t.baseState = !1), (yt = !0)), (t.memoizedState = n));
+    : (t.baseState && ((t.baseState = !1), (xt = !0)), (t.memoizedState = n));
 }
 function BS(t, e) {
   var n = fe;
@@ -4992,7 +4992,7 @@ function zS(t, e, n) {
   )
     b2(e, n);
   else if (((n = Qy(t, e, n, r)), n !== null)) {
-    var i = ct();
+    var i = ut();
     cn(n, t, r, i), w2(n, e, r);
   }
 }
@@ -5022,7 +5022,7 @@ function HS(t, e, n) {
       } finally {
       }
     (n = Qy(t, e, i, r)),
-      n !== null && ((i = ct()), cn(n, t, r, i), w2(n, e, r));
+      n !== null && ((i = ut()), cn(n, t, r, i), w2(n, e, r));
   }
 }
 function _2(t) {
@@ -5320,7 +5320,7 @@ function Sg(t, e, n, r, i) {
       t);
 }
 var GS = Gn.ReactCurrentOwner,
-  yt = !1;
+  xt = !1;
 function at(t, e, n, r) {
   e.child = t === null ? n2(e, null, n, r) : fs(e, t.child, n, r);
 }
@@ -5331,7 +5331,7 @@ function Cg(t, e, n, r, i) {
     rs(e, i),
     (r = np(t, e, n, r, s, i)),
     (n = rp()),
-    t !== null && !yt
+    t !== null && !xt
       ? ((e.updateQueue = t.updateQueue),
         (e.flags &= -2053),
         (t.lanes &= ~i),
@@ -5372,8 +5372,8 @@ function C2(t, e, n, r, i) {
   if (t !== null) {
     var s = t.memoizedProps;
     if (Wo(s, r) && t.ref === e.ref)
-      if (((yt = !1), (e.pendingProps = r = s), (t.lanes & i) !== 0))
-        t.flags & 131072 && (yt = !0);
+      if (((xt = !1), (e.pendingProps = r = s), (t.lanes & i) !== 0))
+        t.flags & 131072 && (xt = !0);
       else return (e.lanes = t.lanes), Vn(t, e, i);
   }
   return Ef(t, e, n, r, i);
@@ -5425,7 +5425,7 @@ function Ef(t, e, n, r, i) {
     rs(e, i),
     (n = np(t, e, n, r, s, i)),
     (r = rp()),
-    t !== null && !yt
+    t !== null && !xt
       ? ((e.updateQueue = t.updateQueue),
         (e.flags &= -2053),
         (t.lanes &= ~i),
@@ -5705,7 +5705,7 @@ function KS(t, e, n, r, i, s, o) {
     if (((r = i.nextSibling && i.nextSibling.dataset), r)) var a = r.dgst;
     return (r = a), (s = Error(j(419))), (r = Qu(s, r, void 0)), za(t, e, o, r);
   }
-  if (((a = (o & t.childLanes) !== 0), yt || a)) {
+  if (((a = (o & t.childLanes) !== 0), xt || a)) {
     if (((r = He), r !== null)) {
       switch (o & -o) {
         case 4:
@@ -7379,7 +7379,7 @@ var t3 = Math.ceil,
   Xc = 0,
   lp = 0,
   Eo = null,
-  gt = null,
+  mt = null,
   cp = 0,
   gs = 1 / 0,
   Nn = null,
@@ -7393,7 +7393,7 @@ var t3 = Math.ceil,
   Lf = null,
   kl = -1,
   Nl = 0;
-function ct() {
+function ut() {
   return oe & 6 ? Ne() : kl !== -1 ? kl : (kl = Ne());
 }
 function _r(t) {
@@ -7497,7 +7497,7 @@ function $2(t, e) {
         case 1:
           throw Error(j(345));
         case 2:
-          Ur(t, gt, Nn);
+          Ur(t, mt, Nn);
           break;
         case 3:
           if (
@@ -7505,13 +7505,13 @@ function $2(t, e) {
           ) {
             if (Vl(t, 0) !== 0) break;
             if (((i = t.suspendedLanes), (i & r) !== r)) {
-              ct(), (t.pingedLanes |= t.suspendedLanes & i);
+              ut(), (t.pingedLanes |= t.suspendedLanes & i);
               break;
             }
-            t.timeoutHandle = pf(Ur.bind(null, t, gt, Nn), e);
+            t.timeoutHandle = pf(Ur.bind(null, t, mt, Nn), e);
             break;
           }
-          Ur(t, gt, Nn);
+          Ur(t, mt, Nn);
           break;
         case 4:
           if ((or(t, r), (r & 4194240) === r)) break;
@@ -7538,13 +7538,13 @@ function $2(t, e) {
                 : 1960 * t3(r / 1960)) - r),
             10 < r)
           ) {
-            t.timeoutHandle = pf(Ur.bind(null, t, gt, Nn), r);
+            t.timeoutHandle = pf(Ur.bind(null, t, mt, Nn), r);
             break;
           }
-          Ur(t, gt, Nn);
+          Ur(t, mt, Nn);
           break;
         case 5:
-          Ur(t, gt, Nn);
+          Ur(t, mt, Nn);
           break;
         default:
           throw Error(j(329));
@@ -7558,12 +7558,12 @@ function Rf(t, e) {
   return (
     t.current.memoizedState.isDehydrated && (ni(t, e).flags |= 256),
     (t = lc(t, e)),
-    t !== 2 && ((e = gt), (gt = n), e !== null && If(e)),
+    t !== 2 && ((e = mt), (mt = n), e !== null && If(e)),
     t
   );
 }
 function If(t) {
-  gt === null ? (gt = t) : gt.push.apply(gt, t);
+  mt === null ? (mt = t) : mt.push.apply(mt, t);
 }
 function n3(t) {
   for (var e = t; ; ) {
@@ -7624,7 +7624,7 @@ function Mg(t) {
   return (
     (t.finishedWork = t.current.alternate),
     (t.finishedLanes = e),
-    Ur(t, gt, Nn),
+    Ur(t, mt, Nn),
     wt(t, Ne()),
     null
   );
@@ -7694,7 +7694,7 @@ function ni(t, e) {
     (Me = 0),
     (Jo = null),
     (lp = Xc = ui = 0),
-    (gt = Eo = null),
+    (mt = Eo = null),
     Xr !== null)
   ) {
     for (e = 0; e < Xr.length; e++)
@@ -8083,7 +8083,7 @@ function jg(t, e, n) {
   (e = ps(n, e)),
     (e = E2(t, e, 1)),
     (t = yr(t, e, 1)),
-    (e = ct()),
+    (e = ut()),
     t !== null && (ua(t, 1, e), wt(t, e));
 }
 function Oe(t, e, n) {
@@ -8103,7 +8103,7 @@ function Oe(t, e, n) {
           (t = ps(n, t)),
             (t = S2(e, t, 1)),
             (e = yr(e, t, 1)),
-            (t = ct()),
+            (t = ut()),
             e !== null && (ua(e, 1, t), wt(e, t));
           break;
         }
@@ -8114,7 +8114,7 @@ function Oe(t, e, n) {
 function o3(t, e, n) {
   var r = t.pingCache;
   r !== null && r.delete(e),
-    (e = ct()),
+    (e = ut()),
     (t.pingedLanes |= t.suspendedLanes & n),
     He === t &&
       (Ye & n) === n &&
@@ -8128,7 +8128,7 @@ function V2(t, e) {
     (t.mode & 1
       ? ((e = La), (La <<= 1), !(La & 130023424) && (La = 4194304))
       : (e = 1));
-  var n = ct();
+  var n = ut();
   (t = Wn(t, e)), t !== null && (ua(t, e, n), wt(t, n));
 }
 function a3(t) {
@@ -8155,12 +8155,12 @@ function l3(t, e) {
 var U2;
 U2 = function (t, e, n) {
   if (t !== null)
-    if (t.memoizedProps !== e.pendingProps || _t.current) yt = !0;
+    if (t.memoizedProps !== e.pendingProps || _t.current) xt = !0;
     else {
-      if (!(t.lanes & n) && !(e.flags & 128)) return (yt = !1), qS(t, e, n);
-      yt = !!(t.flags & 131072);
+      if (!(t.lanes & n) && !(e.flags & 128)) return (xt = !1), qS(t, e, n);
+      xt = !!(t.flags & 131072);
     }
-  else (yt = !1), xe && e.flags & 1048576 && Ky(e, Jl, e.index);
+  else (xt = !1), xe && e.flags & 1048576 && Ky(e, Jl, e.index);
   switch (((e.lanes = 0), e.tag)) {
     case 2:
       var r = e.type;
@@ -8660,7 +8660,7 @@ function K2(t, e, n, r, i, s, o, a, l) {
     (t = pp(n, r, !0, t, i, s, o, a, l)),
     (t.context = G2(null)),
     (n = t.current),
-    (r = ct()),
+    (r = ut()),
     (i = _r(n)),
     (s = Mn(r, i)),
     (s.callback = e ?? null),
@@ -8673,7 +8673,7 @@ function K2(t, e, n, r, i, s, o, a, l) {
 }
 function Jc(t, e, n, r) {
   var i = e.current,
-    s = ct(),
+    s = ut(),
     o = _r(i);
   return (
     (n = G2(n)),
@@ -8823,7 +8823,7 @@ Ey = function (t) {
       di(function () {
         var r = Wn(t, 1);
         if (r !== null) {
-          var i = ct();
+          var i = ut();
           cn(r, t, 1, i);
         }
       }),
@@ -8834,7 +8834,7 @@ jh = function (t) {
   if (t.tag === 13) {
     var e = Wn(t, 134217728);
     if (e !== null) {
-      var n = ct();
+      var n = ut();
       cn(e, t, 134217728, n);
     }
     gp(t, 134217728);
@@ -8845,7 +8845,7 @@ Sy = function (t) {
     var e = _r(t),
       n = Wn(t, e);
     if (n !== null) {
-      var r = ct();
+      var r = ut();
       cn(n, t, e, r);
     }
     gp(t, e);
@@ -11718,7 +11718,7 @@ const g4 = Ke("alert-heading", { Component: Ex }),
   });
 Sx.displayName = "Alert";
 const v4 = Object.assign(Sx, { Link: m4, Heading: g4 }),
-  xt = b.forwardRef(
+  ct = b.forwardRef(
     (
       {
         as: t,
@@ -11751,7 +11751,7 @@ const v4 = Object.assign(Sx, { Link: m4, Heading: g4 }),
       });
     },
   );
-xt.displayName = "Button";
+ct.displayName = "Button";
 const Cx = b.forwardRef(
   ({ bsPrefix: t, className: e, variant: n, as: r = "img", ...i }, s) => {
     const o = ae(t, "card-img");
@@ -11873,12 +11873,12 @@ function D4() {
   const [, t] = b.useReducer((e) => !e, !1);
   return t;
 }
-var ut = "top",
+var dt = "top",
   Rt = "bottom",
   It = "right",
-  dt = "left",
+  ft = "left",
   ou = "auto",
-  Ls = [ut, Rt, It, dt],
+  Ls = [dt, Rt, It, ft],
   fi = "start",
   vs = "end",
   Dx = "clippingParents",
@@ -12081,12 +12081,12 @@ function I4(t) {
     o = n.modifiersData.popperOffsets,
     a = wn(n.placement),
     l = Rp(a),
-    c = [dt, It].indexOf(a) >= 0,
+    c = [ft, It].indexOf(a) >= 0,
     u = c ? "height" : "width";
   if (!(!s || !o)) {
     var d = R4(i.padding, n),
       f = Lp(s),
-      p = l === "y" ? ut : dt,
+      p = l === "y" ? dt : ft,
       g = l === "y" ? Rt : It,
       m =
         n.rects.reference[u] + n.rects.reference[l] - o[l] - n.rects.popper[u],
@@ -12150,8 +12150,8 @@ function tm(t) {
   (p = y.x), (m = y.y);
   var v = o.hasOwnProperty("x"),
     x = o.hasOwnProperty("y"),
-    _ = dt,
-    w = ut,
+    _ = ft,
+    w = dt,
     E = window;
   if (c) {
     var S = ya(n),
@@ -12164,13 +12164,13 @@ function tm(t) {
           a === "absolute" &&
           ((C = "scrollHeight"), (O = "scrollWidth"))),
       (S = S),
-      i === ut || ((i === dt || i === It) && s === vs))
+      i === dt || ((i === ft || i === It) && s === vs))
     ) {
       w = Rt;
       var P = d && S === E && E.visualViewport ? E.visualViewport.height : S[C];
       (m -= P - r.height), (m *= l ? 1 : -1);
     }
-    if (i === dt || ((i === ut || i === Rt) && s === vs)) {
+    if (i === ft || ((i === dt || i === Rt) && s === vs)) {
       _ = It;
       var D = d && S === E && E.visualViewport ? E.visualViewport.width : S[O];
       (p -= D - r.width), (p *= l ? 1 : -1);
@@ -12446,7 +12446,7 @@ function qx(t) {
     a = e.y + e.height / 2 - n.height / 2,
     l;
   switch (i) {
-    case ut:
+    case dt:
       l = { x: o, y: e.y - n.height };
       break;
     case Rt:
@@ -12455,7 +12455,7 @@ function qx(t) {
     case It:
       l = { x: e.x + e.width, y: a };
       break;
-    case dt:
+    case ft:
       l = { x: e.x - n.width, y: a };
       break;
     default:
@@ -12512,7 +12512,7 @@ function bs(t, e) {
     var A = F[i];
     Object.keys(D).forEach(function (M) {
       var V = [It, Rt].indexOf(M) >= 0 ? 1 : -1,
-        z = [ut, Rt].indexOf(M) >= 0 ? "y" : "x";
+        z = [dt, Rt].indexOf(M) >= 0 ? "y" : "x";
       D[M] += A[z] * V;
     });
   }
@@ -12605,7 +12605,7 @@ function X4(t) {
       var F = w[D],
         A = wn(F),
         M = _s(F) === fi,
-        V = [ut, Rt].indexOf(A) >= 0,
+        V = [dt, Rt].indexOf(A) >= 0,
         z = V ? "width" : "height",
         Y = bs(e, {
           placement: F,
@@ -12614,7 +12614,7 @@ function X4(t) {
           altBoundary: f,
           padding: c,
         }),
-        K = V ? (M ? It : dt) : M ? Rt : ut;
+        K = V ? (M ? It : ft) : M ? Rt : dt;
       E[z] > S[z] && (K = Pl(K));
       var L = Pl(K),
         N = [];
@@ -12674,7 +12674,7 @@ function im(t, e, n) {
   );
 }
 function sm(t) {
-  return [ut, It, Rt, dt].some(function (e) {
+  return [dt, It, Rt, ft].some(function (e) {
     return t[e] >= 0;
   });
 }
@@ -12710,14 +12710,14 @@ const Qx = {
 };
 function J4(t, e, n) {
   var r = wn(t),
-    i = [dt, ut].indexOf(r) >= 0 ? -1 : 1,
+    i = [ft, dt].indexOf(r) >= 0 ? -1 : 1,
     s = typeof n == "function" ? n(Object.assign({}, e, { placement: t })) : n,
     o = s[0],
     a = s[1];
   return (
     (o = o || 0),
     (a = (a || 0) * i),
-    [dt, It].indexOf(r) >= 0 ? { x: a, y: o } : { x: o, y: a }
+    [ft, It].indexOf(r) >= 0 ? { x: a, y: o } : { x: o, y: a }
   );
 }
 function Z4(t) {
@@ -12802,7 +12802,7 @@ function nO(t) {
   if (S) {
     if (s) {
       var M,
-        V = w === "y" ? ut : dt,
+        V = w === "y" ? dt : ft,
         z = w === "y" ? Rt : It,
         Y = w === "y" ? "height" : "width",
         K = S[w],
@@ -12833,13 +12833,13 @@ function nO(t) {
     }
     if (a) {
       var Ce,
-        _e = w === "x" ? ut : dt,
+        _e = w === "x" ? dt : ft,
         Xn = w === "x" ? Rt : It,
         St = S[E],
         ot = E === "y" ? "height" : "width",
         Ct = St + y[_e],
         pn = St - y[Xn],
-        $r = [ut, dt].indexOf(v) !== -1,
+        $r = [dt, ft].indexOf(v) !== -1,
         se = (Ce = F == null ? void 0 : F[E]) != null ? Ce : 0,
         Cn = $r ? Ct : St - C[ot] - O[ot] - se + D.altAxis,
         Bs = $r ? St + C[ot] + O[ot] - se - D.altAxis : pn,
@@ -17179,7 +17179,7 @@ const MT = "/api/contactforms",
                         }),
                       ],
                     }),
-                    h.jsx(xt, {
+                    h.jsx(ct, {
                       "aria-label": "Submit",
                       type: "submit",
                       variant: "danger",
@@ -18592,7 +18592,7 @@ const MT = "/api/contactforms",
             }),
           ],
         }),
-        h.jsx(xt, {
+        h.jsx(ct, {
           variant: "danger",
           onClick: i,
           style: o.button,
@@ -18601,7 +18601,7 @@ const MT = "/api/contactforms",
           children: "Privacy Policy",
         }),
         t ? h.jsx(ik, {}) : null,
-        h.jsx(xt, {
+        h.jsx(ct, {
           variant: "danger",
           onClick: s,
           style: o.button,
@@ -19837,7 +19837,7 @@ const vk = yi(mk),
                       }),
                     ],
                   }),
-                  h.jsx(xt, {
+                  h.jsx(ct, {
                     "aria-label": "Sign In",
                     type: "submit",
                     variant: "danger",
@@ -19950,7 +19950,7 @@ const nb = "loggedUser",
           await Pk.create(v),
             t("You have successfully submitted your information."),
             f(!1),
-            p("/workouts");
+            p("/instructions");
         } catch (x) {
           t("Creating a message failed: " + x.response.data.error, "alert"),
             f(!1);
@@ -20002,7 +20002,7 @@ const nb = "loggedUser",
                       }),
                       h.jsxs("div", {
                         children: [
-                          h.jsx(xt, {
+                          h.jsx(ct, {
                             variant: "primary",
                             style: y.button,
                             onClick: () => n(!0),
@@ -20010,7 +20010,7 @@ const nb = "loggedUser",
                             className: "btn-custom",
                             children: "First-time User",
                           }),
-                          h.jsx(xt, {
+                          h.jsx(ct, {
                             variant: "secondary",
                             onClick: () => n(!1),
                             style: y.button,
@@ -20144,7 +20144,7 @@ const nb = "loggedUser",
                         }),
                       ],
                     }),
-                    h.jsx(xt, {
+                    h.jsx(ct, {
                       type: "submit",
                       variant: "danger",
                       disabled: d,
@@ -20256,7 +20256,7 @@ const nb = "loggedUser",
                         }),
                       ],
                     }),
-                    h.jsx(xt, {
+                    h.jsx(ct, {
                       type: "submit",
                       variant: "danger",
                       disabled: d,
@@ -23421,19 +23421,19 @@ const Q6 = function (e, n = {}, r = {}) {
         h.jsx("td", {
           style: a,
           children: d
-            ? h.jsx(xt, {
+            ? h.jsx(ct, {
                 variant: "primary",
                 "aria-label": "Edit",
                 className: "btn-custom",
                 onClick: O,
                 children: "Save",
               })
-            : h.jsx(xt, {
+            : h.jsx(ct, {
                 variant: "danger",
-                "aria-label": "Edit",
+                "aria-label": "Update",
                 className: "btn-custom",
                 onClick: () => f(!0),
-                children: "Edit",
+                children: "Update",
               }),
         }),
         h.jsx("td", { style: a, children: _ }),
@@ -23486,7 +23486,7 @@ const Q6 = function (e, n = {}, r = {}) {
           }),
         }),
         h.jsx(ar.Footer, {
-          children: h.jsx(xt, {
+          children: h.jsx(ct, {
             variant: "secondary",
             onClick: e,
             style: i.footerButton,
@@ -23595,7 +23595,7 @@ const Q6 = function (e, n = {}, r = {}) {
                     style: v.header,
                     children: ["Workout ", w + 1],
                   }),
-                  h.jsx(xt, {
+                  h.jsx(ct, {
                     variant: "danger",
                     "aria-label": "Reorganise exercise order",
                     className: "btn-custom",
@@ -31281,7 +31281,7 @@ const ow = {
   footer: On,
   afterFooter: On,
 };
-function pt(t, e, n, r) {
+function gt(t, e, n, r) {
   const i = t[e].call(n, r);
   return typeof i > "u" ? ow[e].call(n, r) : i;
 }
@@ -31340,14 +31340,14 @@ let Q1 =
     }
     getTitle(e, n) {
       const { callbacks: r } = n,
-        i = pt(r, "beforeTitle", this, e),
-        s = pt(r, "title", this, e),
-        o = pt(r, "afterTitle", this, e);
+        i = gt(r, "beforeTitle", this, e),
+        s = gt(r, "title", this, e),
+        o = gt(r, "afterTitle", this, e);
       let a = [];
       return (a = mn(a, kn(i))), (a = mn(a, kn(s))), (a = mn(a, kn(o))), a;
     }
     getBeforeBody(e, n) {
-      return q1(pt(n.callbacks, "beforeBody", this, e));
+      return q1(gt(n.callbacks, "beforeBody", this, e));
     }
     getBody(e, n) {
       const { callbacks: r } = n,
@@ -31356,22 +31356,22 @@ let Q1 =
         de(e, (s) => {
           const o = { before: [], lines: [], after: [] },
             a = X1(r, s);
-          mn(o.before, kn(pt(a, "beforeLabel", this, s))),
-            mn(o.lines, pt(a, "label", this, s)),
-            mn(o.after, kn(pt(a, "afterLabel", this, s))),
+          mn(o.before, kn(gt(a, "beforeLabel", this, s))),
+            mn(o.lines, gt(a, "label", this, s)),
+            mn(o.after, kn(gt(a, "afterLabel", this, s))),
             i.push(o);
         }),
         i
       );
     }
     getAfterBody(e, n) {
-      return q1(pt(n.callbacks, "afterBody", this, e));
+      return q1(gt(n.callbacks, "afterBody", this, e));
     }
     getFooter(e, n) {
       const { callbacks: r } = n,
-        i = pt(r, "beforeFooter", this, e),
-        s = pt(r, "footer", this, e),
-        o = pt(r, "afterFooter", this, e);
+        i = gt(r, "beforeFooter", this, e),
+        s = gt(r, "footer", this, e),
+        o = gt(r, "afterFooter", this, e);
       let a = [];
       return (a = mn(a, kn(i))), (a = mn(a, kn(s))), (a = mn(a, kn(o))), a;
     }
@@ -31390,9 +31390,9 @@ let Q1 =
         e.itemSort && (a = a.sort((u, d) => e.itemSort(u, d, r))),
         de(a, (u) => {
           const d = X1(e.callbacks, u);
-          i.push(pt(d, "labelColor", this, u)),
-            s.push(pt(d, "labelPointStyle", this, u)),
-            o.push(pt(d, "labelTextColor", this, u));
+          i.push(gt(d, "labelColor", this, u)),
+            s.push(gt(d, "labelPointStyle", this, u)),
+            o.push(gt(d, "labelTextColor", this, u));
         }),
         (this.labelColors = i),
         (this.labelPointStyles = s),
@@ -32664,7 +32664,7 @@ const Eu = {
     quarter: { common: !1, size: 7884e6, steps: 4 },
     year: { common: !0, size: 3154e7 },
   },
-  mt = Object.keys(Eu);
+  vt = Object.keys(Eu);
 function iv(t, e) {
   return t - e;
 }
@@ -32687,24 +32687,24 @@ function sv(t, e) {
   );
 }
 function ov(t, e, n, r) {
-  const i = mt.length;
-  for (let s = mt.indexOf(t); s < i - 1; ++s) {
-    const o = Eu[mt[s]],
+  const i = vt.length;
+  for (let s = vt.indexOf(t); s < i - 1; ++s) {
+    const o = Eu[vt[s]],
       a = o.steps ? o.steps : Number.MAX_SAFE_INTEGER;
-    if (o.common && Math.ceil((n - e) / (a * o.size)) <= r) return mt[s];
+    if (o.common && Math.ceil((n - e) / (a * o.size)) <= r) return vt[s];
   }
-  return mt[i - 1];
+  return vt[i - 1];
 }
 function aP(t, e, n, r, i) {
-  for (let s = mt.length - 1; s >= mt.indexOf(n); s--) {
-    const o = mt[s];
+  for (let s = vt.length - 1; s >= vt.indexOf(n); s--) {
+    const o = vt[s];
     if (Eu[o].common && t._adapter.diff(i, r, o) >= e - 1) return o;
   }
-  return mt[n ? mt.indexOf(n) : 0];
+  return vt[n ? vt.indexOf(n) : 0];
 }
 function lP(t) {
-  for (let e = mt.indexOf(t) + 1, n = mt.length; e < n; ++e)
-    if (Eu[mt[e]].common) return mt[e];
+  for (let e = vt.indexOf(t) + 1, n = vt.length; e < n; ++e)
+    if (Eu[vt[e]].common) return vt[e];
 }
 function av(t, e, n) {
   if (!n) t[e] = !0;
@@ -33492,7 +33492,7 @@ const yP = (t) => {
                       children:
                         "Start your fitness journey with our interactive tools and personalized programs. Learn, train, and transform.",
                     }),
-                    h.jsx(xt, {
+                    h.jsx(ct, {
                       style: t.ctaButton,
                       variant: "danger",
                       "aria-label": "Get Started",
@@ -33582,7 +33582,7 @@ const yP = (t) => {
             title: "Workouts",
             description:
               "Click here to access your workouts and track your lifts.",
-            link: "/workout",
+            link: "/workouts",
           }),
           h.jsx(kt, {
             title: "Workout Progression",
@@ -33617,6 +33617,9 @@ const yP = (t) => {
       instructions: { textAlign: "left", marginBottom: "20px" },
       ul: { listStyleType: "none", padding: 0 },
       ulTwo: { listStyleType: "none" },
+      buttonContainer: { display: "flex", justifyContent: "center" },
+      button: { margin: 10 },
+      link: { textDecoration: "none" },
     };
     return h.jsxs(nt, {
       children: [
@@ -33626,160 +33629,180 @@ const yP = (t) => {
           style: t.card,
           border: "danger",
           children: h.jsx(ne.Body, {
-            children: h.jsx("div", {
+            children: h.jsxs("div", {
               style: t.instructions,
-              children: h.jsxs("ul", {
-                style: t.ul,
-                children: [
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " Aim for 4-10 reps per set, with the ideal range being 5-8 reps.",
-                    ],
+              children: [
+                h.jsxs("ul", {
+                  style: t.ul,
+                  children: [
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " Aim for 4-10 reps per set, with the ideal range being 5-8 reps.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " Focus on increasing weight as the main goal. Use reps to adapt to the weight before moving up.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " When increasing the weight, always use the smallest increment possible (e.g., 2.5 kg or smaller). Avoid large jumps.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " Perform these sessions with at least one rest day between each. On rest days, you can do light aerobic activities like walking, cycling, swimming, rowing, or using the elliptical.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " If you train three times a week, follow a Mon/Wed/Fri or Tues/Thurs/Sat schedule, or any combination that allows rest days.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " For more frequent training, alternate training days like this:",
+                        h.jsxs("ul", {
+                          style: t.ulTwo,
+                          children: [
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(ue, {}),
+                                "Week 1: Mon/Wed/Fri/Sun",
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(ue, {}),
+                                "Week 2: Tues/Thurs/Sat",
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [h.jsx(ue, {}), "Repeat."],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " For Stages 1 and 2, perform each workout once per week.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " For Stage 3, follow the alternate day schedule.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " Click on an exercise to view a demo video.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " To warm up correctly:",
+                        h.jsxs("ul", {
+                          style: t.ulTwo,
+                          children: [
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(ue, {}),
+                                "Perform a 10-minute aerobic exercise at 60% of your maximum heart rate: (220 - your age) x 0.6.",
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(ue, {}),
+                                "For the first exercise, perform warmup sets as follows:",
+                                h.jsxs("ul", {
+                                  style: t.ulTwo,
+                                  children: [
+                                    h.jsxs("li", {
+                                      children: [
+                                        h.jsx(ue, {}),
+                                        "50% of your working weight for 5 reps",
+                                      ],
+                                    }),
+                                    h.jsxs("li", {
+                                      children: [
+                                        h.jsx(ue, {}),
+                                        "70% of your working weight for 2-3 reps",
+                                      ],
+                                    }),
+                                    h.jsxs("li", {
+                                      children: [
+                                        h.jsx(ue, {}),
+                                        "85% of your working weight for 1-2 reps",
+                                      ],
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(ue, {}),
+                                "Rest for 2 minutes before performing your working set.",
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(ue, {}),
+                                "For the following exercises, you can use the 70% and 85% warmup sets to minimize fatigue.",
+                              ],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " Each exercise includes one working set. Warm up appropriately and rest for 2 minutes before the main set. Focus on maximizing intensity.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        " If you can't perform an exercise due to lack of equipment, contact us to modify your program.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(ue, {}),
+                        ' To change the order of exercises, click the "Re-order exercises" button, drag and drop the exercises, and then save.',
+                      ],
+                    }),
+                  ],
+                }),
+                h.jsx("div", {
+                  style: t.buttonContainer,
+                  children: h.jsx("a", {
+                    href: "/workouts",
+                    style: t.link,
+                    children: h.jsx(ct, {
+                      type: "submit",
+                      variant: "danger",
+                      style: t.button,
+                      "aria-label": "Submit",
+                      className: "btn-custom",
+                      children: "Onto Workouts",
+                    }),
                   }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " Focus on increasing weight as the main goal. Use reps to adapt to the weight before moving up.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " When increasing the weight, always use the smallest increment possible (e.g., 2.5 kg or smaller). Avoid large jumps.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " Perform these sessions with at least one rest day between each. On rest days, you can do light aerobic activities like walking, cycling, swimming, rowing, or using the elliptical.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " If you train three times a week, follow a Mon/Wed/Fri or Tues/Thurs/Sat schedule, or any combination that allows rest days.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " For more frequent training, alternate training days like this:",
-                      h.jsxs("ul", {
-                        style: t.ulTwo,
-                        children: [
-                          h.jsxs("li", {
-                            children: [
-                              h.jsx(ue, {}),
-                              "Week 1: Mon/Wed/Fri/Sun",
-                            ],
-                          }),
-                          h.jsxs("li", {
-                            children: [h.jsx(ue, {}), "Week 2: Tues/Thurs/Sat"],
-                          }),
-                          h.jsxs("li", {
-                            children: [h.jsx(ue, {}), "Repeat."],
-                          }),
-                        ],
-                      }),
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " For Stages 1 and 2, perform each workout once per week.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " For Stage 3, follow the alternate day schedule.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " Click on an exercise to view a demo video.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " To warm up correctly:",
-                      h.jsxs("ul", {
-                        style: t.ulTwo,
-                        children: [
-                          h.jsxs("li", {
-                            children: [
-                              h.jsx(ue, {}),
-                              "Perform a 10-minute aerobic exercise at 60% of your maximum heart rate: (220 - your age) x 0.6.",
-                            ],
-                          }),
-                          h.jsxs("li", {
-                            children: [
-                              h.jsx(ue, {}),
-                              "For the first exercise, perform warmup sets as follows:",
-                              h.jsxs("ul", {
-                                style: t.ulTwo,
-                                children: [
-                                  h.jsxs("li", {
-                                    children: [
-                                      h.jsx(ue, {}),
-                                      "50% of your working weight for 5 reps",
-                                    ],
-                                  }),
-                                  h.jsxs("li", {
-                                    children: [
-                                      h.jsx(ue, {}),
-                                      "70% of your working weight for 2-3 reps",
-                                    ],
-                                  }),
-                                  h.jsxs("li", {
-                                    children: [
-                                      h.jsx(ue, {}),
-                                      "85% of your working weight for 1-2 reps",
-                                    ],
-                                  }),
-                                ],
-                              }),
-                            ],
-                          }),
-                          h.jsxs("li", {
-                            children: [
-                              h.jsx(ue, {}),
-                              "Rest for 2 minutes before performing your working set.",
-                            ],
-                          }),
-                          h.jsxs("li", {
-                            children: [
-                              h.jsx(ue, {}),
-                              "For the following exercises, you can use the 70% and 85% warmup sets to minimize fatigue.",
-                            ],
-                          }),
-                        ],
-                      }),
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " Each exercise includes one working set. Warm up appropriately and rest for 2 minutes before the main set. Focus on maximizing intensity.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      " If you can't perform an exercise due to lack of equipment, contact us to modify your program.",
-                    ],
-                  }),
-                  h.jsxs("li", {
-                    children: [
-                      h.jsx(ue, {}),
-                      ' To change the order of exercises, click the "Re-order exercises" button, drag and drop the exercises, and then save.',
-                    ],
-                  }),
-                ],
-              }),
+                }),
+              ],
             }),
           }),
         }),
@@ -34000,7 +34023,7 @@ const hw = Object.freeze(
       eventListeners: Mp,
       flip: Xx,
       hide: Qx,
-      left: dt,
+      left: ft,
       main: Mx,
       modifierPhases: zx,
       offset: Jx,
@@ -34013,7 +34036,7 @@ const hw = Object.freeze(
       reference: Px,
       right: It,
       start: fi,
-      top: ut,
+      top: dt,
       variationPlacements: qf,
       viewport: Dp,
       write: $x,
@@ -34155,16 +34178,16 @@ const hw = Object.freeze(
       }
     });
   },
-  vt = (t, e = [], n = t) => (typeof t == "function" ? t(...e) : n),
+  yt = (t, e = [], n = t) => (typeof t == "function" ? t(...e) : n),
   yw = (t, e, n = !0) => {
     if (!n) {
-      vt(t);
+      yt(t);
       return;
     }
     const i = FP(e) + 5;
     let s = !1;
     const o = ({ target: a }) => {
-      a === e && ((s = !0), e.removeEventListener(_h, o), vt(t));
+      a === e && ((s = !0), e.removeEventListener(_h, o), yt(t));
     };
     e.addEventListener(_h, o),
       setTimeout(() => {
@@ -34703,7 +34726,7 @@ class Fc extends Ca {
     this._eventIsPointerPenTouch(e) &&
       (this._deltaX = e.clientX - this._deltaX),
       this._handleSwipe(),
-      vt(this._config.endCallback);
+      yt(this._config.endCallback);
   }
   _move(e) {
     this._deltaX =
@@ -34716,7 +34739,7 @@ class Fc extends Ca {
     if (e <= gA) return;
     const n = e / this._deltaX;
     (this._deltaX = 0),
-      n && vt(n > 0 ? this._config.rightCallback : this._config.leftCallback);
+      n && yt(n > 0 ? this._config.rightCallback : this._config.leftCallback);
   }
   _initEvents() {
     this._supportPointerEvents
@@ -35323,7 +35346,7 @@ class En extends hn {
       (this._inNavbar || this._config.display === "static") &&
         (Bn.setDataAttribute(this._menu, "popper", "static"),
         (e.modifiers = [{ name: "applyStyles", enabled: !1 }])),
-      { ...e, ...vt(this._config.popperConfig, [e]) }
+      { ...e, ...yt(this._config.popperConfig, [e]) }
     );
   }
   _selectMenuItem({ key: e, target: n }) {
@@ -35423,7 +35446,7 @@ class Lw extends Ca {
   }
   show(e) {
     if (!this._config.isVisible) {
-      vt(e);
+      yt(e);
       return;
     }
     this._append();
@@ -35431,17 +35454,17 @@ class Lw extends Ca {
     this._config.isAnimated && Sa(n),
       n.classList.add(yv),
       this._emulateAnimation(() => {
-        vt(e);
+        yt(e);
       });
   }
   hide(e) {
     if (!this._config.isVisible) {
-      vt(e);
+      yt(e);
       return;
     }
     this._getElement().classList.remove(yv),
       this._emulateAnimation(() => {
-        this.dispose(), vt(e);
+        this.dispose(), yt(e);
       });
   }
   dispose() {
@@ -35467,7 +35490,7 @@ class Lw extends Ca {
     const e = this._getElement();
     this._config.rootElement.append(e),
       R.on(e, xv, () => {
-        vt(this._config.clickCallback);
+        yt(this._config.clickCallback);
       }),
       (this._isAppended = !0);
   }
@@ -36106,7 +36129,7 @@ class AR extends Ca {
       : e;
   }
   _resolvePossibleFunction(e) {
-    return vt(e, [this]);
+    return yt(e, [this]);
   }
   _putElementInTemplate(e, n) {
     if (this._config.html) {
@@ -36361,7 +36384,7 @@ class $s extends hn {
     return this.tip && this.tip.classList.contains(gl);
   }
   _createPopper(e) {
-    const n = vt(this._config.placement, [this, e, this._element]),
+    const n = yt(this._config.placement, [this, e, this._element]),
       r = qR[n.toUpperCase()];
     return C0(this._element, e, this._getPopperConfig(r));
   }
@@ -36374,7 +36397,7 @@ class $s extends hn {
       : e;
   }
   _resolvePossibleFunction(e) {
-    return vt(e, [this._element]);
+    return yt(e, [this._element]);
   }
   _getPopperConfig(e) {
     const n = {
@@ -36406,7 +36429,7 @@ class $s extends hn {
         },
       ],
     };
-    return { ...n, ...vt(this._config.popperConfig, [n]) };
+    return { ...n, ...yt(this._config.popperConfig, [n]) };
   }
   _setListeners() {
     const e = this._config.trigger.split(" ");

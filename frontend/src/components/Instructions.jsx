@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Container } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import BulletPointSVG from "./BulletPointSVG";
 
 const Instructions = () => {
@@ -26,6 +26,16 @@ const Instructions = () => {
     },
     ulTwo: {
       listStyleType: "none",
+    },
+    buttonContainer: {
+      display: "flex",
+      justifyContent: "center",
+    },
+    button: {
+      margin: 10,
+    },
+    link: {
+      textDecoration: "none",
     },
   };
 
@@ -141,6 +151,19 @@ const Instructions = () => {
                 then save.
               </li>
             </ul>
+            <div style={styles.buttonContainer}>
+              <a href="/workouts" style={styles.link}>
+                <Button
+                  type="submit"
+                  variant="danger"
+                  style={styles.button}
+                  aria-label="Submit"
+                  className="btn-custom"
+                >
+                  Onto Workouts
+                </Button>
+              </a>
+            </div>
           </div>
         </Card.Body>
       </Card>

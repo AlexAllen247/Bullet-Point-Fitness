@@ -3565,7 +3565,7 @@ function pe(t, e) {
   Vi++, (mf[Vi] = t.current), (t.current = e);
 }
 var Or = {},
-  rt = Lr(Or),
+  it = Lr(Or),
   _t = Lr(!1),
   ai = Or;
 function us(t, e) {
@@ -3589,11 +3589,11 @@ function bt(t) {
   return (t = t.childContextTypes), t != null;
 }
 function ql() {
-  ye(_t), ye(rt);
+  ye(_t), ye(it);
 }
 function dg(t, e, n) {
-  if (rt.current !== Or) throw Error(j(168));
-  pe(rt, e), pe(_t, n);
+  if (it.current !== Or) throw Error(j(168));
+  pe(it, e), pe(_t, n);
 }
 function Yy(t, e, n) {
   var r = t.stateNode;
@@ -3607,8 +3607,8 @@ function Xl(t) {
   return (
     (t =
       ((t = t.stateNode) && t.__reactInternalMemoizedMergedChildContext) || Or),
-    (ai = rt.current),
-    pe(rt, t),
+    (ai = it.current),
+    pe(it, t),
     pe(_t, _t.current),
     !0
   );
@@ -3620,8 +3620,8 @@ function fg(t, e, n) {
     ? ((t = Yy(t, e, ai)),
       (r.__reactInternalMemoizedMergedChildContext = t),
       ye(_t),
-      ye(rt),
-      pe(rt, t))
+      ye(it),
+      pe(it, t))
     : ye(_t),
     pe(_t, n);
 }
@@ -3929,7 +3929,7 @@ function Mn(t, e) {
 function yr(t, e, n) {
   var r = t.updateQueue;
   if (r === null) return null;
-  if (((r = r.shared), oe & 2)) {
+  if (((r = r.shared), ae & 2)) {
     var i = r.pending;
     return (
       i === null ? (e.next = e) : ((e.next = i.next), (i.next = e)),
@@ -4161,7 +4161,7 @@ function e2(t, e, n) {
   return (
     typeof s == "object" && s !== null
       ? (s = Xt(s))
-      : ((i = bt(e) ? ai : rt.current),
+      : ((i = bt(e) ? ai : it.current),
         (r = e.contextTypes),
         (s = (r = r != null) ? us(t, i) : Or)),
     (e = new e(n, s)),
@@ -4190,7 +4190,7 @@ function bf(t, e, n, r) {
   var s = e.contextType;
   typeof s == "object" && s !== null
     ? (i.context = Xt(s))
-    : ((s = bt(e) ? ai : rt.current), (i.context = us(t, s))),
+    : ((s = bt(e) ? ai : it.current), (i.context = us(t, s))),
     (i.state = t.memoizedState),
     (s = e.getDerivedStateFromProps),
     typeof s == "function" && (_f(t, e, s, n), (i.state = t.memoizedState)),
@@ -5321,7 +5321,7 @@ function Sg(t, e, n, r, i) {
 }
 var GS = Gn.ReactCurrentOwner,
   xt = !1;
-function at(t, e, n, r) {
+function lt(t, e, n, r) {
   e.child = t === null ? n2(e, null, n, r) : fs(e, t.child, n, r);
 }
 function Cg(t, e, n, r, i) {
@@ -5336,7 +5336,7 @@ function Cg(t, e, n, r, i) {
         (e.flags &= -2053),
         (t.lanes &= ~i),
         Vn(t, e, i))
-      : (xe && n && Vh(e), (e.flags |= 1), at(t, e, r, i), e.child)
+      : (xe && n && Vh(e), (e.flags |= 1), lt(t, e, r, i), e.child)
   );
 }
 function Og(t, e, n, r, i) {
@@ -5411,7 +5411,7 @@ function O2(t, e, n) {
     s !== null ? ((r = s.baseLanes | n), (e.memoizedState = null)) : (r = n),
       pe(qi, Tt),
       (Tt |= r);
-  return at(t, e, i, n), e.child;
+  return lt(t, e, i, n), e.child;
 }
 function T2(t, e) {
   var n = e.ref;
@@ -5419,7 +5419,7 @@ function T2(t, e) {
     ((e.flags |= 512), (e.flags |= 2097152));
 }
 function Ef(t, e, n, r, i) {
-  var s = bt(n) ? ai : rt.current;
+  var s = bt(n) ? ai : it.current;
   return (
     (s = us(e, s)),
     rs(e, i),
@@ -5430,7 +5430,7 @@ function Ef(t, e, n, r, i) {
         (e.flags &= -2053),
         (t.lanes &= ~i),
         Vn(t, e, i))
-      : (xe && r && Vh(e), (e.flags |= 1), at(t, e, n, i), e.child)
+      : (xe && r && Vh(e), (e.flags |= 1), lt(t, e, n, i), e.child)
   );
 }
 function Tg(t, e, n, r, i) {
@@ -5448,7 +5448,7 @@ function Tg(t, e, n, r, i) {
       c = n.contextType;
     typeof c == "object" && c !== null
       ? (c = Xt(c))
-      : ((c = bt(n) ? ai : rt.current), (c = us(e, c)));
+      : ((c = bt(n) ? ai : it.current), (c = us(e, c)));
     var u = n.getDerivedStateFromProps,
       d =
         typeof u == "function" ||
@@ -5493,7 +5493,7 @@ function Tg(t, e, n, r, i) {
       (l = n.contextType),
       typeof l == "object" && l !== null
         ? (l = Xt(l))
-        : ((l = bt(n) ? ai : rt.current), (l = us(e, l)));
+        : ((l = bt(n) ? ai : it.current), (l = us(e, l)));
     var p = n.getDerivedStateFromProps;
     (u =
       typeof p == "function" ||
@@ -5551,7 +5551,7 @@ function Sf(t, e, n, r, i, s) {
     (e.flags |= 1),
     t !== null && o
       ? ((e.child = fs(e, t.child, null, s)), (e.child = fs(e, null, a, s)))
-      : at(t, e, a, s),
+      : lt(t, e, a, s),
     (e.memoizedState = r.state),
     i && fg(e, n, !0),
     e.child
@@ -5565,7 +5565,7 @@ function k2(t) {
     Jh(t, e.containerInfo);
 }
 function kg(t, e, n, r, i) {
-  return ds(), Yh(i), (e.flags |= 256), at(t, e, n, r), e.child;
+  return ds(), Yh(i), (e.flags |= 256), lt(t, e, n, r), e.child;
 }
 var Cf = { dehydrated: null, treeContext: null, retryLane: 0 };
 function Of(t) {
@@ -5799,7 +5799,7 @@ function D2(t, e, n) {
   var r = e.pendingProps,
     i = r.revealOrder,
     s = r.tail;
-  if ((at(t, e, r.children, n), (r = be.current), r & 2))
+  if ((lt(t, e, r.children, n), (r = be.current), r & 2))
     (r = (r & 1) | 2), (e.flags |= 128);
   else {
     if (t !== null && t.flags & 128)
@@ -6082,7 +6082,7 @@ function XS(t, e, n) {
         (r = e.stateNode),
         hs(),
         ye(_t),
-        ye(rt),
+        ye(it),
         ep(),
         r.pendingContext &&
           ((r.context = r.pendingContext), (r.pendingContext = null)),
@@ -6492,7 +6492,7 @@ function QS(t, e) {
       return (
         hs(),
         ye(_t),
-        ye(rt),
+        ye(it),
         ep(),
         (t = e.flags),
         t & 65536 && !(t & 128) ? ((e.flags = (t & -65537) | 128), e) : null
@@ -7367,7 +7367,7 @@ var t3 = Math.ceil,
   sc = Gn.ReactCurrentDispatcher,
   ap = Gn.ReactCurrentOwner,
   Gt = Gn.ReactCurrentBatchConfig,
-  oe = 0,
+  ae = 0,
   He = null,
   Ae = null,
   Ye = 0,
@@ -7394,11 +7394,11 @@ var t3 = Math.ceil,
   kl = -1,
   Nl = 0;
 function ut() {
-  return oe & 6 ? Ne() : kl !== -1 ? kl : (kl = Ne());
+  return ae & 6 ? Ne() : kl !== -1 ? kl : (kl = Ne());
 }
 function _r(t) {
   return t.mode & 1
-    ? oe & 2 && Ye !== 0
+    ? ae & 2 && Ye !== 0
       ? Ye & -Ye
       : FS.transition !== null
       ? (Nl === 0 && (Nl = by()), Nl)
@@ -7410,10 +7410,10 @@ function _r(t) {
 function cn(t, e, n, r) {
   if (50 < So) throw ((So = 0), (Lf = null), Error(j(185)));
   ua(t, n, r),
-    (!(oe & 2) || t !== He) &&
-      (t === He && (!(oe & 2) && (Xc |= n), Me === 4 && or(t, Ye)),
+    (!(ae & 2) || t !== He) &&
+      (t === He && (!(ae & 2) && (Xc |= n), Me === 4 && or(t, Ye)),
       wt(t, r),
-      n === 1 && oe === 0 && !(e.mode & 1) && ((gs = Ne() + 500), Yc && Rr()));
+      n === 1 && ae === 0 && !(e.mode & 1) && ((gs = Ne() + 500), Yc && Rr()));
 }
 function wt(t, e) {
   var n = t.callbackNode;
@@ -7425,7 +7425,7 @@ function wt(t, e) {
     if ((n != null && V0(n), e === 1))
       t.tag === 0 ? jS(Mg.bind(null, t)) : Gy(Mg.bind(null, t)),
         LS(function () {
-          !(oe & 6) && Rr();
+          !(ae & 6) && Rr();
         }),
         (n = null);
     else {
@@ -7451,7 +7451,7 @@ function wt(t, e) {
   }
 }
 function $2(t, e) {
-  if (((kl = -1), (Nl = 0), oe & 6)) throw Error(j(327));
+  if (((kl = -1), (Nl = 0), ae & 6)) throw Error(j(327));
   var n = t.callbackNode;
   if (is() && t.callbackNode !== n) return null;
   var r = Vl(t, t === He ? Ye : 0);
@@ -7459,8 +7459,8 @@ function $2(t, e) {
   if (r & 30 || r & t.expiredLanes || e) e = lc(t, r);
   else {
     e = r;
-    var i = oe;
-    oe |= 2;
+    var i = ae;
+    ae |= 2;
     var s = z2();
     (He !== t || Ye !== e) && ((Nn = null), (gs = Ne() + 500), ni(t, e));
     do
@@ -7473,7 +7473,7 @@ function $2(t, e) {
     while (!0);
     Kh(),
       (sc.current = s),
-      (oe = i),
+      (ae = i),
       Ae !== null ? (e = 0) : ((He = null), (Ye = 0), (e = Me));
   }
   if (e !== 0) {
@@ -7610,7 +7610,7 @@ function or(t, e) {
   }
 }
 function Mg(t) {
-  if (oe & 6) throw Error(j(327));
+  if (ae & 6) throw Error(j(327));
   is();
   var e = Vl(t, 0);
   if (!(e & 1)) return wt(t, Ne()), null;
@@ -7630,24 +7630,24 @@ function Mg(t) {
   );
 }
 function up(t, e) {
-  var n = oe;
-  oe |= 1;
+  var n = ae;
+  ae |= 1;
   try {
     return t(e);
   } finally {
-    (oe = n), oe === 0 && ((gs = Ne() + 500), Yc && Rr());
+    (ae = n), ae === 0 && ((gs = Ne() + 500), Yc && Rr());
   }
 }
 function di(t) {
-  cr !== null && cr.tag === 0 && !(oe & 6) && is();
-  var e = oe;
-  oe |= 1;
+  cr !== null && cr.tag === 0 && !(ae & 6) && is();
+  var e = ae;
+  ae |= 1;
   var n = Gt.transition,
     r = fe;
   try {
     if (((Gt.transition = null), (fe = 1), t)) return t();
   } finally {
-    (fe = r), (Gt.transition = n), (oe = e), !(oe & 6) && Rr();
+    (fe = r), (Gt.transition = n), (ae = e), !(ae & 6) && Rr();
   }
 }
 function dp() {
@@ -7664,7 +7664,7 @@ function ni(t, e) {
           (r = r.type.childContextTypes), r != null && ql();
           break;
         case 3:
-          hs(), ye(_t), ye(rt), ep();
+          hs(), ye(_t), ye(it), ep();
           break;
         case 5:
           Zh(r);
@@ -7832,8 +7832,8 @@ function fp() {
     He === null || (!(ui & 268435455) && !(Xc & 268435455)) || or(He, Ye);
 }
 function lc(t, e) {
-  var n = oe;
-  oe |= 2;
+  var n = ae;
+  ae |= 2;
   var r = z2();
   (He !== t || Ye !== e) && ((Nn = null), ni(t, e));
   do
@@ -7844,7 +7844,7 @@ function lc(t, e) {
       B2(t, i);
     }
   while (!0);
-  if ((Kh(), (oe = n), (sc.current = r), Ae !== null)) throw Error(j(261));
+  if ((Kh(), (ae = n), (sc.current = r), Ae !== null)) throw Error(j(261));
   return (He = null), (Ye = 0), Me;
 }
 function r3() {
@@ -7899,7 +7899,7 @@ function Ur(t, e, n) {
 function s3(t, e, n, r) {
   do is();
   while (cr !== null);
-  if (oe & 6) throw Error(j(327));
+  if (ae & 6) throw Error(j(327));
   n = t.finishedWork;
   var i = t.finishedLanes;
   if (n === null) return null;
@@ -7922,8 +7922,8 @@ function s3(t, e, n, r) {
     (s = Gt.transition), (Gt.transition = null);
     var o = fe;
     fe = 1;
-    var a = oe;
-    (oe |= 4),
+    var a = ae;
+    (ae |= 4),
       (ap.current = null),
       ZS(t, n),
       j2(n, t),
@@ -7933,7 +7933,7 @@ function s3(t, e, n, r) {
       (t.current = n),
       e3(n),
       DE(),
-      (oe = a),
+      (ae = a),
       (fe = o),
       (Gt.transition = s);
   } else t.current = n;
@@ -7965,9 +7965,9 @@ function is() {
       if (((Gt.transition = null), (fe = 16 > t ? 16 : t), cr === null))
         var r = !1;
       else {
-        if (((t = cr), (cr = null), (ac = 0), oe & 6)) throw Error(j(331));
-        var i = oe;
-        for (oe |= 4, W = t.current; W !== null; ) {
+        if (((t = cr), (cr = null), (ac = 0), ae & 6)) throw Error(j(331));
+        var i = ae;
+        for (ae |= 4, W = t.current; W !== null; ) {
           var s = W,
             o = s.child;
           if (W.flags & 16) {
@@ -8065,7 +8065,7 @@ function is() {
             }
         }
         if (
-          ((oe = i), Rr(), _n && typeof _n.onPostCommitFiberRoot == "function")
+          ((ae = i), Rr(), _n && typeof _n.onPostCommitFiberRoot == "function")
         )
           try {
             _n.onPostCommitFiberRoot(zc, t);
@@ -8165,7 +8165,7 @@ U2 = function (t, e, n) {
     case 2:
       var r = e.type;
       Tl(t, e), (t = e.pendingProps);
-      var i = us(e, rt.current);
+      var i = us(e, it.current);
       rs(e, n), (i = np(null, e, r, t, i, n));
       var s = rp();
       return (
@@ -8186,7 +8186,7 @@ U2 = function (t, e, n) {
             (i._reactInternals = e),
             bf(e, r, t, n),
             (e = Sf(null, e, r, !0, s, n)))
-          : ((e.tag = 0), xe && s && Vh(e), at(null, e, i, n), (e = e.child)),
+          : ((e.tag = 0), xe && s && Vh(e), lt(null, e, i, n), (e = e.child)),
         e
       );
     case 16:
@@ -8276,7 +8276,7 @@ U2 = function (t, e, n) {
             e = Vn(t, e, n);
             break e;
           }
-          at(t, e, r, n);
+          lt(t, e, r, n);
         }
         e = e.child;
       }
@@ -8291,7 +8291,7 @@ U2 = function (t, e, n) {
         (o = i.children),
         hf(r, i) ? (o = null) : s !== null && hf(r, s) && (e.flags |= 32),
         T2(t, e),
-        at(t, e, o, n),
+        lt(t, e, o, n),
         e.child
       );
     case 6:
@@ -8302,7 +8302,7 @@ U2 = function (t, e, n) {
       return (
         Jh(e, e.stateNode.containerInfo),
         (r = e.pendingProps),
-        t === null ? (e.child = fs(e, null, r, n)) : at(t, e, r, n),
+        t === null ? (e.child = fs(e, null, r, n)) : lt(t, e, r, n),
         e.child
       );
     case 11:
@@ -8313,11 +8313,11 @@ U2 = function (t, e, n) {
         Cg(t, e, r, i, n)
       );
     case 7:
-      return at(t, e, e.pendingProps, n), e.child;
+      return lt(t, e, e.pendingProps, n), e.child;
     case 8:
-      return at(t, e, e.pendingProps.children, n), e.child;
+      return lt(t, e, e.pendingProps.children, n), e.child;
     case 12:
-      return at(t, e, e.pendingProps.children, n), e.child;
+      return lt(t, e, e.pendingProps.children, n), e.child;
     case 10:
       e: {
         if (
@@ -8386,7 +8386,7 @@ U2 = function (t, e, n) {
                 }
               s = o;
             }
-        at(t, e, i.children, n), (e = e.child);
+        lt(t, e, i.children, n), (e = e.child);
       }
       return e;
     case 9:
@@ -8397,7 +8397,7 @@ U2 = function (t, e, n) {
         (i = Xt(i)),
         (r = r(i)),
         (e.flags |= 1),
-        at(t, e, r, n),
+        lt(t, e, r, n),
         e.child
       );
     case 14:
@@ -8816,7 +8816,7 @@ Ey = function (t) {
       if (e.current.memoizedState.isDehydrated) {
         var n = ao(e.pendingLanes);
         n !== 0 &&
-          (Mh(e, n | 1), wt(e, Ne()), !(oe & 6) && ((gs = Ne() + 500), Rr()));
+          (Mh(e, n | 1), wt(e, Ne()), !(ae & 6) && ((gs = Ne() + 500), Rr()));
       }
       break;
     case 13:
@@ -10718,7 +10718,7 @@ var dx = { exports: {} };
   })();
 })(dx);
 var wC = dx.exports;
-const te = yi(wC);
+const ne = yi(wC);
 function Wf() {
   return (
     (Wf = Object.assign
@@ -10820,7 +10820,7 @@ function OC(t, e) {
 const TC = ["xxl", "xl", "lg", "md", "sm", "xs"],
   kC = "xs",
   ru = b.createContext({ prefixes: {}, breakpoints: TC, minBreakpoint: kC });
-function ae(t, e) {
+function le(t, e) {
   const { prefixes: n } = b.useContext(ru);
   return t || n[e] || e;
 }
@@ -11447,7 +11447,7 @@ const XC = {
         children: (S, C) =>
           Pe.cloneElement(o, {
             ...C,
-            className: te(
+            className: ne(
               s,
               o.props.className,
               XC[S],
@@ -11466,7 +11466,7 @@ function JC(t) {
     e
   );
 }
-function lt(t) {
+function ct(t) {
   const e = JC(t);
   return b.useCallback(
     function (...n) {
@@ -11590,7 +11590,7 @@ const kp = b.forwardRef((t, e) => {
   let { onKeyDown: n } = t,
     r = l4(t, a4);
   const [i] = Tp(Object.assign({ tagName: "a" }, r)),
-    s = lt((o) => {
+    s = ct((o) => {
       i.onKeyDown(o), n == null || n(o);
     });
   return c4(r.href) || r.role === "button"
@@ -11633,7 +11633,7 @@ const u4 = { [an]: "show", [An]: "show" },
         children: (l, c) =>
           b.cloneElement(e, {
             ...c,
-            className: te("fade", t, e.props.className, u4[l], n[l]),
+            className: ne("fade", t, e.props.className, u4[l], n[l]),
           }),
       });
     },
@@ -11649,7 +11649,7 @@ const d4 = {
       h.jsx("button", {
         ref: i,
         type: "button",
-        className: te("btn-close", e && `btn-close-${e}`, t),
+        className: ne("btn-close", e && `btn-close-${e}`, t),
         "aria-label": n,
         ...r,
       }),
@@ -11658,7 +11658,7 @@ su.displayName = "CloseButton";
 su.propTypes = d4;
 const va = (t) =>
   b.forwardRef((e, n) =>
-    h.jsx("div", { ...e, ref: n, className: te(e.className, t) }),
+    h.jsx("div", { ...e, ref: n, className: ne(e.className, t) }),
   );
 var f4 = /-(.)/g;
 function h4(t) {
@@ -11671,8 +11671,8 @@ function Ke(t, { displayName: e = p4(t), Component: n, defaultProps: r } = {}) {
   const i = b.forwardRef(
     ({ className: s, bsPrefix: o, as: a = n || "div", ...l }, c) => {
       const u = { ...r, ...l },
-        d = ae(o, t);
-      return h.jsx(a, { ref: c, className: te(s, d), ...u });
+        d = le(o, t);
+      return h.jsx(a, { ref: c, className: ne(s, d), ...u });
     },
   );
   return (i.displayName = e), i;
@@ -11695,8 +11695,8 @@ const g4 = Ke("alert-heading", { Component: Ex }),
         transition: d = ms,
         ...f
       } = Sp(t, { show: "onClose" }),
-      p = ae(n, "alert"),
-      g = lt((v) => {
+      p = le(n, "alert"),
+      g = ct((v) => {
         c && c(!1, v);
       }),
       m = d === !0 ? ms : d,
@@ -11704,7 +11704,7 @@ const g4 = Ke("alert-heading", { Component: Ex }),
         role: "alert",
         ...(m ? void 0 : f),
         ref: e,
-        className: te(o, p, l && `${p}-${l}`, u && `${p}-dismissible`),
+        className: ne(o, p, l && `${p}-${l}`, u && `${p}-dismissible`),
         children: [
           u && h.jsx(su, { onClick: g, "aria-label": i, variant: s }),
           a,
@@ -11718,7 +11718,7 @@ const g4 = Ke("alert-heading", { Component: Ex }),
   });
 Sx.displayName = "Alert";
 const v4 = Object.assign(Sx, { Link: m4, Heading: g4 }),
-  ct = b.forwardRef(
+  nt = b.forwardRef(
     (
       {
         as: t,
@@ -11732,7 +11732,7 @@ const v4 = Object.assign(Sx, { Link: m4, Heading: g4 }),
       },
       l,
     ) => {
-      const c = ae(e, "btn"),
+      const c = le(e, "btn"),
         [u, { tagName: d }] = Tp({ tagName: t, disabled: s, ...a }),
         f = d;
       return h.jsx(f, {
@@ -11740,7 +11740,7 @@ const v4 = Object.assign(Sx, { Link: m4, Heading: g4 }),
         ...a,
         ref: l,
         disabled: s,
-        className: te(
+        className: ne(
           o,
           c,
           i && "active",
@@ -11751,11 +11751,11 @@ const v4 = Object.assign(Sx, { Link: m4, Heading: g4 }),
       });
     },
   );
-ct.displayName = "Button";
+nt.displayName = "Button";
 const Cx = b.forwardRef(
   ({ bsPrefix: t, className: e, variant: n, as: r = "img", ...i }, s) => {
-    const o = ae(t, "card-img");
-    return h.jsx(r, { ref: s, className: te(n ? `${o}-${n}` : o, e), ...i });
+    const o = le(t, "card-img");
+    return h.jsx(r, { ref: s, className: ne(n ? `${o}-${n}` : o, e), ...i });
   },
 );
 Cx.displayName = "CardImg";
@@ -11763,11 +11763,11 @@ const Np = b.createContext(null);
 Np.displayName = "CardHeaderContext";
 const Ox = b.forwardRef(
   ({ bsPrefix: t, className: e, as: n = "div", ...r }, i) => {
-    const s = ae(t, "card-header"),
+    const s = le(t, "card-header"),
       o = b.useMemo(() => ({ cardHeaderBsPrefix: s }), [s]);
     return h.jsx(Np.Provider, {
       value: o,
-      children: h.jsx(n, { ref: i, ...r, className: te(e, s) }),
+      children: h.jsx(n, { ref: i, ...r, className: ne(e, s) }),
     });
   },
 );
@@ -11796,11 +11796,11 @@ const y4 = va("h5"),
       },
       c,
     ) => {
-      const u = ae(t, "card");
+      const u = le(t, "card");
       return h.jsx(a, {
         ref: c,
         ...l,
-        className: te(
+        className: ne(
           e,
           u,
           n && `bg-${n}`,
@@ -11812,7 +11812,7 @@ const y4 = va("h5"),
     },
   );
 kx.displayName = "Card";
-const ne = Object.assign(kx, {
+const te = Object.assign(kx, {
   Img: Cx,
   Title: _4,
   Subtitle: b4,
@@ -11835,7 +11835,7 @@ function T4(t, e) {
   return b.Children.toArray(t).some((n) => b.isValidElement(n) && n.type === e);
 }
 function k4({ as: t, bsPrefix: e, className: n, ...r }) {
-  e = ae(e, "col");
+  e = le(e, "col");
   const i = hx(),
     s = px(),
     o = [],
@@ -11854,7 +11854,7 @@ function k4({ as: t, bsPrefix: e, className: n, ...r }) {
         d != null && a.push(`offset${p}-${d}`);
     }),
     [
-      { ...r, className: te(n, ...o, ...a) },
+      { ...r, className: ne(n, ...o, ...a) },
       { as: t, bsPrefix: e, spans: o },
     ]
   );
@@ -11862,7 +11862,7 @@ function k4({ as: t, bsPrefix: e, className: n, ...r }) {
 const Tr = b.forwardRef((t, e) => {
   const [{ className: n, ...r }, { as: i = "div", bsPrefix: s, spans: o }] =
     k4(t);
-  return h.jsx(i, { ...r, ref: e, className: te(n, !o.length && s) });
+  return h.jsx(i, { ...r, ref: e, className: ne(n, !o.length && s) });
 });
 Tr.displayName = "Col";
 var N4 = Function.prototype.bind.call(Function.prototype.call, [].slice);
@@ -12824,9 +12824,9 @@ function nO(t) {
           ? -C[Y] / 2 + T + Fe + ge + D.mainAxis
           : I + Fe + ge + D.mainAxis,
         Se = e.elements.arrow && ya(e.elements.arrow),
-        st = Se ? (w === "y" ? Se.clientTop || 0 : Se.clientLeft || 0) : 0,
+        ot = Se ? (w === "y" ? Se.clientTop || 0 : Se.clientLeft || 0) : 0,
         We = (M = F == null ? void 0 : F[w]) != null ? M : 0,
-        $e = K + qe - We - st,
+        $e = K + qe - We - ot,
         X = K + Xe - We,
         De = Co(p ? mc(L, $e) : L, K, p ? ii(N, X) : N);
       (S[w] = De), (A[w] = De - K);
@@ -12836,13 +12836,13 @@ function nO(t) {
         _e = w === "x" ? dt : ft,
         Xn = w === "x" ? Rt : It,
         St = S[E],
-        ot = E === "y" ? "height" : "width",
+        at = E === "y" ? "height" : "width",
         Ct = St + y[_e],
         pn = St - y[Xn],
         $r = [dt, ft].indexOf(v) !== -1,
         se = (Ce = F == null ? void 0 : F[E]) != null ? Ce : 0,
-        Cn = $r ? Ct : St - C[ot] - O[ot] - se + D.altAxis,
-        Bs = $r ? St + C[ot] + O[ot] - se - D.altAxis : pn,
+        Cn = $r ? Ct : St - C[at] - O[at] - se + D.altAxis,
+        Bs = $r ? St + C[at] + O[at] - se - D.altAxis : pn,
         P0 = p && $r ? L4(Cn, St, Bs) : Co(p ? Cn : Ct, St, p ? Bs : pn);
       (S[E] = P0), (A[E] = P0 - St);
     }
@@ -13108,7 +13108,7 @@ const mO = { type: Fn.string, tooltip: Fn.bool, as: Fn.elementType },
       h.jsx(t, {
         ...i,
         ref: s,
-        className: te(e, `${n}-${r ? "tooltip" : "feedback"}`),
+        className: ne(e, `${n}-${r ? "tooltip" : "feedback"}`),
       }),
   );
 uu.displayName = "Feedback";
@@ -13130,13 +13130,13 @@ const Yn = b.createContext({}),
     ) => {
       const { controlId: c } = b.useContext(Yn);
       return (
-        (e = ae(e, "form-check-input")),
+        (e = le(e, "form-check-input")),
         h.jsx(o, {
           ...a,
           ref: l,
           type: r,
           id: t || c,
-          className: te(n, e, i && "is-valid", s && "is-invalid"),
+          className: ne(n, e, i && "is-valid", s && "is-invalid"),
         })
       );
     },
@@ -13146,8 +13146,8 @@ const yc = b.forwardRef(
   ({ bsPrefix: t, className: e, htmlFor: n, ...r }, i) => {
     const { controlId: s } = b.useContext(Yn);
     return (
-      (t = ae(t, "form-check-label")),
-      h.jsx("label", { ...r, ref: i, htmlFor: n || s, className: te(e, t) })
+      (t = le(t, "form-check-label")),
+      h.jsx("label", { ...r, ref: i, htmlFor: n || s, className: ne(e, t) })
     );
   },
 );
@@ -13177,7 +13177,7 @@ const t_ = b.forwardRef(
     },
     _,
   ) => {
-    (e = ae(e, "form-check")), (n = ae(n, "form-switch"));
+    (e = le(e, "form-check")), (n = le(n, "form-switch"));
     const { controlId: w } = b.useContext(Yn),
       E = b.useMemo(() => ({ controlId: t || w }), [w, t]),
       S = (!y && m != null && m !== !1) || T4(y, yc),
@@ -13194,7 +13194,7 @@ const t_ = b.forwardRef(
       value: E,
       children: h.jsx("div", {
         style: f,
-        className: te(
+        className: ne(
           d,
           S && e,
           r && `${e}-inline`,
@@ -13235,7 +13235,7 @@ const xc = Object.assign(t_, { Input: Vp, Label: yc }),
       f,
     ) => {
       const { controlId: p } = b.useContext(Yn);
-      t = ae(t, "form-control");
+      t = le(t, "form-control");
       let g;
       return (
         l
@@ -13248,7 +13248,7 @@ const xc = Object.assign(t_, { Input: Vp, Label: yc }),
           ref: f,
           readOnly: c,
           id: i || p,
-          className: te(
+          className: ne(
             s,
             g,
             o && "is-valid",
@@ -13284,10 +13284,10 @@ const r_ = b.forwardRef(
     a,
   ) => {
     const { controlId: l } = b.useContext(Yn);
-    e = ae(e, "form-label");
+    e = le(e, "form-label");
     let c = "col-form-label";
     typeof n == "string" && (c = `${c} ${c}-${n}`);
-    const u = te(i, e, r && "visually-hidden", n && c);
+    const u = ne(i, e, r && "visually-hidden", n && c);
     return (
       (s = s || l),
       n
@@ -13300,12 +13300,12 @@ r_.displayName = "FormLabel";
 const i_ = b.forwardRef(({ bsPrefix: t, className: e, id: n, ...r }, i) => {
   const { controlId: s } = b.useContext(Yn);
   return (
-    (t = ae(t, "form-range")),
+    (t = le(t, "form-range")),
     h.jsx("input", {
       ...r,
       type: "range",
       ref: i,
-      className: te(e, t),
+      className: ne(e, t),
       id: n || s,
     })
   );
@@ -13327,12 +13327,12 @@ const s_ = b.forwardRef(
   ) => {
     const { controlId: c } = b.useContext(Yn);
     return (
-      (t = ae(t, "form-select")),
+      (t = le(t, "form-select")),
       h.jsx("select", {
         ...a,
         size: n,
         ref: l,
-        className: te(
+        className: ne(
           r,
           t,
           e && `${t}-${e}`,
@@ -13347,8 +13347,8 @@ const s_ = b.forwardRef(
 s_.displayName = "FormSelect";
 const o_ = b.forwardRef(
   ({ bsPrefix: t, className: e, as: n = "small", muted: r, ...i }, s) => (
-    (t = ae(t, "form-text")),
-    h.jsx(n, { ...i, ref: s, className: te(e, t, r && "text-muted") })
+    (t = le(t, "form-text")),
+    h.jsx(n, { ...i, ref: s, className: ne(e, t, r && "text-muted") })
   ),
 );
 o_.displayName = "FormText";
@@ -13360,10 +13360,10 @@ const xO = Object.assign(a_, { Input: xc.Input, Label: xc.Label }),
       { bsPrefix: t, className: e, children: n, controlId: r, label: i, ...s },
       o,
     ) => (
-      (t = ae(t, "form-floating")),
+      (t = le(t, "form-floating")),
       h.jsxs(Up, {
         ref: o,
-        className: te(e, t),
+        className: ne(e, t),
         controlId: r,
         ...s,
         children: [n, h.jsx("label", { htmlFor: r, children: i })],
@@ -13373,7 +13373,7 @@ const xO = Object.assign(a_, { Input: xc.Input, Label: xc.Label }),
 l_.displayName = "FloatingLabel";
 const _O = { _ref: Fn.any, validated: Fn.bool, as: Fn.elementType },
   Yp = b.forwardRef(({ className: t, validated: e, as: n = "form", ...r }, i) =>
-    h.jsx(n, { ...r, ref: i, className: te(t, e && "was-validated") }),
+    h.jsx(n, { ...r, ref: i, className: ne(t, e && "was-validated") }),
   );
 Yp.displayName = "Form";
 Yp.propTypes = _O;
@@ -13389,14 +13389,14 @@ const Z = Object.assign(Yp, {
     Select: s_,
     FloatingLabel: l_,
   }),
-  nt = b.forwardRef(
+  rt = b.forwardRef(
     ({ bsPrefix: t, fluid: e = !1, as: n = "div", className: r, ...i }, s) => {
-      const o = ae(t, "container"),
+      const o = le(t, "container"),
         a = typeof e == "string" ? `-${e}` : "-fluid";
-      return h.jsx(n, { ref: s, ...i, className: te(r, e ? `${o}${a}` : o) });
+      return h.jsx(n, { ref: s, ...i, className: ne(r, e ? `${o}${a}` : o) });
     },
   );
-nt.displayName = "Container";
+rt.displayName = "Container";
 const c_ = b.createContext(null),
   bO = ["as", "active", "eventKey"];
 function wO(t, e) {
@@ -13431,7 +13431,7 @@ function u_({ key: t, onClick: e, active: n, id: r, role: i, disabled: s }) {
       ((u["aria-selected"] = c),
       c || (u.tabIndex = -1),
       s && ((u.tabIndex = -1), (u["aria-disabled"] = !0))),
-    (u.onClick = lt((d) => {
+    (u.onClick = ct((d) => {
       s ||
         (e == null || e(d),
         t != null && o && !d.isPropagationStopped() && o(t, d));
@@ -13662,7 +13662,7 @@ function NO({
 }) {
   const s = b.useRef(null),
     o = b.useRef(e),
-    a = lt(n);
+    a = ct(n);
   b.useEffect(() => {
     e ? (o.current = !0) : a(s.current);
   }, [e, a]);
@@ -13673,7 +13673,7 @@ function NO({
 function DO({ in: t, onTransition: e }) {
   const n = b.useRef(null),
     r = b.useRef(!0),
-    i = lt(e);
+    i = ct(e);
   return (
     Kf(() => {
       if (!n.current) return;
@@ -13833,7 +13833,7 @@ const h_ = b.forwardRef((t, e) => {
   b.useImperativeHandle(e, () => L, [L]),
     As && !T && n && (B.current = rd(Y == null ? void 0 : Y.document)),
     n && $ && I(!1);
-  const H = lt(() => {
+  const H = ct(() => {
       if (
         (L.add(),
         (Xe.current = gc(document, "keydown", Fe)),
@@ -13855,7 +13855,7 @@ const h_ = b.forwardRef((t, e) => {
           ((B.current = Ce), L.dialog.focus());
       }
     }),
-    U = lt(() => {
+    U = ct(() => {
       if (
         (L.remove(),
         Xe.current == null || Xe.current(),
@@ -13876,15 +13876,15 @@ const h_ = b.forwardRef((t, e) => {
     Nx(() => {
       U();
     });
-  const q = lt(() => {
+  const q = ct(() => {
       if (!y || !N() || !L.isTopModal()) return;
       const X = rd(Y == null ? void 0 : Y.document);
       L.dialog && X && !lm(L.dialog, X) && L.dialog.focus();
     }),
-    ge = lt((X) => {
+    ge = ct((X) => {
       X.target === X.currentTarget && (c == null || c(X), a === !0 && O());
     }),
-    Fe = lt((X) => {
+    Fe = ct((X) => {
       l &&
         AO(X) &&
         L.isTopModal() &&
@@ -13896,7 +13896,7 @@ const h_ = b.forwardRef((t, e) => {
       I(!0), D == null || D(...X);
     };
   if (!K) return null;
-  const st = Object.assign(
+  const ot = Object.assign(
     {
       role: r,
       ref: L.setDialogRef,
@@ -13906,10 +13906,10 @@ const h_ = b.forwardRef((t, e) => {
     { style: s, className: i, tabIndex: -1 },
   );
   let We = _
-    ? _(st)
+    ? _(ot)
     : h.jsx(
         "div",
-        Object.assign({}, st, {
+        Object.assign({}, ot, {
           children: b.cloneElement(o, { role: "document" }),
         }),
       );
@@ -14041,13 +14041,13 @@ const BO = g_,
       },
       c,
     ) => {
-      t = ae(t, "modal");
+      t = le(t, "modal");
       const u = `${t}-dialog`,
         d = typeof s == "string" ? `${t}-fullscreen-${s}` : `${t}-fullscreen`;
       return h.jsx("div", {
         ...l,
         ref: c,
-        className: te(
+        className: ne(
           u,
           e,
           i && `${t}-${i}`,
@@ -14056,7 +14056,7 @@ const BO = g_,
           s && d,
         ),
         children: h.jsx("div", {
-          className: te(`${t}-content`, n),
+          className: ne(`${t}-content`, n),
           children: o,
         }),
       });
@@ -14077,7 +14077,7 @@ const HO = Ke("modal-footer"),
       o,
     ) => {
       const a = b.useContext(Kp),
-        l = lt(() => {
+        l = ct(() => {
           a == null || a.onHide(), r == null || r();
         });
       return h.jsxs("div", {
@@ -14101,11 +14101,11 @@ const HO = Ke("modal-footer"),
       },
       s,
     ) => (
-      (t = ae(t, "modal-header")),
+      (t = le(t, "modal-header")),
       h.jsx(v_, {
         ref: s,
         ...i,
-        className: te(e, t),
+        className: ne(e, t),
         closeLabel: n,
         closeButton: r,
       })
@@ -14164,9 +14164,9 @@ const x_ = b.forwardRef(
       I = b.useRef(null),
       [B, H] = ZC(),
       U = ma(z, H),
-      q = lt(y),
+      q = ct(y),
       ge = NC();
-    t = ae(t, "modal");
+    t = le(t, "modal");
     const Fe = b.useMemo(() => ({ onHide: q }), [q]);
     function qe() {
       return M || m_({ isRTL: ge });
@@ -14180,13 +14180,13 @@ const x_ = b.forwardRef(
         paddingLeft: !Cn && Bs ? dm() : void 0,
       });
     }
-    const Se = lt(() => {
+    const Se = ct(() => {
       B && Xe(B.dialog);
     });
     Nx(() => {
       Gf(window, "resize", Se), I.current == null || I.current();
     });
-    const st = () => {
+    const ot = () => {
         T.current = !0;
       },
       We = (se) => {
@@ -14225,7 +14225,7 @@ const x_ = b.forwardRef(
       St = (se, Cn) => {
         D == null || D(se, Cn), xx(window, "resize", Se);
       },
-      ot = (se) => {
+      at = (se) => {
         se && (se.style.display = ""),
           F == null || F(se),
           Gf(window, "resize", Se);
@@ -14234,7 +14234,7 @@ const x_ = b.forwardRef(
         (se) =>
           h.jsx("div", {
             ...se,
-            className: te(`${t}-backdrop`, A, !d && "show"),
+            className: ne(`${t}-backdrop`, A, !d && "show"),
           }),
         [d, A, t],
       ),
@@ -14245,7 +14245,7 @@ const x_ = b.forwardRef(
         role: "dialog",
         ...se,
         style: pn,
-        className: te(e, t, L && `${t}-static`, !d && "show"),
+        className: ne(e, t, L && `${t}-static`, !d && "show"),
         onClick: f ? De : void 0,
         onMouseUp: We,
         "aria-label": c,
@@ -14253,7 +14253,7 @@ const x_ = b.forwardRef(
         "aria-describedby": l,
         children: h.jsx(o, {
           ...V,
-          onMouseDown: st,
+          onMouseDown: ot,
           className: r,
           contentClassName: i,
           children: s,
@@ -14279,7 +14279,7 @@ const x_ = b.forwardRef(
         onEntered: S,
         onExit: Xn,
         onExiting: O,
-        onExited: ot,
+        onExited: at,
         manager: qe(),
         transition: d ? UO : void 0,
         backdropTransition: d ? YO : void 0,
@@ -14374,14 +14374,14 @@ const KO = Ke("nav-item"),
       },
       a,
     ) => {
-      t = ae(t, "nav-link");
+      t = le(t, "nav-link");
       const [l, c] = u_({ key: zp(i, o.href), active: r, disabled: s, ...o });
       return h.jsx(n, {
         ...o,
         ...l,
         ref: a,
         disabled: s,
-        className: te(e, t, s && "disabled", c.isActive && "active"),
+        className: ne(e, t, s && "disabled", c.isActive && "active"),
       });
     },
   );
@@ -14399,7 +14399,7 @@ const b_ = b.forwardRef((t, e) => {
       activeKey: u,
       ...d
     } = Sp(t, { activeKey: "onSelect" }),
-    f = ae(r, "nav");
+    f = le(r, "nav");
   let p,
     g,
     m = !1;
@@ -14413,7 +14413,7 @@ const b_ = b.forwardRef((t, e) => {
       as: n,
       ref: e,
       activeKey: u,
-      className: te(c, {
+      className: ne(c, {
         [f]: !m,
         [`${p}-nav`]: m,
         [`${p}-nav-scroll`]: m && l,
@@ -14429,13 +14429,13 @@ const b_ = b.forwardRef((t, e) => {
 b_.displayName = "Nav";
 const qO = Object.assign(b_, { Item: KO, Link: __ }),
   w_ = b.forwardRef(({ bsPrefix: t, className: e, as: n, ...r }, i) => {
-    t = ae(t, "navbar-brand");
+    t = le(t, "navbar-brand");
     const s = n || (r.href ? "a" : "span");
-    return h.jsx(s, { ...r, ref: i, className: te(e, t) });
+    return h.jsx(s, { ...r, ref: i, className: ne(e, t) });
   });
 w_.displayName = "NavbarBrand";
 const E_ = b.forwardRef(({ children: t, bsPrefix: e, ...n }, r) => {
-  e = ae(e, "navbar-collapse");
+  e = le(e, "navbar-collapse");
   const i = b.useContext(Ei);
   return h.jsx(QC, {
     in: !!(i && i.expanded),
@@ -14457,9 +14457,9 @@ const S_ = b.forwardRef(
     },
     a,
   ) => {
-    t = ae(t, "navbar-toggler");
+    t = le(t, "navbar-toggler");
     const { onToggle: l, expanded: c } = b.useContext(Ei) || {},
-      u = lt((d) => {
+      u = ct((d) => {
         s && s(d), l && l();
       });
     return (
@@ -14469,7 +14469,7 @@ const S_ = b.forwardRef(
         ref: a,
         onClick: u,
         "aria-label": r,
-        className: te(e, t, !c && "collapsed"),
+        className: ne(e, t, !c && "collapsed"),
         children: n || h.jsx("span", { className: `${t}-icon` }),
       })
     );
@@ -14568,7 +14568,7 @@ const JO = QO({ xs: 0, sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1400 }),
       },
       l,
     ) => (
-      (t = ae(t, "offcanvas")),
+      (t = le(t, "offcanvas")),
       h.jsx(Op, {
         ref: l,
         addEndListener: Cp,
@@ -14581,7 +14581,7 @@ const JO = QO({ xs: 0, sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1400 }),
         children: (c, u) =>
           b.cloneElement(n, {
             ...u,
-            className: te(
+            className: ne(
               e,
               n.props.className,
               (c === an || c === ta) && `${t}-toggling`,
@@ -14603,11 +14603,11 @@ const O_ = b.forwardRef(
     },
     s,
   ) => (
-    (t = ae(t, "offcanvas-header")),
+    (t = le(t, "offcanvas-header")),
     h.jsx(v_, {
       ref: s,
       ...i,
-      className: te(e, t),
+      className: ne(e, t),
       closeLabel: n,
       closeButton: r,
     })
@@ -14657,14 +14657,14 @@ const T_ = b.forwardRef(
     A,
   ) => {
     const M = b.useRef();
-    t = ae(t, "offcanvas");
+    t = le(t, "offcanvas");
     const { onToggle: V } = b.useContext(Ei) || {},
       [z, Y] = b.useState(!1),
       K = JO(s || "xs", "up");
     b.useEffect(() => {
       Y(s ? o && !K : o);
     }, [o, s, K]);
-    const L = lt(() => {
+    const L = ct(() => {
         V == null || V(), f == null || f();
       }),
       N = b.useMemo(() => ({ onHide: L }), [L]);
@@ -14684,14 +14684,14 @@ const T_ = b.forwardRef(
         U && (U.style.visibility = ""), C == null || C(...q);
       },
       B = b.useCallback(
-        (U) => h.jsx("div", { ...U, className: te(`${t}-backdrop`, O) }),
+        (U) => h.jsx("div", { ...U, className: ne(`${t}-backdrop`, O) }),
         [O, t],
       ),
       H = (U) =>
         h.jsx("div", {
           ...U,
           ...F,
-          className: te(e, s ? `${t}-${s}` : t, `${t}-${i}`),
+          className: ne(e, s ? `${t}-${s}` : t, `${t}-${i}`),
           "aria-labelledby": r,
           children: n,
         });
@@ -14759,7 +14759,7 @@ const o5 = Ke("navbar-text", { Component: "span" }),
         collapseOnSelect: p = !1,
         ...g
       } = Sp(t, { expanded: "onToggle" }),
-      m = ae(n, "navbar"),
+      m = le(n, "navbar"),
       y = b.useCallback(
         (..._) => {
           f == null || f(..._), p && u && (d == null || d(!1));
@@ -14785,7 +14785,7 @@ const o5 = Ke("navbar-text", { Component: "span" }),
         children: h.jsx(c, {
           ref: e,
           ...g,
-          className: te(
+          className: ne(
             l,
             m,
             r && v,
@@ -14821,19 +14821,19 @@ const l5 = b.forwardRef(
       },
       o,
     ) => {
-      t = ae(t, "ratio");
+      t = le(t, "ratio");
       const a = typeof r == "number";
       return h.jsx("div", {
         ref: o,
         ...s,
         style: { ...i, ...(a && { "--bs-aspect-ratio": a5(r) }) },
-        className: te(t, e, !a && `${t}-${r}`),
+        className: ne(t, e, !a && `${t}-${r}`),
         children: b.Children.only(n),
       });
     },
   ),
   ws = b.forwardRef(({ bsPrefix: t, className: e, as: n = "div", ...r }, i) => {
-    const s = ae(t, "row"),
+    const s = le(t, "row"),
       o = hx(),
       a = px(),
       l = `${s}-cols`,
@@ -14847,7 +14847,7 @@ const l5 = b.forwardRef(
         const p = u !== a ? `-${u}` : "";
         f != null && c.push(`${l}${p}-${f}`);
       }),
-      h.jsx(n, { ref: i, ...r, className: te(e, s, ...c) })
+      h.jsx(n, { ref: i, ...r, className: ne(e, s, ...c) })
     );
   });
 ws.displayName = "Row";
@@ -14867,8 +14867,8 @@ const D_ = b.forwardRef(
     },
     u,
   ) => {
-    const d = ae(t, "table"),
-      f = te(
+    const d = le(t, "table"),
+      f = ne(
         e,
         d,
         a && `${d}-${a}`,
@@ -17003,29 +17003,29 @@ function eb(t) {
     n
   );
 }
-const ce = eb(_a);
-ce.Axios = si;
-ce.CanceledError = Is;
-ce.CancelToken = e0;
-ce.isCancel = Y_;
-ce.VERSION = Z_;
-ce.toFormData = pu;
-ce.AxiosError = ee;
-ce.Cancel = ce.CanceledError;
-ce.all = function (e) {
+const ue = eb(_a);
+ue.Axios = si;
+ue.CanceledError = Is;
+ue.CancelToken = e0;
+ue.isCancel = Y_;
+ue.VERSION = Z_;
+ue.toFormData = pu;
+ue.AxiosError = ee;
+ue.Cancel = ue.CanceledError;
+ue.all = function (e) {
   return Promise.all(e);
 };
-ce.spread = RT;
-ce.isAxiosError = IT;
-ce.mergeConfig = pi;
-ce.AxiosHeaders = Et;
-ce.formToJSON = (t) => U_(k.isHTMLForm(t) ? new FormData(t) : t);
-ce.getAdapter = J_.getAdapter;
-ce.HttpStatusCode = oh;
-ce.default = ce;
+ue.spread = RT;
+ue.isAxiosError = IT;
+ue.mergeConfig = pi;
+ue.AxiosHeaders = Et;
+ue.formToJSON = (t) => U_(k.isHTMLForm(t) ? new FormData(t) : t);
+ue.getAdapter = J_.getAdapter;
+ue.HttpStatusCode = oh;
+ue.default = ue;
 const MT = "/api/contactforms",
-  jT = { create: async (t) => (await ce.post(MT, t)).data },
-  ue = () =>
+  jT = { create: async (t) => (await ue.post(MT, t)).data },
+  oe = () =>
     h.jsxs("svg", {
       version: "1.1",
       id: "svg1",
@@ -17119,7 +17119,7 @@ const MT = "/api/contactforms",
       };
     return h.jsx("section", {
       className: "contact form",
-      children: h.jsxs(nt, {
+      children: h.jsxs(rt, {
         children: [
           h.jsx("div", {
             children: h.jsx("h1", {
@@ -17127,11 +17127,11 @@ const MT = "/api/contactforms",
               children: "Contact Form",
             }),
           }),
-          h.jsx(ne, {
+          h.jsx(te, {
             className: "my-3",
             style: a.card,
             border: "danger",
-            children: h.jsxs(ne.Body, {
+            children: h.jsxs(te.Body, {
               children: [
                 h.jsx("p", {
                   style: a.paragraph,
@@ -17147,7 +17147,7 @@ const MT = "/api/contactforms",
                         h.jsxs(Z.Label, {
                           htmlFor: "email",
                           style: a.label,
-                          children: [h.jsx(ue, {}), "Email"],
+                          children: [h.jsx(oe, {}), "Email"],
                         }),
                         h.jsx(Z.Control, {
                           value: e,
@@ -17165,7 +17165,7 @@ const MT = "/api/contactforms",
                         h.jsxs(Z.Label, {
                           htmlFor: "message",
                           style: a.label,
-                          children: [h.jsx(ue, {}), "Message"],
+                          children: [h.jsx(oe, {}), "Message"],
                         }),
                         h.jsx(Z.Control, {
                           as: "textarea",
@@ -17179,7 +17179,7 @@ const MT = "/api/contactforms",
                         }),
                       ],
                     }),
-                    h.jsx(ct, {
+                    h.jsx(nt, {
                       "aria-label": "Submit",
                       type: "submit",
                       variant: "danger",
@@ -17376,7 +17376,7 @@ const MT = "/api/contactforms",
             h.jsxs("p", {
               style: t.paragraph,
               children: [
-                h.jsx(ue, {}),
+                h.jsx(oe, {}),
                 "Starting your fitness journey or taking it to the next level can be challenging, but you don't need to do it alone. If you're looking for guidance, whether it's figuring out where to begin or how to push forward, I'm here to help. Book a one-on-one consultation with me, and together we'll discuss your goals and craft a personalized fitness plan tailored just for you. Choose a timeslot below, and let's start this journey towards achieving your fitness aspirations.",
               ],
             }),
@@ -17511,7 +17511,7 @@ const MT = "/api/contactforms",
   },
   HT = { organList: zT },
   WT = "/api/organs",
-  VT = { get: () => ce.get(WT).then((e) => e.data) },
+  VT = { get: () => ue.get(WT).then((e) => e.data) },
   UT = ({ organ: t, selectedOrgan: e }) => {
     const n = {
       text: {
@@ -17534,21 +17534,21 @@ const MT = "/api/contactforms",
         : h.jsx("ul", {
             style: n.ul,
             children: i.map((s, o) =>
-              h.jsxs("li", { children: [h.jsx(ue, {}), s] }, o),
+              h.jsxs("li", { children: [h.jsx(oe, {}), s] }, o),
             ),
           });
-    return h.jsx(ne, {
+    return h.jsx(te, {
       className: "mb-4 box-shadow",
       border: "danger",
       style: n.text,
-      children: h.jsxs(ne.Body, {
+      children: h.jsxs(te.Body, {
         children: [
           h.jsx("h3", { style: n.header, children: e }),
           h.jsxs("div", {
             style: n.description,
             children: [
               h.jsx("h5", { style: n.header, children: "Function:" }),
-              h.jsxs("div", { children: [h.jsx(ue, {}), t.function] }),
+              h.jsxs("div", { children: [h.jsx(oe, {}), t.function] }),
             ],
           }),
           h.jsxs("div", {
@@ -18068,9 +18068,9 @@ const MT = "/api/contactforms",
   },
   XT = { muscleList: qT },
   QT = "/api/musclefunctionvideos",
-  JT = { get: () => ce.get(QT).then((e) => e.data) },
+  JT = { get: () => ue.get(QT).then((e) => e.data) },
   ZT = "/api/exercisevideos",
-  ek = { get: () => ce.get(ZT).then((e) => e.data) },
+  ek = { get: () => ue.get(ZT).then((e) => e.data) },
   wc = ({ video: t }) => {
     const [e, n] = b.useState(!1),
       r = b.useRef(null),
@@ -18095,7 +18095,7 @@ const MT = "/api/contactforms",
           }
         );
       }, []),
-      h.jsxs(ne, {
+      h.jsxs(te, {
         className: "mb-4 box-shadow",
         border: "danger",
         style: i.text,
@@ -18113,14 +18113,14 @@ const MT = "/api/contactforms",
               loading: "lazy",
             }),
           }),
-          h.jsxs(ne.Body, {
+          h.jsxs(te.Body, {
             children: [
-              h.jsx(ne.Title, { style: i.header, children: t.title }),
-              h.jsxs(ne.Text, {
+              h.jsx(te.Title, { style: i.header, children: t.title }),
+              h.jsxs(te.Text, {
                 style: i.description,
-                children: [h.jsx(ue, {}), t.description],
+                children: [h.jsx(oe, {}), t.description],
               }),
-              h.jsx(ne.Footer, {
+              h.jsx(te.Footer, {
                 children: h.jsx("small", { children: t.duration }),
               }),
             ],
@@ -18143,19 +18143,19 @@ const MT = "/api/contactforms",
           marginBottom: 40,
         },
       };
-    return h.jsxs(nt, {
+    return h.jsxs(rt, {
       ref: e,
       children: [
         h.jsx("h1", { style: s.header, children: i }),
         n.length > 0 &&
-          h.jsxs(nt, {
+          h.jsxs(rt, {
             children: [
               h.jsx("h1", { style: s.header, children: "Muscle Functions" }),
               n.map((o) => h.jsx(wc, { video: o }, o.id)),
             ],
           }),
         r.length > 0 &&
-          h.jsxs(nt, {
+          h.jsxs(rt, {
             children: [
               h.jsx("h1", { style: s.header, children: "Exercises" }),
               r.map((o) => h.jsx(wc, { video: o }, o.id)),
@@ -18592,7 +18592,7 @@ const MT = "/api/contactforms",
             }),
           ],
         }),
-        h.jsx(ct, {
+        h.jsx(nt, {
           variant: "danger",
           onClick: i,
           style: o.button,
@@ -18601,7 +18601,7 @@ const MT = "/api/contactforms",
           children: "Privacy Policy",
         }),
         t ? h.jsx(ik, {}) : null,
-        h.jsx(ct, {
+        h.jsx(nt, {
           variant: "danger",
           onClick: s,
           style: o.button,
@@ -18661,7 +18661,7 @@ const MT = "/api/contactforms",
   dk = "/assets/Level3ExerciseReferral-CpJUFh70.jpg",
   fk = "/assets/Level4ObesityAndDiabetes-DP2NbOtJ.jpg",
   hk = "/api/aboutvideos",
-  pk = { get: () => ce.get(hk).then((e) => e.data) },
+  pk = { get: () => ue.get(hk).then((e) => e.data) },
   gk = () => {
     const [t, e] = b.useState([]);
     b.useEffect(() => {
@@ -18689,7 +18689,7 @@ const MT = "/api/contactforms",
       };
     return h.jsx("section", {
       style: r.container,
-      children: h.jsxs(nt, {
+      children: h.jsxs(rt, {
         children: [
           h.jsx("div", {
             children: h.jsx("h1", { style: r.header, children: "About" }),
@@ -18711,10 +18711,10 @@ const MT = "/api/contactforms",
                         md: 6,
                         children: h.jsx("a", {
                           href: n[s],
-                          children: h.jsx(ne, {
+                          children: h.jsx(te, {
                             className: "my-3",
                             style: r.card,
-                            children: h.jsx(ne.Img, {
+                            children: h.jsx(te.Img, {
                               variant: "top",
                               src: n[s],
                               loading: "lazy",
@@ -18727,10 +18727,10 @@ const MT = "/api/contactforms",
                           md: 6,
                           children: h.jsx("a", {
                             href: n[s + 1],
-                            children: h.jsx(ne, {
+                            children: h.jsx(te, {
                               className: "my-3",
                               style: r.card,
-                              children: h.jsx(ne.Img, {
+                              children: h.jsx(te.Img, {
                                 variant: "top",
                                 src: n[s + 1],
                                 loading: "lazy",
@@ -19160,8 +19160,8 @@ var tb = { exports: {} };
                     qe = Fe !== void 0 && Fe,
                     Xe = U.isBreak,
                     Se = Xe !== void 0 && Xe,
-                    st = U.isActive,
-                    We = st !== void 0 && st;
+                    ot = U.isActive,
+                    We = ot !== void 0 && ot;
                   I.preventDefault ? I.preventDefault() : (I.returnValue = !1);
                   var $e = T.state.selected,
                     X = T.props.onClick,
@@ -19227,7 +19227,7 @@ var tb = { exports: {} };
                     Xe = B.breakAriaLabels,
                     Se = T.state.selected;
                   if (U <= H)
-                    for (var st = 0; st < U; st++) I.push(T.getPageElement(st));
+                    for (var ot = 0; ot < U; ot++) I.push(T.getPageElement(ot));
                   else {
                     var We = H / 2,
                       $e = H - We;
@@ -19236,8 +19236,8 @@ var tb = { exports: {} };
                       : Se < H / 2 && ($e = H - (We = Se));
                     var X,
                       De,
-                      Ce = function (ot) {
-                        return T.getPageElement(ot);
+                      Ce = function (at) {
+                        return T.getPageElement(at);
                       },
                       _e = [];
                     for (X = 0; X < U; X++) {
@@ -19270,9 +19270,9 @@ var tb = { exports: {} };
                           _e.push({ type: "break", index: X, display: De });
                       }
                     }
-                    _e.forEach(function (ot, Ct) {
-                      var pn = ot;
-                      ot.type === "break" &&
+                    _e.forEach(function (at, Ct) {
+                      var pn = at;
+                      at.type === "break" &&
                         _e[Ct - 1] &&
                         _e[Ct - 1].type === "page" &&
                         _e[Ct + 1] &&
@@ -19280,8 +19280,8 @@ var tb = { exports: {} };
                         _e[Ct + 1].index - _e[Ct - 1].index <= 2 &&
                         (pn = {
                           type: "page",
-                          index: ot.index,
-                          display: Ce(ot.index),
+                          index: at.index,
+                          display: Ce(at.index),
                         }),
                         I.push(pn.display);
                     });
@@ -19470,7 +19470,7 @@ See https://reactjs.org/docs/forms.html#controlled-components`,
                       qe = T.previousAriaLabel,
                       Xe = T.prevRel,
                       Se = T.nextLabel,
-                      st = T.nextClassName,
+                      ot = T.nextClassName,
                       We = T.nextLinkClassName,
                       $e = T.nextAriaLabel,
                       X = T.nextRel,
@@ -19478,8 +19478,8 @@ See https://reactjs.org/docs/forms.html#controlled-components`,
                       Ce = De === 0,
                       _e = De === B - 1,
                       Xn = "".concat(v(ge)).concat(Ce ? " ".concat(v($)) : ""),
-                      St = "".concat(v(st)).concat(_e ? " ".concat(v($)) : ""),
-                      ot = "".concat(v(Fe)).concat(Ce ? " ".concat(v(I)) : ""),
+                      St = "".concat(v(ot)).concat(_e ? " ".concat(v($)) : ""),
+                      at = "".concat(v(Fe)).concat(Ce ? " ".concat(v(I)) : ""),
                       Ct = "".concat(v(We)).concat(_e ? " ".concat(v(I)) : ""),
                       pn = Ce ? "true" : "false",
                       $r = _e ? "true" : "false";
@@ -19497,7 +19497,7 @@ See https://reactjs.org/docs/forms.html#controlled-components`,
                           "a",
                           _(
                             {
-                              className: ot,
+                              className: at,
                               href: this.getElementHref(De - 1),
                               tabIndex: Ce ? "-1" : "0",
                               role: "button",
@@ -19626,7 +19626,7 @@ See https://reactjs.org/docs/forms.html#controlled-components`,
 var mk = tb.exports;
 const vk = yi(mk),
   yk = "/api/trainingvideos",
-  xk = { get: () => ce.get(yk).then((e) => e.data) },
+  xk = { get: () => ue.get(yk).then((e) => e.data) },
   _k = () => {
     const [t, e] = b.useState([]),
       [n, r] = b.useState(0),
@@ -19710,7 +19710,7 @@ const vk = yi(mk),
             }),
           ],
         }),
-        h.jsx(nt, {
+        h.jsx(rt, {
           children: h.jsx(ws, {
             children: f([...c])
               .slice(n * l, (n + 1) * l)
@@ -19788,16 +19788,16 @@ const vk = yi(mk),
       };
     return h.jsx("section", {
       className: "login form",
-      children: h.jsxs(nt, {
+      children: h.jsxs(rt, {
         children: [
           h.jsx("div", {
             children: h.jsx("h1", { style: o.header, children: "Login Form" }),
           }),
-          h.jsx(ne, {
+          h.jsx(te, {
             className: "my-3",
             style: o.card,
             border: "danger",
-            children: h.jsx(ne.Body, {
+            children: h.jsx(te.Body, {
               children: h.jsxs(Z, {
                 onSubmit: s,
                 style: o.form,
@@ -19837,7 +19837,7 @@ const vk = yi(mk),
                       }),
                     ],
                   }),
-                  h.jsx(ct, {
+                  h.jsx(nt, {
                     "aria-label": "Sign In",
                     type: "submit",
                     variant: "danger",
@@ -19935,7 +19935,7 @@ const nb = "loggedUser",
   To = { setUser: Ck, getUser: Ok, clearUser: rb, getToken: kk },
   Nk = "/api/clientinfo",
   Dk = () => ({ headers: { Authorization: `bearer ${To.getToken()}` } }),
-  Pk = { create: async (t) => (await ce.post(Nk, t, Dk())).data },
+  Pk = { create: async (t) => (await ue.post(Nk, t, Dk())).data },
   Ak = ({ notify: t }) => {
     const [e, n] = b.useState(null),
       [r, i] = b.useState(""),
@@ -19976,7 +19976,7 @@ const nb = "loggedUser",
       };
     return h.jsx("section", {
       className: "client-info-form",
-      children: h.jsxs(nt, {
+      children: h.jsxs(rt, {
         children: [
           h.jsx("div", {
             children: h.jsx("h1", {
@@ -19985,11 +19985,11 @@ const nb = "loggedUser",
             }),
           }),
           e === null &&
-            h.jsx(ne, {
+            h.jsx(te, {
               className: "my-3",
               style: y.card,
               border: "danger",
-              children: h.jsx(ne.Body, {
+              children: h.jsx(te.Body, {
                 children: h.jsx(Z, {
                   style: y.form,
                   children: h.jsxs(Z.Group, {
@@ -20002,7 +20002,7 @@ const nb = "loggedUser",
                       }),
                       h.jsxs("div", {
                         children: [
-                          h.jsx(ct, {
+                          h.jsx(nt, {
                             variant: "primary",
                             style: y.button,
                             onClick: () => n(!0),
@@ -20010,7 +20010,7 @@ const nb = "loggedUser",
                             className: "btn-custom",
                             children: "First-time User",
                           }),
-                          h.jsx(ct, {
+                          h.jsx(nt, {
                             variant: "secondary",
                             onClick: () => n(!1),
                             style: y.button,
@@ -20026,11 +20026,11 @@ const nb = "loggedUser",
               }),
             }),
           e === !0 &&
-            h.jsx(ne, {
+            h.jsx(te, {
               className: "my-3",
               style: y.card,
               border: "danger",
-              children: h.jsx(ne.Body, {
+              children: h.jsx(te.Body, {
                 children: h.jsxs(Z, {
                   onSubmit: m,
                   style: y.form,
@@ -20144,7 +20144,7 @@ const nb = "loggedUser",
                         }),
                       ],
                     }),
-                    h.jsx(ct, {
+                    h.jsx(nt, {
                       type: "submit",
                       variant: "danger",
                       disabled: d,
@@ -20158,11 +20158,11 @@ const nb = "loggedUser",
               }),
             }),
           e === !1 &&
-            h.jsx(ne, {
+            h.jsx(te, {
               className: "my-3",
               style: y.card,
               border: "danger",
-              children: h.jsx(ne.Body, {
+              children: h.jsx(te.Body, {
                 children: h.jsxs(Z, {
                   onSubmit: m,
                   style: y.form,
@@ -20256,7 +20256,7 @@ const nb = "loggedUser",
                         }),
                       ],
                     }),
-                    h.jsx(ct, {
+                    h.jsx(nt, {
                       type: "submit",
                       variant: "danger",
                       disabled: d,
@@ -23298,20 +23298,20 @@ const Q6 = function (e, n = {}, r = {}) {
   os = {
     get: async (t) => {
       const e = `${qa}/user/${t}`;
-      return (await ce.get(e, Xa())).data;
+      return (await ue.get(e, Xa())).data;
     },
     updateExercise: async (t, e, n) => {
       const r = `${qa}/workout/${t}/exercise/${e}`;
-      return (await ce.put(r, n, Xa())).data;
+      return (await ue.put(r, n, Xa())).data;
     },
     getInactive: async (t) => {
       const e = `${qa}/inactive/${t}`;
-      return (await ce.get(e, Xa())).data;
+      return (await ue.get(e, Xa())).data;
     },
     updateOrder: async (t, e) => {
       const n = `${qa}/workout/${t}/order`;
       return (
-        await ce.put(
+        await ue.put(
           n,
           {
             exercises: e.map((i) => ({
@@ -23421,14 +23421,14 @@ const Q6 = function (e, n = {}, r = {}) {
         h.jsx("td", {
           style: a,
           children: d
-            ? h.jsx(ct, {
+            ? h.jsx(nt, {
                 variant: "primary",
                 "aria-label": "Edit",
                 className: "btn-custom",
                 onClick: O,
                 children: "Save",
               })
-            : h.jsx(ct, {
+            : h.jsx(nt, {
                 variant: "danger",
                 "aria-label": "Update",
                 className: "btn-custom",
@@ -23486,7 +23486,7 @@ const Q6 = function (e, n = {}, r = {}) {
           }),
         }),
         h.jsx(ar.Footer, {
-          children: h.jsx(ct, {
+          children: h.jsx(nt, {
             variant: "secondary",
             onClick: e,
             style: i.footerButton,
@@ -23579,23 +23579,23 @@ const Q6 = function (e, n = {}, r = {}) {
         columnText: { color: "#df0000" },
       },
       x = t7() ? Q6 : z6;
-    return h.jsxs(nt, {
+    return h.jsxs(rt, {
       children: [
         h.jsx("h1", { style: v.header, children: "Your Workouts" }),
         e.map((_, w) =>
           h.jsx(
-            ne,
+            te,
             {
               className: "my-3",
               style: v.card,
               border: "danger",
-              children: h.jsxs(ne.Body, {
+              children: h.jsxs(te.Body, {
                 children: [
                   h.jsxs("h3", {
                     style: v.header,
                     children: ["Workout ", w + 1],
                   }),
-                  h.jsx(ct, {
+                  h.jsx(nt, {
                     variant: "danger",
                     "aria-label": "Reorganise exercise order",
                     className: "btn-custom",
@@ -23717,17 +23717,17 @@ const Q6 = function (e, n = {}, r = {}) {
         color: "#df0000",
       },
     };
-    return h.jsxs(nt, {
+    return h.jsxs(rt, {
       children: [
         h.jsx("h1", { style: i.header, children: "Previous Workouts" }),
         n.map((s, o) =>
           h.jsx(
-            ne,
+            te,
             {
               className: "my-3",
               style: i.card,
               border: "danger",
-              children: h.jsxs(ne.Body, {
+              children: h.jsxs(te.Body, {
                 children: [
                   h.jsxs("h3", {
                     style: i.header,
@@ -24345,7 +24345,7 @@ function Te(t) {
   const e = Object.prototype.toString.call(t);
   return e.slice(0, 7) === "[object" && e.slice(-6) === "Array]";
 }
-function le(t) {
+function ce(t) {
   return t !== null && Object.prototype.toString.call(t) === "[object Object]";
 }
 function ze(t) {
@@ -24365,7 +24365,7 @@ function he(t, e, n) {
 function de(t, e, n, r) {
   let i, s, o;
   if (Te(t)) for (s = t.length, i = 0; i < s; i++) e.call(n, t[i], i);
-  else if (le(t))
+  else if (ce(t))
     for (o = Object.keys(t), s = o.length, i = 0; i < s; i++)
       e.call(n, t[o[i]], o[i]);
 }
@@ -24383,7 +24383,7 @@ function Sc(t, e) {
 }
 function Cc(t) {
   if (Te(t)) return t.map(Cc);
-  if (le(t)) {
+  if (ce(t)) {
     const e = Object.create(null),
       n = Object.keys(t),
       r = n.length;
@@ -24400,17 +24400,17 @@ function k7(t, e, n, r) {
   if (!Ob(t)) return;
   const i = e[t],
     s = n[t];
-  le(i) && le(s) ? ia(i, s, r) : (e[t] = Cc(s));
+  ce(i) && ce(s) ? ia(i, s, r) : (e[t] = Cc(s));
 }
 function ia(t, e, n) {
   const r = Te(e) ? e : [e],
     i = r.length;
-  if (!le(t)) return t;
+  if (!ce(t)) return t;
   n = n || {};
   const s = n.merger || k7;
   let o;
   for (let a = 0; a < i; ++a) {
-    if (((o = r[a]), !le(o))) continue;
+    if (((o = r[a]), !ce(o))) continue;
     const l = Object.keys(o);
     for (let c = 0, u = l.length; c < u; ++c) s(l[c], t, o, n);
   }
@@ -24423,7 +24423,7 @@ function N7(t, e, n) {
   if (!Ob(t)) return;
   const r = e[t],
     i = n[t];
-  le(r) && le(i)
+  ce(r) && ce(i)
     ? Do(r, i)
     : Object.prototype.hasOwnProperty.call(e, t) || (e[t] = Cc(i));
 }
@@ -25016,7 +25016,7 @@ class tN {
         get() {
           const l = this[a],
             c = o[i];
-          return le(l) ? Object.assign({}, c, l) : ie(l, c);
+          return ce(l) ? Object.assign({}, c, l) : ie(l, c);
         },
         set(l) {
           this[a] = l;
@@ -25325,9 +25325,9 @@ function dN(t, e) {
 const fN = (t) => +t || 0;
 function Rb(t, e) {
   const n = {},
-    r = le(e),
+    r = ce(e),
     i = r ? Object.keys(e) : e,
-    s = le(t) ? (r ? (o) => ie(t[o], t[e[o]]) : (o) => t[o]) : () => t;
+    s = ce(t) ? (r ? (o) => ie(t[o], t[e[o]]) : (o) => t[o]) : () => t;
   for (const o of i) n[o] = fN(s(o));
   return n;
 }
@@ -25337,7 +25337,7 @@ function hN(t) {
 function as(t) {
   return Rb(t, ["topLeft", "topRight", "bottomLeft", "bottomRight"]);
 }
-function it(t) {
+function st(t) {
   const e = hN(t);
   return (e.width = e.left + e.right), (e.height = e.top + e.bottom), e;
 }
@@ -25465,7 +25465,7 @@ function Ib(t, e = { scriptable: !0, indexable: !0 }) {
 }
 const gN = (t, e) => (t ? t + u0(e) : e),
   x0 = (t, e) =>
-    le(e) &&
+    ce(e) &&
     t !== "adapters" &&
     (Object.getPrototypeOf(e) === null || e.constructor === Object);
 function Mb(t, e, n) {
@@ -25497,7 +25497,7 @@ function vN(t, e, n, r) {
 function yN(t, e, n, r) {
   const { _proxy: i, _context: s, _subProxy: o, _descriptors: a } = n;
   if (typeof s.index < "u" && r(t)) return e[s.index % e.length];
-  if (le(e[0])) {
+  if (ce(e[0])) {
     const l = e,
       c = i._scopes.filter((u) => u !== l);
     e = [];
@@ -25543,7 +25543,7 @@ function bN(t, e, n) {
   const r = t._getTarget();
   e in r || (r[e] = {});
   const i = r[e];
-  return Te(i) && le(n) ? n : i || {};
+  return Te(i) && ce(n) ? n : i || {};
 }
 function wN(t, e, n, r) {
   let i;
@@ -26306,12 +26306,12 @@ class Wb {
     (this._chart = e), (this._properties = new Map()), this.configure(n);
   }
   configure(e) {
-    if (!le(e)) return;
+    if (!ce(e)) return;
     const n = Object.keys(ke.animation),
       r = this._properties;
     Object.getOwnPropertyNames(e).forEach((i) => {
       const s = e[i];
-      if (!le(s)) return;
+      if (!ce(s)) return;
       const o = {};
       for (const a of n) o[a] = s[a];
       ((Te(s.properties) && s.properties) || [i]).forEach((a) => {
@@ -26412,7 +26412,7 @@ function tD(t, e, n) {
 function nD(t) {
   let e, n, r, i;
   return (
-    le(t)
+    ce(t)
       ? ((e = t.top), (n = t.right), (r = t.bottom), (i = t.left))
       : (e = n = r = i = t),
     { top: e, right: n, bottom: r, left: i, disabled: t === !1 }
@@ -26623,7 +26623,7 @@ class Ro {
     const e = this.getDataset(),
       n = e.data || (e.data = []),
       r = this._data;
-    if (le(n)) {
+    if (ce(n)) {
       const i = this._cachedMeta;
       this._data = rD(n, i);
     } else if (r !== n) {
@@ -26674,7 +26674,7 @@ class Ro {
     else {
       Te(i[e])
         ? (f = this.parseArrayData(r, i, e, n))
-        : le(i[e])
+        : ce(i[e])
         ? (f = this.parseObjectData(r, i, e, n))
         : (f = this.parsePrimitiveData(r, i, e, n));
       const p = () => d[a] === null || (c && d[a] < c[a]);
@@ -27362,7 +27362,7 @@ function Yb(t, e) {
 function _D(t, e, n, r) {
   const { pos: i, box: s } = n,
     o = t.maxPadding;
-  if (!le(i)) {
+  if (!ce(i)) {
     n.size && (t[i] -= n.size);
     const d = r[n.stack] || { size: 0, count: 1 };
     (d.size = Math.max(d.size, n.horizontal ? s.height : s.width)),
@@ -27481,7 +27481,7 @@ var Yt = {
   },
   update(t, e, n, r) {
     if (!t) return;
-    const i = it(t.options.layout.padding),
+    const i = st(t.options.layout.padding),
       s = Math.max(e - i.width, 0),
       o = Math.max(n - i.height, 0),
       a = xD(t.boxes),
@@ -27505,7 +27505,7 @@ var Yt = {
         hBoxMaxHeight: o / 2,
       }),
       f = Object.assign({}, i);
-    Yb(f, it(r));
+    Yb(f, st(r));
     const p = Object.assign(
         { maxPadding: f, w: s, h: o, x: i.left, y: i.top },
         i,
@@ -27895,7 +27895,7 @@ function to(t) {
 function L1(t, e) {
   if (!t.display) return 0;
   const n = je(t.font, e),
-    r = it(t.padding);
+    r = st(t.padding);
   return (Te(t.text) ? t.text.length : 1) * n.lineHeight + r.height;
 }
 function YD(t, e) {
@@ -27918,7 +27918,7 @@ function qD(t, e, n, r) {
   const m = o - i,
     y = a - s;
   if (t.isHorizontal()) {
-    if (((p = et(r, s, a)), le(n))) {
+    if (((p = et(r, s, a)), ce(n))) {
       const v = Object.keys(n)[0],
         x = n[v];
       g = u[v].getPixelForValue(x) + m - e;
@@ -27926,7 +27926,7 @@ function qD(t, e, n, r) {
       n === "center" ? (g = (c.bottom + c.top) / 2 + m - e) : (g = D1(t, n, e));
     f = a - s;
   } else {
-    if (le(n)) {
+    if (ce(n)) {
       const v = Object.keys(n)[0],
         x = n[v];
       p = u[v].getPixelForValue(x) - y + e;
@@ -28482,7 +28482,7 @@ class Ci extends Si {
         (O = this.left + f);
     else if (n === "x") {
       if (o === "center") x = v((e.top + e.bottom) / 2 + 0.5);
-      else if (le(o)) {
+      else if (ce(o)) {
         const Y = Object.keys(o)[0],
           K = o[Y];
         x = v(this.chart.scales[Y].getPixelForValue(K));
@@ -28490,7 +28490,7 @@ class Ci extends Si {
       (F = e.top), (M = e.bottom), (C = x + y), (P = C + f);
     } else if (n === "y") {
       if (o === "center") x = v((e.left + e.right) / 2);
-      else if (le(o)) {
+      else if (ce(o)) {
         const Y = Object.keys(o)[0],
           K = o[Y];
         x = v(this.chart.scales[Y].getPixelForValue(K));
@@ -28573,7 +28573,7 @@ class Ci extends Si {
       (C = z.textAlign), (E = z.x);
     } else if (n === "x") {
       if (i === "center") S = (e.top + e.bottom) / 2 + p;
-      else if (le(i)) {
+      else if (ce(i)) {
         const z = Object.keys(i)[0],
           Y = i[z];
         S = this.chart.scales[z].getPixelForValue(Y) + p;
@@ -28581,7 +28581,7 @@ class Ci extends Si {
       C = this._getXAxisLabelAlignment();
     } else if (n === "y") {
       if (i === "center") E = (e.left + e.right) / 2 - p;
-      else if (le(i)) {
+      else if (ce(i)) {
         const z = Object.keys(i)[0],
           Y = i[z];
         E = this.chart.scales[z].getPixelForValue(Y);
@@ -28626,7 +28626,7 @@ class Ci extends Si {
         : ((S = O), (A = ((1 - F) * D) / 2));
       let $;
       if (z.showLabelBackdrop) {
-        const I = it(z.backdropPadding),
+        const I = st(z.backdropPadding),
           B = V.heights[v],
           H = V.widths[v];
         let U = A - I.top,
@@ -28845,10 +28845,10 @@ class Ci extends Si {
     } = this;
     if (!r.display) return;
     const s = je(r.font),
-      o = it(r.padding),
+      o = st(r.padding),
       a = r.align;
     let l = s.lineHeight / 2;
-    n === "bottom" || n === "center" || le(n)
+    n === "bottom" || n === "center" || ce(n)
       ? ((l += o.bottom),
         Te(r.text) && (l += s.lineHeight * (r.text.length - 1)))
       : (l += o.top);
@@ -29211,7 +29211,7 @@ function c9(t, e) {
   return (
     Object.keys(r).forEach((o) => {
       const a = r[o];
-      if (!le(a))
+      if (!ce(a))
         return console.error(`Invalid scale configuration for scale: ${o}`);
       if (a._proxy)
         return console.warn(
@@ -29364,7 +29364,7 @@ let d9 = class {
   }
   createResolver(e, n, r = [""], i) {
     const { resolver: s } = j1(this._resolverCache, e, r);
-    return le(n) ? Ss(s, n, void 0, i) : s;
+    return ce(n) ? Ss(s, n, void 0, i) : s;
   }
 };
 function j1(t, e, n) {
@@ -29382,7 +29382,7 @@ function j1(t, e, n) {
     s
   );
 }
-const f9 = (t) => le(t) && Object.getOwnPropertyNames(t).some((e) => kr(t[e]));
+const f9 = (t) => ce(t) && Object.getOwnPropertyNames(t).some((e) => kr(t[e]));
 function h9(t, e) {
   const { isScriptable: n, isIndexable: r } = Ib(t);
   for (const i of e) {
@@ -30756,7 +30756,7 @@ class U1 extends Si {
     const e = this.options,
       n = e.title,
       r = je(n.font),
-      i = it(n.padding);
+      i = st(n.padding);
     if (!n.display) return;
     const s = ls(e.rtl, this.left, this.width),
       o = this.ctx,
@@ -30791,7 +30791,7 @@ class U1 extends Si {
   _computeTitleHeight() {
     const e = this.options.title,
       n = je(e.font),
-      r = it(e.padding);
+      r = st(e.padding);
     return e.display ? n.lineHeight + r.height : 0;
   }
   _getLegendItemAt(e, n) {
@@ -30902,7 +30902,7 @@ var rw = {
           } = t.legend.options;
         return t._getSortedDatasetMetas().map((l) => {
           const c = l.controller.getStyle(n ? 0 : void 0),
-            u = it(c.borderWidth);
+            u = st(c.borderWidth);
           return {
             text: e[l.index].label,
             fillStyle: c.backgroundColor,
@@ -30962,7 +30962,7 @@ class iw extends Si {
     }
     (this.width = this.right = e), (this.height = this.bottom = n);
     const i = Te(r.text) ? r.text.length : 1;
-    this._padding = it(r.padding);
+    this._padding = st(r.padding);
     const s = i * je(r.font).lineHeight + this._padding.height;
     this.isHorizontal() ? (this.height = s) : (this.width = s);
   }
@@ -31112,7 +31112,7 @@ function Y1(t, e) {
     d = s.length,
     f = i.length,
     p = r.length,
-    g = it(e.padding);
+    g = st(e.padding);
   let m = g.height,
     y = 0,
     v = r.reduce(
@@ -31211,7 +31211,7 @@ function K1(t, e, n, r) {
   );
 }
 function cl(t, e, n) {
-  const r = it(n.padding);
+  const r = st(n.padding);
   return e === "center"
     ? t.x + t.width / 2
     : e === "right"
@@ -31520,7 +31520,7 @@ let Q1 =
           (e.fillStyle = o.backgroundColor),
           gh(e, m, y, v);
       } else {
-        (e.lineWidth = le(o.borderWidth)
+        (e.lineWidth = ce(o.borderWidth)
           ? Math.max(...Object.values(o.borderWidth))
           : o.borderWidth || 1),
           (e.strokeStyle = o.borderColor),
@@ -31685,7 +31685,7 @@ let Q1 =
       const i = { width: this.width, height: this.height },
         s = { x: this.x, y: this.y };
       r = Math.abs(r) < 0.001 ? 0 : r;
-      const o = it(n.padding),
+      const o = st(n.padding),
         a =
           this.title.length ||
           this.beforeBody.length ||
@@ -32248,7 +32248,7 @@ Q(nv, "id", "logarithmic"),
 function xh(t) {
   const e = t.ticks;
   if (e.display && t.display) {
-    const n = it(e.backdropPadding);
+    const n = st(e.backdropPadding);
     return ie(e.font && e.font.size, ke.font.size) + n.height;
   }
   return 0;
@@ -32366,7 +32366,7 @@ function rP(t, e, n) {
     { backdropColor: a } = e;
   if (!ve(a)) {
     const l = as(e.borderRadius),
-      c = it(e.backdropPadding);
+      c = st(e.backdropPadding);
     t.fillStyle = a;
     const u = r - c.left,
       d = i - c.top,
@@ -32438,7 +32438,7 @@ class ul extends Rc {
       (this._pointLabelItems = []);
   }
   setDimensions() {
-    const e = (this._padding = it(xh(this.options) / 2)),
+    const e = (this._padding = st(xh(this.options) / 2)),
       n = (this.width = this.maxWidth - e.width),
       r = (this.height = this.maxHeight - e.height);
     (this.xCenter = Math.floor(this.left + n / 2 + e.left)),
@@ -32603,7 +32603,7 @@ class ul extends Rc {
           (e.font = u.string),
             (o = e.measureText(a.label).width),
             (e.fillStyle = c.backdropColor);
-          const d = it(c.backdropPadding);
+          const d = st(c.backdropPadding);
           e.fillRect(
             -o / 2 - d.left,
             -s - u.size / 2 - d.top,
@@ -33246,18 +33246,18 @@ const gP = (t) => {
           },
         },
       };
-    return h.jsxs(nt, {
+    return h.jsxs(rt, {
       children: [
         h.jsx("h1", { style: s, children: "Progress Graphs" }),
         e.length > 0
           ? e.map((a, l) =>
               h.jsx(
-                ne,
+                te,
                 {
                   className: "my-3",
                   style: i,
                   border: "danger",
-                  children: h.jsxs(ne.Body, {
+                  children: h.jsxs(te.Body, {
                     children: [
                       h.jsxs("h3", {
                         style: {
@@ -33383,18 +33383,18 @@ const yP = (t) => {
           textAlign: "center",
         },
       };
-    return h.jsxs(nt, {
+    return h.jsxs(rt, {
       children: [
         h.jsx("h1", { style: s.header, children: "Previous Progress Graphs" }),
         e.length > 0
           ? e.map((o, a) =>
               h.jsx(
-                ne,
+                te,
                 {
                   className: "my-3",
                   style: s.card,
                   border: "danger",
-                  children: h.jsxs(ne.Body, {
+                  children: h.jsxs(te.Body, {
                     children: [
                       h.jsxs("h3", {
                         style: s.header,
@@ -33427,20 +33427,20 @@ const yP = (t) => {
       children: h.jsx("a", {
         href: n,
         style: { textDecoration: "none" },
-        children: h.jsx(ne, {
+        children: h.jsx(te, {
           className: "mb-4 box-shadow",
           border: "danger",
           style: r.text,
-          children: h.jsxs(ne.Body, {
+          children: h.jsxs(te.Body, {
             children: [
-              h.jsxs(ne.Title, {
+              h.jsxs(te.Title, {
                 style: r.header,
                 children: [
-                  h.jsx("span", { style: r.svg, children: h.jsx(ue, {}) }),
+                  h.jsx("span", { style: r.svg, children: h.jsx(oe, {}) }),
                   t,
                 ],
               }),
-              h.jsx(ne.Text, { style: r.description, children: e }),
+              h.jsx(te.Text, { style: r.description, children: e }),
             ],
           }),
         }),
@@ -33469,30 +33469,30 @@ const yP = (t) => {
       },
       image: { maxWidth: "100%", height: "auto" },
     };
-    return h.jsxs(nt, {
+    return h.jsxs(rt, {
       children: [
         h.jsxs(ws, {
           style: t.ctaSection,
           children: [
             h.jsx(Tr, {
               md: 6,
-              children: h.jsx(ne, {
+              children: h.jsx(te, {
                 className: "text-center",
                 style: { border: "none" },
-                children: h.jsxs(ne.Body, {
+                children: h.jsxs(te.Body, {
                   children: [
-                    h.jsx(ne.Title, {
+                    h.jsx(te.Title, {
                       style: t.ctaText,
                       children: h.jsx("h1", {
                         children: "Welcome to Bullet Point Fitness",
                       }),
                     }),
-                    h.jsx(ne.Text, {
+                    h.jsx(te.Text, {
                       style: t.text,
                       children:
                         "Start your fitness journey with our interactive tools and personalized programs. Learn, train, and transform.",
                     }),
-                    h.jsx(ct, {
+                    h.jsx(nt, {
                       style: t.ctaButton,
                       variant: "danger",
                       "aria-label": "Get Started",
@@ -33563,7 +33563,7 @@ const yP = (t) => {
     });
   },
   EP = () =>
-    h.jsx(nt, {
+    h.jsx(rt, {
       children: h.jsxs(ws, {
         children: [
           h.jsx(kt, {
@@ -33621,71 +33621,60 @@ const yP = (t) => {
       button: { margin: 10 },
       link: { textDecoration: "none" },
     };
-    return h.jsxs(nt, {
+    return h.jsxs(rt, {
       children: [
-        h.jsx("h1", { style: t.header, children: "Workout Instructions" }),
-        h.jsx(ne, {
+        h.jsx("h1", {
+          style: t.header,
+          children: "Bullet Point Fitness Manual",
+        }),
+        h.jsx(te, {
           className: "my-3",
           style: t.card,
           border: "danger",
-          children: h.jsx(ne.Body, {
+          children: h.jsx(te.Body, {
             children: h.jsxs("div", {
               style: t.instructions,
               children: [
+                h.jsx("h3", {
+                  style: t.header,
+                  children: "Program Instructions",
+                }),
                 h.jsxs("ul", {
                   style: t.ul,
                   children: [
                     h.jsxs("li", {
                       children: [
-                        h.jsx(ue, {}),
-                        " Aim for 4-10 reps per set, with the ideal range being 5-8 reps.",
+                        h.jsx(oe, {}),
+                        " Perform each workout with at least one rest day between. On rest days, you can do light aerobic activities like walking, cycling, swimming, rowing, or using the elliptical.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(ue, {}),
-                        " Focus on increasing weight as the main goal. Use reps to adapt to the weight before moving up.",
+                        h.jsx(oe, {}),
+                        " When training three times a week, follow a Mon/Wed/Fri or Tues/Thurs/Sat schedule, or any combination that allows a rest day between each workout.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(ue, {}),
-                        " When increasing the weight, always use the smallest increment possible (e.g., 2.5 kg or smaller). Avoid large jumps.",
-                      ],
-                    }),
-                    h.jsxs("li", {
-                      children: [
-                        h.jsx(ue, {}),
-                        " Perform these sessions with at least one rest day between each. On rest days, you can do light aerobic activities like walking, cycling, swimming, rowing, or using the elliptical.",
-                      ],
-                    }),
-                    h.jsxs("li", {
-                      children: [
-                        h.jsx(ue, {}),
-                        " If you train three times a week, follow a Mon/Wed/Fri or Tues/Thurs/Sat schedule, or any combination that allows rest days.",
-                      ],
-                    }),
-                    h.jsxs("li", {
-                      children: [
-                        h.jsx(ue, {}),
+                        h.jsx(oe, {}),
                         " For more frequent training, alternate training days like this:",
                         h.jsxs("ul", {
                           style: t.ulTwo,
                           children: [
                             h.jsxs("li", {
                               children: [
-                                h.jsx(ue, {}),
+                                h.jsx(oe, {}),
                                 "Week 1: Mon/Wed/Fri/Sun",
                               ],
                             }),
                             h.jsxs("li", {
                               children: [
-                                h.jsx(ue, {}),
+                                h.jsx(oe, {}),
                                 "Week 2: Tues/Thurs/Sat",
                               ],
                             }),
                             h.jsxs("li", {
-                              children: [h.jsx(ue, {}), "Repeat."],
+                              children: [h.jsx(oe, {}), "Repeat."],
                             }),
                           ],
                         }),
@@ -33693,96 +33682,20 @@ const yP = (t) => {
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(ue, {}),
+                        h.jsx(oe, {}),
                         " For Stages 1 and 2, perform each workout once per week.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(ue, {}),
+                        h.jsx(oe, {}),
                         " For Stage 3, follow the alternate day schedule.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(ue, {}),
-                        " Click on an exercise to view a demo video.",
-                      ],
-                    }),
-                    h.jsxs("li", {
-                      children: [
-                        h.jsx(ue, {}),
-                        " To warm up correctly:",
-                        h.jsxs("ul", {
-                          style: t.ulTwo,
-                          children: [
-                            h.jsxs("li", {
-                              children: [
-                                h.jsx(ue, {}),
-                                "Perform a 10-minute aerobic exercise at 60% of your maximum heart rate: (220 - your age) x 0.6.",
-                              ],
-                            }),
-                            h.jsxs("li", {
-                              children: [
-                                h.jsx(ue, {}),
-                                "For the first exercise, perform warmup sets as follows:",
-                                h.jsxs("ul", {
-                                  style: t.ulTwo,
-                                  children: [
-                                    h.jsxs("li", {
-                                      children: [
-                                        h.jsx(ue, {}),
-                                        "50% of your working weight for 5 reps",
-                                      ],
-                                    }),
-                                    h.jsxs("li", {
-                                      children: [
-                                        h.jsx(ue, {}),
-                                        "70% of your working weight for 2-3 reps",
-                                      ],
-                                    }),
-                                    h.jsxs("li", {
-                                      children: [
-                                        h.jsx(ue, {}),
-                                        "85% of your working weight for 1-2 reps",
-                                      ],
-                                    }),
-                                  ],
-                                }),
-                              ],
-                            }),
-                            h.jsxs("li", {
-                              children: [
-                                h.jsx(ue, {}),
-                                "Rest for 2 minutes before performing your working set.",
-                              ],
-                            }),
-                            h.jsxs("li", {
-                              children: [
-                                h.jsx(ue, {}),
-                                "For the following exercises, you can use the 70% and 85% warmup sets to minimize fatigue.",
-                              ],
-                            }),
-                          ],
-                        }),
-                      ],
-                    }),
-                    h.jsxs("li", {
-                      children: [
-                        h.jsx(ue, {}),
-                        " Each exercise includes one working set. Warm up appropriately and rest for 2 minutes before the main set. Focus on maximizing intensity.",
-                      ],
-                    }),
-                    h.jsxs("li", {
-                      children: [
-                        h.jsx(ue, {}),
-                        " If you can't perform an exercise due to lack of equipment, contact us to modify your program.",
-                      ],
-                    }),
-                    h.jsxs("li", {
-                      children: [
-                        h.jsx(ue, {}),
-                        ' To change the order of exercises, click the "Re-order exercises" button, drag and drop the exercises, and then save.',
+                        h.jsx(oe, {}),
+                        " If you have any further queries don't hesitate to get in contact.",
                       ],
                     }),
                   ],
@@ -33792,7 +33705,155 @@ const yP = (t) => {
                   children: h.jsx("a", {
                     href: "/workouts",
                     style: t.link,
-                    children: h.jsx(ct, {
+                    children: h.jsx(nt, {
+                      type: "submit",
+                      variant: "danger",
+                      style: t.button,
+                      "aria-label": "Submit",
+                      className: "btn-custom",
+                      children: "Onto Workouts",
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          }),
+        }),
+        h.jsx(te, {
+          className: "my-3",
+          style: t.card,
+          border: "danger",
+          children: h.jsx(te.Body, {
+            children: h.jsxs("div", {
+              style: t.instructions,
+              children: [
+                h.jsx("h3", {
+                  style: t.header,
+                  children: "Workout Instructions",
+                }),
+                h.jsxs("ul", {
+                  style: t.ul,
+                  children: [
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " When you're performing an exercise or workout for the first time and are unsure about the appropriate weight, start with a lighter load. Perform the exercise until task failure (the point where you can no longer maintain proper form). Record the weight and the number of reps you completed, and use this as your baseline to progress in future sessions.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " The goal of each exercise and workout is to build up to one working set per exercise, where you push to maximize both weight and reps. Only log the weight and reps for this one working set—there's no need to track your warm-up sets.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " Aim to reach task failure within 4-10 reps for your working set, with the ideal range being 5-8 reps.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " Focus on increasing weight in your working set as the main goal. Increase reps to adapt to any new weight before moving up. Use the guidance on each exercise to gauge whether you should increase reps or weight.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " When increasing the weight, always use the smallest increment possible (e.g., 2.5 kg or smaller). Avoid large jumps.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " Click on an exercise to view a demo video. Before starting your workout, make sure to watch the demo videos for each exercise to ensure you know how to perform them correctly.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " To warm up correctly:",
+                        h.jsxs("ul", {
+                          style: t.ulTwo,
+                          children: [
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(oe, {}),
+                                "Perform a 10-minute aerobic exercise at 60% of your maximum heart rate: (220 - your age) x 0.6.",
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(oe, {}),
+                                "For the first exercise, perform warmup sets as follows:",
+                                h.jsxs("ul", {
+                                  style: t.ulTwo,
+                                  children: [
+                                    h.jsxs("li", {
+                                      children: [
+                                        h.jsx(oe, {}),
+                                        "50% of your working weight for 5 reps",
+                                      ],
+                                    }),
+                                    h.jsxs("li", {
+                                      children: [
+                                        h.jsx(oe, {}),
+                                        "70% of your working weight for 2-3 reps",
+                                      ],
+                                    }),
+                                    h.jsxs("li", {
+                                      children: [
+                                        h.jsx(oe, {}),
+                                        "85% of your working weight for 1-2 reps",
+                                      ],
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(oe, {}),
+                                "Rest for 2 minutes before performing your working set.",
+                              ],
+                            }),
+                            h.jsxs("li", {
+                              children: [
+                                h.jsx(oe, {}),
+                                "For the subsequent exercises, you can use the 70% and 85% warmup sets to minimize fatigue.",
+                              ],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " If you can't perform an exercise due to lack of equipment, contact us to modify your program.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        ' To change the order of exercises, click the "Re-order exercises" button, drag and drop the exercises, and then save.',
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(oe, {}),
+                        " If you have any further queries don't hesitate to get in contact.",
+                      ],
+                    }),
+                  ],
+                }),
+                h.jsx("div", {
+                  style: t.buttonContainer,
+                  children: h.jsx("a", {
+                    href: "/workouts",
+                    style: t.link,
+                    children: h.jsx(nt, {
                       type: "submit",
                       variant: "danger",
                       style: t.button,
@@ -33810,7 +33871,7 @@ const yP = (t) => {
     });
   },
   CP = "/api/login",
-  OP = async (t) => (await ce.post(CP, t)).data,
+  OP = async (t) => (await ue.post(CP, t)).data,
   TP = { login: OP },
   kP = () => {
     const [t, e] = b.useState(null),

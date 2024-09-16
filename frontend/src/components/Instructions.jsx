@@ -41,34 +41,22 @@ const Instructions = () => {
 
   return (
     <Container>
-      <h1 style={styles.header}>Workout Instructions</h1>
+      <h1 style={styles.header}>Bullet Point Fitness Manual</h1>
       <Card className="my-3" style={styles.card} border="danger">
         <Card.Body>
           <div style={styles.instructions}>
+            <h3 style={styles.header}>Program Instructions</h3>
             <ul style={styles.ul}>
               <li>
-                <BulletPointSVG /> Aim for 4-10 reps per set, with the ideal
-                range being 5-8 reps.
-              </li>
-              <li>
-                <BulletPointSVG /> Focus on increasing weight as the main goal.
-                Use reps to adapt to the weight before moving up.
-              </li>
-              <li>
-                <BulletPointSVG /> When increasing the weight, always use the
-                smallest increment possible (e.g., 2.5 kg or smaller). Avoid
-                large jumps.
-              </li>
-              <li>
-                <BulletPointSVG /> Perform these sessions with at least one rest
-                day between each. On rest days, you can do light aerobic
-                activities like walking, cycling, swimming, rowing, or using the
+                <BulletPointSVG /> Perform each workout with at least one rest
+                day between. On rest days, you can do light aerobic activities
+                like walking, cycling, swimming, rowing, or using the
                 elliptical.
               </li>
               <li>
-                <BulletPointSVG /> If you train three times a week, follow a
+                <BulletPointSVG /> When training three times a week, follow a
                 Mon/Wed/Fri or Tues/Thurs/Sat schedule, or any combination that
-                allows rest days.
+                allows a rest day between each workout.
               </li>
               <li>
                 <BulletPointSVG /> For more frequent training, alternate
@@ -97,7 +85,65 @@ const Instructions = () => {
                 schedule.
               </li>
               <li>
+                <BulletPointSVG /> If you have any further queries don't
+                hesitate to get in contact.
+              </li>
+            </ul>
+            <div style={styles.buttonContainer}>
+              <a href="/workouts" style={styles.link}>
+                <Button
+                  type="submit"
+                  variant="danger"
+                  style={styles.button}
+                  aria-label="Submit"
+                  className="btn-custom"
+                >
+                  Onto Workouts
+                </Button>
+              </a>
+            </div>
+          </div>
+        </Card.Body>
+      </Card>
+      <Card className="my-3" style={styles.card} border="danger">
+        <Card.Body>
+          <div style={styles.instructions}>
+            <h3 style={styles.header}>Workout Instructions</h3>
+            <ul style={styles.ul}>
+              <li>
+                <BulletPointSVG /> When you're performing an exercise or workout
+                for the first time and are unsure about the appropriate weight,
+                start with a lighter load. Perform the exercise until task
+                failure (the point where you can no longer maintain proper
+                form). Record the weight and the number of reps you completed,
+                and use this as your baseline to progress in future sessions.
+              </li>
+              <li>
+                <BulletPointSVG /> The goal of each exercise and workout is to
+                build up to one working set per exercise, where you push to
+                maximize both weight and reps. Only log the weight and reps for
+                this one working set—there's no need to track your warm-up sets.
+              </li>
+              <li>
+                <BulletPointSVG /> Aim to reach task failure within 4-10 reps
+                for your working set, with the ideal range being 5-8 reps.
+              </li>
+              <li>
+                <BulletPointSVG /> Focus on increasing weight in your working
+                set as the main goal. Increase reps to adapt to any new weight
+                before moving up. Use the guidance on each exercise to gauge
+                whether you should increase reps or weight.
+              </li>
+              <li>
+                <BulletPointSVG /> When increasing the weight, always use the
+                smallest increment possible (e.g., 2.5 kg or smaller). Avoid
+                large jumps.
+              </li>
+              <li>
                 <BulletPointSVG /> Click on an exercise to view a demo video.
+                Before starting your workout, make sure to watch the demo videos
+                for each exercise to ensure you know how to perform them
+                correctly.
               </li>
               <li>
                 <BulletPointSVG /> To warm up correctly:
@@ -131,15 +177,10 @@ const Instructions = () => {
                   </li>
                   <li>
                     <BulletPointSVG />
-                    For the following exercises, you can use the 70% and 85%
+                    For the subsequent exercises, you can use the 70% and 85%
                     warmup sets to minimize fatigue.
                   </li>
                 </ul>
-              </li>
-              <li>
-                <BulletPointSVG /> Each exercise includes one working set. Warm
-                up appropriately and rest for 2 minutes before the main set.
-                Focus on maximizing intensity.
               </li>
               <li>
                 <BulletPointSVG /> If you can't perform an exercise due to lack
@@ -149,6 +190,10 @@ const Instructions = () => {
                 <BulletPointSVG /> To change the order of exercises, click the
                 "Re-order exercises" button, drag and drop the exercises, and
                 then save.
+              </li>
+              <li>
+                <BulletPointSVG /> If you have any further queries don't
+                hesitate to get in contact.
               </li>
             </ul>
             <div style={styles.buttonContainer}>

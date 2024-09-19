@@ -124,13 +124,21 @@ const ClientInfoForm = ({ notify }) => {
                   >
                     <option value="">Select Your Stage</option>
                     <option value="Stage 1 (Beginner)">
-                      Stage 1 (Beginner)
+                      Stage 1 - Ideal for beginners, those new to Bullet Point
+                      Fitness, or anyone short on time. This stage focuses on
+                      building muscle, burning fat, and improving overall health
+                      efficiently.
                     </option>
                     <option value="Stage 2 (Intermediate)">
-                      Stage 2 (Intermediate)
+                      Stage 2 - Designed for those who have completed Stage 1
+                      and are ready to take their training further, with more
+                      time and focus dedicated to each session.
                     </option>
                     <option value="Stage 3 (Advanced)">
-                      Stage 3 (Advanced)
+                      Stage 3 - For those who have completed Stages 1 and 2 and
+                      are looking to unlock their full physical and genetic
+                      potential, with a commitment to more intensive and
+                      time-demanding training.
                     </option>
                   </Form.Control>
                 </Form.Group>
@@ -220,13 +228,21 @@ const ClientInfoForm = ({ notify }) => {
                   >
                     <option value="">Select Your Stage</option>
                     <option value="Stage 1 (Beginner)">
-                      Stage 1 (Beginner)
+                      Stage 1 - Ideal for beginners, those new to Bullet Point
+                      Fitness, or anyone short on time. This stage focuses on
+                      building muscle, burning fat, and improving overall health
+                      efficiently.
                     </option>
                     <option value="Stage 2 (Intermediate)">
-                      Stage 2 (Intermediate)
+                      Stage 2 - Designed for those who have completed Stage 1
+                      and are ready to take their training further, with more
+                      time and focus dedicated to each session.
                     </option>
                     <option value="Stage 3 (Advanced)">
-                      Stage 3 (Advanced)
+                      Stage 3 - For those who have completed Stages 1 and 2 and
+                      are looking to unlock their full physical and genetic
+                      potential, with a commitment to more intensive and
+                      time-demanding training.
                     </option>
                   </Form.Control>
                 </Form.Group>

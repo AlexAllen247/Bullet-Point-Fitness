@@ -12840,9 +12840,9 @@ function nO(t) {
         Ct = St + y[_e],
         pn = St - y[Xn],
         $r = [dt, ft].indexOf(v) !== -1,
-        se = (Ce = F == null ? void 0 : F[E]) != null ? Ce : 0,
-        Cn = $r ? Ct : St - C[at] - O[at] - se + D.altAxis,
-        Bs = $r ? St + C[at] + O[at] - se - D.altAxis : pn,
+        oe = (Ce = F == null ? void 0 : F[E]) != null ? Ce : 0,
+        Cn = $r ? Ct : St - C[at] - O[at] - oe + D.altAxis,
+        Bs = $r ? St + C[at] + O[at] - oe - D.altAxis : pn,
         P0 = p && $r ? L4(Cn, St, Bs) : Co(p ? Cn : Ct, St, p ? Bs : pn);
       (S[E] = P0), (A[E] = P0 - St);
     }
@@ -14171,10 +14171,10 @@ const x_ = b.forwardRef(
     function qe() {
       return M || m_({ isRTL: ge });
     }
-    function Xe(se) {
+    function Xe(oe) {
       if (!As) return;
       const Cn = qe().getScrollbarWidth() > 0,
-        Bs = se.scrollHeight > iu(se).documentElement.clientHeight;
+        Bs = oe.scrollHeight > iu(oe).documentElement.clientHeight;
       K({
         paddingRight: Cn && !Bs ? dm() : void 0,
         paddingLeft: !Cn && Bs ? dm() : void 0,
@@ -14189,8 +14189,8 @@ const x_ = b.forwardRef(
     const ot = () => {
         T.current = !0;
       },
-      We = (se) => {
-        T.current && B && se.target === B.dialog && ($.current = !0),
+      We = (oe) => {
+        T.current && B && oe.target === B.dialog && ($.current = !0),
           (T.current = !1);
       },
       $e = () => {
@@ -14199,51 +14199,51 @@ const x_ = b.forwardRef(
             N(!1);
           }));
       },
-      X = (se) => {
-        se.target === se.currentTarget && $e();
+      X = (oe) => {
+        oe.target === oe.currentTarget && $e();
       },
-      De = (se) => {
+      De = (oe) => {
         if (f === "static") {
-          X(se);
+          X(oe);
           return;
         }
-        if ($.current || se.target !== se.currentTarget) {
+        if ($.current || oe.target !== oe.currentTarget) {
           $.current = !1;
           return;
         }
         y == null || y();
       },
-      Ce = (se) => {
-        p ? g == null || g(se) : (se.preventDefault(), f === "static" && $e());
+      Ce = (oe) => {
+        p ? g == null || g(oe) : (oe.preventDefault(), f === "static" && $e());
       },
-      _e = (se, Cn) => {
-        se && Xe(se), P == null || P(se, Cn);
+      _e = (oe, Cn) => {
+        oe && Xe(oe), P == null || P(oe, Cn);
       },
-      Xn = (se) => {
-        I.current == null || I.current(), C == null || C(se);
+      Xn = (oe) => {
+        I.current == null || I.current(), C == null || C(oe);
       },
-      St = (se, Cn) => {
-        D == null || D(se, Cn), xx(window, "resize", Se);
+      St = (oe, Cn) => {
+        D == null || D(oe, Cn), xx(window, "resize", Se);
       },
-      at = (se) => {
-        se && (se.style.display = ""),
-          F == null || F(se),
+      at = (oe) => {
+        oe && (oe.style.display = ""),
+          F == null || F(oe),
           Gf(window, "resize", Se);
       },
       Ct = b.useCallback(
-        (se) =>
+        (oe) =>
           h.jsx("div", {
-            ...se,
+            ...oe,
             className: ne(`${t}-backdrop`, A, !d && "show"),
           }),
         [d, A, t],
       ),
       pn = { ...n, ...Y };
     pn.display = "block";
-    const $r = (se) =>
+    const $r = (oe) =>
       h.jsx("div", {
         role: "dialog",
-        ...se,
+        ...oe,
         style: pn,
         className: ne(e, t, L && `${t}-static`, !d && "show"),
         onClick: f ? De : void 0,
@@ -17025,7 +17025,7 @@ ue.HttpStatusCode = oh;
 ue.default = ue;
 const MT = "/api/contactforms",
   jT = { create: async (t) => (await ue.post(MT, t)).data },
-  oe = () =>
+  se = () =>
     h.jsxs("svg", {
       version: "1.1",
       id: "svg1",
@@ -17147,7 +17147,7 @@ const MT = "/api/contactforms",
                         h.jsxs(Z.Label, {
                           htmlFor: "email",
                           style: a.label,
-                          children: [h.jsx(oe, {}), "Email"],
+                          children: [h.jsx(se, {}), "Email"],
                         }),
                         h.jsx(Z.Control, {
                           value: e,
@@ -17165,7 +17165,7 @@ const MT = "/api/contactforms",
                         h.jsxs(Z.Label, {
                           htmlFor: "message",
                           style: a.label,
-                          children: [h.jsx(oe, {}), "Message"],
+                          children: [h.jsx(se, {}), "Message"],
                         }),
                         h.jsx(Z.Control, {
                           as: "textarea",
@@ -17248,7 +17248,7 @@ const MT = "/api/contactforms",
                           to: "/instructions",
                           style: i.navStyle,
                           "aria-label": "Link to Workout Instructions",
-                          children: "Workout Instructions",
+                          children: "Bullet Point Fitness Manual",
                         }),
                         h.jsx(Ze, {
                           to: "/program-form",
@@ -17376,7 +17376,7 @@ const MT = "/api/contactforms",
             h.jsxs("p", {
               style: t.paragraph,
               children: [
-                h.jsx(oe, {}),
+                h.jsx(se, {}),
                 "Starting your fitness journey or taking it to the next level can be challenging, but you don't need to do it alone. If you're looking for guidance, whether it's figuring out where to begin or how to push forward, I'm here to help. Book a one-on-one consultation with me, and together we'll discuss your goals and craft a personalized fitness plan tailored just for you. Choose a timeslot below, and let's start this journey towards achieving your fitness aspirations.",
               ],
             }),
@@ -17534,7 +17534,7 @@ const MT = "/api/contactforms",
         : h.jsx("ul", {
             style: n.ul,
             children: i.map((s, o) =>
-              h.jsxs("li", { children: [h.jsx(oe, {}), s] }, o),
+              h.jsxs("li", { children: [h.jsx(se, {}), s] }, o),
             ),
           });
     return h.jsx(te, {
@@ -17548,7 +17548,7 @@ const MT = "/api/contactforms",
             style: n.description,
             children: [
               h.jsx("h5", { style: n.header, children: "Function:" }),
-              h.jsxs("div", { children: [h.jsx(oe, {}), t.function] }),
+              h.jsxs("div", { children: [h.jsx(se, {}), t.function] }),
             ],
           }),
           h.jsxs("div", {
@@ -18118,7 +18118,7 @@ const MT = "/api/contactforms",
               h.jsx(te.Title, { style: i.header, children: t.title }),
               h.jsxs(te.Text, {
                 style: i.description,
-                children: [h.jsx(oe, {}), t.description],
+                children: [h.jsx(se, {}), t.description],
               }),
               h.jsx(te.Footer, {
                 children: h.jsx("small", { children: t.duration }),
@@ -20055,15 +20055,18 @@ const nb = "loggedUser",
                             }),
                             h.jsx("option", {
                               value: "Stage 1 (Beginner)",
-                              children: "Stage 1 (Beginner)",
+                              children:
+                                "Stage 1 - Ideal for beginners, those new to Bullet Point Fitness, or anyone short on time. This stage focuses on building muscle, burning fat, and improving overall health efficiently.",
                             }),
                             h.jsx("option", {
                               value: "Stage 2 (Intermediate)",
-                              children: "Stage 2 (Intermediate)",
+                              children:
+                                "Stage 2 - Designed for those who have completed Stage 1 and are ready to take their training further, with more time and focus dedicated to each session.",
                             }),
                             h.jsx("option", {
                               value: "Stage 3 (Advanced)",
-                              children: "Stage 3 (Advanced)",
+                              children:
+                                "Stage 3 - For those who have completed Stages 1 and 2 and are looking to unlock their full physical and genetic potential, with a commitment to more intensive and time-demanding training.",
                             }),
                           ],
                         }),
@@ -20205,15 +20208,18 @@ const nb = "loggedUser",
                             }),
                             h.jsx("option", {
                               value: "Stage 1 (Beginner)",
-                              children: "Stage 1 (Beginner)",
+                              children:
+                                "Stage 1 - Ideal for beginners, those new to Bullet Point Fitness, or anyone short on time. This stage focuses on building muscle, burning fat, and improving overall health efficiently.",
                             }),
                             h.jsx("option", {
                               value: "Stage 2 (Intermediate)",
-                              children: "Stage 2 (Intermediate)",
+                              children:
+                                "Stage 2 - Designed for those who have completed Stage 1 and are ready to take their training further, with more time and focus dedicated to each session.",
                             }),
                             h.jsx("option", {
                               value: "Stage 3 (Advanced)",
-                              children: "Stage 3 (Advanced)",
+                              children:
+                                "Stage 3 - For those who have completed Stages 1 and 2 and are looking to unlock their full physical and genetic potential, with a commitment to more intensive and time-demanding training.",
                             }),
                           ],
                         }),
@@ -33436,7 +33442,7 @@ const yP = (t) => {
               h.jsxs(te.Title, {
                 style: r.header,
                 children: [
-                  h.jsx("span", { style: r.svg, children: h.jsx(oe, {}) }),
+                  h.jsx("span", { style: r.svg, children: h.jsx(se, {}) }),
                   t,
                 ],
               }),
@@ -33644,37 +33650,45 @@ const yP = (t) => {
                   children: [
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
+                        " ",
+                        h.jsx("strong", { children: "For first-time users: " }),
+                        "Before starting your program, take time to review all the exercises listed for your workouts. Watching the exercise demonstration videos, by clicking on the exercise, will help you understand proper form and technique. Once familiar, ensure that you know where all necessary equipment is located in your gym. Having a clear idea of where to find everything will make your workout smoother and help you stay on track. If your gym does not have access to a specific piece of equipment or if you're unsure about an exercise, don't hesitate to get in contact with us. We can provide alternative exercises or adjust your program to better suit your needs.",
+                      ],
+                    }),
+                    h.jsxs("li", {
+                      children: [
+                        h.jsx(se, {}),
                         " Perform each workout with at least one rest day between. On rest days, you can do light aerobic activities like walking, cycling, swimming, rowing, or using the elliptical.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " When training three times a week, follow a Mon/Wed/Fri or Tues/Thurs/Sat schedule, or any combination that allows a rest day between each workout.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " For more frequent training, alternate training days like this:",
                         h.jsxs("ul", {
                           style: t.ulTwo,
                           children: [
                             h.jsxs("li", {
                               children: [
-                                h.jsx(oe, {}),
+                                h.jsx(se, {}),
                                 "Week 1: Mon/Wed/Fri/Sun",
                               ],
                             }),
                             h.jsxs("li", {
                               children: [
-                                h.jsx(oe, {}),
+                                h.jsx(se, {}),
                                 "Week 2: Tues/Thurs/Sat",
                               ],
                             }),
                             h.jsxs("li", {
-                              children: [h.jsx(oe, {}), "Repeat."],
+                              children: [h.jsx(se, {}), "Repeat."],
                             }),
                           ],
                         }),
@@ -33682,19 +33696,19 @@ const yP = (t) => {
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " For Stages 1 and 2, perform each workout once per week.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " For Stage 3, follow the alternate day schedule.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " If you have any further queries don't hesitate to get in contact.",
                       ],
                     }),
@@ -33736,75 +33750,75 @@ const yP = (t) => {
                   children: [
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " When you're performing an exercise or workout for the first time and are unsure about the appropriate weight, start with a lighter load. Perform the exercise until task failure (the point where you can no longer maintain proper form). Record the weight and the number of reps you completed, and use this as your baseline to progress in future sessions.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " The goal of each exercise and workout is to build up to one working set per exercise, where you push to maximize both weight and reps. Only log the weight and reps for this one working set—there's no need to track your warm-up sets.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " Aim to reach task failure within 4-10 reps for your working set, with the ideal range being 5-8 reps.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " Focus on increasing weight in your working set as the main goal. Increase reps to adapt to any new weight before moving up. Use the guidance on each exercise to gauge whether you should increase reps or weight.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " When increasing the weight, always use the smallest increment possible (e.g., 2.5 kg or smaller). Avoid large jumps.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " Click on an exercise to view a demo video. Before starting your workout, make sure to watch the demo videos for each exercise to ensure you know how to perform them correctly.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " To warm up correctly:",
                         h.jsxs("ul", {
                           style: t.ulTwo,
                           children: [
                             h.jsxs("li", {
                               children: [
-                                h.jsx(oe, {}),
+                                h.jsx(se, {}),
                                 "Perform a 10-minute aerobic exercise at 60% of your maximum heart rate: (220 - your age) x 0.6.",
                               ],
                             }),
                             h.jsxs("li", {
                               children: [
-                                h.jsx(oe, {}),
+                                h.jsx(se, {}),
                                 "For the first exercise, perform warmup sets as follows:",
                                 h.jsxs("ul", {
                                   style: t.ulTwo,
                                   children: [
                                     h.jsxs("li", {
                                       children: [
-                                        h.jsx(oe, {}),
+                                        h.jsx(se, {}),
                                         "50% of your working weight for 5 reps",
                                       ],
                                     }),
                                     h.jsxs("li", {
                                       children: [
-                                        h.jsx(oe, {}),
+                                        h.jsx(se, {}),
                                         "70% of your working weight for 2-3 reps",
                                       ],
                                     }),
                                     h.jsxs("li", {
                                       children: [
-                                        h.jsx(oe, {}),
+                                        h.jsx(se, {}),
                                         "85% of your working weight for 1-2 reps",
                                       ],
                                     }),
@@ -33814,13 +33828,13 @@ const yP = (t) => {
                             }),
                             h.jsxs("li", {
                               children: [
-                                h.jsx(oe, {}),
+                                h.jsx(se, {}),
                                 "Rest for 2 minutes before performing your working set.",
                               ],
                             }),
                             h.jsxs("li", {
                               children: [
-                                h.jsx(oe, {}),
+                                h.jsx(se, {}),
                                 "For the subsequent exercises, you can use the 70% and 85% warmup sets to minimize fatigue.",
                               ],
                             }),
@@ -33830,19 +33844,19 @@ const yP = (t) => {
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " If you can't perform an exercise due to lack of equipment, contact us to modify your program.",
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         ' To change the order of exercises, click the "Re-order exercises" button, drag and drop the exercises, and then save.',
                       ],
                     }),
                     h.jsxs("li", {
                       children: [
-                        h.jsx(oe, {}),
+                        h.jsx(se, {}),
                         " If you have any further queries don't hesitate to get in contact.",
                       ],
                     }),

@@ -65,7 +65,7 @@ const Navigation = ({ user, onLogout }) => {
                     style={styles.navStyle}
                     aria-label="Link to Workout Instructions"
                   >
-                    Workout Instructions
+                    Bullet Point Fitness Manual
                   </NavLink>
                   <NavLink
                     to="/program-form"

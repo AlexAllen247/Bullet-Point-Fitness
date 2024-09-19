@@ -48,6 +48,21 @@ const Instructions = () => {
             <h3 style={styles.header}>Program Instructions</h3>
             <ul style={styles.ul}>
               <li>
+                <BulletPointSVG /> <strong>For first-time users: </strong>
+                Before starting your program, take time to review all the
+                exercises listed for your workouts. Watching the exercise
+                demonstration videos, by clicking on the exercise, will help you
+                understand proper form and technique. Once familiar, ensure that
+                you know where all necessary equipment is located in your gym.
+                Having a clear idea of where to find everything will make your
+                workout smoother and help you stay on track. If your gym does
+                not have access to a specific piece of equipment or if you're
+                unsure about an exercise, don't hesitate to get in contact with
+                us. We can provide alternative exercises or adjust your program
+                to better suit your needs.
+              </li>
+
+              <li>
                 <BulletPointSVG /> Perform each workout with at least one rest
                 day between. On rest days, you can do light aerobic activities
                 like walking, cycling, swimming, rowing, or using the

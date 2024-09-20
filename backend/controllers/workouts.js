@@ -92,31 +92,4 @@ router.get("/inactive/:userId", async (req, res) => {
   }
 });
 
-router.put("/workout/:workoutId/order", async (req, res) => {
-  const { workoutId } = req.params;
-  const { exercises } = req.body;
-
-  console.log("Updating workout order for workoutId:", workoutId);
-  console.log("New exercises order:", exercises);
-
-  try {
-    const workout = await Workout.findById(workoutId);
-    if (!workout) {
-      console.error("Workout not found for workoutId:", workoutId);
-      return res.status(404).json({ error: "Workout not found" });
-    }
-
-    workout.exercises = exercises.map((exercise) => ({
-      exerciseId: new mongoose.Types.ObjectId(exercise.exerciseId),
-      performance: exercise.performance || [],
-    }));
-
-    await workout.save();
-    res.json(workout);
-  } catch (error) {
-    console.error("Error updating workout order:", error);
-    res.status(500).json({ error: "Error updating workout order" });
-  }
-});
-
 module.exports = router;

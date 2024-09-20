@@ -1,23 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useDrag, useDrop } from "react-dnd";
-
-const ItemTypes = {
-  EXERCISE: "exercise",
-};
 
 const ExerciseRow = ({
   exercise,
   exerciseIndex,
   workoutIndex,
-  moveExercise,
   handleSaveExerciseUpdate,
   handleExerciseClick,
   calculateGuidance,
-  columnStyle,
-  isReorganizing,
 }) => {
-  const [isDragging, setIsDragging] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [tempWeight, setTempWeight] = useState("");
   const [tempReps, setTempReps] = useState("");
@@ -30,23 +21,6 @@ const ExerciseRow = ({
     lastPerformance.reps,
     lastPerformance.weight,
   );
-
-  const [, ref] = useDrag({
-    type: ItemTypes.EXERCISE,
-    item: { exerciseIndex },
-    canDrag: isReorganizing,
-  });
-
-  const [, drop] = useDrop({
-    accept: ItemTypes.EXERCISE,
-    hover: (draggedItem) => {
-      if (draggedItem.exerciseIndex !== exerciseIndex) {
-        moveExercise(workoutIndex, draggedItem.exerciseIndex, exerciseIndex);
-        draggedItem.exerciseIndex = exerciseIndex;
-      }
-    },
-    canDrop: () => isReorganizing,
-  });
 
   useEffect(() => {
     if (isEditing) {
@@ -71,16 +45,6 @@ const ExerciseRow = ({
     };
   }, [isEditing]);
 
-  const handleDragStart = () => {
-    setIsDragging(true);
-  };
-
-  const handleDragEnd = () => {
-    setTimeout(() => {
-      setIsDragging(false);
-    }, 0);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (tempWeight && tempReps) {
@@ -95,25 +59,13 @@ const ExerciseRow = ({
   };
 
   const handleClick = () => {
-    if (!isDragging) {
-      handleExerciseClick(exercise.exerciseId.embedUrl);
-    }
+    handleExerciseClick(exercise.exerciseId.embedUrl);
   };
 
   return (
-    <tr
-      ref={(node) => {
-        ref(drop(node));
-        rowRef.current = node;
-      }}
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
-      style={{ cursor: isReorganizing ? "move" : "pointer" }}
-    >
-      <td style={columnStyle} onClick={handleClick}>
-        {exercise.exerciseId.title}
-      </td>
-      <td style={columnStyle} onClick={() => setIsEditing(true)}>
+    <tr ref={rowRef} style={{ cursor: "pointer" }}>
+      <td onClick={handleClick}>{exercise.exerciseId.title}</td>
+      <td onClick={() => setIsEditing(true)}>
         {isEditing ? (
           <Form.Control
             type="number"
@@ -124,7 +76,7 @@ const ExerciseRow = ({
           lastPerformance.weight
         )}
       </td>
-      <td style={columnStyle} onClick={() => setIsEditing(true)}>
+      <td onClick={() => setIsEditing(true)}>
         {isEditing ? (
           <Form.Control
             type="number"
@@ -135,7 +87,7 @@ const ExerciseRow = ({
           lastPerformance.reps
         )}
       </td>
-      <td style={columnStyle}>
+      <td>
         {isEditing ? (
           <Button
             variant="primary"
@@ -156,7 +108,7 @@ const ExerciseRow = ({
           </Button>
         )}
       </td>
-      <td style={columnStyle}>{guidance}</td>
+      <td>{guidance}</td>
     </tr>
   );
 };

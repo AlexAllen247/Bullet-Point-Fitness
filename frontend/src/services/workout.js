@@ -27,20 +27,6 @@ const workoutService = {
     const response = await axios.get(userSpecificUrl, config());
     return response.data;
   },
-  updateOrder: async (workoutId, exercises) => {
-    const updateUrl = `${baseUrl}/workout/${workoutId}/order`;
-    const response = await axios.put(
-      updateUrl,
-      {
-        exercises: exercises.map((exercise) => ({
-          exerciseId: exercise.exerciseId._id || exercise.exerciseId,
-          performance: exercise.performance || [],
-        })),
-      },
-      config(),
-    );
-    return response.data;
-  },
 };
 
 export default workoutService;

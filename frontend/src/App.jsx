@@ -23,6 +23,7 @@ import InactiveProgressGraph from "./components/InactiveProgressGraphs";
 import LandingPage from "./components/LandingPage";
 import UserHomepage from "./components/UserHomepage";
 import Instructions from "./components/Instructions";
+import ScrollToTop from "./components/ScrollToTop";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -92,6 +93,7 @@ const App = () => {
         <Navigation user={user} onLogout={logout} />
         <main>
           <Notification notification={notification} />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/muscle-map" element={<MuscleMap />} />
@@ -134,6 +136,7 @@ const App = () => {
       <Header />
       <Navigation user={user} onLogout={logout} />
       <Notification notification={notification} />
+      <ScrollToTop />
       <Routes>
         <Route path="/user-homepage" element={<UserHomepage />} />
         <Route

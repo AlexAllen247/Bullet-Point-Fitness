@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Block from "./Block";
 import Image1 from "../images/BulletLanding.webp";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   const styles = {
@@ -29,6 +30,9 @@ const LandingPage = () => {
       maxWidth: "100%",
       height: "auto",
     },
+    link: {
+      textDecoration: "none",
+    },
   };
 
   return (
@@ -44,15 +48,16 @@ const LandingPage = () => {
                 Start your fitness journey with our interactive tools and
                 personalized programs. Learn, train, and transform.
               </Card.Text>
-              <Button
-                style={styles.ctaButton}
-                variant="danger"
-                aria-label="Get Started"
-                className="btn-custom"
-                href="/login"
-              >
-                Get Started
-              </Button>
+              <Link to="/login" style={styles.link}>
+                <Button
+                  style={styles.ctaButton}
+                  variant="danger"
+                  aria-label="Get Started"
+                  className="btn-custom"
+                >
+                  Get Started
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>

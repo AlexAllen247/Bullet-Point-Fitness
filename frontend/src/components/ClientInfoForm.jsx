@@ -182,6 +182,7 @@ const ClientInfoForm = ({ notify }) => {
                     value={programExperience}
                     onChange={(e) => setProgramExperience(e.target.value)}
                   >
+                    <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                   </Form.Control>

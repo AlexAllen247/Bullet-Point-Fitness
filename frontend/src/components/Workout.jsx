@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Table, Button, Container, Card } from "react-bootstrap";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { TouchBackend } from "react-dnd-touch-backend";
 import workoutService from "../services/workout";
 import ExerciseRow from "./ExerciseRow";
 import ExerciseModal from "./ExerciseModal";
@@ -38,15 +35,10 @@ const calculateProgressionPlan = (currentReps, currentWeight) => {
   return progressionOptions;
 };
 
-const isTouchDevice = () => {
-  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-};
-
 const Workout = ({ userId }) => {
   const [workouts, setWorkouts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
-  const [isReorganizing, setIsReorganizing] = useState(false);
   const [selectedExerciseTitle, setSelectedExerciseTitle] = useState("");
 
   useEffect(() => {
@@ -116,30 +108,6 @@ const Workout = ({ userId }) => {
     return "No progression needed";
   };
 
-  const moveExercise = (workoutIndex, fromIndex, toIndex) => {
-    const updatedWorkouts = [...workouts];
-    const [movedExercise] = updatedWorkouts[workoutIndex].exercises.splice(
-      fromIndex,
-      1,
-    );
-    updatedWorkouts[workoutIndex].exercises.splice(toIndex, 0, movedExercise);
-    setWorkouts(updatedWorkouts);
-
-    saveOrderToBackend(
-      updatedWorkouts[workoutIndex]._id,
-      updatedWorkouts[workoutIndex].exercises,
-    );
-  };
-
-  const saveOrderToBackend = async (workoutId, exercises) => {
-    try {
-      await workoutService.updateOrder(workoutId, exercises);
-      console.log("Order saved successfully!");
-    } catch (error) {
-      console.error("Failed to save order", error);
-    }
-  };
-
   const styles = {
     card: {
       textAlign: "center",
@@ -163,8 +131,6 @@ const Workout = ({ userId }) => {
     },
   };
 
-  const Backend = isTouchDevice() ? TouchBackend : HTML5Backend;
-
   return (
     <Container>
       <h1 style={styles.header}>Your Workouts</h1>
@@ -177,60 +143,47 @@ const Workout = ({ userId }) => {
         >
           <Card.Body>
             <h3 style={styles.header}>Workout {workoutIndex + 1}</h3>
-            <Button
-              variant="danger"
-              aria-label="Reorganise exercise order"
-              className="btn-custom"
-              style={styles.button}
-              onClick={() => setIsReorganizing(!isReorganizing)}
-            >
-              {isReorganizing ? "Finish Reordering" : "Reorder Exercises"}
-            </Button>
-            <DndProvider backend={Backend}>
-              <div className="table-responsive">
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th className="col-3" style={styles.columnText}>
-                        Name of Exercise
-                      </th>
-                      <th className="col-2" style={styles.columnText}>
-                        Weight
-                      </th>
-                      <th className="col-2" style={styles.columnText}>
-                        Reps
-                      </th>
-                      <th className="col-2" style={styles.columnText}>
-                        Save
-                      </th>
-                      <th className="col-3" style={styles.columnText}>
-                        Guidance
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {workout.exercises.map((exercise, exerciseIndex) => (
-                      <ExerciseRow
-                        key={exerciseIndex}
-                        exercise={exercise}
-                        exerciseIndex={exerciseIndex}
-                        workoutIndex={workoutIndex}
-                        moveExercise={moveExercise}
-                        handleSaveExerciseUpdate={handleSaveExerciseUpdate}
-                        handleExerciseClick={() =>
-                          handleExerciseClick(
-                            exercise.exerciseId.embedUrl,
-                            exercise.exerciseId.title,
-                          )
-                        }
-                        calculateGuidance={calculateGuidance}
-                        isReorganizing={isReorganizing}
-                      />
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
-            </DndProvider>
+            <div className="table-responsive">
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th className="col-3" style={styles.columnText}>
+                      Name of Exercise
+                    </th>
+                    <th className="col-2" style={styles.columnText}>
+                      Weight
+                    </th>
+                    <th className="col-2" style={styles.columnText}>
+                      Reps
+                    </th>
+                    <th className="col-2" style={styles.columnText}>
+                      Save
+                    </th>
+                    <th className="col-3" style={styles.columnText}>
+                      Guidance
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {workout.exercises.map((exercise, exerciseIndex) => (
+                    <ExerciseRow
+                      key={exerciseIndex}
+                      exercise={exercise}
+                      exerciseIndex={exerciseIndex}
+                      workoutIndex={workoutIndex}
+                      handleSaveExerciseUpdate={handleSaveExerciseUpdate}
+                      handleExerciseClick={() =>
+                        handleExerciseClick(
+                          exercise.exerciseId.embedUrl,
+                          exercise.exerciseId.title,
+                        )
+                      }
+                      calculateGuidance={calculateGuidance}
+                    />
+                  ))}
+                </tbody>
+              </Table>
+            </div>
           </Card.Body>
         </Card>
       ))}

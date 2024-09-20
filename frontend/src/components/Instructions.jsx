@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Container, Button } from "react-bootstrap";
 import BulletPointSVG from "./BulletPointSVG";
+import { Link } from "react-router-dom";
 
 const Instructions = () => {
   const styles = {
@@ -105,17 +106,17 @@ const Instructions = () => {
               </li>
             </ul>
             <div style={styles.buttonContainer}>
-              <a href="/workouts" style={styles.link}>
+              <Link to="/workouts" style={styles.link}>
                 <Button
                   type="submit"
                   variant="danger"
                   style={styles.button}
-                  aria-label="Submit"
+                  aria-label="Onto Workouts"
                   className="btn-custom"
                 >
                   Onto Workouts
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </Card.Body>
@@ -212,17 +213,17 @@ const Instructions = () => {
               </li>
             </ul>
             <div style={styles.buttonContainer}>
-              <a href="/workouts" style={styles.link}>
+              <Link to="/workouts" style={styles.link}>
                 <Button
                   type="submit"
                   variant="danger"
                   style={styles.button}
-                  aria-label="Submit"
+                  aria-label="Onto workouts"
                   className="btn-custom"
                 >
                   Onto Workouts
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </Card.Body>

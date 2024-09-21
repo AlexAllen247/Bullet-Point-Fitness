@@ -12840,9 +12840,9 @@ function N5(t) {
         wt = bt + v[ve],
         ln = bt - v[Un],
         Pi = [lt, ct].indexOf(m) !== -1,
-        se = (Ee = $ == null ? void 0 : $[E]) != null ? Ee : 0,
-        bn = Pi ? wt : bt - C[it] - k[it] - se + j.altAxis,
-        Ns = Pi ? bt + C[it] + k[it] - se - j.altAxis : ln,
+        re = (Ee = $ == null ? void 0 : $[E]) != null ? Ee : 0,
+        bn = Pi ? wt : bt - C[it] - k[it] - re + j.altAxis,
+        Ns = Pi ? bt + C[it] + k[it] - re - j.altAxis : ln,
         Fp = p && Pi ? o5(bn, bt, Ns) : ho(p ? bn : wt, bt, p ? Ns : ln);
       (S[E] = Fp), (A[E] = Fp - bt);
     }
@@ -14168,10 +14168,10 @@ const dx = b.forwardRef(
     function Ye() {
       return M || lx({ isRTL: he });
     }
-    function Ke(se) {
+    function Ke(re) {
       if (!bs) return;
       const bn = Ye().getScrollbarWidth() > 0,
-        Ns = se.scrollHeight > Ic(se).documentElement.clientHeight;
+        Ns = re.scrollHeight > Ic(re).documentElement.clientHeight;
       G({
         paddingRight: bn && !Ns ? xg() : void 0,
         paddingLeft: !bn && Ns ? xg() : void 0,
@@ -14186,8 +14186,8 @@ const dx = b.forwardRef(
     const nt = () => {
         O.current = !0;
       },
-      Be = (se) => {
-        O.current && B && se.target === B.dialog && (F.current = !0),
+      Be = (re) => {
+        O.current && B && re.target === B.dialog && (F.current = !0),
           (O.current = !1);
       },
       Re = () => {
@@ -14196,51 +14196,51 @@ const dx = b.forwardRef(
             N(!1);
           }));
       },
-      X = (se) => {
-        se.target === se.currentTarget && Re();
+      X = (re) => {
+        re.target === re.currentTarget && Re();
       },
-      Te = (se) => {
+      Te = (re) => {
         if (h === "static") {
-          X(se);
+          X(re);
           return;
         }
-        if (F.current || se.target !== se.currentTarget) {
+        if (F.current || re.target !== re.currentTarget) {
           F.current = !1;
           return;
         }
         v == null || v();
       },
-      Ee = (se) => {
-        p ? g == null || g(se) : (se.preventDefault(), h === "static" && Re());
+      Ee = (re) => {
+        p ? g == null || g(re) : (re.preventDefault(), h === "static" && Re());
       },
-      ve = (se, bn) => {
-        se && Ke(se), P == null || P(se, bn);
+      ve = (re, bn) => {
+        re && Ke(re), P == null || P(re, bn);
       },
-      Un = (se) => {
-        R.current == null || R.current(), C == null || C(se);
+      Un = (re) => {
+        R.current == null || R.current(), C == null || C(re);
       },
-      bt = (se, bn) => {
-        j == null || j(se, bn), d2(window, "resize", we);
+      bt = (re, bn) => {
+        j == null || j(re, bn), d2(window, "resize", we);
       },
-      it = (se) => {
-        se && (se.style.display = ""),
-          $ == null || $(se),
+      it = (re) => {
+        re && (re.style.display = ""),
+          $ == null || $(re),
           gf(window, "resize", we);
       },
       wt = b.useCallback(
-        (se) =>
+        (re) =>
           f.jsx("div", {
-            ...se,
+            ...re,
             className: ee(`${t}-backdrop`, A, !d && "show"),
           }),
         [d, A, t],
       ),
       ln = { ...n, ...Y };
     ln.display = "block";
-    const Pi = (se) =>
+    const Pi = (re) =>
       f.jsx("div", {
         role: "dialog",
-        ...se,
+        ...re,
         style: ln,
         className: ee(e, t, L && `${t}-static`, !d && "show"),
         onClick: h ? Te : void 0,
@@ -16961,7 +16961,7 @@ ce.HttpStatusCode = Of;
 ce.default = ce;
 const s8 = "/api/contactforms",
   o8 = { create: async (t) => (await ce.post(s8, t)).data },
-  ie = () =>
+  se = () =>
     f.jsxs("svg", {
       version: "1.1",
       id: "svg1",
@@ -17083,7 +17083,7 @@ const s8 = "/api/contactforms",
                         f.jsxs(Q.Label, {
                           htmlFor: "email",
                           style: a.label,
-                          children: [f.jsx(ie, {}), "Email"],
+                          children: [f.jsx(se, {}), "Email"],
                         }),
                         f.jsx(Q.Control, {
                           value: e,
@@ -17101,7 +17101,7 @@ const s8 = "/api/contactforms",
                         f.jsxs(Q.Label, {
                           htmlFor: "message",
                           style: a.label,
-                          children: [f.jsx(ie, {}), "Message"],
+                          children: [f.jsx(se, {}), "Message"],
                         }),
                         f.jsx(Q.Control, {
                           as: "textarea",
@@ -17202,19 +17202,19 @@ const s8 = "/api/contactforms",
                           to: "/workout-progression",
                           style: r.navStyle,
                           "aria-label": "Link to exercise progression",
-                          children: "Progression",
+                          children: "Workout Progression",
                         }),
                         f.jsx(Xe, {
                           to: "/past-workout-programs",
                           style: r.navStyle,
                           "aria-label": "Link to past workouts",
-                          children: "Previous Programs",
+                          children: "Past Workout Programs",
                         }),
                         f.jsx(Xe, {
                           to: "/past-workout-progression",
                           style: r.navStyle,
                           "aria-label": "Link to past workout progression data",
-                          children: "Past Program Progression",
+                          children: "Past Workout Progressions",
                         }),
                         f.jsx(Xe, {
                           to: "/",
@@ -17312,7 +17312,7 @@ const s8 = "/api/contactforms",
             f.jsxs("p", {
               style: t.paragraph,
               children: [
-                f.jsx(ie, {}),
+                f.jsx(se, {}),
                 "Starting your fitness journey or taking it to the next level can be challenging, but you don't need to do it alone. If you're looking for guidance, whether it's figuring out where to begin or how to push forward, I'm here to help. Book a one-on-one consultation with me, and together we'll discuss your goals and craft a personalized fitness plan tailored just for you. Choose a timeslot below, and let's start this journey towards achieving your fitness aspirations.",
               ],
             }),
@@ -17470,7 +17470,7 @@ const s8 = "/api/contactforms",
         : f.jsx("ul", {
             style: n.ul,
             children: r.map((s, o) =>
-              f.jsxs("li", { children: [f.jsx(ie, {}), s] }, o),
+              f.jsxs("li", { children: [f.jsx(se, {}), s] }, o),
             ),
           });
     return f.jsx(Z, {
@@ -17484,7 +17484,7 @@ const s8 = "/api/contactforms",
             style: n.description,
             children: [
               f.jsx("h5", { style: n.header, children: "Function:" }),
-              f.jsxs("div", { children: [f.jsx(ie, {}), t.function] }),
+              f.jsxs("div", { children: [f.jsx(se, {}), t.function] }),
             ],
           }),
           f.jsxs("div", {
@@ -18054,7 +18054,7 @@ const s8 = "/api/contactforms",
               f.jsx(Z.Title, { style: r.header, children: t.title }),
               f.jsxs(Z.Text, {
                 style: r.description,
-                children: [f.jsx(ie, {}), t.description],
+                children: [f.jsx(se, {}), t.description],
               }),
               f.jsx(Z.Footer, {
                 children: f.jsx("small", { children: t.duration }),
@@ -21202,7 +21202,7 @@ function Vt(t) {
 function un(t, e) {
   return Vt(t) ? t : e;
 }
-function re(t, e) {
+function ie(t, e) {
   return typeof t > "u" ? e : t;
 }
 const Ak = (t, e) =>
@@ -21864,7 +21864,7 @@ class o6 {
         get() {
           const l = this[a],
             c = o[r];
-          return le(l) ? Object.assign({}, c, l) : re(l, c);
+          return le(l) ? Object.assign({}, c, l) : ie(l, c);
         },
         set(l) {
           this[a] = l;
@@ -22151,7 +22151,7 @@ function l_(t, e) {
   const n = {},
     i = le(e),
     r = i ? Object.keys(e) : e,
-    s = le(t) ? (i ? (o) => re(t[o], t[e[o]]) : (o) => t[o]) : () => t;
+    s = le(t) ? (i ? (o) => ie(t[o], t[e[o]]) : (o) => t[o]) : () => t;
   for (const o of r) n[o] = m6(s(o));
   return n;
 }
@@ -22167,18 +22167,18 @@ function Ut(t) {
 }
 function Ze(t, e) {
   (t = t || {}), (e = e || Oe.font);
-  let n = re(t.size, e.size);
+  let n = ie(t.size, e.size);
   typeof n == "string" && (n = parseInt(n, 10));
-  let i = re(t.style, e.style);
+  let i = ie(t.style, e.style);
   i &&
     !("" + i).match(p6) &&
     (console.warn('Invalid font style specified: "' + i + '"'), (i = void 0));
   const r = {
-    family: re(t.family, e.family),
-    lineHeight: g6(re(t.lineHeight, e.lineHeight), n),
+    family: ie(t.family, e.family),
+    lineHeight: g6(ie(t.lineHeight, e.lineHeight), n),
     size: n,
     style: i,
-    weight: re(t.weight, e.weight),
+    weight: ie(t.weight, e.weight),
     string: "",
   };
   return (r.string = a6(r)), r;
@@ -23411,9 +23411,9 @@ class bo {
       n = this._cachedMeta,
       i = this.getDataset(),
       r = (d, h, p, g) => (d === "x" ? h : d === "r" ? g : p),
-      s = (n.xAxisID = re(i.xAxisID, Vu(e, "x"))),
-      o = (n.yAxisID = re(i.yAxisID, Vu(e, "y"))),
-      a = (n.rAxisID = re(i.rAxisID, Vu(e, "r"))),
+      s = (n.xAxisID = ie(i.xAxisID, Vu(e, "x"))),
+      o = (n.yAxisID = ie(i.yAxisID, Vu(e, "y"))),
+      a = (n.rAxisID = ie(i.rAxisID, Vu(e, "r"))),
       l = n.indexAxis,
       c = (n.iAxisID = r(l, s, o, a)),
       u = (n.vAxisID = r(l, o, s, a));
@@ -23617,7 +23617,7 @@ class bo {
     const n = this._cachedMeta;
     this.update(e || "default"),
       (n._clip = o7(
-        re(this.options.clip, s7(n.xScale, n.yScale, this.getMaxOverflow())),
+        ie(this.options.clip, s7(n.xScale, n.yScale, this.getMaxOverflow())),
       ));
   }
   update(e) {}
@@ -24647,8 +24647,8 @@ function U7(t, e, n, i) {
     o === s && (e.push(t[o]), r++, (s = n[r * i]));
 }
 function Va(t, e, n, i, r) {
-  const s = re(i, 0),
-    o = Math.min(re(r, t.length), t.length);
+  const s = ie(i, 0),
+    o = Math.min(ie(r, t.length), t.length);
   let a = 0,
     l,
     c,
@@ -25321,7 +25321,7 @@ class Cs extends pr {
       }
       (S = x - v), (k = S - h), (j = e.left), (A = e.right);
     }
-    const V = re(r.ticks.maxTicksLimit, d),
+    const V = ie(r.ticks.maxTicksLimit, d),
       z = Math.max(1, Math.ceil(d / V));
     for (_ = 0; _ < d; _ += z) {
       const Y = this.getContext(_),
@@ -25702,8 +25702,8 @@ class Cs extends pr {
   _layers() {
     const e = this.options,
       n = (e.ticks && e.ticks.z) || 0,
-      i = re(e.grid && e.grid.z, -1),
-      r = re(e.border && e.border.z, 0);
+      i = ie(e.grid && e.grid.z, -1),
+      r = ie(e.border && e.border.z, 0);
     return !this._isVisible() || this.draw !== Cs.prototype.draw
       ? [
           {
@@ -25934,7 +25934,7 @@ class rO {
   }
   _createDescriptors(e, n) {
     const i = e && e.config,
-      r = re(i.options && i.options.plugins, {}),
+      r = ie(i.options && i.options.plugins, {}),
       s = sO(i);
     return r === !1 && !n ? [] : aO(e, s, r, n);
   }
@@ -26066,7 +26066,7 @@ function hO(t, e) {
 }
 function S_(t) {
   const e = t.options || (t.options = {});
-  (e.plugins = re(e.plugins, {})), (e.scales = hO(t, e));
+  (e.plugins = ie(e.plugins, {})), (e.scales = hO(t, e));
 }
 function C_(t) {
   return (
@@ -26440,7 +26440,7 @@ let da =
           const a = o.options,
             l = a.id,
             c = Rf(l, a),
-            u = re(a.type, o.dtype);
+            u = ie(a.type, o.dtype);
           (a.position === void 0 || jm(a.position, c) !== jm(o.dposition)) &&
             (a.position = o.dposition),
             (r[l] = !0);
@@ -26977,12 +26977,12 @@ function Im() {
   return ue(da.instances, (t) => t._plugins.invalidate());
 }
 function T_(t, e, n = e) {
-  (t.lineCap = re(n.borderCapStyle, e.borderCapStyle)),
-    t.setLineDash(re(n.borderDash, e.borderDash)),
-    (t.lineDashOffset = re(n.borderDashOffset, e.borderDashOffset)),
-    (t.lineJoin = re(n.borderJoinStyle, e.borderJoinStyle)),
-    (t.lineWidth = re(n.borderWidth, e.borderWidth)),
-    (t.strokeStyle = re(n.borderColor, e.borderColor));
+  (t.lineCap = ie(n.borderCapStyle, e.borderCapStyle)),
+    t.setLineDash(ie(n.borderDash, e.borderDash)),
+    (t.lineDashOffset = ie(n.borderDashOffset, e.borderDashOffset)),
+    (t.lineJoin = ie(n.borderJoinStyle, e.borderJoinStyle)),
+    (t.lineWidth = ie(n.borderWidth, e.borderWidth)),
+    (t.strokeStyle = ie(n.borderColor, e.borderColor));
 }
 function SO(t, e, n) {
   t.lineTo(n.x, n.y);
@@ -27487,15 +27487,15 @@ class Bm extends pr {
       m = function (S, C, k) {
         if (isNaN(g) || g <= 0 || isNaN(y) || y < 0) return;
         r.save();
-        const P = re(k.lineWidth, 1);
+        const P = ie(k.lineWidth, 1);
         if (
-          ((r.fillStyle = re(k.fillStyle, a)),
-          (r.lineCap = re(k.lineCap, "butt")),
-          (r.lineDashOffset = re(k.lineDashOffset, 0)),
-          (r.lineJoin = re(k.lineJoin, "miter")),
+          ((r.fillStyle = ie(k.fillStyle, a)),
+          (r.lineCap = ie(k.lineCap, "butt")),
+          (r.lineDashOffset = ie(k.lineDashOffset, 0)),
+          (r.lineJoin = ie(k.lineJoin, "miter")),
           (r.lineWidth = P),
-          (r.strokeStyle = re(k.strokeStyle, a)),
-          r.setLineDash(re(k.lineDash, [])),
+          (r.strokeStyle = ie(k.strokeStyle, a)),
+          r.setLineDash(ie(k.lineDash, [])),
           o.usePointStyle)
         ) {
           const j = {
@@ -28701,7 +28701,7 @@ class hc extends Cs {
     const i = this.getLabels();
     return (
       (n =
-        isFinite(n) && i[n] === e ? n : KO(i, e, re(n, e), this._addedLabels)),
+        isFinite(n) && i[n] === e ? n : KO(i, e, ie(n, e), this._addedLabels)),
       GO(n, i.length - 1)
     );
   }
@@ -29139,7 +29139,7 @@ class gc extends Cs {
       r = this.options,
       s = r.time,
       o = s.unit || Qm(s.minUnit, n, i, this._getLabelCapacity(n)),
-      a = re(r.ticks.stepSize, 1),
+      a = ie(r.ticks.stepSize, 1),
       l = o === "week" ? s.isoWeekday : !1,
       c = Ko(l) || l === !0,
       u = {};
@@ -29734,7 +29734,7 @@ const l9 = (t) => {
               f.jsxs(Z.Title, {
                 style: i.header,
                 children: [
-                  f.jsx("span", { style: i.svg, children: f.jsx(ie, {}) }),
+                  f.jsx("span", { style: i.svg, children: f.jsx(se, {}) }),
                   t,
                 ],
               }),
@@ -29869,9 +29869,9 @@ const l9 = (t) => {
       children: f.jsxs(cs, {
         children: [
           f.jsx(St, {
-            title: "Workout Instructions",
+            title: "Bullet Point Fitness Manual",
             description:
-              "Read these instructions to make the most out of your training program.",
+              "Read the Bullet Point Fitness Manual to make the most out of your training program.",
             link: "/instructions",
           }),
           f.jsx(St, {
@@ -29946,7 +29946,7 @@ const l9 = (t) => {
                   children: [
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " ",
                         f.jsx("strong", { children: "For first-time users: " }),
                         "Before starting your program, take time to review all the exercises listed for your workouts. Watching the exercise demonstration videos, by clicking on the exercise, will help you understand proper form and technique. Once familiar, ensure that you know where all necessary equipment is located in your gym. Having a clear idea of where to find everything will make your workout smoother and help you stay on track. If your gym does not have access to a specific piece of equipment or if you're unsure about an exercise, don't hesitate to get in contact with us. We can provide alternative exercises or adjust your program to better suit your needs.",
@@ -29954,37 +29954,37 @@ const l9 = (t) => {
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " Perform each workout with at least one rest day between. On rest days, you can do light aerobic activities like walking, cycling, swimming, rowing, or using the elliptical.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " When training three times a week, follow a Mon/Wed/Fri or Tues/Thurs/Sat schedule, or any combination that allows a rest day between each workout.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " For more frequent training, alternate training days like this:",
                         f.jsxs("ul", {
                           style: t.ulTwo,
                           children: [
                             f.jsxs("li", {
                               children: [
-                                f.jsx(ie, {}),
+                                f.jsx(se, {}),
                                 "Week 1: Mon/Wed/Fri/Sun",
                               ],
                             }),
                             f.jsxs("li", {
                               children: [
-                                f.jsx(ie, {}),
+                                f.jsx(se, {}),
                                 "Week 2: Tues/Thurs/Sat",
                               ],
                             }),
                             f.jsxs("li", {
-                              children: [f.jsx(ie, {}), "Repeat."],
+                              children: [f.jsx(se, {}), "Repeat."],
                             }),
                           ],
                         }),
@@ -29992,19 +29992,13 @@ const l9 = (t) => {
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
-                        " For Stages 1 and 2, perform each workout once per week.",
+                        f.jsx(se, {}),
+                        " In all stages each workout must be performed once per week, however if you want to maximise any stage you can follow the alternate day schedule.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
-                        " For Stage 3, follow the alternate day schedule.",
-                      ],
-                    }),
-                    f.jsxs("li", {
-                      children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " If you have any further queries don't hesitate to get in contact.",
                       ],
                     }),
@@ -30046,75 +30040,75 @@ const l9 = (t) => {
                   children: [
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
-                        " When you're performing an exercise or workout for the first time and are unsure about the appropriate weight, start with a lighter load. Perform the exercise until task failure (the point where you can no longer maintain proper form). Record the weight and the number of reps you completed, and use this as your baseline to progress in future sessions.",
+                        f.jsx(se, {}),
+                        " When you're performing an exercise or workout for the first time and are unsure about the appropriate weight, start with a lighter load. Perform the exercise until task failure (the point where you can no longer complete another rep with the same form). Record the weight and the number of reps you completed, and use this as your baseline to progress in future sessions.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " The goal of each exercise and workout is to build up to one working set per exercise, where you push to maximize both weight and reps. Only log the weight and reps for this one working set—there's no need to track your warm-up sets.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " Aim to reach task failure within 4-10 reps for your working set, with the ideal range being 5-8 reps.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " Focus on increasing weight in your working set as the main goal. Increase reps to adapt to any new weight before moving up. Use the guidance on each exercise to gauge whether you should increase reps or weight.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " When increasing the weight, always use the smallest increment possible (e.g., 2.5 kg or smaller). Avoid large jumps.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " Click on an exercise to view a demo video. Before starting your workout, make sure to watch the demo videos for each exercise to ensure you know how to perform them correctly.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " To warm up correctly:",
                         f.jsxs("ul", {
                           style: t.ulTwo,
                           children: [
                             f.jsxs("li", {
                               children: [
-                                f.jsx(ie, {}),
+                                f.jsx(se, {}),
                                 "Perform a 10-minute aerobic exercise at 60% of your maximum heart rate: (220 - your age) x 0.6.",
                               ],
                             }),
                             f.jsxs("li", {
                               children: [
-                                f.jsx(ie, {}),
+                                f.jsx(se, {}),
                                 "For the first exercise, perform warmup sets as follows:",
                                 f.jsxs("ul", {
                                   style: t.ulTwo,
                                   children: [
                                     f.jsxs("li", {
                                       children: [
-                                        f.jsx(ie, {}),
+                                        f.jsx(se, {}),
                                         "50% of your working weight for 5 reps",
                                       ],
                                     }),
                                     f.jsxs("li", {
                                       children: [
-                                        f.jsx(ie, {}),
+                                        f.jsx(se, {}),
                                         "70% of your working weight for 2-3 reps",
                                       ],
                                     }),
                                     f.jsxs("li", {
                                       children: [
-                                        f.jsx(ie, {}),
+                                        f.jsx(se, {}),
                                         "85% of your working weight for 1-2 reps",
                                       ],
                                     }),
@@ -30124,13 +30118,13 @@ const l9 = (t) => {
                             }),
                             f.jsxs("li", {
                               children: [
-                                f.jsx(ie, {}),
+                                f.jsx(se, {}),
                                 "Rest for 2 minutes before performing your working set.",
                               ],
                             }),
                             f.jsxs("li", {
                               children: [
-                                f.jsx(ie, {}),
+                                f.jsx(se, {}),
                                 "For the subsequent exercises, you can use the 70% and 85% warmup sets to minimize fatigue.",
                               ],
                             }),
@@ -30140,19 +30134,19 @@ const l9 = (t) => {
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " If you can't perform an exercise due to lack of equipment, contact us to modify your program.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
-                        ' To change the order of exercises, click the "Re-order exercises" button, drag and drop the exercises, and then save.',
+                        f.jsx(se, {}),
+                        " Don't forget to log the weight and reps of the working set for each exercise. Click on the 'Update' button, fill in the weight and reps, then click 'Save' to log your performance.",
                       ],
                     }),
                     f.jsxs("li", {
                       children: [
-                        f.jsx(ie, {}),
+                        f.jsx(se, {}),
                         " If you have any further queries don't hesitate to get in contact.",
                       ],
                     }),

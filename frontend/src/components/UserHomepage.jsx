@@ -7,8 +7,8 @@ const UserHomePage = () => {
     <Container>
       <Row>
         <Block
-          title="Workout Instructions"
-          description="Read these instructions to make the most out of your training program."
+          title="Bullet Point Fitness Manual"
+          description="Read the Bullet Point Fitness Manual to make the most out of your training program."
           link="/instructions"
         />
         <Block

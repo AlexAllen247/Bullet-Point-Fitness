@@ -93,12 +93,9 @@ const Instructions = () => {
                 </ul>
               </li>
               <li>
-                <BulletPointSVG /> For Stages 1 and 2, perform each workout once
-                per week.
-              </li>
-              <li>
-                <BulletPointSVG /> For Stage 3, follow the alternate day
-                schedule.
+                <BulletPointSVG /> In all stages each workout must be performed
+                once per week, however if you want to maximise any stage you can
+                follow the alternate day schedule.
               </li>
               <li>
                 <BulletPointSVG /> If you have any further queries don't
@@ -130,9 +127,10 @@ const Instructions = () => {
                 <BulletPointSVG /> When you're performing an exercise or workout
                 for the first time and are unsure about the appropriate weight,
                 start with a lighter load. Perform the exercise until task
-                failure (the point where you can no longer maintain proper
-                form). Record the weight and the number of reps you completed,
-                and use this as your baseline to progress in future sessions.
+                failure (the point where you can no longer complete another rep
+                with the same form). Record the weight and the number of reps
+                you completed, and use this as your baseline to progress in
+                future sessions.
               </li>
               <li>
                 <BulletPointSVG /> The goal of each exercise and workout is to
@@ -203,9 +201,10 @@ const Instructions = () => {
                 of equipment, contact us to modify your program.
               </li>
               <li>
-                <BulletPointSVG /> To change the order of exercises, click the
-                "Re-order exercises" button, drag and drop the exercises, and
-                then save.
+                <BulletPointSVG /> Don't forget to log the weight and reps of
+                the working set for each exercise. Click on the 'Update' button,
+                fill in the weight and reps, then click 'Save' to log your
+                performance.
               </li>
               <li>
                 <BulletPointSVG /> If you have any further queries don't

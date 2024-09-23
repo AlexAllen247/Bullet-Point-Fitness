@@ -8,28 +8,59 @@ const calculateProgressionPlan = (currentReps, currentWeight) => {
   currentReps = Number(currentReps);
   currentWeight = Number(currentWeight);
 
-  if (!currentReps || !currentWeight) {
+  if (
+    currentReps <= 0 ||
+    currentWeight <= 0 ||
+    isNaN(currentReps) ||
+    isNaN(currentWeight)
+  ) {
     return {};
-  }
-
-  let increment = 2.5;
-
-  if (currentWeight <= 10) {
-    increment = 1;
-  } else if (currentWeight <= 20) {
-    increment = 2;
-  } else {
-    increment = 2.5;
   }
 
   let progressionOptions = {};
 
-  if (currentReps >= 6) {
-    const newWeight = currentWeight + increment;
+  const increment = currentWeight < 10 ? 1 : 2.5;
+
+  const repsToPercentages = {
+    1: 100,
+    2: 97.5,
+    3: 95,
+    4: 92.5,
+    5: 90,
+    6: 87.5,
+    7: 85,
+    8: 82.5,
+    9: 80,
+    10: 77.5,
+    11: 75,
+    12: 72.5,
+    13: 70,
+    14: 67.5,
+    15: 65,
+    16: 64,
+    17: 63,
+    18: 62,
+    19: 61,
+    20: 60,
+  };
+
+  const currentPercentage = repsToPercentages[currentReps] || 100;
+  const estimated1RM = currentWeight / (currentPercentage / 100);
+
+  if (currentReps >= 7) {
+    const newWeight =
+      Math.ceil((currentWeight + 0.0001) / increment) * increment;
     progressionOptions[`Increase weight to`] = `${newWeight} kg`;
-  } else {
+  } else if (currentReps >= 4 && currentReps <= 6) {
     const newReps = currentReps + 1;
     progressionOptions[`Increase reps to`] = `${newReps}`;
+  } else {
+    const targetPercentage = repsToPercentages[5];
+    const targetWeight = estimated1RM * (targetPercentage / 100);
+    const adjustedWeight =
+      Math.round((targetWeight + 0.0001) / increment) * increment;
+
+    progressionOptions[`Decrease weight to`] = `${adjustedWeight} kg`;
   }
 
   return progressionOptions;

@@ -135,32 +135,35 @@ const App = () => {
     <div className="app">
       <Header />
       <Navigation user={user} onLogout={logout} />
-      <Notification notification={notification} />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/user-homepage" element={<UserHomepage />} />
-        <Route
-          path="/program-form"
-          element={<ClientInfoForm notify={notify} />}
-        />
-        <Route path="/instructions" element={<Instructions />} />
-        <Route
-          path="/workouts"
-          element={<Workout userId={user.id} notify={notify} />}
-        />
-        <Route
-          path="/workout-progression"
-          element={<ProgressGraph userId={user.id} />}
-        />
-        <Route
-          path="/past-workout-programs"
-          element={<InactiveWorkouts userId={user.id} notify={notify} />}
-        />
-        <Route
-          path="/past-workout-progression"
-          element={<InactiveProgressGraph userId={user.id} />}
-        />
-      </Routes>
+      <main>
+        <Notification notification={notification} />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/user-homepage" element={<UserHomepage />} />
+          <Route
+            path="/program-form"
+            element={<ClientInfoForm notify={notify} />}
+          />
+          <Route path="/instructions" element={<Instructions />} />
+          <Route
+            path="/workouts"
+            element={<Workout userId={user.id} notify={notify} />}
+          />
+          <Route
+            path="/workout-progression"
+            element={<ProgressGraph userId={user.id} />}
+          />
+          <Route
+            path="/past-workout-programs"
+            element={<InactiveWorkouts userId={user.id} notify={notify} />}
+          />
+          <Route
+            path="/past-workout-progression"
+            element={<InactiveProgressGraph userId={user.id} />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
       <Footer />
       <CookieConsent
         location="bottom"

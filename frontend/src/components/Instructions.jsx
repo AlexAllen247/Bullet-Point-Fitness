@@ -150,8 +150,17 @@ const Instructions = () => {
               </li>
               <li>
                 <BulletPointSVG /> When increasing the weight, always use the
-                smallest increment possible (e.g., 2.5 kg or smaller). Avoid
-                large jumps.
+                smallest increment available on the equipment you're using
+                (e.g., 2.5 kg or smaller). Be aware that some gyms may have
+                equipment that doesn't increase in standard increments. In such
+                cases, adjust by adding the smallest weight possible. This
+                approach helps you make steady progress while minimizing the
+                risk of injury.
+              </li>
+              <li>
+                <BulletPointSVG /> Avoid large jumps in weight. Sudden,
+                significant jumps can lead to improper form and increase the
+                risk of injury. Gradual progression is key to long-term success.
               </li>
               <li>
                 <BulletPointSVG /> Click on an exercise to view a demo video.

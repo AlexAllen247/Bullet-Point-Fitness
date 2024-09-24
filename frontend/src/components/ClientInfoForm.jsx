@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Container, Card } from "react-bootstrap";
 import clientInfoFormService from "../services/clientInfoForm";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const ClientInfoForm = ({ notify }) => {
   const [isFirstTimeUser, setIsFirstTimeUser] = useState(null);
@@ -70,6 +71,9 @@ const ClientInfoForm = ({ notify }) => {
 
   return (
     <section className="client-info-form">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <Container>
         <div>
           <h1 style={styles.header}>Program Form</h1>

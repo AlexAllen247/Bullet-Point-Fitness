@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
 import contactFormService from "../services/contactForms";
 import BulletPointSVG from "./BulletPointSVG";
+import SEO from "./SEO";
 
 const ContactForm = ({ notify }) => {
   const [email, setEmail] = useState("");
@@ -71,6 +72,13 @@ const ContactForm = ({ notify }) => {
 
   return (
     <section className="contact form">
+      <SEO
+        title="Contact Us | Bullet Point Fitness"
+        description="Get in touch with the Bullet Point Fitness team for inquiries, support, or feedback. We're here to help you on your fitness journey."
+        keywords="contact us, support, inquiries, feedback, Bullet Point Fitness contact"
+        canonicalUrl="https://bulletpointfitness.com/contact-form"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <Container>
         <div>
           <h1 style={styles.header}>Contact Form</h1>
@@ -95,6 +103,7 @@ const ContactForm = ({ notify }) => {
                   placeholder="Place your email here"
                   style={styles.form}
                   aria-label="Email"
+                  required
                 />
               </Form.Group>
               <Form.Group className="mb-3">
@@ -111,6 +120,7 @@ const ContactForm = ({ notify }) => {
                   placeholder="Place your message here"
                   style={styles.form}
                   aria-label="Message"
+                  required
                 />
               </Form.Group>
               <Button
@@ -119,6 +129,7 @@ const ContactForm = ({ notify }) => {
                 variant="danger"
                 style={styles.button}
                 className="btn-custom"
+                disabled={!email || !message}
               >
                 Submit
               </Button>

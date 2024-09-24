@@ -10,6 +10,7 @@ import Image7 from "../images/Level3ExerciseReferral.jpg";
 import Image8 from "../images/Level4ObesityAndDiabetes.jpg";
 import aboutVideoService from "../services/aboutVideos";
 import VideoCard from "./VideoCard";
+import SEO from "./SEO";
 
 const About = () => {
   const [aboutVideos, setAboutVideos] = useState([]);
@@ -57,6 +58,13 @@ const About = () => {
 
   return (
     <section style={styles.container}>
+      <SEO
+        title="About Us | Bullet Point Fitness"
+        description="Learn more about Bullet Point Fitness, our mission, and how we strive to help individuals achieve their fitness goals efficiently."
+        keywords="about us, mission, fitness goals, company information, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/about"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <Container>
         <div>
           <h1 style={styles.header}>About</h1>
@@ -78,6 +86,7 @@ const About = () => {
                         variant="top"
                         src={fitnessCertifications[index]}
                         loading="lazy"
+                        alt={`Fitness Certification ${index}`}
                       />
                     </Card>
                   </a>
@@ -90,6 +99,7 @@ const About = () => {
                           variant="top"
                           src={fitnessCertifications[index + 1]}
                           loading="lazy"
+                          alt={`Fitness Certification ${index + 1}`}
                         />
                       </Card>
                     </a>

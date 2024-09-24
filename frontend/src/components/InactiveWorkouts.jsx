@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Card, Table } from "react-bootstrap";
 import workoutService from "../services/workout";
+import { Helmet } from "react-helmet";
 
 const InactiveWorkouts = ({ userId, notify }) => {
   const [workouts, setWorkouts] = useState([]);
@@ -53,6 +54,9 @@ const InactiveWorkouts = ({ userId, notify }) => {
 
   return (
     <Container>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <h1 style={styles.header}>Previous Workouts</h1>
       {workouts.map((workout, workoutIndex) => (
         <Card

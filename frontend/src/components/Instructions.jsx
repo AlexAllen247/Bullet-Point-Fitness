@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Container, Button } from "react-bootstrap";
 import BulletPointSVG from "./BulletPointSVG";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Instructions = () => {
   const styles = {
@@ -42,6 +43,9 @@ const Instructions = () => {
 
   return (
     <Container>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <h1 style={styles.header}>Bullet Point Fitness Manual</h1>
       <Card className="my-3" style={styles.card} border="danger">
         <Card.Body>

@@ -1,11 +1,15 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Block from "./Block";
+import { Helmet } from "react-helmet";
 
 const UserHomePage = () => {
   return (
     <Container>
       <Row>
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <Block
           title="Bullet Point Fitness Manual"
           description="Read the Bullet Point Fitness Manual to make the most out of your training program."

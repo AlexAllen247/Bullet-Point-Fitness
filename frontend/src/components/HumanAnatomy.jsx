@@ -88,9 +88,10 @@ const HumanAnatomy = () => {
     <section className="muscle-map" style={STYLES.muscleMap}>
       <img
         src={Anatomy}
-        alt="Human anatomy"
+        alt="This is an image of the muscles of the human body. Users can click on a muscle and watch video tutorials for muscle functions and the best exercises for that muscle."
         aria-label="Human anatomy"
         style={STYLES.anatomyImg}
+        loading="lazy"
       />
       <svg viewBox="0 0 373 331" style={STYLES.svg}>
         {Object.entries(MuscleData.muscleList).map(

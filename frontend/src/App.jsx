@@ -112,7 +112,7 @@ const App = () => {
               element={<ContactForm notify={notify} />}
             />
             <Route path="/about" element={<About />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound homeLink={"/"} />} />
           </Routes>
         </main>
         <Footer />
@@ -161,7 +161,7 @@ const App = () => {
             path="/past-workout-progression"
             element={<InactiveProgressGraph userId={user.id} />}
           />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound homeLink={"/user-homepage"} />} />
         </Routes>
       </main>
       <Footer />

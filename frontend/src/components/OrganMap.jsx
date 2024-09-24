@@ -1,7 +1,8 @@
 import React from "react";
 import OrganChart from "./OrganChart";
+import SEO from "./SEO";
 
-const Nutrition = () => {
+const OrganMap = () => {
   const styles = {
     nutrition: {
       display: "flex",
@@ -33,7 +34,14 @@ const Nutrition = () => {
   };
 
   return (
-    <section className="nutrition" style={styles.nutrition}>
+    <section className="organ-map" style={styles.nutrition}>
+      <SEO
+        title="Organ Map | Bullet Point Fitness"
+        description="Discover the nutrients necessary for your body's internal organs. Explore our organ map to understand the benefits of nutrition on overall health."
+        keywords="organ map, internal organs, health benefits, nutrition, body anatomy"
+        canonicalUrl="https://bulletpointfitness.com/organ-map"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <div>
         <p style={styles.phrase}>
           Your Clickable Guide to Nutrient-Rich Organ Health
@@ -60,4 +68,4 @@ const Nutrition = () => {
   );
 };
 
-export default Nutrition;
+export default OrganMap;

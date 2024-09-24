@@ -1,5 +1,11 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /user-homepage
+Disallow: /program-form
+Disallow: /instructions
+Disallow: /workouts
+Disallow: /workout-progression
+Disallow: /past-workout-programs
+Disallow: /past-workout-progression
 
 Sitemap: https://bulletpointfitness.com/sitemap.xml

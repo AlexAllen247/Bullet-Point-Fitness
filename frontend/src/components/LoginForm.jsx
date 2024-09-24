@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
+import SEO from "./SEO";
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -47,6 +48,13 @@ const LoginForm = ({ onLogin }) => {
 
   return (
     <section className="login form">
+      <SEO
+        title="Login | Bullet Point Fitness"
+        description="Access your Bullet Point Fitness account to track workouts, view progress, and manage your personalized fitness plan."
+        keywords="login, user account, fitness tracking, personalized plan, Bullet Point Fitness login"
+        canonicalUrl="https://bulletpointfitness.com/login"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <Container>
         <div>
           <h1 style={styles.header}>Login Form</h1>

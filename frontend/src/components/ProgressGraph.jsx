@@ -5,6 +5,7 @@ import {
   LineElement,
   PointElement,
   LinearScale,
+  LogarithmicScale,
   Title,
   CategoryScale,
   Tooltip,
@@ -12,11 +13,13 @@ import {
 } from "chart.js";
 import { Container, Card } from "react-bootstrap";
 import workoutService from "../services/workout";
+import { Helmet } from "react-helmet";
 
 ChartJS.register(
   LineElement,
   PointElement,
   LinearScale,
+  LogarithmicScale,
   Title,
   CategoryScale,
   Tooltip,
@@ -135,12 +138,16 @@ const ProgressGraph = ({ userId }) => {
     maintainAspectRatio: false,
     scales: {
       y: {
-        type: "linear",
+        type: "logarithmic",
         position: "left",
-        beginAtZero: true,
         title: {
           display: true,
           text: "Weight (kg)",
+        },
+        ticks: {
+          callback: function (value, index, values) {
+            return Number(value.toString());
+          },
         },
       },
       x: {
@@ -174,6 +181,9 @@ const ProgressGraph = ({ userId }) => {
 
   return (
     <Container>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <h1 style={headerStyle}>Progress Graphs</h1>
       {workoutData.length > 0 ? (
         workoutData.map((data, index) => (

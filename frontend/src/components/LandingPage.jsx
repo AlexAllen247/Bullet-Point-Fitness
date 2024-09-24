@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import Block from "./Block";
 import Image1 from "../images/BulletLanding.webp";
 import { Link } from "react-router-dom";
+import SEO from "./SEO";
 
 const LandingPage = () => {
   const styles = {
@@ -37,6 +38,13 @@ const LandingPage = () => {
 
   return (
     <Container>
+      <SEO
+        title="Bullet Point Fitness | Home"
+        description="Bullet Point Fitness offers effective exercise techniques tailored for those short on time. Dive into concise videos, target specific muscles, and master the most effective workouts for efficient results."
+        keywords="fitness, exercise, workouts, training videos, muscle map, quick workouts, effective exercise"
+        canonicalUrl="https://bulletpointfitness.com/"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <Row style={styles.ctaSection}>
         <Col md={6}>
           <Card className="text-center" style={{ border: "none" }}>
@@ -46,7 +54,8 @@ const LandingPage = () => {
               </Card.Title>
               <Card.Text style={styles.text}>
                 Start your fitness journey with our interactive tools and
-                personalized programs. Learn, train, and transform.
+                personalized programs. Learn, train, and transform your body
+                efficiently.
               </Card.Text>
               <Link to="/login" style={styles.link}>
                 <Button
@@ -62,7 +71,12 @@ const LandingPage = () => {
           </Card>
         </Col>
         <Col md={6}>
-          <img src={Image1} alt="Fitness Transformation" style={styles.image} />
+          <img
+            src={Image1}
+            alt="Bullet Point Fitness Transformation - A Visual Journey to Achieving Your Fitness Goals"
+            style={styles.image}
+            loading="lazy"
+          />
         </Col>
       </Row>
       <Row>

@@ -1,5 +1,6 @@
 import React from "react";
 import HumanAnatomy from "./HumanAnatomy";
+import SEO from "./SEO";
 
 const MuscleMap = () => {
   const styles = {
@@ -34,6 +35,13 @@ const MuscleMap = () => {
 
   return (
     <section className="training" style={styles.training}>
+      <SEO
+        title="Muscle Map | Bullet Point Fitness"
+        description="Explore our interactive muscle map to identify and target specific muscle groups. Learn effective exercises tailored for each muscle."
+        keywords="muscle map, muscle groups, targeted exercises, anatomy, fitness guide"
+        canonicalUrl="https://bulletpointfitness.com/muscle-map"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <div>
         <p style={styles.phrase}>
           You can build all aspects of fitness if you focus on muscle

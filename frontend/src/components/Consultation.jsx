@@ -1,5 +1,6 @@
 import React from "react";
 import BulletPointSVG from "./BulletPointSVG";
+import SEO from "./SEO";
 
 const GoogleCalendar = () => {
   const styles = {
@@ -24,6 +25,13 @@ const GoogleCalendar = () => {
   };
   return (
     <section style={styles.consultation}>
+      <SEO
+        title="Consultation | Bullet Point Fitness"
+        description="Schedule a consultation with our fitness experts to create a personalized workout plan tailored to your goals and schedule."
+        keywords="consultation, personalized workout plan, fitness experts, personal training, fitness consultation"
+        canonicalUrl="https://bulletpointfitness.com/consultation"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <div>
         <h1 style={styles.header}>Book a Consultation</h1>
         <p style={styles.paragraph}>
@@ -44,6 +52,7 @@ const GoogleCalendar = () => {
         height="800"
         frameBorder="0"
         title="Google Calendar"
+        loading="lazy"
       ></iframe>
     </section>
   );

@@ -73,9 +73,10 @@ const OrganChart = () => {
     <section className="organ-map" style={STYLES.organMap}>
       <img
         src={Organs}
-        alt="Human anatomy chart of organs"
+        alt="Human anatomy chart of organs, where users can click on an organ and find out the necessary nutrients for the optimal function of that organ."
         aria-label="Human anatomy chart of organs"
         style={STYLES.organImg}
+        loading="lazy"
       />
       <svg viewBox="0 0 1975 4867" style={STYLES.svg}>
         {Object.entries(OrganData.organList).map(([organName, organPolygons]) =>

@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import trainingVideoService from "../services/trainingVideos";
 import { Container, Row, Col } from "react-bootstrap";
 import VideoCard from "./VideoCard";
+import SEO from "./SEO";
 
 const TrainingVideos = () => {
   const [trainingVideos, setTrainingVideos] = useState([]);
@@ -73,6 +74,13 @@ const TrainingVideos = () => {
 
   return (
     <section className="album py-5" style={styles.trainingVideos}>
+      <SEO
+        title="Training Videos | Bullet Point Fitness"
+        description="Access a variety of training videos to enhance your workouts. Learn effective techniques and exercises from Bullet Point Fitness."
+        keywords="training videos, workout tutorials, exercise guides, fitness videos, workout videos"
+        canonicalUrl="https://bulletpointfitness.com/training"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <div>
         <h1 style={styles.header}>Training Essentials</h1>
         <div>

@@ -3,6 +3,7 @@ import { Table, Button, Container, Card } from "react-bootstrap";
 import workoutService from "../services/workout";
 import ExerciseRow from "./ExerciseRow";
 import ExerciseModal from "./ExerciseModal";
+import { Helmet } from "react-helmet";
 
 const calculateProgressionPlan = (currentReps, currentWeight) => {
   currentReps = Number(currentReps);
@@ -164,6 +165,9 @@ const Workout = ({ userId }) => {
 
   return (
     <Container>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <h1 style={styles.header}>Your Workouts</h1>
       {workouts.map((workout, workoutIndex) => (
         <Card

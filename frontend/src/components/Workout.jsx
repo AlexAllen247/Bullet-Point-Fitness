@@ -67,6 +67,21 @@ const calculateProgressionPlan = (currentReps, currentWeight) => {
   return progressionOptions;
 };
 
+const getLastUpdatedDate = (workout) => {
+  let lastDate = null;
+  workout.exercises.forEach((exercise) => {
+    exercise.performance.forEach((performance) => {
+      if (performance.date) {
+        const performanceDate = new Date(performance.date);
+        if (!lastDate || performanceDate > lastDate) {
+          lastDate = performanceDate;
+        }
+      }
+    });
+  });
+  return lastDate;
+};
+
 const Workout = ({ userId }) => {
   const [workouts, setWorkouts] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -169,59 +184,70 @@ const Workout = ({ userId }) => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <h1 style={styles.header}>Your Workouts</h1>
-      {workouts.map((workout, workoutIndex) => (
-        <Card
-          key={workoutIndex}
-          className="my-3"
-          style={styles.card}
-          border="danger"
-        >
-          <Card.Body>
-            <h3 style={styles.header}>Workout {workoutIndex + 1}</h3>
-            <div className="table-responsive">
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th className="col-3" style={styles.columnText}>
-                      Name of Exercise
-                    </th>
-                    <th className="col-2" style={styles.columnText}>
-                      Weight
-                    </th>
-                    <th className="col-2" style={styles.columnText}>
-                      Reps
-                    </th>
-                    <th className="col-2" style={styles.columnText}>
-                      Save
-                    </th>
-                    <th className="col-3" style={styles.columnText}>
-                      Guidance
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {workout.exercises.map((exercise, exerciseIndex) => (
-                    <ExerciseRow
-                      key={exerciseIndex}
-                      exercise={exercise}
-                      exerciseIndex={exerciseIndex}
-                      workoutIndex={workoutIndex}
-                      handleSaveExerciseUpdate={handleSaveExerciseUpdate}
-                      handleExerciseClick={() =>
-                        handleExerciseClick(
-                          exercise.exerciseId.embedUrl,
-                          exercise.exerciseId.title,
-                        )
-                      }
-                      calculateGuidance={calculateGuidance}
-                    />
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-          </Card.Body>
-        </Card>
-      ))}
+      {workouts.map((workout, workoutIndex) => {
+        const lastUpdatedDate = getLastUpdatedDate(workout);
+
+        return (
+          <Card
+            key={workoutIndex}
+            className="my-3"
+            style={styles.card}
+            border="danger"
+          >
+            <Card.Body>
+              <h3 style={styles.header}>Workout {workoutIndex + 1}</h3>
+              {lastUpdatedDate ? (
+                <p style={{ textAlign: "center" }}>
+                  Last updated: {lastUpdatedDate.toLocaleDateString()}
+                </p>
+              ) : (
+                <p style={{ textAlign: "center" }}>No updates yet</p>
+              )}
+              <div className="table-responsive">
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th className="col-3" style={styles.columnText}>
+                        Name of Exercise
+                      </th>
+                      <th className="col-2" style={styles.columnText}>
+                        Weight
+                      </th>
+                      <th className="col-2" style={styles.columnText}>
+                        Reps
+                      </th>
+                      <th className="col-2" style={styles.columnText}>
+                        Save
+                      </th>
+                      <th className="col-3" style={styles.columnText}>
+                        Guidance
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {workout.exercises.map((exercise, exerciseIndex) => (
+                      <ExerciseRow
+                        key={exerciseIndex}
+                        exercise={exercise}
+                        exerciseIndex={exerciseIndex}
+                        workoutIndex={workoutIndex}
+                        handleSaveExerciseUpdate={handleSaveExerciseUpdate}
+                        handleExerciseClick={() =>
+                          handleExerciseClick(
+                            exercise.exerciseId.embedUrl,
+                            exercise.exerciseId.title,
+                          )
+                        }
+                        calculateGuidance={calculateGuidance}
+                      />
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
+            </Card.Body>
+          </Card>
+        );
+      })}
       <ExerciseModal
         showModal={showModal}
         handleCloseModal={handleCloseModal}

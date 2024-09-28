@@ -114,7 +114,7 @@ const ProgressGraph = ({ userId }) => {
   const chartContainerStyle = {
     position: "relative",
     width: "100%",
-    height: "400px",
+    height: "100vh",
     marginBottom: "20px",
   };
 
@@ -161,6 +161,11 @@ const ProgressGraph = ({ userId }) => {
       legend: {
         display: true,
         position: "top",
+        labels: {
+          font: {
+            size: 14,
+          },
+        },
       },
       tooltip: {
         callbacks: {

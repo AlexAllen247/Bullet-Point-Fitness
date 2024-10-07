@@ -22,6 +22,7 @@ const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const clientInfoRouter = require("./controllers/clientInfoForms");
 const workoutController = require("./controllers/workouts");
+const stripeController = require("./controllers/stripe");
 const { router: programsRouter } = require("./controllers/programs");
 const programTemplateController = require("./controllers/programTemplates");
 const workoutTemplateController = require("./controllers/workoutTemplates");
@@ -156,6 +157,7 @@ app.use("/api/programs", userExtractor, programsRouter);
 app.use("/api/workouts", userExtractor, workoutController);
 app.use("/api/programTemplates", programTemplateController);
 app.use("/api/workoutTemplates", workoutTemplateController);
+app.use("/api/stripe", stripeController);
 
 app.all("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

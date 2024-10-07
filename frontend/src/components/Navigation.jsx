@@ -163,21 +163,19 @@ const Navigation = ({ user, onLogout }) => {
                     About
                   </NavLink>
                   <NavLink
-                    to="/login"
-                    style={styles.navStyle}
-                    aria-label="Link to Login page"
-                  >
-                    Login
-                  </NavLink>
-                  {/*
-                  <NavLink
                     to="/register"
                     style={styles.navStyle}
                     aria-label="Link to Registration page"
                   >
                     Register
                   </NavLink>
-                  */}
+                  <NavLink
+                    to="/login"
+                    style={styles.navStyle}
+                    aria-label="Link to Login page"
+                  >
+                    Login
+                  </NavLink>
                 </>
               )}
             </Nav>

@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
 import registerService from "../services/register";
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51Q3DOuFML2sMAV10HqYkCXL4UO6JGQG2laQf0fx0kTjRXpfJ93DiC9ihs7ukHnqqBJhvgeP3I0lrtnGOaKd9Us1V0089w2dEJI",
+);
 
 const RegisterForm = ({ notify }) => {
   const [username, setUsername] = useState("");
@@ -8,6 +19,9 @@ const RegisterForm = ({ notify }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const stripe = useStripe();
+  const elements = useElements();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^\+?[0-9]{7,15}$/;
@@ -51,18 +65,67 @@ const RegisterForm = ({ notify }) => {
     return true;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateForm()) {
       return;
     }
-    console.log("New User created!");
-    createUser({ username, password, email, phone });
-    setUsername("");
-    setPassword("");
-    setConfirmPassword("");
-    setEmail("");
-    setPhone("");
+
+    setIsSubmitting(true);
+
+    const cardElement = elements.getElement(CardElement);
+    const { error: paymentError, paymentMethod } =
+      await stripe.createPaymentMethod({
+        type: "card",
+        card: cardElement,
+        billing_details: {
+          email,
+        },
+      });
+
+    if (paymentError) {
+      notify(
+        `Failed to create payment method: ${paymentError.message}`,
+        "alert",
+      );
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const subscriptionResponse = await fetch(
+        "/api/stripe/create-subscription",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            paymentMethodId: paymentMethod.id,
+            priceId: "price_1Q7CIcFML2sMAV10gYcMeQJi",
+          }),
+        },
+      );
+
+      const subscriptionResult = await subscriptionResponse.json();
+
+      if (subscriptionResponse.status !== 200) {
+        throw new Error(subscriptionResult.error.message);
+      }
+
+      createUser({ username, password, email, phone });
+
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
+      setEmail("");
+      setPhone("");
+    } catch (subscriptionError) {
+      notify(`Subscription failed: ${subscriptionError.message}`, "alert");
+    }
+
+    setIsSubmitting(false);
   };
 
   const styles = {
@@ -91,12 +154,6 @@ const RegisterForm = ({ notify }) => {
       padding: 15,
       marginTop: 35,
       marginBottom: 35,
-    },
-    paragraph: {
-      fontSize: 20,
-      maxWidth: 500,
-      margin: "auto",
-      marginBottom: 10,
     },
   };
 
@@ -173,6 +230,12 @@ const RegisterForm = ({ notify }) => {
                   aria-label="Confirm Password"
                 />
               </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label htmlFor="cardDetails" style={styles.label}>
+                  Payment Information
+                </Form.Label>
+                <CardElement id="cardDetails" />
+              </Form.Group>
               <Button
                 aria-label="Register"
                 type="submit"
@@ -184,10 +247,12 @@ const RegisterForm = ({ notify }) => {
                   !password ||
                   password !== confirmPassword ||
                   !email ||
-                  !phone
+                  !phone ||
+                  !stripe ||
+                  isSubmitting
                 }
               >
-                Register
+                Register & Subscribe
               </Button>
             </Form>
           </Card.Body>
@@ -197,4 +262,10 @@ const RegisterForm = ({ notify }) => {
   );
 };
 
-export default RegisterForm;
+const RegisterWithStripe = () => (
+  <Elements stripe={stripePromise}>
+    <RegisterForm />
+  </Elements>
+);
+
+export default RegisterWithStripe;

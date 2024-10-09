@@ -24,6 +24,7 @@ import LandingPage from "./components/LandingPage";
 import UserHomepage from "./components/UserHomepage";
 import Instructions from "./components/Instructions";
 import ScrollToTop from "./components/ScrollToTop";
+import PricingOptions from "./components/PricingOptions";
 
 import userService from "./services/user";
 import loginService from "./services/login";
@@ -101,9 +102,10 @@ const App = () => {
             <Route path="/consultation" element={<Consultation />} />
             <Route path="/organ-map" element={<OrganMap />} />
             <Route path="/login" element={<LoginForm onLogin={login} />} />
+            <Route path="/pricing" element={<PricingOptions />} />
             <Route
               path="/register"
-              element={<RegisterForm notify={notify} />}
+              element={<RegisterForm notify={notify} onLogin={login} />}
             />
             <Route
               path="/contact-form"

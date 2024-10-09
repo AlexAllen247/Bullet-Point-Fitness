@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
 import registerService from "../services/register";
 import { loadStripe } from "@stripe/stripe-js";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Elements,
   CardElement,
@@ -13,7 +14,7 @@ const stripePromise = loadStripe(
   "pk_test_51Q3DOuFML2sMAV10HqYkCXL4UO6JGQG2laQf0fx0kTjRXpfJ93DiC9ihs7ukHnqqBJhvgeP3I0lrtnGOaKd9Us1V0089w2dEJI",
 );
 
-const RegisterForm = ({ notify }) => {
+const RegisterForm = ({ notify, onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -22,9 +23,22 @@ const RegisterForm = ({ notify }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^\+?[0-9]{7,15}$/;
+
+  const priceId = location.state?.priceId;
+
+  if (!priceId) {
+    notify(
+      "No pricing plan selected, please go back and select a plan.",
+      "alert",
+    );
+    navigate("/pricing"); // Redirect to pricing if no plan is selected
+    return null;
+  }
 
   const createUser = async (newUser) => {
     registerService
@@ -103,7 +117,7 @@ const RegisterForm = ({ notify }) => {
           body: JSON.stringify({
             email,
             paymentMethodId: paymentMethod.id,
-            priceId: "price_1Q7CIcFML2sMAV10gYcMeQJi",
+            priceId,
           }),
         },
       );
@@ -121,6 +135,9 @@ const RegisterForm = ({ notify }) => {
       setConfirmPassword("");
       setEmail("");
       setPhone("");
+      navigate("/login");
+      onLogin(username, password);
+      navigate("/user-homepage");
     } catch (subscriptionError) {
       notify(`Subscription failed: ${subscriptionError.message}`, "alert");
     }

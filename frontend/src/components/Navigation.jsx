@@ -163,13 +163,6 @@ const Navigation = ({ user, onLogout }) => {
                     About
                   </NavLink>
                   <NavLink
-                    to="/pricing"
-                    style={styles.navStyle}
-                    aria-label="Link to Pricing page"
-                  >
-                    Pricing
-                  </NavLink>
-                  <NavLink
                     to="/register"
                     style={styles.navStyle}
                     aria-label="Link to Registration page"

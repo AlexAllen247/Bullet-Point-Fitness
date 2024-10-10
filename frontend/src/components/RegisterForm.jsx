@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Button, Form, Container, Card } from "react-bootstrap";
 import registerService from "../services/register";
 import { loadStripe } from "@stripe/stripe-js";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import PricingOptions from "./PricingOptions";
 import {
   Elements,
   CardElement,
@@ -20,25 +21,18 @@ const RegisterForm = ({ notify, onLogin }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [selectedPlan, setSelectedPlan] = useState(null);
   const stripe = useStripe();
   const elements = useElements();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^\+?[0-9]{7,15}$/;
 
-  const priceId = location.state?.priceId;
-
-  if (!priceId) {
-    notify(
-      "No pricing plan selected, please go back and select a plan.",
-      "alert",
-    );
-    navigate("/pricing"); // Redirect to pricing if no plan is selected
-    return null;
-  }
+  const handlePlanSelection = (priceId) => {
+    setSelectedPlan(priceId);
+  };
 
   const createUser = async (newUser) => {
     registerService
@@ -180,100 +174,104 @@ const RegisterForm = ({ notify, onLogin }) => {
         <div>
           <h1 style={styles.header}>Register</h1>
         </div>
-        <Card className="my-3" style={styles.card} border="danger">
-          <Card.Body>
-            <Form onSubmit={handleSubmit} style={styles.form}>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="username" style={styles.label}>
-                  Username
-                </Form.Label>
-                <Form.Control
-                  value={username}
-                  onChange={({ target }) => setUsername(target.value)}
-                  id="username"
-                  placeholder="Enter your username"
-                  aria-label="Username"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="email" style={styles.label}>
-                  Email
-                </Form.Label>
-                <Form.Control
-                  type="email"
-                  value={email}
-                  onChange={({ target }) => setEmail(target.value)}
-                  id="email"
-                  placeholder="Enter your email"
-                  aria-label="Email"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="phone" style={styles.label}>
-                  Phone
-                </Form.Label>
-                <Form.Control
-                  type="tel"
-                  value={phone}
-                  onChange={({ target }) => setPhone(target.value)}
-                  id="phone"
-                  placeholder="Enter your phone number"
-                  aria-label="Phone"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="password" style={styles.label}>
-                  Password
-                </Form.Label>
-                <Form.Control
-                  type="password"
-                  value={password}
-                  onChange={({ target }) => setPassword(target.value)}
-                  id="password"
-                  placeholder="Enter your password"
-                  aria-label="Password"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="confirmPassword" style={styles.label}>
-                  Confirm Password
-                </Form.Label>
-                <Form.Control
-                  type="password"
-                  value={confirmPassword}
-                  onChange={({ target }) => setConfirmPassword(target.value)}
-                  id="confirmPassword"
-                  placeholder="Confirm your password"
-                  aria-label="Confirm Password"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label htmlFor="cardDetails" style={styles.label}>
-                  Payment Information
-                </Form.Label>
-                <CardElement id="cardDetails" />
-              </Form.Group>
-              <Button
-                aria-label="Register"
-                type="submit"
-                variant="danger"
-                style={styles.button}
-                className="btn-custom"
-                disabled={
-                  !username ||
-                  !password ||
-                  password !== confirmPassword ||
-                  !email ||
-                  !phone ||
-                  !stripe ||
-                  isSubmitting
-                }
-              >
-                Register & Subscribe
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
+
+        {!selectedPlan && <PricingOptions onPlanSelect={handlePlanSelection} />}
+        {selectedPlan && (
+          <Card className="my-3" style={styles.card} border="danger">
+            <Card.Body>
+              <Form onSubmit={handleSubmit} style={styles.form}>
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="username" style={styles.label}>
+                    Username
+                  </Form.Label>
+                  <Form.Control
+                    value={username}
+                    onChange={({ target }) => setUsername(target.value)}
+                    id="username"
+                    placeholder="Enter your username"
+                    aria-label="Username"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="email" style={styles.label}>
+                    Email
+                  </Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={email}
+                    onChange={({ target }) => setEmail(target.value)}
+                    id="email"
+                    placeholder="Enter your email"
+                    aria-label="Email"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="phone" style={styles.label}>
+                    Phone
+                  </Form.Label>
+                  <Form.Control
+                    type="tel"
+                    value={phone}
+                    onChange={({ target }) => setPhone(target.value)}
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    aria-label="Phone"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="password" style={styles.label}>
+                    Password
+                  </Form.Label>
+                  <Form.Control
+                    type="password"
+                    value={password}
+                    onChange={({ target }) => setPassword(target.value)}
+                    id="password"
+                    placeholder="Enter your password"
+                    aria-label="Password"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="confirmPassword" style={styles.label}>
+                    Confirm Password
+                  </Form.Label>
+                  <Form.Control
+                    type="password"
+                    value={confirmPassword}
+                    onChange={({ target }) => setConfirmPassword(target.value)}
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    aria-label="Confirm Password"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="cardDetails" style={styles.label}>
+                    Payment Information
+                  </Form.Label>
+                  <CardElement id="cardDetails" />
+                </Form.Group>
+                <Button
+                  aria-label="Register"
+                  type="submit"
+                  variant="danger"
+                  style={styles.button}
+                  className="btn-custom"
+                  disabled={
+                    !username ||
+                    !password ||
+                    password !== confirmPassword ||
+                    !email ||
+                    !phone ||
+                    !stripe ||
+                    isSubmitting
+                  }
+                >
+                  Register & Subscribe
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        )}
       </Container>
     </section>
   );

@@ -3,6 +3,7 @@ import { Card, Container, Button } from "react-bootstrap";
 import BulletPointSVG from "./BulletPointSVG";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import SEO from "./SEO";
 
 const Instructions = () => {
   const styles = {
@@ -46,6 +47,13 @@ const Instructions = () => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <SEO
+        title="Bullet Point Fitness Manual | Bullet Point Fitness"
+        description="Learn how to make the most out of your Bullet Point Fitness program with detailed workout instructions, including how to perform exercises, track progress, and maximize results."
+        keywords="program instructions, fitness guide, workout instructions, exercise guidance, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/instructions"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <h1 style={styles.header}>Bullet Point Fitness Manual</h1>
       <Card className="my-3" style={styles.card} border="danger">
         <Card.Body>

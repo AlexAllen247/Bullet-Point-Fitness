@@ -4,6 +4,7 @@ import workoutService from "../services/workout";
 import ExerciseRow from "./ExerciseRow";
 import ExerciseModal from "./ExerciseModal";
 import { Helmet } from "react-helmet";
+import SEO from "./SEO";
 
 const calculateProgressionPlan = (currentReps, currentWeight) => {
   currentReps = Number(currentReps);
@@ -183,6 +184,13 @@ const Workout = ({ userId }) => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <SEO
+        title="Your Workouts | Bullet Point Fitness"
+        description="Access your personalized workout plans and track your progress with Bullet Point Fitness. Log weights, reps, and updates for each exercise to optimize your results."
+        keywords="personalized workouts, fitness tracking, exercise logging, workout progress, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/workouts"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <h1 style={styles.header}>Your Workouts</h1>
       {workouts.map((workout, workoutIndex) => {
         const lastUpdatedDate = getLastUpdatedDate(workout);

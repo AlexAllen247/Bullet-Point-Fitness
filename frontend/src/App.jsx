@@ -101,10 +101,12 @@ const App = () => {
             <Route path="/consultation" element={<Consultation />} />
             <Route path="/organ-map" element={<OrganMap />} />
             <Route path="/login" element={<LoginForm onLogin={login} />} />
+            {/*
             <Route
               path="/register"
               element={<RegisterForm notify={notify} onLogin={login} />}
             />
+            */}
             <Route
               path="/contact-form"
               element={<ContactForm notify={notify} />}

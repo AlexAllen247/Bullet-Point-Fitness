@@ -162,6 +162,7 @@ const Navigation = ({ user, onLogout }) => {
                   >
                     About
                   </NavLink>
+                  {/*
                   <NavLink
                     to="/register"
                     style={styles.navStyle}
@@ -169,6 +170,7 @@ const Navigation = ({ user, onLogout }) => {
                   >
                     Register
                   </NavLink>
+                  */}
                   <NavLink
                     to="/login"
                     style={styles.navStyle}

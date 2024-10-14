@@ -2,10 +2,18 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Block from "./Block";
 import { Helmet } from "react-helmet";
+import SEO from "./SEO";
 
 const UserHomePage = () => {
   return (
     <Container>
+      <SEO
+        title="Dashboard | Bullet Point Fitness"
+        description="Access your Bullet Point Fitness dashboard to view your workouts, track progress, and manage your personalized training program."
+        keywords="fitness dashboard, workout tracking, personalized training, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/user-homepage"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <Row>
         <Helmet>
           <meta name="robots" content="noindex, nofollow" />

@@ -14,6 +14,7 @@ import {
 import workoutService from "../services/workout";
 import { Container, Card } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import SEO from "./SEO";
 
 ChartJS.register(
   LineElement,
@@ -28,9 +29,15 @@ ChartJS.register(
 
 const generateColorPalette = (numColors) => {
   const colors = [];
+  const lightnessRange = [40, 60];
+  const saturationRange = [60, 80];
+
   for (let i = 0; i < numColors; i++) {
     const hue = (i * 360) / numColors;
-    colors.push(`hsl(${hue}, 70%, 50%)`);
+    const saturation = saturationRange[i % saturationRange.length];
+    const lightness = lightnessRange[i % lightnessRange.length];
+
+    colors.push(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
   }
   return colors;
 };
@@ -186,7 +193,14 @@ const InactiveProgressGraph = ({ userId }) => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <h1 style={styles.header}>Previous Progress Graphs</h1>
+      <SEO
+        title="Past Workout Progression | Bullet Point Fitness"
+        description="Analyze your previous workout progression graphs with Bullet Point Fitness. Track your past performance to optimize your fitness journey moving forward."
+        keywords="previous workout progression, fitness tracking, performance graphs, workout analysis, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/past-workout-progression"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
+      <h1 style={styles.header}>Past Progress Graphs</h1>
       {workoutData.length > 0 ? (
         workoutData.map((data, index) => (
           <Card

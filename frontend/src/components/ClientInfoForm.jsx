@@ -3,6 +3,7 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import clientInfoFormService from "../services/clientInfoForm";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import SEO from "./SEO";
 
 const ClientInfoForm = ({ notify }) => {
   const [isFirstTimeUser, setIsFirstTimeUser] = useState(null);
@@ -74,11 +75,17 @@ const ClientInfoForm = ({ notify }) => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <SEO
+        title="Program Form | Bullet Point Fitness"
+        description="Complete the Bullet Point Fitness program form to receive your personalized training plan. Select your fitness goals and track your progress."
+        keywords="program form, personalized workout, fitness goals, workout tracking, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/program-form"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <Container>
         <div>
           <h1 style={styles.header}>Program Form</h1>
         </div>
-
         {isFirstTimeUser === null && (
           <Card className="my-3" style={styles.card} border="danger">
             <Card.Body>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Card, Table } from "react-bootstrap";
 import workoutService from "../services/workout";
 import { Helmet } from "react-helmet";
+import SEO from "./SEO";
 
 const InactiveWorkouts = ({ userId, notify }) => {
   const [workouts, setWorkouts] = useState([]);
@@ -57,7 +58,14 @@ const InactiveWorkouts = ({ userId, notify }) => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <h1 style={styles.header}>Previous Workouts</h1>
+      <SEO
+        title="Past Workout Programs | Bullet Point Fitness"
+        description="Review your previous workout programs with Bullet Point Fitness. Analyze past performance to track progress and optimize future workouts."
+        keywords="previous workouts, past workout programs, fitness tracking, workout analysis, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/past-workout-programs"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
+      <h1 style={styles.header}>Past Workouts</h1>
       {workouts.map((workout, workoutIndex) => (
         <Card
           key={workout._id}

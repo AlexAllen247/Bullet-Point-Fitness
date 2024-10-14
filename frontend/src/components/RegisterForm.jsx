@@ -10,6 +10,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import SEO from "./SEO";
 
 const stripePromise = loadStripe(
   "pk_test_51Q3DOuFML2sMAV10HqYkCXL4UO6JGQG2laQf0fx0kTjRXpfJ93DiC9ihs7ukHnqqBJhvgeP3I0lrtnGOaKd9Us1V0089w2dEJI",
@@ -170,6 +171,13 @@ const RegisterForm = ({ notify, onLogin }) => {
 
   return (
     <section className="register form">
+      <SEO
+        title="Register & Subscribe | Bullet Point Fitness"
+        description="Create your Bullet Point Fitness account to access personalized workout programs and track your fitness progress. Register and subscribe to get started on your fitness journey."
+        keywords="register, subscribe, fitness account, personalized workout, fitness tracking, Bullet Point Fitness registration"
+        canonicalUrl="https://bulletpointfitness.com/register"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <Container>
         <div>
           <h1 style={styles.header}>Register</h1>

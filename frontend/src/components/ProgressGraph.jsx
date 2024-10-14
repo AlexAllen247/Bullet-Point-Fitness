@@ -14,6 +14,7 @@ import {
 import { Container, Card } from "react-bootstrap";
 import workoutService from "../services/workout";
 import { Helmet } from "react-helmet";
+import SEO from "./SEO";
 
 ChartJS.register(
   LineElement,
@@ -28,9 +29,15 @@ ChartJS.register(
 
 const generateColorPalette = (numColors) => {
   const colors = [];
+  const lightnessRange = [40, 60];
+  const saturationRange = [60, 80];
+
   for (let i = 0; i < numColors; i++) {
     const hue = (i * 360) / numColors;
-    colors.push(`hsl(${hue}, 70%, 50%)`);
+    const saturation = saturationRange[i % saturationRange.length];
+    const lightness = lightnessRange[i % lightnessRange.length];
+
+    colors.push(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
   }
   return colors;
 };
@@ -189,6 +196,13 @@ const ProgressGraph = ({ userId }) => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <SEO
+        title="Workout Progression | Bullet Point Fitness"
+        description="Track your fitness journey with detailed workout progression graphs. Monitor your performance over time and optimize your results with Bullet Point Fitness."
+        keywords="workout progression, fitness tracking, performance graphs, workout tracking, Bullet Point Fitness"
+        canonicalUrl="https://bulletpointfitness.com/workout-progression"
+        ogImage="https://bulletpointfitness.com/og-image.png"
+      />
       <h1 style={headerStyle}>Progress Graphs</h1>
       {workoutData.length > 0 ? (
         workoutData.map((data, index) => (
